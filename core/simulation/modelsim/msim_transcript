@@ -27,7 +27,7 @@
 # 
 # vlog "C:/Users/DELL/Desktop/RVcore32/memory_interface/simulation/submodules/altera_onchip_flash_util.v"                 -work onchip_flash_0
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 18:18:16 on Oct 03,2022
+# Start time: 13:49:00 on Oct 04,2022
 # vlog -reportprogress 300 C:/Users/DELL/Desktop/RVcore32/memory_interface/simulation/submodules/altera_onchip_flash_util.v -work onchip_flash_0 
 # -- Compiling module altera_onchip_flash_address_range_check
 # -- Compiling module altera_onchip_flash_address_write_protection_check
@@ -45,41 +45,41 @@
 # 	altera_onchip_flash_convert_address
 # 	altera_onchip_flash_convert_sector
 # 	altera_onchip_flash_counter
-# End time: 18:18:16 on Oct 03,2022, Elapsed time: 0:00:00
+# End time: 13:49:00 on Oct 04,2022, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog "C:/Users/DELL/Desktop/RVcore32/memory_interface/simulation/submodules/altera_onchip_flash.v"                      -work onchip_flash_0
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 18:18:17 on Oct 03,2022
+# Start time: 13:49:00 on Oct 04,2022
 # vlog -reportprogress 300 C:/Users/DELL/Desktop/RVcore32/memory_interface/simulation/submodules/altera_onchip_flash.v -work onchip_flash_0 
 # -- Compiling module altera_onchip_flash
 # 
 # Top level modules:
 # 	altera_onchip_flash
-# End time: 18:18:17 on Oct 03,2022, Elapsed time: 0:00:00
+# End time: 13:49:00 on Oct 04,2022, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog "C:/Users/DELL/Desktop/RVcore32/memory_interface/simulation/submodules/altera_onchip_flash_avmm_data_controller.v" -work onchip_flash_0
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 18:18:17 on Oct 03,2022
+# Start time: 13:49:00 on Oct 04,2022
 # vlog -reportprogress 300 C:/Users/DELL/Desktop/RVcore32/memory_interface/simulation/submodules/altera_onchip_flash_avmm_data_controller.v -work onchip_flash_0 
 # -- Compiling module altera_onchip_flash_avmm_data_controller
 # 
 # Top level modules:
 # 	altera_onchip_flash_avmm_data_controller
-# End time: 18:18:17 on Oct 03,2022, Elapsed time: 0:00:00
+# End time: 13:49:00 on Oct 04,2022, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog "C:/Users/DELL/Desktop/RVcore32/memory_interface/simulation/submodules/altera_onchip_flash_avmm_csr_controller.v"  -work onchip_flash_0
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 18:18:17 on Oct 03,2022
+# Start time: 13:49:00 on Oct 04,2022
 # vlog -reportprogress 300 C:/Users/DELL/Desktop/RVcore32/memory_interface/simulation/submodules/altera_onchip_flash_avmm_csr_controller.v -work onchip_flash_0 
 # -- Compiling module altera_onchip_flash_avmm_csr_controller
 # 
 # Top level modules:
 # 	altera_onchip_flash_avmm_csr_controller
-# End time: 18:18:17 on Oct 03,2022, Elapsed time: 0:00:00
+# End time: 13:49:00 on Oct 04,2022, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom "C:/Users/DELL/Desktop/RVcore32/memory_interface/simulation/memory_interface.vhd"                                                      
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 18:18:17 on Oct 03,2022
+# Start time: 13:49:00 on Oct 04,2022
 # vcom -reportprogress 300 C:/Users/DELL/Desktop/RVcore32/memory_interface/simulation/memory_interface.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -87,12 +87,12 @@
 # -- Loading package NUMERIC_STD
 # -- Compiling entity memory_interface
 # -- Compiling architecture rtl of memory_interface
-# End time: 18:18:17 on Oct 03,2022, Elapsed time: 0:00:00
+# End time: 13:49:00 on Oct 04,2022, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
 # vcom -93 -work work {C:/Users/DELL/Desktop/RVcore32/memory_interface/memory_interface_inst.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 18:18:17 on Oct 03,2022
+# Start time: 13:49:00 on Oct 04,2022
 # vcom -reportprogress 300 -93 -work work C:/Users/DELL/Desktop/RVcore32/memory_interface/memory_interface_inst.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -100,12 +100,12 @@
 # -- Loading package NUMERIC_STD
 # -- Compiling entity memory_interface_inst
 # -- Compiling architecture rtl of memory_interface_inst
-# End time: 18:18:17 on Oct 03,2022, Elapsed time: 0:00:00
+# End time: 13:49:00 on Oct 04,2022, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
 vsim work.memory_interface_inst
 # vsim work.memory_interface_inst 
-# Start time: 18:18:26 on Oct 03,2022
+# Start time: 13:49:07 on Oct 04,2022
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
@@ -128,19 +128,12 @@ force -freeze sim:/memory_interface_inst/clk 1 0, 0 {50 ps} -r 100
 force -freeze sim:/memory_interface_inst/mem_en 0 0
 force -freeze sim:/memory_interface_inst/wb_en 0 0
 force -freeze sim:/memory_interface_inst/start 1 0
-force -freeze sim:/memory_interface_inst/function3 100 0
 force -freeze sim:/memory_interface_inst/function3 001 0
-force -freeze sim:/memory_interface_inst/address 000000000000000000000 0
-# Value length (21) does not equal array index length (19).
-# 
-# ** Error: (vsim-4011) Invalid force value: 000000000000000000000 0.
-# 
 force -freeze sim:/memory_interface_inst/address 0000000000000000000 0
-force -freeze sim:/memory_interface_inst/write_data 00000000000000000000000010000000 0
-force -freeze sim:/memory_interface_inst/write_data 01000010000000000000000010011000 0
+force -freeze sim:/memory_interface_inst/write_data 01010111010101000000100101100111 0
+run
 run
 force -freeze sim:/memory_interface_inst/mem_en 1 0
-run
 run
 run
 run
@@ -149,15 +142,11 @@ run
 run
 run
 run
+force -freeze sim:/memory_interface_inst/wait_i 1 0
+run
+force -freeze sim:/memory_interface_inst/cycle_i 0 0
 run
 run
 run
-run
-run
-run
-run
-run
-run
-run
-# End time: 18:28:53 on Oct 03,2022, Elapsed time: 0:10:27
-# Errors: 1, Warnings: 4
+# End time: 14:04:06 on Oct 04,2022, Elapsed time: 0:14:59
+# Errors: 0, Warnings: 4

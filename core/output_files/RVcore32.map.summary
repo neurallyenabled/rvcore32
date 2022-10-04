@@ -1,12 +1,12 @@
-Analysis & Synthesis Status : Successful - Mon Oct 03 18:17:53 2022
+Analysis & Synthesis Status : Successful - Tue Oct 04 13:48:29 2022
 Quartus Prime Version : 18.1.1 Build 646 04/11/2019 SJ Lite Edition
 Revision Name : RVcore32
 Top-level Entity Name : memory_interface_inst
 Family : MAX 10
-Total logic elements : 306
-    Total combinational functions : 294
-    Dedicated logic registers : 192
-Total registers : 192
+Total logic elements : 327
+    Total combinational functions : 299
+    Dedicated logic registers : 212
+Total registers : 212
 Total pins : 91
 Total virtual pins : 0
 Total memory bits : 0
