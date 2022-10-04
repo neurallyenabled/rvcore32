@@ -1,0 +1,163 @@
+# Reading C:/intelFPGA_lite/18.1/modelsim_ase/tcl/vsim/pref.tcl
+# do RVcore32_run_msim_rtl_vhdl.do
+# if ![file isdirectory RVcore32_iputf_libs] {
+# 	file mkdir RVcore32_iputf_libs
+# }
+# 
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Model Technology ModelSim - Intel FPGA Edition vmap 10.5b Lib Mapping Utility 2016.10 Oct  5 2016
+# vmap work rtl_work 
+# Copying C:/intelFPGA_lite/18.1/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# 
+###### Libraries for IPUTF cores 
+# vlib RVcore32_iputf_libs/onchip_flash_0
+# ** Warning: (vlib-34) Library already exists at "RVcore32_iputf_libs/onchip_flash_0".
+# vmap onchip_flash_0 ./RVcore32_iputf_libs/onchip_flash_0
+# Model Technology ModelSim - Intel FPGA Edition vmap 10.5b Lib Mapping Utility 2016.10 Oct  5 2016
+# vmap onchip_flash_0 ./RVcore32_iputf_libs/onchip_flash_0 
+# Modifying modelsim.ini
+###### End libraries for IPUTF cores 
+###### MIF file copy and HDL compilation commands for IPUTF cores 
+# 
+# 
+# vlog "C:/Users/DELL/Desktop/RVcore32/memory_interface/simulation/submodules/altera_onchip_flash_util.v"                 -work onchip_flash_0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:18:16 on Oct 03,2022
+# vlog -reportprogress 300 C:/Users/DELL/Desktop/RVcore32/memory_interface/simulation/submodules/altera_onchip_flash_util.v -work onchip_flash_0 
+# -- Compiling module altera_onchip_flash_address_range_check
+# -- Compiling module altera_onchip_flash_address_write_protection_check
+# -- Compiling module altera_onchip_flash_s_address_write_protection_check
+# -- Compiling module altera_onchip_flash_a_address_write_protection_check
+# -- Compiling module altera_onchip_flash_convert_address
+# -- Compiling module altera_onchip_flash_convert_sector
+# -- Compiling module altera_onchip_flash_counter
+# 
+# Top level modules:
+# 	altera_onchip_flash_address_range_check
+# 	altera_onchip_flash_address_write_protection_check
+# 	altera_onchip_flash_s_address_write_protection_check
+# 	altera_onchip_flash_a_address_write_protection_check
+# 	altera_onchip_flash_convert_address
+# 	altera_onchip_flash_convert_sector
+# 	altera_onchip_flash_counter
+# End time: 18:18:16 on Oct 03,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog "C:/Users/DELL/Desktop/RVcore32/memory_interface/simulation/submodules/altera_onchip_flash.v"                      -work onchip_flash_0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:18:17 on Oct 03,2022
+# vlog -reportprogress 300 C:/Users/DELL/Desktop/RVcore32/memory_interface/simulation/submodules/altera_onchip_flash.v -work onchip_flash_0 
+# -- Compiling module altera_onchip_flash
+# 
+# Top level modules:
+# 	altera_onchip_flash
+# End time: 18:18:17 on Oct 03,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog "C:/Users/DELL/Desktop/RVcore32/memory_interface/simulation/submodules/altera_onchip_flash_avmm_data_controller.v" -work onchip_flash_0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:18:17 on Oct 03,2022
+# vlog -reportprogress 300 C:/Users/DELL/Desktop/RVcore32/memory_interface/simulation/submodules/altera_onchip_flash_avmm_data_controller.v -work onchip_flash_0 
+# -- Compiling module altera_onchip_flash_avmm_data_controller
+# 
+# Top level modules:
+# 	altera_onchip_flash_avmm_data_controller
+# End time: 18:18:17 on Oct 03,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog "C:/Users/DELL/Desktop/RVcore32/memory_interface/simulation/submodules/altera_onchip_flash_avmm_csr_controller.v"  -work onchip_flash_0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:18:17 on Oct 03,2022
+# vlog -reportprogress 300 C:/Users/DELL/Desktop/RVcore32/memory_interface/simulation/submodules/altera_onchip_flash_avmm_csr_controller.v -work onchip_flash_0 
+# -- Compiling module altera_onchip_flash_avmm_csr_controller
+# 
+# Top level modules:
+# 	altera_onchip_flash_avmm_csr_controller
+# End time: 18:18:17 on Oct 03,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom "C:/Users/DELL/Desktop/RVcore32/memory_interface/simulation/memory_interface.vhd"                                                      
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:18:17 on Oct 03,2022
+# vcom -reportprogress 300 C:/Users/DELL/Desktop/RVcore32/memory_interface/simulation/memory_interface.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity memory_interface
+# -- Compiling architecture rtl of memory_interface
+# End time: 18:18:17 on Oct 03,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# vcom -93 -work work {C:/Users/DELL/Desktop/RVcore32/memory_interface/memory_interface_inst.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:18:17 on Oct 03,2022
+# vcom -reportprogress 300 -93 -work work C:/Users/DELL/Desktop/RVcore32/memory_interface/memory_interface_inst.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity memory_interface_inst
+# -- Compiling architecture rtl of memory_interface_inst
+# End time: 18:18:17 on Oct 03,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+vsim work.memory_interface_inst
+# vsim work.memory_interface_inst 
+# Start time: 18:18:26 on Oct 03,2022
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.memory_interface_inst(rtl)
+# Loading work.memory_interface(rtl)
+# ** Warning: (vsim-3473) Component instance "onchip_flash_0 : altera_onchip_flash" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /memory_interface_inst/u0 File: C:/Users/DELL/Desktop/RVcore32/memory_interface/simulation/memory_interface.vhd
+# ** Warning: (vsim-8684) No drivers exist on out port /memory_interface_inst/u0/avmm_data_readdata, and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /memory_interface_inst/read_data_i.
+# ** Warning: (vsim-8684) No drivers exist on out port /memory_interface_inst/u0/avmm_data_waitrequest, and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /memory_interface_inst/wait_i.
+# ** Warning: (vsim-8684) No drivers exist on out port /memory_interface_inst/u0/avmm_data_readdatavalid, and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /memory_interface_inst/read_done_i.
+add wave -position insertpoint sim:/memory_interface_inst/*
+force -freeze sim:/memory_interface_inst/clk 1 0, 0 {50 ps} -r 100
+force -freeze sim:/memory_interface_inst/mem_en 0 0
+force -freeze sim:/memory_interface_inst/wb_en 0 0
+force -freeze sim:/memory_interface_inst/start 1 0
+force -freeze sim:/memory_interface_inst/function3 100 0
+force -freeze sim:/memory_interface_inst/function3 001 0
+force -freeze sim:/memory_interface_inst/address 000000000000000000000 0
+# Value length (21) does not equal array index length (19).
+# 
+# ** Error: (vsim-4011) Invalid force value: 000000000000000000000 0.
+# 
+force -freeze sim:/memory_interface_inst/address 0000000000000000000 0
+force -freeze sim:/memory_interface_inst/write_data 00000000000000000000000010000000 0
+force -freeze sim:/memory_interface_inst/write_data 01000010000000000000000010011000 0
+run
+force -freeze sim:/memory_interface_inst/mem_en 1 0
+run
+run
+run
+run
+force -freeze sim:/memory_interface_inst/wb_en 1 0
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+# End time: 18:28:53 on Oct 03,2022, Elapsed time: 0:10:27
+# Errors: 1, Warnings: 4

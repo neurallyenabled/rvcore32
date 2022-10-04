@@ -1,0 +1,76 @@
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity RAM is
+port
+(
+
+	clk: in std_logic;
+	data_in: in std_logic_vector (31 downto 0);
+	address: in integer range 0 to 65535;
+	we_8,re_8, we_16,re_16, we_32,re_32: in std_logic;
+	done: out std_logic;
+	data_out: out std_logic_vector (31 downto 0));
+ 
+end RAM;
+
+architecture rtl of RAM is
+
+type RAM is array(0 to 63) of std_logic_vector(7 downto 0); -- check it
+signal myRAM : RAM;
+signal done_i : std_logic:='0';
+ 
+
+begin
+ 
+process(clk)
+begin
+
+	if rising_edge(clk) then
+	
+		if we_32 = '1' then
+				
+				myRAM(address) <= data_in(7 downto 0);
+				myRAM(address+1) <= data_in(15 downto 8);
+				myRAM(address+2) <= data_in(23 downto 16);
+				myRAM(address+3) <= data_in(31 downto 24);
+				done_i <= '1';
+				
+
+		elsif re_32 = '1' then
+				
+				data_out <= myRAM(address+3) & myRAM(address+2) & myRAM(address+1) & myRAM(address);
+				done_i <= '1';
+				
+		elsif we_16 = '1' then
+				
+				myRAM(address) <= data_in(7 downto 0);
+				myRAM(address+1) <= data_in(15 downto 8);
+				done_i <= '1';
+				
+
+		elsif re_16 = '1' then
+				
+				data_out <= (31 downto 16 => '0') & myRAM(address+1) & myRAM(address);
+				done_i <= '1';
+				
+		elsif we_8 = '1' then
+				
+				myRAM(address) <= data_in(7 downto 0);
+				done_i <= '1';
+				
+
+		elsif re_8 = '1' then
+				
+				data_out <= (31 downto 8 => '0') & myRAM(address);
+				done_i <= '1';		
+		
+		else
+				myRAM <= myRAM;
+				done_i <= '0';
+		end if;
+		
+	end if;		
+end process;
+done <= done_i;
+end rtl;

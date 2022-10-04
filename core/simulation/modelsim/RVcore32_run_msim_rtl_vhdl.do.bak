@@ -1,0 +1,16 @@
+transcript on
+if {[file exists rtl_work]} {
+	vdel -lib rtl_work -all
+}
+vlib rtl_work
+vmap work rtl_work
+
+vcom -93 -work work {C:/Users/DELL/Desktop/RVcore32/uut_fetch.vhd}
+vcom -93 -work work {C:/Users/DELL/Desktop/RVcore32/uut_decode.vhd}
+vcom -93 -work work {C:/Users/DELL/Desktop/RVcore32/uut_alu.vhd}
+vcom -93 -work work {C:/Users/DELL/Desktop/RVcore32/uut_register.vhd}
+vcom -93 -work work {C:/Users/DELL/Desktop/RVcore32/uut_mem.vhd}
+vcom -93 -work work {C:/Users/DELL/Desktop/RVcore32/memory_interface.vhd}
+vcom -93 -work work {C:/Users/DELL/Desktop/RVcore32/RAM.vhd}
+vcom -93 -work work {C:/Users/DELL/Desktop/RVcore32/main.vhd}
+

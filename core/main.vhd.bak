@@ -1,0 +1,37 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+
+entity main is 
+port (
+		A: in std_logic_vector (31 downto 0);
+		clk,PC_in: in std_logic;
+		B: out std_logic_vector (31 downto 0)
+	
+);
+end main;
+
+
+
+architecture rtl of main is
+
+signal PC_content: std_logic_vector (31 downto 0):= (others => '0') ;
+
+begin
+
+process(clk)
+begin
+
+	if rising_edge(clk) then
+
+		if PC_in = '1' then
+			PC_content <= A(31 downto 1) & '0'; --  PC address always even.
+			
+		end if;
+	end if;	
+end process;
+
+B <= PC_content;
+
+end rtl;

@@ -1,0 +1,87 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.std_logic_unsigned.all;
+use ieee.numeric_std.all;
+ 
+entity uut_register is
+port (
+	clk,uut_register_re_clr,uut_register_re_en,uut_register_wb_en,add_in,ALU_en_in,compare_en_in,jump_in,mem_en_in,wb_en_decode_in,function7_in,wb_en_wb_in: in std_logic;
+	rd_address_decode,rd_address_wb,rs2_address,rs1_address : in  std_logic_vector(4 downto 0);
+	alu_output_in,loaded_data_in,pc4_wb_in,immediate_in,pc_in,pc4_decode_in : in std_logic_vector(31 downto 0);
+	oper_selector_in,wb_selector_decode_in,wb_selector_wb_in: in std_logic_vector (1 downto 0);
+	function3_in: in std_logic_vector(2 downto 0);
+	
+	rd_address_out: out std_logic_vector(4 downto 0);
+	function3_out: out std_logic_vector(2 downto 0);
+	immediate,pc_out,pc4_out,rs1,rs2: out std_logic_vector (31 downto 0);
+	oper_selector_out,wb_selector_out: out std_logic_vector (1 downto 0);
+	add_out,ALU_en_out,compare_en_out,jump_out,mem_en_out,wb_en_out,function7_out: out std_logic
+);
+ 
+end uut_register;
+ 
+architecture rtl of uut_register is
+ 
+type reg_array is array(31 downto 0) of std_logic_vector(31 downto 0); 
+signal myreg : reg_array:= (others => (others => '0'));
+begin
+
+process (clk, uut_register_re_en,uut_register_re_clr)
+begin
+	if uut_register_re_clr = '1' then
+		rd_address_out <= (others => '0');
+		function3_out <= (others => '0');
+		function7_out <= (others => '0');
+		immediate_out <= (others => '0');
+		pc_out <= (others => '0');
+		pc4_out <= (others => '0');
+		oper_selector_out <= (others => '0');
+		add_out <= '0';
+		alu_en_out <= '0';
+		compare_en_out <= '0';
+		jump_out <= '0';
+		mem_en_out <= '0';
+		wb_selector_out <= (others => '0');
+		wb_en_out <= '0';
+
+	elsif rising_edge(clk) and uut_register_en = '1' then
+		rd_address_out <= rd_address_deocde_in;
+		function3_out <= function3_in;
+		function7_out <= function7_in;
+		immediate_out <= immediate_in;
+		pc_out <= pc_in;
+		pc4_out <= pc4_decode_in;
+		oper_selector_out <= oper_selector_in;
+		add_out <= add_in;
+		alu_en_out <= alu_en_in;
+		compare_en_out <= compare_en_in;
+		jump_out <= jump_in;
+		mem_en_out <= mem_en_in;
+		wb_selector_out <= wb_selector_decode_in;
+		wb_en_out <= wb_en_decode_in;
+	
+		rs1 <= myreg(to_integer(unsigned(rs1_address)));
+		rs2 <= myreg(to_integer(unsigned(rs2_address)));
+	end if;
+end process;
+
+process (clk, uut_register_wb_en)
+begin
+	if rising_edge(clk) and uut_register_en = '1' then
+		if (wb_en_wb_in = '1') then
+			if rd_address_wb_in = "00000" then
+				myreg(0) <= (others => '0');
+			else	
+				if wb_selector_wb_in = "00" then
+					myreg(to_integer(unsigned(rd_address_wb_in))) <= alu_output_in;
+				elsif wb_selector_wb_in = "01" then
+					myreg(to_integer(unsigned(rd_address_wb_in))) <= loaded_data_in;
+				else
+					myreg(to_integer(unsigned(rd_address_wb_in))) <= pc4_wb_in;
+				end if;
+			end if;	
+		end if;
+	end if;
+end process;
+
+end rtl;
