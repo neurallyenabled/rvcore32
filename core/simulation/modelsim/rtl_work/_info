@@ -22,9 +22,9 @@ V@?kfFkZKcSj3OLXeH17;>0
 !s100 <zDFbD9_JY^o_hFJLg@zN0
 Z7 OV;C;10.5b;63
 32
-Z8 !s110 1664880540
+Z8 !s110 1664970530
 !i10b 1
-Z9 !s108 1664880540.000000
+Z9 !s108 1664970530.000000
 Z10 !s90 -reportprogress|300|C:/Users/DELL/Desktop/RVcore32/memory_interface/simulation/memory_interface.vhd|
 Z11 !s107 C:/Users/DELL/Desktop/RVcore32/memory_interface/simulation/memory_interface.vhd|
 !i113 1
@@ -48,7 +48,7 @@ R11
 !i113 1
 R12
 Ememory_interface_inst
-Z13 w1664880483
+Z13 w1664968746
 R2
 R3
 R4
@@ -56,9 +56,9 @@ R0
 Z14 8C:/Users/DELL/Desktop/RVcore32/memory_interface/memory_interface_inst.vhd
 Z15 FC:/Users/DELL/Desktop/RVcore32/memory_interface/memory_interface_inst.vhd
 l0
-L8
-VaknmnXb<fRzaQLe1R?b@c1
-!s100 jJT;8kH4>_[d:jSVhlVDh1
+L5
+VZ7]gRclGM2JDz9BALk`jQ3
+!s100 cKPJj^eIEC7e<1CZO=I0Q1
 R7
 31
 R8
@@ -73,11 +73,11 @@ Artl
 R2
 R3
 R4
-DEx4 work 21 memory_interface_inst 0 22 aknmnXb<fRzaQLe1R?b@c1
-l50
-L21
-Vf[dMJAD9Yo0>71D>G11CQ0
-!s100 z=^QhO8Hm[R<7f@@i;hoA1
+DEx4 work 21 memory_interface_inst 0 22 Z7]gRclGM2JDz9BALk`jQ3
+l48
+L16
+V6k>nM_?ZzR@bNB9K^`WDT2
+!s100 gzio]fja^@T=:e5DBJ9Tz2
 R7
 31
 R8

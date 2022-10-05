@@ -1,5 +1,5 @@
 Analysis & Synthesis report for RVcore32
-Tue Oct 04 13:48:29 2022
+Wed Oct 05 14:54:25 2022
 Quartus Prime Version 18.1.1 Build 646 04/11/2019 SJ Lite Edition
 
 
@@ -14,34 +14,36 @@ Quartus Prime Version 18.1.1 Build 646 04/11/2019 SJ Lite Edition
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
   8. Analysis & Synthesis IP Cores Summary
-  9. State Machine - |memory_interface_inst|memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|avmm_read_valid_state
- 10. State Machine - |memory_interface_inst|memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|read_state
- 11. State Machine - |memory_interface_inst|memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|erase_state
- 12. State Machine - |memory_interface_inst|memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|write_state
- 13. Registers Removed During Synthesis
- 14. Removed Registers Triggering Further Register Optimizations
- 15. General Register Statistics
- 16. Inverted Register Statistics
- 17. Multiplexer Restructuring Statistics (Restructuring Performed)
- 18. Source assignments for memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|altera_std_synchronizer:stdsync_busy
- 19. Source assignments for memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|altera_std_synchronizer:stdsync_busy_clear
- 20. Parameter Settings for User Entity Instance: memory_interface:u0|altera_onchip_flash:onchip_flash_0
- 21. Parameter Settings for User Entity Instance: memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_csr_controller:avmm_csr_controller
- 22. Parameter Settings for User Entity Instance: memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller
- 23. Parameter Settings for User Entity Instance: memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|altera_std_synchronizer:stdsync_busy
- 24. Parameter Settings for User Entity Instance: memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|altera_std_synchronizer:stdsync_busy_clear
- 25. Parameter Settings for User Entity Instance: memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|lpm_shiftreg:ufm_data_shiftreg
- 26. Parameter Settings for User Entity Instance: memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|altera_onchip_flash_address_range_check:address_range_checker
- 27. Parameter Settings for User Entity Instance: memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|altera_onchip_flash_convert_address:address_convertor
- 28. Parameter Settings for User Entity Instance: memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|altera_onchip_flash_a_address_write_protection_check:access_address_write_protection_checker
- 29. Parameter Settings for User Entity Instance: memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|altera_onchip_flash_convert_sector:sector_convertor
- 30. lpm_shiftreg Parameter Settings by Entity Instance
- 31. Port Connectivity Checks: "memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_block:altera_onchip_flash_block"
- 32. Port Connectivity Checks: "memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|altera_onchip_flash_address_range_check:address_range_checker"
- 33. Port Connectivity Checks: "memory_interface:u0"
- 34. Post-Synthesis Netlist Statistics for Top Partition
- 35. Elapsed Time Per Partition
- 36. Analysis & Synthesis Messages
+  9. State Machine - |memory_interface_inst|current_state
+ 10. State Machine - |memory_interface_inst|memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|avmm_read_valid_state
+ 11. State Machine - |memory_interface_inst|memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|read_state
+ 12. State Machine - |memory_interface_inst|memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|erase_state
+ 13. State Machine - |memory_interface_inst|memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|write_state
+ 14. Registers Protected by Synthesis
+ 15. Registers Removed During Synthesis
+ 16. Removed Registers Triggering Further Register Optimizations
+ 17. General Register Statistics
+ 18. Inverted Register Statistics
+ 19. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 20. Source assignments for memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|altera_std_synchronizer:stdsync_busy
+ 21. Source assignments for memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|altera_std_synchronizer:stdsync_busy_clear
+ 22. Parameter Settings for User Entity Instance: memory_interface:u0|altera_onchip_flash:onchip_flash_0
+ 23. Parameter Settings for User Entity Instance: memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_csr_controller:avmm_csr_controller
+ 24. Parameter Settings for User Entity Instance: memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller
+ 25. Parameter Settings for User Entity Instance: memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|altera_std_synchronizer:stdsync_busy
+ 26. Parameter Settings for User Entity Instance: memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|altera_std_synchronizer:stdsync_busy_clear
+ 27. Parameter Settings for User Entity Instance: memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|lpm_shiftreg:ufm_data_shiftreg
+ 28. Parameter Settings for User Entity Instance: memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|altera_onchip_flash_address_range_check:address_range_checker
+ 29. Parameter Settings for User Entity Instance: memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|altera_onchip_flash_convert_address:address_convertor
+ 30. Parameter Settings for User Entity Instance: memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|altera_onchip_flash_a_address_write_protection_check:access_address_write_protection_checker
+ 31. Parameter Settings for User Entity Instance: memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|altera_onchip_flash_convert_sector:sector_convertor
+ 32. lpm_shiftreg Parameter Settings by Entity Instance
+ 33. Port Connectivity Checks: "memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_block:altera_onchip_flash_block"
+ 34. Port Connectivity Checks: "memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|altera_onchip_flash_address_range_check:address_range_checker"
+ 35. Port Connectivity Checks: "memory_interface:u0"
+ 36. Post-Synthesis Netlist Statistics for Top Partition
+ 37. Elapsed Time Per Partition
+ 38. Analysis & Synthesis Messages
 
 
 
@@ -68,16 +70,16 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Tue Oct 04 13:48:29 2022       ;
+; Analysis & Synthesis Status        ; Successful - Wed Oct 05 14:54:25 2022       ;
 ; Quartus Prime Version              ; 18.1.1 Build 646 04/11/2019 SJ Lite Edition ;
 ; Revision Name                      ; RVcore32                                    ;
 ; Top-level Entity Name              ; memory_interface_inst                       ;
 ; Family                             ; MAX 10                                      ;
-; Total logic elements               ; 327                                         ;
-;     Total combinational functions  ; 299                                         ;
-;     Dedicated logic registers      ; 212                                         ;
-; Total registers                    ; 212                                         ;
-; Total pins                         ; 91                                          ;
+; Total logic elements               ; 635                                         ;
+;     Total combinational functions  ; 612                                         ;
+;     Dedicated logic registers      ; 363                                         ;
+; Total registers                    ; 363                                         ;
+; Total pins                         ; 92                                          ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0                                           ;
 ; Embedded Multiplier 9-bit elements ; 0                                           ;
@@ -195,13 +197,13 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+-----------------+----------------------------------+-----------------------------------------------------------------------------------------------------------------+------------------+
 ; File Name with User-Entered Path                                                 ; Used in Netlist ; File Type                        ; File Name with Absolute Path                                                                                    ; Library          ;
 +----------------------------------------------------------------------------------+-----------------+----------------------------------+-----------------------------------------------------------------------------------------------------------------+------------------+
+; memory_interface/memory_interface_inst.vhd                                       ; yes             ; User VHDL File                   ; C:/Users/DELL/Desktop/RVcore32/memory_interface/memory_interface_inst.vhd                                       ;                  ;
 ; memory_interface/synthesis/memory_interface.vhd                                  ; yes             ; User VHDL File                   ; C:/Users/DELL/Desktop/RVcore32/memory_interface/synthesis/memory_interface.vhd                                  ; memory_interface ;
 ; memory_interface/synthesis/submodules/altera_onchip_flash_util.v                 ; yes             ; User Verilog HDL File            ; C:/Users/DELL/Desktop/RVcore32/memory_interface/synthesis/submodules/altera_onchip_flash_util.v                 ; memory_interface ;
 ; memory_interface/synthesis/submodules/altera_onchip_flash.v                      ; yes             ; User Verilog HDL File            ; C:/Users/DELL/Desktop/RVcore32/memory_interface/synthesis/submodules/altera_onchip_flash.v                      ; memory_interface ;
 ; memory_interface/synthesis/submodules/altera_onchip_flash_avmm_data_controller.v ; yes             ; User Verilog HDL File            ; C:/Users/DELL/Desktop/RVcore32/memory_interface/synthesis/submodules/altera_onchip_flash_avmm_data_controller.v ; memory_interface ;
 ; memory_interface/synthesis/submodules/altera_onchip_flash_avmm_csr_controller.v  ; yes             ; User Verilog HDL File            ; C:/Users/DELL/Desktop/RVcore32/memory_interface/synthesis/submodules/altera_onchip_flash_avmm_csr_controller.v  ; memory_interface ;
 ; memory_interface/synthesis/submodules/rtl/altera_onchip_flash_block.v            ; yes             ; Encrypted User Verilog HDL File  ; C:/Users/DELL/Desktop/RVcore32/memory_interface/synthesis/submodules/rtl/altera_onchip_flash_block.v            ; memory_interface ;
-; memory_interface/memory_interface_inst.vhd                                       ; yes             ; User VHDL File                   ; C:/Users/DELL/Desktop/RVcore32/memory_interface/memory_interface_inst.vhd                                       ;                  ;
 ; altera_std_synchronizer.v                                                        ; yes             ; Megafunction                     ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altera_std_synchronizer.v                                ;                  ;
 ; lpm_shiftreg.tdf                                                                 ; yes             ; Megafunction                     ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/lpm_shiftreg.tdf                                         ;                  ;
 ; lpm_constant.inc                                                                 ; yes             ; Megafunction                     ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/lpm_constant.inc                                         ;                  ;
@@ -215,47 +217,51 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+-----------+
 ; Resource                                    ; Usage     ;
 +---------------------------------------------+-----------+
-; Estimated Total logic elements              ; 327       ;
+; Estimated Total logic elements              ; 635       ;
 ;                                             ;           ;
-; Total combinational functions               ; 299       ;
+; Total combinational functions               ; 612       ;
 ; Logic element usage by number of LUT inputs ;           ;
-;     -- 4 input functions                    ; 94        ;
-;     -- 3 input functions                    ; 119       ;
-;     -- <=2 input functions                  ; 86        ;
+;     -- 4 input functions                    ; 285       ;
+;     -- 3 input functions                    ; 195       ;
+;     -- <=2 input functions                  ; 132       ;
 ;                                             ;           ;
 ; Logic elements by mode                      ;           ;
-;     -- normal mode                          ; 255       ;
-;     -- arithmetic mode                      ; 44        ;
+;     -- normal mode                          ; 542       ;
+;     -- arithmetic mode                      ; 70        ;
 ;                                             ;           ;
-; Total registers                             ; 212       ;
-;     -- Dedicated logic registers            ; 212       ;
+; Total registers                             ; 363       ;
+;     -- Dedicated logic registers            ; 363       ;
 ;     -- I/O registers                        ; 0         ;
 ;                                             ;           ;
-; I/O pins                                    ; 91        ;
+; I/O pins                                    ; 92        ;
 ; UFM blocks                                  ; 1         ;
 ;                                             ;           ;
 ; Embedded Multiplier 9-bit elements          ; 0         ;
 ;                                             ;           ;
 ; Maximum fan-out node                        ; clk~input ;
-; Maximum fan-out                             ; 214       ;
-; Total fan-out                               ; 1618      ;
-; Average fan-out                             ; 2.33      ;
+; Maximum fan-out                             ; 363       ;
+; Total fan-out                               ; 3189      ;
+; Average fan-out                             ; 2.75      ;
 +---------------------------------------------+-----------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                                                                                                                                                                                             ;
-+--------------------------------------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+------------------------------------------+------------------+
-; Compilation Hierarchy Node                                               ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name                                                                                                                                                                               ; Entity Name                              ; Library Name     ;
-+--------------------------------------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+------------------------------------------+------------------+
-; |memory_interface_inst                                                   ; 299 (39)            ; 212 (56)                  ; 0           ; 1          ; 0            ; 0       ; 0         ; 91   ; 0            ; 0          ; |memory_interface_inst                                                                                                                                                                            ; memory_interface_inst                    ; work             ;
-;    |memory_interface:u0|                                                 ; 260 (0)             ; 156 (0)                   ; 0           ; 1          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |memory_interface_inst|memory_interface:u0                                                                                                                                                        ; memory_interface                         ; memory_interface ;
-;       |altera_onchip_flash:onchip_flash_0|                               ; 260 (0)             ; 156 (0)                   ; 0           ; 1          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |memory_interface_inst|memory_interface:u0|altera_onchip_flash:onchip_flash_0                                                                                                                     ; altera_onchip_flash                      ; memory_interface ;
-;          |altera_onchip_flash_avmm_csr_controller:avmm_csr_controller|   ; 0 (0)               ; 2 (2)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |memory_interface_inst|memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_csr_controller:avmm_csr_controller                                                         ; altera_onchip_flash_avmm_csr_controller  ; memory_interface ;
-;          |altera_onchip_flash_avmm_data_controller:avmm_data_controller| ; 260 (241)           ; 154 (154)                 ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |memory_interface_inst|memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller                                                       ; altera_onchip_flash_avmm_data_controller ; memory_interface ;
-;             |altera_onchip_flash_convert_address:address_convertor|      ; 19 (19)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |memory_interface_inst|memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|altera_onchip_flash_convert_address:address_convertor ; altera_onchip_flash_convert_address      ; memory_interface ;
-;          |altera_onchip_flash_block:altera_onchip_flash_block|           ; 0 (0)               ; 0 (0)                     ; 0           ; 1          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |memory_interface_inst|memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_block:altera_onchip_flash_block                                                                 ; altera_onchip_flash_block                ; memory_interface ;
-+--------------------------------------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+------------------------------------------+------------------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  ;
++------------------------------------------------------------------------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------+------------------+
+; Compilation Hierarchy Node                                                                                 ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name                                                                                                                                                                                                                      ; Entity Name                                          ; Library Name     ;
++------------------------------------------------------------------------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------+------------------+
+; |memory_interface_inst                                                                                     ; 612 (122)           ; 363 (106)                 ; 0           ; 1          ; 0            ; 0       ; 0         ; 92   ; 0            ; 0          ; |memory_interface_inst                                                                                                                                                                                                                   ; memory_interface_inst                                ; work             ;
+;    |memory_interface:u0|                                                                                   ; 490 (0)             ; 257 (0)                   ; 0           ; 1          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |memory_interface_inst|memory_interface:u0                                                                                                                                                                                               ; memory_interface                                     ; memory_interface ;
+;       |altera_onchip_flash:onchip_flash_0|                                                                 ; 490 (0)             ; 257 (0)                   ; 0           ; 1          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |memory_interface_inst|memory_interface:u0|altera_onchip_flash:onchip_flash_0                                                                                                                                                            ; altera_onchip_flash                                  ; memory_interface ;
+;          |altera_onchip_flash_avmm_csr_controller:avmm_csr_controller|                                     ; 30 (30)             ; 14 (14)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |memory_interface_inst|memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_csr_controller:avmm_csr_controller                                                                                                ; altera_onchip_flash_avmm_csr_controller              ; memory_interface ;
+;          |altera_onchip_flash_avmm_data_controller:avmm_data_controller|                                   ; 460 (408)           ; 243 (207)                 ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |memory_interface_inst|memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller                                                                                              ; altera_onchip_flash_avmm_data_controller             ; memory_interface ;
+;             |altera_onchip_flash_a_address_write_protection_check:access_address_write_protection_checker| ; 10 (10)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |memory_interface_inst|memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|altera_onchip_flash_a_address_write_protection_check:access_address_write_protection_checker ; altera_onchip_flash_a_address_write_protection_check ; memory_interface ;
+;             |altera_onchip_flash_convert_address:address_convertor|                                        ; 10 (10)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |memory_interface_inst|memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|altera_onchip_flash_convert_address:address_convertor                                        ; altera_onchip_flash_convert_address                  ; memory_interface ;
+;             |altera_std_synchronizer:stdsync_busy_clear|                                                   ; 0 (0)               ; 2 (2)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |memory_interface_inst|memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|altera_std_synchronizer:stdsync_busy_clear                                                   ; altera_std_synchronizer                              ; work             ;
+;             |altera_std_synchronizer:stdsync_busy|                                                         ; 0 (0)               ; 2 (2)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |memory_interface_inst|memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|altera_std_synchronizer:stdsync_busy                                                         ; altera_std_synchronizer                              ; work             ;
+;             |lpm_shiftreg:ufm_data_shiftreg|                                                               ; 32 (32)             ; 32 (32)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |memory_interface_inst|memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|lpm_shiftreg:ufm_data_shiftreg                                                               ; lpm_shiftreg                                         ; work             ;
+;          |altera_onchip_flash_block:altera_onchip_flash_block|                                             ; 0 (0)               ; 0 (0)                     ; 0           ; 1          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |memory_interface_inst|memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_block:altera_onchip_flash_block                                                                                                        ; altera_onchip_flash_block                            ; memory_interface ;
++------------------------------------------------------------------------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------+------------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
@@ -267,6 +273,18 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; N/A    ; altera_onchip_flash ; 18.1    ; N/A          ; N/A          ; |memory_interface_inst|memory_interface:u0                                                                                        ; memory_interface.qsys ;
 ; Altera ; 6AF7_FFFF           ; N/A     ; N/A          ; Licensed     ; |memory_interface_inst|memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_block:altera_onchip_flash_block ;                       ;
 +--------+---------------------+---------+--------------+--------------+-----------------------------------------------------------------------------------------------------------------------------------+-----------------------+
+
+
+Encoding Type:  One-Hot
++---------------------------------------------------------------------------------------------+
+; State Machine - |memory_interface_inst|current_state                                        ;
++-----------------------+-----------------------+----------------------+----------------------+
+; Name                  ; current_state.write_s ; current_state.read_s ; current_state.idle_s ;
++-----------------------+-----------------------+----------------------+----------------------+
+; current_state.idle_s  ; 0                     ; 0                    ; 0                    ;
+; current_state.read_s  ; 0                     ; 1                    ; 1                    ;
+; current_state.write_s ; 1                     ; 0                    ; 1                    ;
++-----------------------+-----------------------+----------------------+----------------------+
 
 
 Encoding Type:  One-Hot
@@ -329,133 +347,73 @@ Encoding Type:  One-Hot
 +-----------------------------------+-------------------------------+-------------------------------+-----------------------------------+-----------------------------------+-------------------------------+------------------------------+------------------------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                                                                                                                                                                                                                                                            ;
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------+
-; Register name                                                                                                                                                   ; Reason for Removal                                                                                                                          ;
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------+
-; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|avmm_burstcount_input_reg[1..3]            ; Stuck at GND due to stuck port data_in                                                                                                      ;
-; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_csr_controller:avmm_csr_controller|csr_wp_mode[0..4]                            ; Stuck at VCC due to stuck port data_in                                                                                                      ;
-; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_csr_controller:avmm_csr_controller|csr_sector_page_erase_addr_reg[0..22]        ; Stuck at VCC due to stuck port data_in                                                                                                      ;
-; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|flash_sector_addr[0]                       ; Stuck at GND due to stuck port data_in                                                                                                      ;
-; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|is_sector1_writable_reg                    ; Stuck at GND due to stuck port data_in                                                                                                      ;
-; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|is_sector2_writable_reg                    ; Stuck at GND due to stuck port data_in                                                                                                      ;
-; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|is_sector3_writable_reg                    ; Stuck at GND due to stuck port data_in                                                                                                      ;
-; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|is_sector4_writable_reg                    ; Stuck at GND due to stuck port data_in                                                                                                      ;
-; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|is_sector5_writable_reg                    ; Stuck at GND due to stuck port data_in                                                                                                      ;
-; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|flash_sector_addr[1,2]                     ; Stuck at GND due to stuck port data_in                                                                                                      ;
-; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|reset_n_reg2                               ; Merged with memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_csr_controller:avmm_csr_controller|reset_n_reg2 ;
-; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|reset_n_reg1                               ; Merged with memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_csr_controller:avmm_csr_controller|reset_n_reg1 ;
-; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|erase_busy_scan                            ; Stuck at GND due to stuck port data_in                                                                                                      ;
-; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_csr_controller:avmm_csr_controller|csr_erase_state[0,1]                         ; Stuck at GND due to stuck port data_in                                                                                                      ;
-; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|csr_status_busy[0,1]                       ; Lost fanout                                                                                                                                 ;
-; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|flash_seq_read_ardin[20..22]               ; Stuck at GND due to stuck port data_in                                                                                                      ;
-; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|flash_page_addr[21,22]                     ; Stuck at GND due to stuck port data_in                                                                                                      ;
-; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|flash_addr_wire_neg_reg[21,22]             ; Stuck at GND due to stuck port data_in                                                                                                      ;
-; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|flash_seq_read_ardin[19]                   ; Stuck at GND due to stuck port data_in                                                                                                      ;
-; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|flash_page_addr[20]                        ; Stuck at GND due to stuck port data_in                                                                                                      ;
-; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|flash_addr_wire_neg_reg[20]                ; Stuck at GND due to stuck port data_in                                                                                                      ;
-; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|erase_state.ERASE_STATE_ADDR               ; Lost fanout                                                                                                                                 ;
-; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|read_state~7                               ; Lost fanout                                                                                                                                 ;
-; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|read_state~8                               ; Lost fanout                                                                                                                                 ;
-; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|read_state~9                               ; Lost fanout                                                                                                                                 ;
-; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|erase_state~7                              ; Lost fanout                                                                                                                                 ;
-; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|erase_state~8                              ; Lost fanout                                                                                                                                 ;
-; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|erase_state~9                              ; Lost fanout                                                                                                                                 ;
-; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|write_state~5                              ; Lost fanout                                                                                                                                 ;
-; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|write_state~6                              ; Lost fanout                                                                                                                                 ;
-; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|write_state~7                              ; Lost fanout                                                                                                                                 ;
-; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|erase_state.ERASE_STATE_WAIT_BUSY          ; Stuck at GND due to stuck port data_in                                                                                                      ;
-; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|write_state.WRITE_STATE_WRITE              ; Stuck at GND due to stuck port data_in                                                                                                      ;
-; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|lpm_shiftreg:ufm_data_shiftreg|dffs[31]    ; Stuck at GND due to stuck port clock_enable                                                                                                 ;
-; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|erase_state.ERASE_STATE_ERROR              ; Stuck at GND due to stuck port data_in                                                                                                      ;
-; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|lpm_shiftreg:ufm_data_shiftreg|dffs[0..30] ; Stuck at GND due to stuck port clock_enable                                                                                                 ;
-; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|write_drclk_en                             ; Stuck at GND due to stuck port clock_enable                                                                                                 ;
-; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|enable_drclk_neg_pos_write_reg             ; Stuck at GND due to stuck port data_in                                                                                                      ;
-; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|write_busy_scan                            ; Stuck at GND due to stuck port data_in                                                                                                      ;
-; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|flash_busy_reg                             ; Stuck at GND due to stuck port clear                                                                                                        ;
-; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|flash_busy_clear_reg                       ; Stuck at GND due to stuck port clear                                                                                                        ;
-; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|write_state.WRITE_STATE_WAIT_BUSY          ; Stuck at GND due to stuck port data_in                                                                                                      ;
-; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|erase_state.ERASE_STATE_WAIT_DONE          ; Stuck at GND due to stuck port data_in                                                                                                      ;
-; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|write_state.WRITE_STATE_WAIT_DONE          ; Stuck at GND due to stuck port data_in                                                                                                      ;
-; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|write_state.WRITE_STATE_RESET              ; Stuck at GND due to stuck port data_in                                                                                                      ;
-; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|read_ctrl_count[2]                         ; Stuck at GND due to stuck port data_in                                                                                                      ;
-; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|erase_state.ERASE_STATE_RESET              ; Stuck at GND due to stuck port data_in                                                                                                      ;
-; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|erase_count[0..25]                         ; Lost fanout                                                                                                                                 ;
-; Total Number of Removed Registers = 138                                                                                                                         ;                                                                                                                                             ;
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Registers Protected by Synthesis                                                                                                                                                                                                                                                        ;
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------------------+--------------------------------------------+
+; Register Name                                                                                                                                                           ; Protected by Synthesis Attribute or Preserve Register Assignment ; Not to be Touched by Netlist Optimizations ;
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------------------+--------------------------------------------+
+; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|altera_std_synchronizer:stdsync_busy_clear|dreg[0] ; yes                                                              ; yes                                        ;
+; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|altera_std_synchronizer:stdsync_busy|dreg[0]       ; yes                                                              ; yes                                        ;
+; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|altera_std_synchronizer:stdsync_busy_clear|din_s1  ; yes                                                              ; yes                                        ;
+; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|altera_std_synchronizer:stdsync_busy|din_s1        ; yes                                                              ; yes                                        ;
+; Total number of protected registers is 4                                                                                                                                ;                                                                  ;                                            ;
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------------------+--------------------------------------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Removed Registers Triggering Further Register Optimizations                                                                                                                                                                                                                                                                                       ;
-+-------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Register name                                                                                                                                         ; Reason for Removal        ; Registers Removed due to This Register                                                                                                                        ;
-+-------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_csr_controller:avmm_csr_controller|csr_wp_mode[3]                     ; Stuck at VCC              ; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|is_sector4_writable_reg,                 ;
-;                                                                                                                                                       ; due to stuck port data_in ; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|lpm_shiftreg:ufm_data_shiftreg|dffs[31], ;
-;                                                                                                                                                       ;                           ; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|lpm_shiftreg:ufm_data_shiftreg|dffs[30], ;
-;                                                                                                                                                       ;                           ; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|lpm_shiftreg:ufm_data_shiftreg|dffs[29], ;
-;                                                                                                                                                       ;                           ; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|lpm_shiftreg:ufm_data_shiftreg|dffs[28], ;
-;                                                                                                                                                       ;                           ; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|lpm_shiftreg:ufm_data_shiftreg|dffs[27], ;
-;                                                                                                                                                       ;                           ; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|lpm_shiftreg:ufm_data_shiftreg|dffs[26], ;
-;                                                                                                                                                       ;                           ; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|lpm_shiftreg:ufm_data_shiftreg|dffs[25], ;
-;                                                                                                                                                       ;                           ; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|lpm_shiftreg:ufm_data_shiftreg|dffs[24], ;
-;                                                                                                                                                       ;                           ; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|lpm_shiftreg:ufm_data_shiftreg|dffs[23], ;
-;                                                                                                                                                       ;                           ; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|lpm_shiftreg:ufm_data_shiftreg|dffs[22], ;
-;                                                                                                                                                       ;                           ; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|lpm_shiftreg:ufm_data_shiftreg|dffs[21], ;
-;                                                                                                                                                       ;                           ; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|lpm_shiftreg:ufm_data_shiftreg|dffs[20], ;
-;                                                                                                                                                       ;                           ; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|lpm_shiftreg:ufm_data_shiftreg|dffs[19], ;
-;                                                                                                                                                       ;                           ; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|lpm_shiftreg:ufm_data_shiftreg|dffs[18], ;
-;                                                                                                                                                       ;                           ; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|lpm_shiftreg:ufm_data_shiftreg|dffs[17], ;
-;                                                                                                                                                       ;                           ; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|lpm_shiftreg:ufm_data_shiftreg|dffs[16], ;
-;                                                                                                                                                       ;                           ; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|lpm_shiftreg:ufm_data_shiftreg|dffs[15], ;
-;                                                                                                                                                       ;                           ; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|lpm_shiftreg:ufm_data_shiftreg|dffs[14], ;
-;                                                                                                                                                       ;                           ; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|lpm_shiftreg:ufm_data_shiftreg|dffs[13], ;
-;                                                                                                                                                       ;                           ; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|lpm_shiftreg:ufm_data_shiftreg|dffs[12], ;
-;                                                                                                                                                       ;                           ; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|lpm_shiftreg:ufm_data_shiftreg|dffs[11], ;
-;                                                                                                                                                       ;                           ; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|lpm_shiftreg:ufm_data_shiftreg|dffs[10], ;
-;                                                                                                                                                       ;                           ; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|lpm_shiftreg:ufm_data_shiftreg|dffs[9],  ;
-;                                                                                                                                                       ;                           ; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|lpm_shiftreg:ufm_data_shiftreg|dffs[8],  ;
-;                                                                                                                                                       ;                           ; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|lpm_shiftreg:ufm_data_shiftreg|dffs[7],  ;
-;                                                                                                                                                       ;                           ; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|lpm_shiftreg:ufm_data_shiftreg|dffs[6],  ;
-;                                                                                                                                                       ;                           ; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|lpm_shiftreg:ufm_data_shiftreg|dffs[5],  ;
-;                                                                                                                                                       ;                           ; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|lpm_shiftreg:ufm_data_shiftreg|dffs[4],  ;
-;                                                                                                                                                       ;                           ; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|lpm_shiftreg:ufm_data_shiftreg|dffs[3],  ;
-;                                                                                                                                                       ;                           ; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|lpm_shiftreg:ufm_data_shiftreg|dffs[2],  ;
-;                                                                                                                                                       ;                           ; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|lpm_shiftreg:ufm_data_shiftreg|dffs[1],  ;
-;                                                                                                                                                       ;                           ; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|lpm_shiftreg:ufm_data_shiftreg|dffs[0]   ;
-; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_csr_controller:avmm_csr_controller|csr_erase_state[0]                 ; Stuck at GND              ; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|csr_status_busy[0],                      ;
-;                                                                                                                                                       ; due to stuck port data_in ; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|csr_status_busy[1],                      ;
-;                                                                                                                                                       ;                           ; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|flash_seq_read_ardin[22],                ;
-;                                                                                                                                                       ;                           ; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|flash_seq_read_ardin[21],                ;
-;                                                                                                                                                       ;                           ; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|flash_seq_read_ardin[20],                ;
-;                                                                                                                                                       ;                           ; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|flash_seq_read_ardin[19],                ;
-;                                                                                                                                                       ;                           ; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|erase_count[0],                          ;
-;                                                                                                                                                       ;                           ; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|erase_count[1],                          ;
-;                                                                                                                                                       ;                           ; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|erase_count[2]                           ;
-; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_csr_controller:avmm_csr_controller|csr_sector_page_erase_addr_reg[20] ; Stuck at VCC              ; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|erase_busy_scan,                         ;
-;                                                                                                                                                       ; due to stuck port data_in ; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|flash_addr_wire_neg_reg[21],             ;
-;                                                                                                                                                       ;                           ; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|flash_addr_wire_neg_reg[22],             ;
-;                                                                                                                                                       ;                           ; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|flash_addr_wire_neg_reg[20],             ;
-;                                                                                                                                                       ;                           ; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|flash_busy_reg,                          ;
-;                                                                                                                                                       ;                           ; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|flash_busy_clear_reg                     ;
-; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_csr_controller:avmm_csr_controller|csr_wp_mode[4]                     ; Stuck at VCC              ; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|is_sector5_writable_reg,                 ;
-;                                                                                                                                                       ; due to stuck port data_in ; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|write_drclk_en,                          ;
-;                                                                                                                                                       ;                           ; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|enable_drclk_neg_pos_write_reg,          ;
-;                                                                                                                                                       ;                           ; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|write_busy_scan                          ;
-; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_csr_controller:avmm_csr_controller|csr_sector_page_erase_addr_reg[0]  ; Stuck at VCC              ; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|flash_page_addr[21],                     ;
-;                                                                                                                                                       ; due to stuck port data_in ; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|flash_page_addr[22],                     ;
-;                                                                                                                                                       ;                           ; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|flash_page_addr[20]                      ;
-; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|write_state.WRITE_STATE_WRITE    ; Stuck at GND              ; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|write_state.WRITE_STATE_WAIT_BUSY,       ;
-;                                                                                                                                                       ; due to stuck port data_in ; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|write_state.WRITE_STATE_RESET            ;
-; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_csr_controller:avmm_csr_controller|csr_wp_mode[0]                     ; Stuck at VCC              ; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|is_sector1_writable_reg                  ;
-;                                                                                                                                                       ; due to stuck port data_in ;                                                                                                                                                               ;
-; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_csr_controller:avmm_csr_controller|csr_wp_mode[1]                     ; Stuck at VCC              ; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|is_sector2_writable_reg                  ;
-;                                                                                                                                                       ; due to stuck port data_in ;                                                                                                                                                               ;
-; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_csr_controller:avmm_csr_controller|csr_wp_mode[2]                     ; Stuck at VCC              ; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|is_sector3_writable_reg                  ;
-;                                                                                                                                                       ; due to stuck port data_in ;                                                                                                                                                               ;
-; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|erase_state~7                    ; Lost Fanouts              ; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|erase_count[3]                           ;
-+-------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                                                                                                                                                                                                                                            ;
++-----------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Register name                                                                                                                                             ; Reason for Removal                                                                                                                                                ;
++-----------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|reset_n_reg2                         ; Merged with memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_csr_controller:avmm_csr_controller|reset_n_reg2                       ;
+; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|is_sector2_writable_reg              ; Merged with memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|is_sector1_writable_reg          ;
+; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|is_sector3_writable_reg              ; Merged with memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|is_sector1_writable_reg          ;
+; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|is_sector5_writable_reg              ; Merged with memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|is_sector1_writable_reg          ;
+; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_csr_controller:avmm_csr_controller|csr_sector_page_erase_addr_reg[11..22] ; Merged with memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_csr_controller:avmm_csr_controller|csr_sector_page_erase_addr_reg[10] ;
+; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_csr_controller:avmm_csr_controller|csr_sector_page_erase_addr_reg[6..9]   ; Merged with memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_csr_controller:avmm_csr_controller|csr_sector_page_erase_addr_reg[5]  ;
+; burst_count_i[2,3]                                                                                                                                        ; Merged with burst_count_i[1]                                                                                                                                      ;
+; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|avmm_burstcount_input_reg[2,3]       ; Merged with memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|avmm_burstcount_input_reg[1]     ;
+; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|reset_n_reg1                         ; Merged with memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_csr_controller:avmm_csr_controller|reset_n_reg1                       ;
+; csr_write_data_i[11..22]                                                                                                                                  ; Merged with csr_write_data_i[10]                                                                                                                                  ;
+; csr_write_data_i[6..9]                                                                                                                                    ; Merged with csr_write_data_i[5]                                                                                                                                   ;
+; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_csr_controller:avmm_csr_controller|csr_wp_mode[1,2,4]                     ; Merged with memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_csr_controller:avmm_csr_controller|csr_wp_mode[0]                     ;
+; csr_write_data_i[24,25,27]                                                                                                                                ; Merged with csr_write_data_i[23]                                                                                                                                  ;
+; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|flash_sector_addr[0..2]              ; Stuck at GND due to stuck port data_in                                                                                                                            ;
+; burst_count_i[1]                                                                                                                                          ; Stuck at GND due to stuck port data_in                                                                                                                            ;
+; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|avmm_burstcount_input_reg[1]         ; Stuck at GND due to stuck port data_in                                                                                                                            ;
+; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|flash_seq_read_ardin[20..22]         ; Stuck at GND due to stuck port data_in                                                                                                                            ;
+; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|flash_page_addr[21,22]               ; Stuck at GND due to stuck port data_in                                                                                                                            ;
+; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|flash_addr_wire_neg_reg[21,22]       ; Stuck at GND due to stuck port data_in                                                                                                                            ;
+; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|flash_seq_read_ardin[19]             ; Stuck at GND due to stuck port data_in                                                                                                                            ;
+; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|read_state~7                         ; Lost fanout                                                                                                                                                       ;
+; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|read_state~8                         ; Lost fanout                                                                                                                                                       ;
+; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|read_state~9                         ; Lost fanout                                                                                                                                                       ;
+; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|erase_state~6                        ; Lost fanout                                                                                                                                                       ;
+; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|erase_state~7                        ; Lost fanout                                                                                                                                                       ;
+; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|erase_state~8                        ; Lost fanout                                                                                                                                                       ;
+; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|write_state~5                        ; Lost fanout                                                                                                                                                       ;
+; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|write_state~6                        ; Lost fanout                                                                                                                                                       ;
+; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|write_state~7                        ; Lost fanout                                                                                                                                                       ;
+; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|read_ctrl_count[2]                   ; Stuck at GND due to stuck port data_in                                                                                                                            ;
+; Total Number of Removed Registers = 70                                                                                                                    ;                                                                                                                                                                   ;
++-----------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                                                                                                                                                                                                                   ;
++-----------------------------------------------------------------------------------------------------------------------------------------------+---------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------+
+; Register name                                                                                                                                 ; Reason for Removal        ; Registers Removed due to This Register                                                                                                            ;
++-----------------------------------------------------------------------------------------------------------------------------------------------+---------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------+
+; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|flash_seq_read_ardin[20] ; Stuck at GND              ; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|flash_page_addr[21],         ;
+;                                                                                                                                               ; due to stuck port data_in ; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|flash_page_addr[22],         ;
+;                                                                                                                                               ;                           ; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|flash_seq_read_ardin[19]     ;
+; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|flash_sector_addr[1]     ; Stuck at GND              ; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|flash_addr_wire_neg_reg[21]  ;
+;                                                                                                                                               ; due to stuck port data_in ;                                                                                                                                                   ;
+; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|flash_sector_addr[2]     ; Stuck at GND              ; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|flash_addr_wire_neg_reg[22]  ;
+;                                                                                                                                               ; due to stuck port data_in ;                                                                                                                                                   ;
+; burst_count_i[1]                                                                                                                              ; Stuck at GND              ; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|avmm_burstcount_input_reg[1] ;
+;                                                                                                                                               ; due to stuck port data_in ;                                                                                                                                                   ;
++-----------------------------------------------------------------------------------------------------------------------------------------------+---------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -463,25 +421,35 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 212   ;
-; Number of registers using Synchronous Clear  ; 33    ;
-; Number of registers using Synchronous Load   ; 4     ;
-; Number of registers using Asynchronous Clear ; 7     ;
+; Total registers                              ; 363   ;
+; Number of registers using Synchronous Clear  ; 40    ;
+; Number of registers using Synchronous Load   ; 15    ;
+; Number of registers using Asynchronous Clear ; 50    ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 101   ;
+; Number of registers using Clock Enable       ; 215   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------+
-; Inverted Register Statistics                                                                                                                        ;
-+-------------------------------------------------------------------------------------------------------------------------------------------+---------+
-; Inverted Register                                                                                                                         ; Fan out ;
-+-------------------------------------------------------------------------------------------------------------------------------------------+---------+
-; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|flash_drshft_neg_reg ; 1       ;
-; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|flash_drshft_reg     ; 2       ;
-; Total number of inverted registers = 2                                                                                                    ;         ;
-+-------------------------------------------------------------------------------------------------------------------------------------------+---------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Inverted Register Statistics                                                                                                                                    ;
++-------------------------------------------------------------------------------------------------------------------------------------------------------+---------+
+; Inverted Register                                                                                                                                     ; Fan out ;
++-------------------------------------------------------------------------------------------------------------------------------------------------------+---------+
+; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|flash_drshft_neg_reg             ; 1       ;
+; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_csr_controller:avmm_csr_controller|csr_sector_page_erase_addr_reg[0]  ; 2       ;
+; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_csr_controller:avmm_csr_controller|csr_sector_page_erase_addr_reg[1]  ; 2       ;
+; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_csr_controller:avmm_csr_controller|csr_sector_page_erase_addr_reg[3]  ; 3       ;
+; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|flash_drshft_reg                 ; 2       ;
+; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_csr_controller:avmm_csr_controller|csr_sector_page_erase_addr_reg[10] ; 38      ;
+; burst_count_i[0]                                                                                                                                      ; 4       ;
+; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_csr_controller:avmm_csr_controller|csr_wp_mode[3]                     ; 1       ;
+; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_csr_controller:avmm_csr_controller|csr_wp_mode[0]                     ; 2       ;
+; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_csr_controller:avmm_csr_controller|csr_sector_page_erase_addr_reg[2]  ; 2       ;
+; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_csr_controller:avmm_csr_controller|csr_sector_page_erase_addr_reg[4]  ; 2       ;
+; memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_csr_controller:avmm_csr_controller|csr_sector_page_erase_addr_reg[5]  ; 2       ;
+; Total number of inverted registers = 12                                                                                                               ;         ;
++-------------------------------------------------------------------------------------------------------------------------------------------------------+---------+
 
 
 +-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -489,30 +457,40 @@ Encoding Type:  One-Hot
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                                                                                                                  ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |memory_interface_inst|write_data_i[15]                                                                                                                                     ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 24 LEs               ; 0 LEs                  ; Yes        ; |memory_interface_inst|memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|flash_page_addr[18]             ;
-; 4:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |memory_interface_inst|read_data[31]~reg0                                                                                                                                   ;
-; 4:1                ; 11 bits   ; 22 LEs        ; 22 LEs               ; 0 LEs                  ; Yes        ; |memory_interface_inst|memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|flash_page_addr[0]              ;
-; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |memory_interface_inst|memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|csr_status_busy[1]              ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 8 LEs                ; 16 LEs                 ; Yes        ; |memory_interface_inst|read_data[15]~reg0                                                                                                                                   ;
-; 4:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |memory_interface_inst|write_data_i[29]                                                                                                                                     ;
-; 7:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |memory_interface_inst|memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_csr_controller:avmm_csr_controller|csr_erase_state[1]                ;
-; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; Yes        ; |memory_interface_inst|memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|read_ctrl_count[1]              ;
-; 5:1                ; 4 bits    ; 12 LEs        ; 4 LEs                ; 8 LEs                  ; Yes        ; |memory_interface_inst|memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|flash_seq_read_ardin[20]        ;
-; 5:1                ; 17 bits   ; 51 LEs        ; 34 LEs               ; 17 LEs                 ; Yes        ; |memory_interface_inst|memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|flash_seq_read_ardin[8]         ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |memory_interface_inst|csr_write_data_i[23]                                                                                                                                 ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |memory_interface_inst|csr_write_data_i[4]                                                                                                                                  ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |memory_interface_inst|memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|avmm_burstcount_input_reg[1]    ;
+; 3:1                ; 23 bits   ; 46 LEs        ; 46 LEs               ; 0 LEs                  ; Yes        ; |memory_interface_inst|memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|flash_addr_wire_neg_reg[17]     ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |memory_interface_inst|ram_write_data_i[12]                                                                                                                                 ;
+; 3:1                ; 12 bits   ; 24 LEs        ; 24 LEs               ; 0 LEs                  ; Yes        ; |memory_interface_inst|memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|flash_page_addr[14]             ;
+; 4:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |memory_interface_inst|read_data[27]~reg0                                                                                                                                   ;
+; 4:1                ; 11 bits   ; 22 LEs        ; 22 LEs               ; 0 LEs                  ; Yes        ; |memory_interface_inst|memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|flash_page_addr[7]              ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |memory_interface_inst|memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|csr_status_busy[0]              ;
+; 5:1                ; 8 bits    ; 24 LEs        ; 8 LEs                ; 16 LEs                 ; Yes        ; |memory_interface_inst|read_data[13]~reg0                                                                                                                                   ;
+; 4:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |memory_interface_inst|ram_write_data_i[23]                                                                                                                                 ;
+; 5:1                ; 19 bits   ; 57 LEs        ; 19 LEs               ; 38 LEs                 ; Yes        ; |memory_interface_inst|ram_address_i[17]                                                                                                                                    ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; Yes        ; |memory_interface_inst|memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|read_ctrl_count[0]              ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 4 LEs                ; 8 LEs                  ; Yes        ; |memory_interface_inst|memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|flash_seq_read_ardin[19]        ;
+; 5:1                ; 17 bits   ; 51 LEs        ; 34 LEs               ; 17 LEs                 ; Yes        ; |memory_interface_inst|memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|flash_seq_read_ardin[11]        ;
 ; 6:1                ; 4 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |memory_interface_inst|memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|avmm_burstcount_reg[2]          ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |memory_interface_inst|memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_csr_controller:avmm_csr_controller|csr_erase_state[1]                ;
 ; 6:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |memory_interface_inst|memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|flash_ardin_align_backup_reg[0] ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 2 LEs                ; 8 LEs                  ; Yes        ; |memory_interface_inst|cycle_i[1]                                                                                                                                           ;
 ; 7:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |memory_interface_inst|memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|data_count[2]                   ;
-; 7:1                ; 22 bits   ; 88 LEs        ; 66 LEs               ; 22 LEs                 ; Yes        ; |memory_interface_inst|memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|erase_count[18]                 ;
-; 8:1                ; 4 bits    ; 20 LEs        ; 16 LEs               ; 4 LEs                  ; Yes        ; |memory_interface_inst|memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|erase_count[0]                  ;
+; 7:1                ; 22 bits   ; 88 LEs        ; 66 LEs               ; 22 LEs                 ; Yes        ; |memory_interface_inst|memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|erase_count[19]                 ;
+; 8:1                ; 3 bits    ; 15 LEs        ; 12 LEs               ; 3 LEs                  ; Yes        ; |memory_interface_inst|memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|erase_count[7]                  ;
 ; 7:1                ; 11 bits   ; 44 LEs        ; 33 LEs               ; 11 LEs                 ; Yes        ; |memory_interface_inst|memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|write_count[9]                  ;
 ; 9:1                ; 3 bits    ; 18 LEs        ; 6 LEs                ; 12 LEs                 ; Yes        ; |memory_interface_inst|memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|write_count[4]                  ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |memory_interface_inst|memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_csr_controller:avmm_csr_controller|csr_wp_mode[3]                    ;
+; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |memory_interface_inst|memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_csr_controller:avmm_csr_controller|csr_sector_page_erase_addr_reg[4] ;
 ; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |memory_interface_inst|memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|avmm_read_valid_state           ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |memory_interface_inst|memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|cur_a_addr[19]                  ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; No         ; |memory_interface_inst|memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|cur_a_addr[20]                  ;
 ; 3:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |memory_interface_inst|memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|cur_a_addr[17]                  ;
-; 8:1                ; 4 bits    ; 20 LEs        ; 16 LEs               ; 4 LEs                  ; No         ; |memory_interface_inst|memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|erase_state                     ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 8 LEs                ; 2 LEs                  ; No         ; |memory_interface_inst|memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|erase_state                     ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; No         ; |memory_interface_inst|memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|erase_state                     ;
 ; 10:1               ; 2 bits    ; 12 LEs        ; 10 LEs               ; 2 LEs                  ; No         ; |memory_interface_inst|memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|erase_state                     ;
-; 8:1                ; 4 bits    ; 20 LEs        ; 16 LEs               ; 4 LEs                  ; No         ; |memory_interface_inst|memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|write_state                     ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 8 LEs                ; 2 LEs                  ; No         ; |memory_interface_inst|memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|write_state                     ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; No         ; |memory_interface_inst|memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|write_state                     ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 
@@ -791,19 +769,13 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------+-------+----------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "memory_interface:u0"                                                                                      ;
-+----------------------------+--------+----------+-------------------------------------------------------------------------------------+
-; Port                       ; Type   ; Severity ; Details                                                                             ;
-+----------------------------+--------+----------+-------------------------------------------------------------------------------------+
-; avmm_data_burstcount[3..1] ; Input  ; Info     ; Stuck at GND                                                                        ;
-; avmm_data_burstcount[0]    ; Input  ; Info     ; Stuck at VCC                                                                        ;
-; avmm_csr_addr              ; Input  ; Info     ; Stuck at GND                                                                        ;
-; avmm_csr_read              ; Input  ; Info     ; Stuck at GND                                                                        ;
-; avmm_csr_writedata         ; Input  ; Info     ; Stuck at GND                                                                        ;
-; avmm_csr_write             ; Input  ; Info     ; Stuck at GND                                                                        ;
-; avmm_csr_readdata          ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+----------------------------+--------+----------+-------------------------------------------------------------------------------------+
++---------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "memory_interface:u0"                                                                                 ;
++-----------------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port                  ; Type   ; Severity ; Details                                                                             ;
++-----------------------+--------+----------+-------------------------------------------------------------------------------------+
+; avmm_csr_readdata[26] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-----------------------+--------+----------+-------------------------------------------------------------------------------------+
 
 
 +-----------------------------------------------------+
@@ -811,28 +783,30 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; boundary_port         ; 91                          ;
-; cycloneiii_ff         ; 212                         ;
-;     CLR               ; 7                           ;
-;     ENA               ; 93                          ;
-;     ENA SCLR          ; 4                           ;
+; boundary_port         ; 92                          ;
+; cycloneiii_ff         ; 363                         ;
+;     CLR               ; 18                          ;
+;     ENA               ; 173                         ;
+;     ENA CLR           ; 32                          ;
+;     ENA SCLR          ; 6                           ;
 ;     ENA SLD           ; 4                           ;
-;     SCLR              ; 29                          ;
-;     plain             ; 75                          ;
-; cycloneiii_lcell_comb ; 299                         ;
-;     arith             ; 44                          ;
-;         2 data inputs ; 40                          ;
-;         3 data inputs ; 4                           ;
-;     normal            ; 255                         ;
+;     SCLR              ; 23                          ;
+;     SCLR SLD          ; 11                          ;
+;     plain             ; 96                          ;
+; cycloneiii_lcell_comb ; 612                         ;
+;     arith             ; 70                          ;
+;         2 data inputs ; 65                          ;
+;         3 data inputs ; 5                           ;
+;     normal            ; 542                         ;
 ;         0 data inputs ; 3                           ;
-;         1 data inputs ; 4                           ;
-;         2 data inputs ; 39                          ;
-;         3 data inputs ; 115                         ;
-;         4 data inputs ; 94                          ;
+;         1 data inputs ; 10                          ;
+;         2 data inputs ; 54                          ;
+;         3 data inputs ; 190                         ;
+;         4 data inputs ; 285                         ;
 ; fiftyfivenm_unvm      ; 1                           ;
 ;                       ;                             ;
-; Max LUT depth         ; 5.50                        ;
-; Average LUT depth     ; 2.18                        ;
+; Max LUT depth         ; 8.00                        ;
+; Average LUT depth     ; 2.94                        ;
 +-----------------------+-----------------------------+
 
 
@@ -841,7 +815,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:01     ;
+; Top            ; 00:00:02     ;
 +----------------+--------------+
 
 
@@ -851,7 +825,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.1.1 Build 646 04/11/2019 SJ Lite Edition
-    Info: Processing started: Tue Oct 04 13:48:10 2022
+    Info: Processing started: Wed Oct 05 14:54:03 2022
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off RVcore32 -c RVcore32
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
@@ -876,6 +850,9 @@ Info (12021): Found 2 design units, including 1 entities, in source file control
 Info (12021): Found 2 design units, including 1 entities, in source file main.vhd
     Info (12022): Found design unit 1: main-rtl File: C:/Users/DELL/Desktop/RVcore32/main.vhd Line: 17
     Info (12023): Found entity 1: main File: C:/Users/DELL/Desktop/RVcore32/main.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file memory_interface/memory_interface_inst.vhd
+    Info (12022): Found design unit 1: memory_interface_inst-rtl File: C:/Users/DELL/Desktop/RVcore32/memory_interface/memory_interface_inst.vhd Line: 16
+    Info (12023): Found entity 1: memory_interface_inst File: C:/Users/DELL/Desktop/RVcore32/memory_interface/memory_interface_inst.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file memory_interface/synthesis/memory_interface.vhd
     Info (12022): Found design unit 1: memory_interface-rtl File: C:/Users/DELL/Desktop/RVcore32/memory_interface/synthesis/memory_interface.vhd Line: 29
     Info (12023): Found entity 1: memory_interface File: C:/Users/DELL/Desktop/RVcore32/memory_interface/synthesis/memory_interface.vhd Line: 9
@@ -895,11 +872,8 @@ Info (12021): Found 1 design units, including 1 entities, in source file memory_
     Info (12023): Found entity 1: altera_onchip_flash_avmm_csr_controller File: C:/Users/DELL/Desktop/RVcore32/memory_interface/synthesis/submodules/altera_onchip_flash_avmm_csr_controller.v Line: 38
 Info (12021): Found 1 design units, including 1 entities, in source file memory_interface/synthesis/submodules/rtl/altera_onchip_flash_block.v
     Info (12023): Found entity 1: altera_onchip_flash_block File: C:/Users/DELL/Desktop/RVcore32/memory_interface/synthesis/submodules/rtl/altera_onchip_flash_block.v Line: 38
-Info (12021): Found 2 design units, including 1 entities, in source file memory_interface/memory_interface_inst.vhd
-    Info (12022): Found design unit 1: memory_interface_inst-rtl File: C:/Users/DELL/Desktop/RVcore32/memory_interface/memory_interface_inst.vhd Line: 21
-    Info (12023): Found entity 1: memory_interface_inst File: C:/Users/DELL/Desktop/RVcore32/memory_interface/memory_interface_inst.vhd Line: 8
 Info (12127): Elaborating entity "memory_interface_inst" for the top level hierarchy
-Info (12128): Elaborating entity "memory_interface" for hierarchy "memory_interface:u0" File: C:/Users/DELL/Desktop/RVcore32/memory_interface/memory_interface_inst.vhd Line: 52
+Info (12128): Elaborating entity "memory_interface" for hierarchy "memory_interface:u0" File: C:/Users/DELL/Desktop/RVcore32/memory_interface/memory_interface_inst.vhd Line: 50
 Info (12128): Elaborating entity "altera_onchip_flash" for hierarchy "memory_interface:u0|altera_onchip_flash:onchip_flash_0" File: C:/Users/DELL/Desktop/RVcore32/memory_interface/synthesis/memory_interface.vhd Line: 100
 Info (12128): Elaborating entity "altera_onchip_flash_avmm_csr_controller" for hierarchy "memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_csr_controller:avmm_csr_controller" File: C:/Users/DELL/Desktop/RVcore32/memory_interface/synthesis/submodules/altera_onchip_flash.v Line: 203
 Info (12128): Elaborating entity "altera_onchip_flash_avmm_data_controller" for hierarchy "memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller" File: C:/Users/DELL/Desktop/RVcore32/memory_interface/synthesis/submodules/altera_onchip_flash.v Line: 282
@@ -921,51 +895,18 @@ Info (12128): Elaborating entity "altera_onchip_flash_s_address_write_protection
 Info (12128): Elaborating entity "altera_onchip_flash_convert_sector" for hierarchy "memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|altera_onchip_flash_convert_sector:sector_convertor" File: C:/Users/DELL/Desktop/RVcore32/memory_interface/synthesis/submodules/altera_onchip_flash_avmm_data_controller.v Line: 1258
 Info (12128): Elaborating entity "altera_onchip_flash_block" for hierarchy "memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_block:altera_onchip_flash_block" File: C:/Users/DELL/Desktop/RVcore32/memory_interface/synthesis/submodules/altera_onchip_flash.v Line: 327
 Info (286030): Timing-Driven Synthesis is running
-Info (17049): 38 registers lost all their fanouts during netlist optimizations.
+Info (17049): 9 registers lost all their fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 32 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "write_data[31]" File: C:/Users/DELL/Desktop/RVcore32/memory_interface/memory_interface_inst.vhd Line: 14
-    Warning (15610): No output dependent on input pin "write_data[30]" File: C:/Users/DELL/Desktop/RVcore32/memory_interface/memory_interface_inst.vhd Line: 14
-    Warning (15610): No output dependent on input pin "write_data[29]" File: C:/Users/DELL/Desktop/RVcore32/memory_interface/memory_interface_inst.vhd Line: 14
-    Warning (15610): No output dependent on input pin "write_data[28]" File: C:/Users/DELL/Desktop/RVcore32/memory_interface/memory_interface_inst.vhd Line: 14
-    Warning (15610): No output dependent on input pin "write_data[27]" File: C:/Users/DELL/Desktop/RVcore32/memory_interface/memory_interface_inst.vhd Line: 14
-    Warning (15610): No output dependent on input pin "write_data[26]" File: C:/Users/DELL/Desktop/RVcore32/memory_interface/memory_interface_inst.vhd Line: 14
-    Warning (15610): No output dependent on input pin "write_data[25]" File: C:/Users/DELL/Desktop/RVcore32/memory_interface/memory_interface_inst.vhd Line: 14
-    Warning (15610): No output dependent on input pin "write_data[24]" File: C:/Users/DELL/Desktop/RVcore32/memory_interface/memory_interface_inst.vhd Line: 14
-    Warning (15610): No output dependent on input pin "write_data[23]" File: C:/Users/DELL/Desktop/RVcore32/memory_interface/memory_interface_inst.vhd Line: 14
-    Warning (15610): No output dependent on input pin "write_data[22]" File: C:/Users/DELL/Desktop/RVcore32/memory_interface/memory_interface_inst.vhd Line: 14
-    Warning (15610): No output dependent on input pin "write_data[21]" File: C:/Users/DELL/Desktop/RVcore32/memory_interface/memory_interface_inst.vhd Line: 14
-    Warning (15610): No output dependent on input pin "write_data[20]" File: C:/Users/DELL/Desktop/RVcore32/memory_interface/memory_interface_inst.vhd Line: 14
-    Warning (15610): No output dependent on input pin "write_data[19]" File: C:/Users/DELL/Desktop/RVcore32/memory_interface/memory_interface_inst.vhd Line: 14
-    Warning (15610): No output dependent on input pin "write_data[18]" File: C:/Users/DELL/Desktop/RVcore32/memory_interface/memory_interface_inst.vhd Line: 14
-    Warning (15610): No output dependent on input pin "write_data[17]" File: C:/Users/DELL/Desktop/RVcore32/memory_interface/memory_interface_inst.vhd Line: 14
-    Warning (15610): No output dependent on input pin "write_data[16]" File: C:/Users/DELL/Desktop/RVcore32/memory_interface/memory_interface_inst.vhd Line: 14
-    Warning (15610): No output dependent on input pin "write_data[15]" File: C:/Users/DELL/Desktop/RVcore32/memory_interface/memory_interface_inst.vhd Line: 14
-    Warning (15610): No output dependent on input pin "write_data[14]" File: C:/Users/DELL/Desktop/RVcore32/memory_interface/memory_interface_inst.vhd Line: 14
-    Warning (15610): No output dependent on input pin "write_data[13]" File: C:/Users/DELL/Desktop/RVcore32/memory_interface/memory_interface_inst.vhd Line: 14
-    Warning (15610): No output dependent on input pin "write_data[12]" File: C:/Users/DELL/Desktop/RVcore32/memory_interface/memory_interface_inst.vhd Line: 14
-    Warning (15610): No output dependent on input pin "write_data[11]" File: C:/Users/DELL/Desktop/RVcore32/memory_interface/memory_interface_inst.vhd Line: 14
-    Warning (15610): No output dependent on input pin "write_data[10]" File: C:/Users/DELL/Desktop/RVcore32/memory_interface/memory_interface_inst.vhd Line: 14
-    Warning (15610): No output dependent on input pin "write_data[9]" File: C:/Users/DELL/Desktop/RVcore32/memory_interface/memory_interface_inst.vhd Line: 14
-    Warning (15610): No output dependent on input pin "write_data[8]" File: C:/Users/DELL/Desktop/RVcore32/memory_interface/memory_interface_inst.vhd Line: 14
-    Warning (15610): No output dependent on input pin "write_data[7]" File: C:/Users/DELL/Desktop/RVcore32/memory_interface/memory_interface_inst.vhd Line: 14
-    Warning (15610): No output dependent on input pin "write_data[6]" File: C:/Users/DELL/Desktop/RVcore32/memory_interface/memory_interface_inst.vhd Line: 14
-    Warning (15610): No output dependent on input pin "write_data[5]" File: C:/Users/DELL/Desktop/RVcore32/memory_interface/memory_interface_inst.vhd Line: 14
-    Warning (15610): No output dependent on input pin "write_data[4]" File: C:/Users/DELL/Desktop/RVcore32/memory_interface/memory_interface_inst.vhd Line: 14
-    Warning (15610): No output dependent on input pin "write_data[3]" File: C:/Users/DELL/Desktop/RVcore32/memory_interface/memory_interface_inst.vhd Line: 14
-    Warning (15610): No output dependent on input pin "write_data[2]" File: C:/Users/DELL/Desktop/RVcore32/memory_interface/memory_interface_inst.vhd Line: 14
-    Warning (15610): No output dependent on input pin "write_data[1]" File: C:/Users/DELL/Desktop/RVcore32/memory_interface/memory_interface_inst.vhd Line: 14
-    Warning (15610): No output dependent on input pin "write_data[0]" File: C:/Users/DELL/Desktop/RVcore32/memory_interface/memory_interface_inst.vhd Line: 14
-Info (21057): Implemented 419 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 734 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 58 input pins
-    Info (21059): Implemented 33 output pins
-    Info (21061): Implemented 327 logic cells
+    Info (21059): Implemented 34 output pins
+    Info (21061): Implemented 641 logic cells
     Info (21070): Implemented 1 User Flash Memory blocks
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 35 warnings
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 2 warnings
     Info: Peak virtual memory: 4789 megabytes
-    Info: Processing ended: Tue Oct 04 13:48:29 2022
-    Info: Elapsed time: 00:00:19
-    Info: Total CPU time (on all processors): 00:00:36
+    Info: Processing ended: Wed Oct 05 14:54:25 2022
+    Info: Elapsed time: 00:00:22
+    Info: Total CPU time (on all processors): 00:00:37
 
 

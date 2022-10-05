@@ -1,4 +1,10 @@
 
+State Machine - |memory_interface_inst|current_state
+Name current_state.write_s current_state.read_s current_state.idle_s 
+current_state.idle_s 0 0 0 
+current_state.read_s 0 1 1 
+current_state.write_s 1 0 1 
+
 State Machine - |memory_interface_inst|memory_interface:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|avmm_read_valid_state
 Name avmm_read_valid_state.READ_VALID_IDLE avmm_read_valid_state.READ_VALID_PRE_READING avmm_read_valid_state.READ_VALID_READING 
 avmm_read_valid_state.READ_VALID_IDLE 0 0 0 

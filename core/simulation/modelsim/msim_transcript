@@ -27,7 +27,7 @@
 # 
 # vlog "C:/Users/DELL/Desktop/RVcore32/memory_interface/simulation/submodules/altera_onchip_flash_util.v"                 -work onchip_flash_0
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 13:49:00 on Oct 04,2022
+# Start time: 14:48:49 on Oct 05,2022
 # vlog -reportprogress 300 C:/Users/DELL/Desktop/RVcore32/memory_interface/simulation/submodules/altera_onchip_flash_util.v -work onchip_flash_0 
 # -- Compiling module altera_onchip_flash_address_range_check
 # -- Compiling module altera_onchip_flash_address_write_protection_check
@@ -45,41 +45,41 @@
 # 	altera_onchip_flash_convert_address
 # 	altera_onchip_flash_convert_sector
 # 	altera_onchip_flash_counter
-# End time: 13:49:00 on Oct 04,2022, Elapsed time: 0:00:00
+# End time: 14:48:49 on Oct 05,2022, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog "C:/Users/DELL/Desktop/RVcore32/memory_interface/simulation/submodules/altera_onchip_flash.v"                      -work onchip_flash_0
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 13:49:00 on Oct 04,2022
+# Start time: 14:48:49 on Oct 05,2022
 # vlog -reportprogress 300 C:/Users/DELL/Desktop/RVcore32/memory_interface/simulation/submodules/altera_onchip_flash.v -work onchip_flash_0 
 # -- Compiling module altera_onchip_flash
 # 
 # Top level modules:
 # 	altera_onchip_flash
-# End time: 13:49:00 on Oct 04,2022, Elapsed time: 0:00:00
+# End time: 14:48:49 on Oct 05,2022, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog "C:/Users/DELL/Desktop/RVcore32/memory_interface/simulation/submodules/altera_onchip_flash_avmm_data_controller.v" -work onchip_flash_0
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 13:49:00 on Oct 04,2022
+# Start time: 14:48:49 on Oct 05,2022
 # vlog -reportprogress 300 C:/Users/DELL/Desktop/RVcore32/memory_interface/simulation/submodules/altera_onchip_flash_avmm_data_controller.v -work onchip_flash_0 
 # -- Compiling module altera_onchip_flash_avmm_data_controller
 # 
 # Top level modules:
 # 	altera_onchip_flash_avmm_data_controller
-# End time: 13:49:00 on Oct 04,2022, Elapsed time: 0:00:00
+# End time: 14:48:49 on Oct 05,2022, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog "C:/Users/DELL/Desktop/RVcore32/memory_interface/simulation/submodules/altera_onchip_flash_avmm_csr_controller.v"  -work onchip_flash_0
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 13:49:00 on Oct 04,2022
+# Start time: 14:48:49 on Oct 05,2022
 # vlog -reportprogress 300 C:/Users/DELL/Desktop/RVcore32/memory_interface/simulation/submodules/altera_onchip_flash_avmm_csr_controller.v -work onchip_flash_0 
 # -- Compiling module altera_onchip_flash_avmm_csr_controller
 # 
 # Top level modules:
 # 	altera_onchip_flash_avmm_csr_controller
-# End time: 13:49:00 on Oct 04,2022, Elapsed time: 0:00:00
+# End time: 14:48:49 on Oct 05,2022, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom "C:/Users/DELL/Desktop/RVcore32/memory_interface/simulation/memory_interface.vhd"                                                      
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 13:49:00 on Oct 04,2022
+# Start time: 14:48:50 on Oct 05,2022
 # vcom -reportprogress 300 C:/Users/DELL/Desktop/RVcore32/memory_interface/simulation/memory_interface.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -87,12 +87,12 @@
 # -- Loading package NUMERIC_STD
 # -- Compiling entity memory_interface
 # -- Compiling architecture rtl of memory_interface
-# End time: 13:49:00 on Oct 04,2022, Elapsed time: 0:00:00
+# End time: 14:48:50 on Oct 05,2022, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
 # vcom -93 -work work {C:/Users/DELL/Desktop/RVcore32/memory_interface/memory_interface_inst.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 13:49:00 on Oct 04,2022
+# Start time: 14:48:50 on Oct 05,2022
 # vcom -reportprogress 300 -93 -work work C:/Users/DELL/Desktop/RVcore32/memory_interface/memory_interface_inst.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -100,53 +100,18 @@
 # -- Loading package NUMERIC_STD
 # -- Compiling entity memory_interface_inst
 # -- Compiling architecture rtl of memory_interface_inst
-# End time: 13:49:00 on Oct 04,2022, Elapsed time: 0:00:00
+# End time: 14:48:50 on Oct 05,2022, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
-vsim work.memory_interface_inst
-# vsim work.memory_interface_inst 
-# Start time: 13:49:07 on Oct 04,2022
+vsim work.memory_interface
+# vsim work.memory_interface 
+# Start time: 14:48:59 on Oct 05,2022
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
 # Loading ieee.numeric_std(body)
-# Loading work.memory_interface_inst(rtl)
 # Loading work.memory_interface(rtl)
 # ** Warning: (vsim-3473) Component instance "onchip_flash_0 : altera_onchip_flash" is not bound.
-#    Time: 0 ps  Iteration: 0  Instance: /memory_interface_inst/u0 File: C:/Users/DELL/Desktop/RVcore32/memory_interface/simulation/memory_interface.vhd
-# ** Warning: (vsim-8684) No drivers exist on out port /memory_interface_inst/u0/avmm_data_readdata, and its initial value is not used.
-# Therefore, simulation behavior may occur that is not in compliance with
-# the VHDL standard as the initial values come from the base signal /memory_interface_inst/read_data_i.
-# ** Warning: (vsim-8684) No drivers exist on out port /memory_interface_inst/u0/avmm_data_waitrequest, and its initial value is not used.
-# Therefore, simulation behavior may occur that is not in compliance with
-# the VHDL standard as the initial values come from the base signal /memory_interface_inst/wait_i.
-# ** Warning: (vsim-8684) No drivers exist on out port /memory_interface_inst/u0/avmm_data_readdatavalid, and its initial value is not used.
-# Therefore, simulation behavior may occur that is not in compliance with
-# the VHDL standard as the initial values come from the base signal /memory_interface_inst/read_done_i.
-add wave -position insertpoint sim:/memory_interface_inst/*
-force -freeze sim:/memory_interface_inst/clk 1 0, 0 {50 ps} -r 100
-force -freeze sim:/memory_interface_inst/mem_en 0 0
-force -freeze sim:/memory_interface_inst/wb_en 0 0
-force -freeze sim:/memory_interface_inst/start 1 0
-force -freeze sim:/memory_interface_inst/function3 001 0
-force -freeze sim:/memory_interface_inst/address 0000000000000000000 0
-force -freeze sim:/memory_interface_inst/write_data 01010111010101000000100101100111 0
-run
-run
-force -freeze sim:/memory_interface_inst/mem_en 1 0
-run
-run
-run
-force -freeze sim:/memory_interface_inst/wb_en 1 0
-run
-run
-run
-run
-force -freeze sim:/memory_interface_inst/wait_i 1 0
-run
-force -freeze sim:/memory_interface_inst/cycle_i 0 0
-run
-run
-run
-# End time: 14:04:06 on Oct 04,2022, Elapsed time: 0:14:59
-# Errors: 0, Warnings: 4
+#    Time: 0 ps  Iteration: 0  Instance: /memory_interface File: C:/Users/DELL/Desktop/RVcore32/memory_interface/simulation/memory_interface.vhd
+# End time: 15:12:37 on Oct 05,2022, Elapsed time: 0:23:38
+# Errors: 0, Warnings: 1
