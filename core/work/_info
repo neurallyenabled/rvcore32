@@ -1,0 +1,181 @@
+m255
+K4
+z2
+Z0 !s99 nomlopt
+R0
+R0
+R0
+R0
+R0
+R0
+!s11e MIXED_VERSIONS
+!s11f vlog 2021.2 2021.04, Apr 14 2021
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z1 d/home/mj/Documents/uob/itce497-senior-project/rvcore32/core
+T_opt
+!s110 1665489900
+VHImHcP=aDUlmDl?@5JUh`3
+04 16 3 work memory_interface rtl 1
+=1-000ae431a4f1-63455bec-7e930-1ca1a
+!s124 OEM10U2 
+o-quiet -auto_acc_if_foreign -work work
+Z2 tCvgOpt 0
+n@_opt
+OL;O;2021.2;73
+Ememory_interface
+Z3 w1665489848
+Z4 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
+Z5 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z6 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
+!i122 8
+R1
+Z7 8/home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/memory_interface.vhd
+Z8 F/home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/memory_interface.vhd
+l0
+L5 1
+VOL6l:G6LOI24H0[QDV6co2
+!s100 J?:h1OQcz34f07[:IjPn_2
+Z9 OL;C;2021.2;73
+32
+Z10 !s110 1665489890
+!i10b 1
+Z11 !s108 1665489890.000000
+Z12 !s90 -reportprogress|300|-work|work|/home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/memory_interface.vhd|
+Z13 !s107 /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/memory_interface.vhd|
+!i113 0
+Z14 o-work work
+Z15 tExplicit 1 CvgOpt 0
+Artl
+R4
+R5
+R6
+DEx4 work 16 memory_interface 0 22 OL6l:G6LOI24H0[QDV6co2
+!i122 8
+l44
+L20 208
+VS?aFg4X5nbQHzzUd1mX6O2
+!s100 oXD<T2GMAS<0dHClPKPdJ0
+R9
+32
+R10
+!i10b 1
+R11
+R12
+R13
+!i113 0
+R14
+R15
+Eram
+Z16 w1665482848
+Z17 DPx9 altera_mf 20 altera_mf_components 0 22 z`PE^;i7^=^2F=6UIQiSN2
+R5
+R6
+!i122 1
+R1
+Z18 8/home/mj/Documents/uob/itce497-senior-project/rvcore32/core/ram/ram.vhd
+Z19 F/home/mj/Documents/uob/itce497-senior-project/rvcore32/core/ram/ram.vhd
+l0
+L43 1
+V?C^]Wmfk1`JD6[7[aLMYD3
+!s100 5i>;RB<?K_b30NS8Jo`7J2
+R9
+32
+Z20 !s110 1665486104
+!i10b 1
+Z21 !s108 1665486104.000000
+Z22 !s90 -reportprogress|300|-work|work|/home/mj/Documents/uob/itce497-senior-project/rvcore32/core/ram/ram.vhd|
+Z23 !s107 /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/ram/ram.vhd|
+!i113 0
+R14
+R15
+Asyn
+R17
+R5
+R6
+DEx4 work 3 ram 0 22 ?C^]Wmfk1`JD6[7[aLMYD3
+!i122 1
+l61
+L57 37
+VNOUNG:??Hnnz[7AhBaVk:3
+!s100 ld3W1i>kYl]@k<e:[4oMM0
+R9
+32
+R20
+!i10b 1
+R21
+R22
+R23
+!i113 0
+R14
+R15
+vram_altsyncram
+R20
+!i10b 1
+!s100 Xh4OR`J>4bX:Ae07]niAR0
+IR>Xi^<CT?SiObN_J=L:Z80
+R1
+Z24 w1665482852
+Z25 8/home/mj/Documents/uob/itce497-senior-project/rvcore32/core/ram/ram_syn.v
+Z26 F/home/mj/Documents/uob/itce497-senior-project/rvcore32/core/ram/ram_syn.v
+!i122 0
+L0 130 1009
+Z27 VDg1SIo80bB@j0V0VzS_@n1
+Z28 OL;L;2021.2;73
+r1
+!s85 0
+31
+R21
+Z29 !s107 /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/ram/ram_syn.v|
+Z30 !s90 -reportprogress|300|-work|work|/home/mj/Documents/uob/itce497-senior-project/rvcore32/core/ram/ram_syn.v|
+!i113 0
+Z31 o-work work -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+R2
+vram_decode
+R20
+!i10b 1
+!s100 2MG>Q851]`0HJ25_:EXcb1
+Ic_>Lm=Hz8FQfIH:J=]Df^3
+R1
+R24
+R25
+R26
+!i122 0
+L0 51 23
+R27
+R28
+r1
+!s85 0
+31
+R21
+R29
+R30
+!i113 0
+R31
+R2
+vram_mux
+R20
+!i10b 1
+!s100 <j3KXIQ_QfjS8>2S8k6lg3
+IXdjX`P66?^QH9IOWY3hmY3
+R1
+R24
+R25
+R26
+!i122 0
+L0 83 41
+R27
+R28
+r1
+!s85 0
+31
+R21
+R29
+R30
+!i113 0
+R31
+R2

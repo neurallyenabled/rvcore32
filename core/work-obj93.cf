@@ -1,4 +1,0 @@
-v 4
-file . "main.vhd" "6138f0071026ac969492b458e48354097f44748d" "20220911074850.246":
-  entity main at 1( 0) + 0 on 11;
-  architecture rtl of main at 19( 239) + 0 on 12;
