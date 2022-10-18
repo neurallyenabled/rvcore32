@@ -1,5 +1,5 @@
 Flow report for rvcore32
-Tue Oct 11 15:04:20 2022
+Tue Oct 18 12:32:24 2022
 Quartus Prime Version 21.1.0 Build 842 10/21/2021 SJ Lite Edition
 
 
@@ -41,18 +41,18 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Flow Summary                                                                     ;
 +------------------------------------+---------------------------------------------+
-; Flow Status                        ; Successful - Tue Oct 11 15:04:20 2022       ;
+; Flow Status                        ; Successful - Tue Oct 18 12:32:23 2022       ;
 ; Quartus Prime Version              ; 21.1.0 Build 842 10/21/2021 SJ Lite Edition ;
 ; Revision Name                      ; rvcore32                                    ;
-; Top-level Entity Name              ; memory_interface                            ;
+; Top-level Entity Name              ; uut_mem                                     ;
 ; Family                             ; MAX 10                                      ;
 ; Device                             ; 10M50DAF484C7G                              ;
 ; Timing Models                      ; Final                                       ;
-; Total logic elements               ; 237                                         ;
-;     Total combinational functions  ; 211                                         ;
-;     Dedicated logic registers      ; 90                                          ;
-; Total registers                    ; 90                                          ;
-; Total pins                         ; 87                                          ;
+; Total logic elements               ; 311                                         ;
+;     Total combinational functions  ; 213                                         ;
+;     Dedicated logic registers      ; 162                                         ;
+; Total registers                    ; 162                                         ;
+; Total pins                         ; 216                                         ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 131,072                                     ;
 ; Embedded Multiplier 9-bit elements ; 0                                           ;
@@ -67,50 +67,50 @@ https://fpgasoftware.intel.com/eula.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 10/11/2022 15:04:11 ;
+; Start date & time ; 10/18/2022 12:32:05 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; rvcore32            ;
 +-------------------+---------------------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Flow Non-Default Global Settings                                                                                                                                            ;
-+--------------------------------------+----------------------------------------+--------------------------------------+------------------+-----------------------------------+
-; Assignment Name                      ; Value                                  ; Default Value                        ; Entity Name      ; Section Id                        ;
-+--------------------------------------+----------------------------------------+--------------------------------------+------------------+-----------------------------------+
-; COMPILER_SIGNATURE_ID                ; 31118925571982.166548985051634         ; --                                   ; --               ; --                                ;
-; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --                                   ; --               ; memory_interface_tb               ;
-; EDA_ENABLE_GLITCH_FILTERING          ; On                                     ; --                                   ; --               ; eda_simulation                    ;
-; EDA_GENERATE_FUNCTIONAL_NETLIST      ; Off                                    ; --                                   ; --               ; eda_board_design_timing           ;
-; EDA_GENERATE_FUNCTIONAL_NETLIST      ; Off                                    ; --                                   ; --               ; eda_board_design_boundary_scan    ;
-; EDA_GENERATE_FUNCTIONAL_NETLIST      ; Off                                    ; --                                   ; --               ; eda_board_design_signal_integrity ;
-; EDA_GENERATE_FUNCTIONAL_NETLIST      ; Off                                    ; --                                   ; --               ; eda_board_design_symbol           ;
-; EDA_MAP_ILLEGAL_CHARACTERS           ; On                                     ; --                                   ; --               ; eda_simulation                    ;
-; EDA_NATIVELINK_SIMULATION_TEST_BENCH ; memory_interface_tb                    ; --                                   ; --               ; eda_simulation                    ;
-; EDA_OUTPUT_DATA_FORMAT               ; Vhdl                                   ; --                                   ; --               ; eda_simulation                    ;
-; EDA_SIMULATION_TOOL                  ; Questa Intel FPGA (VHDL)               ; <None>                               ; --               ; --                                ;
-; EDA_TEST_BENCH_ENABLE_STATUS         ; TEST_BENCH_MODE                        ; --                                   ; --               ; eda_simulation                    ;
-; EDA_TEST_BENCH_FILE                  ; testbenches/memory_interface_tb.vhd    ; --                                   ; --               ; memory_interface_tb               ;
-; EDA_TEST_BENCH_MODULE_NAME           ; memory_interface_tb                    ; --                                   ; --               ; memory_interface_tb               ;
-; EDA_TEST_BENCH_NAME                  ; memory_interface_tb                    ; --                                   ; --               ; eda_simulation                    ;
-; EDA_TIME_SCALE                       ; 1 ps                                   ; --                                   ; --               ; eda_simulation                    ;
-; MAX_CORE_JUNCTION_TEMP               ; 85                                     ; --                                   ; --               ; --                                ;
-; MIN_CORE_JUNCTION_TEMP               ; 0                                      ; --                                   ; --               ; --                                ;
-; MISC_FILE                            ; ram/ram_inst.vhd                       ; --                                   ; --               ; --                                ;
-; MISC_FILE                            ; ram/ram.cmp                            ; --                                   ; --               ; --                                ;
-; MISC_FILE                            ; ram/ram_syn.v                          ; --                                   ; --               ; --                                ;
-; NUM_PARALLEL_PROCESSORS              ; All                                    ; --                                   ; --               ; --                                ;
-; PARTITION_COLOR                      ; -- (Not supported for targeted family) ; --                                   ; memory_interface ; Top                               ;
-; PARTITION_FITTER_PRESERVATION_LEVEL  ; -- (Not supported for targeted family) ; --                                   ; memory_interface ; Top                               ;
-; PARTITION_NETLIST_TYPE               ; -- (Not supported for targeted family) ; --                                   ; memory_interface ; Top                               ;
-; POWER_BOARD_THERMAL_MODEL            ; None (CONSERVATIVE)                    ; --                                   ; --               ; --                                ;
-; POWER_PRESET_COOLING_SOLUTION        ; 23 MM HEAT SINK WITH 200 LFPM AIRFLOW  ; --                                   ; --               ; --                                ;
-; PROJECT_IP_REGENERATION_POLICY       ; ALWAYS_REGENERATE_IP                   ; SKIP_REGENERATING_IP_IF_HDL_MODIFIED ; --               ; --                                ;
-; PROJECT_OUTPUT_DIRECTORY             ; output_files                           ; --                                   ; --               ; --                                ;
-; TOP_LEVEL_ENTITY                     ; memory_interface                       ; rvcore32                             ; --               ; --                                ;
-; VHDL_INPUT_VERSION                   ; VHDL_2008                              ; VHDL_1993                            ; --               ; --                                ;
-; VHDL_SHOW_LMF_MAPPING_MESSAGES       ; Off                                    ; --                                   ; --               ; --                                ;
-+--------------------------------------+----------------------------------------+--------------------------------------+------------------+-----------------------------------+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Flow Non-Default Global Settings                                                                                                                                       ;
++--------------------------------------+----------------------------------------+--------------------------------------+-------------+-----------------------------------+
+; Assignment Name                      ; Value                                  ; Default Value                        ; Entity Name ; Section Id                        ;
++--------------------------------------+----------------------------------------+--------------------------------------+-------------+-----------------------------------+
+; COMPILER_SIGNATURE_ID                ; 31118925571982.166608552539966         ; --                                   ; --          ; --                                ;
+; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --                                   ; --          ; memory_interface_tb               ;
+; EDA_ENABLE_GLITCH_FILTERING          ; On                                     ; --                                   ; --          ; eda_simulation                    ;
+; EDA_GENERATE_FUNCTIONAL_NETLIST      ; Off                                    ; --                                   ; --          ; eda_board_design_timing           ;
+; EDA_GENERATE_FUNCTIONAL_NETLIST      ; Off                                    ; --                                   ; --          ; eda_board_design_boundary_scan    ;
+; EDA_GENERATE_FUNCTIONAL_NETLIST      ; Off                                    ; --                                   ; --          ; eda_board_design_signal_integrity ;
+; EDA_GENERATE_FUNCTIONAL_NETLIST      ; Off                                    ; --                                   ; --          ; eda_board_design_symbol           ;
+; EDA_MAP_ILLEGAL_CHARACTERS           ; On                                     ; --                                   ; --          ; eda_simulation                    ;
+; EDA_NATIVELINK_SIMULATION_TEST_BENCH ; memory_interface_tb                    ; --                                   ; --          ; eda_simulation                    ;
+; EDA_OUTPUT_DATA_FORMAT               ; Vhdl                                   ; --                                   ; --          ; eda_simulation                    ;
+; EDA_SIMULATION_TOOL                  ; Questa Intel FPGA (VHDL)               ; <None>                               ; --          ; --                                ;
+; EDA_TEST_BENCH_ENABLE_STATUS         ; TEST_BENCH_MODE                        ; --                                   ; --          ; eda_simulation                    ;
+; EDA_TEST_BENCH_FILE                  ; testbenches/memory_interface_tb.vhd    ; --                                   ; --          ; memory_interface_tb               ;
+; EDA_TEST_BENCH_MODULE_NAME           ; memory_interface_tb                    ; --                                   ; --          ; memory_interface_tb               ;
+; EDA_TEST_BENCH_NAME                  ; memory_interface_tb                    ; --                                   ; --          ; eda_simulation                    ;
+; EDA_TIME_SCALE                       ; 1 ps                                   ; --                                   ; --          ; eda_simulation                    ;
+; MAX_CORE_JUNCTION_TEMP               ; 85                                     ; --                                   ; --          ; --                                ;
+; MIN_CORE_JUNCTION_TEMP               ; 0                                      ; --                                   ; --          ; --                                ;
+; MISC_FILE                            ; components/ram/ram_inst.vhd            ; --                                   ; --          ; --                                ;
+; MISC_FILE                            ; components/ram/ram.cmp                 ; --                                   ; --          ; --                                ;
+; MISC_FILE                            ; components/ram/ram_syn.v               ; --                                   ; --          ; --                                ;
+; NUM_PARALLEL_PROCESSORS              ; All                                    ; --                                   ; --          ; --                                ;
+; PARTITION_COLOR                      ; -- (Not supported for targeted family) ; --                                   ; uut_mem     ; Top                               ;
+; PARTITION_FITTER_PRESERVATION_LEVEL  ; -- (Not supported for targeted family) ; --                                   ; uut_mem     ; Top                               ;
+; PARTITION_NETLIST_TYPE               ; -- (Not supported for targeted family) ; --                                   ; uut_mem     ; Top                               ;
+; POWER_BOARD_THERMAL_MODEL            ; None (CONSERVATIVE)                    ; --                                   ; --          ; --                                ;
+; POWER_PRESET_COOLING_SOLUTION        ; 23 MM HEAT SINK WITH 200 LFPM AIRFLOW  ; --                                   ; --          ; --                                ;
+; PROJECT_IP_REGENERATION_POLICY       ; ALWAYS_REGENERATE_IP                   ; SKIP_REGENERATING_IP_IF_HDL_MODIFIED ; --          ; --                                ;
+; PROJECT_OUTPUT_DIRECTORY             ; output_files                           ; --                                   ; --          ; --                                ;
+; TOP_LEVEL_ENTITY                     ; uut_mem                                ; rvcore32                             ; --          ; --                                ;
+; VHDL_INPUT_VERSION                   ; VHDL_2008                              ; VHDL_1993                            ; --          ; --                                ;
+; VHDL_SHOW_LMF_MAPPING_MESSAGES       ; Off                                    ; --                                   ; --          ; --                                ;
++--------------------------------------+----------------------------------------+--------------------------------------+-------------+-----------------------------------+
 
 
 +--------------------------------------------------------------------------------------------------------------------------+
@@ -118,8 +118,8 @@ https://fpgasoftware.intel.com/eula.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:09     ; 1.0                     ; 664 MB              ; 00:00:22                           ;
-; Total                ; 00:00:09     ; --                      ; --                  ; 00:00:22                           ;
+; Analysis & Synthesis ; 00:00:18     ; 1.0                     ; 654 MB              ; 00:00:37                           ;
+; Total                ; 00:00:18     ; --                      ; --                  ; 00:00:37                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

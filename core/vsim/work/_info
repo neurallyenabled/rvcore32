@@ -1,0 +1,156 @@
+m255
+K4
+z2
+Z0 !s99 nomlopt
+R0
+R0
+R0
+R0
+R0
+!s11e vcom 2021.2 2021.04, Apr 14 2021
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z1 d/home/mj/Documents/uob/itce497-senior-project/rvcore32/core/vsim
+T_opt
+!s110 1666007678
+VC>jQ=HRNo2?GMcb>9I;n71
+04 19 3 work memory_interface_tb rtl 1
+=1-000ae431a4f1-634d427e-a9cc4-4dcf
+!s124 OEM10U3 
+o-quiet -auto_acc_if_foreign -work work
+tCvgOpt 0
+n@_opt
+OL;O;2021.2;73
+Ememory_interface
+Z2 w1665492477
+Z3 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
+Z4 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z5 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
+!i122 4
+R1
+Z6 8/home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/memory_interface.vhd
+Z7 F/home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/memory_interface.vhd
+l0
+L5 1
+VOL6l:G6LOI24H0[QDV6co2
+!s100 J?:h1OQcz34f07[:IjPn_2
+Z8 OL;C;2021.2;73
+32
+Z9 !s110 1666005984
+!i10b 1
+Z10 !s108 1666005984.000000
+Z11 !s90 -reportprogress|300|-work|work|/home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/memory_interface.vhd|
+Z12 !s107 /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/memory_interface.vhd|
+!i113 0
+Z13 o-work work
+Z14 tExplicit 1 CvgOpt 0
+Artl
+R3
+R4
+R5
+DEx4 work 16 memory_interface 0 22 OL6l:G6LOI24H0[QDV6co2
+!i122 4
+l44
+L20 208
+VS?aFg4X5nbQHzzUd1mX6O2
+!s100 oXD<T2GMAS<0dHClPKPdJ0
+R8
+32
+R9
+!i10b 1
+R10
+R11
+R12
+!i113 0
+R13
+R14
+Ememory_interface_tb
+Z15 w1666007561
+R3
+R4
+R5
+!i122 10
+R1
+Z16 8/home/mj/Documents/uob/itce497-senior-project/rvcore32/core/testbenches/memory_interface_tb.vhd
+Z17 F/home/mj/Documents/uob/itce497-senior-project/rvcore32/core/testbenches/memory_interface_tb.vhd
+l0
+L5 1
+Vb75JaoYeFo[EMI3Y0]4J42
+!s100 `7<1mKY:9>2VLHS9^`eKG2
+R8
+32
+Z18 !s110 1666007658
+!i10b 1
+Z19 !s108 1666007658.000000
+Z20 !s90 -reportprogress|300|-work|work|/home/mj/Documents/uob/itce497-senior-project/rvcore32/core/testbenches/memory_interface_tb.vhd|
+Z21 !s107 /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/testbenches/memory_interface_tb.vhd|
+!i113 0
+R13
+R14
+Artl
+R3
+R4
+R5
+DEx4 work 19 memory_interface_tb 0 22 b75JaoYeFo[EMI3Y0]4J42
+!i122 10
+l35
+L8 101
+VIX8@hddcTE2j9UQihe^`A1
+!s100 X?fmlUaE8hldYcz3LeO1T0
+R8
+32
+R18
+!i10b 1
+R19
+R20
+R21
+!i113 0
+R13
+R14
+Eram
+R2
+Z22 DPx9 altera_mf 20 altera_mf_components 0 22 z`PE^;i7^=^2F=6UIQiSN2
+R4
+R5
+!i122 3
+R1
+Z23 8/home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/ram/ram.vhd
+Z24 F/home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/ram/ram.vhd
+l0
+L43 1
+V?C^]Wmfk1`JD6[7[aLMYD3
+!s100 5i>;RB<?K_b30NS8Jo`7J2
+R8
+32
+Z25 !s110 1666005980
+!i10b 1
+Z26 !s108 1666005980.000000
+Z27 !s90 -reportprogress|300|-work|work|/home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/ram/ram.vhd|
+Z28 !s107 /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/ram/ram.vhd|
+!i113 0
+R13
+R14
+Asyn
+R22
+R4
+R5
+DEx4 work 3 ram 0 22 ?C^]Wmfk1`JD6[7[aLMYD3
+!i122 3
+l61
+L57 37
+VNOUNG:??Hnnz[7AhBaVk:3
+!s100 ld3W1i>kYl]@k<e:[4oMM0
+R8
+32
+R25
+!i10b 1
+R26
+R27
+R28
+!i113 0
+R13
+R14

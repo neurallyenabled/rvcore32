@@ -15,7 +15,7 @@ port (
 	wb_en				: in std_logic;
 	start				: in std_logic;
 	function3		: in std_logic_vector (2 downto 0);
-	address			: in std_logic_vector (16 downto 0);
+	address			: in std_logic_vector (13 downto 0);
 	write_data		: in std_logic_vector (31 downto 0);
 	read_data		: out std_logic_vector (31 downto 0);
 	waitt				: out std_logic;
@@ -25,12 +25,12 @@ end component memory_interface;
 
 signal clk,mem_en,wb_en,start,waitt,done:std_logic:= '0';
 signal function3: std_logic_vector (2 downto 0);
-signal address: std_logic_vector (16 downto 0);
+signal address: std_logic_vector (13 downto 0);
 signal write_data,read_data:std_logic_vector (31 downto 0);
 signal stop_clk: boolean;
 constant clk_period:time:= 50 ns;
 constant clk_period_half:time:= 25 ns;
-
+signal count: integer:= 0;
 
 begin
 
@@ -50,18 +50,57 @@ begin
 
 mem_en <= '0';
 start <= '1';
-wb_en <= '0';
-function3 <= "001";
-address <= (others => '0');
-write_data <= "01010111010101000000100101100111";
 
 wait for clk_period;
 
 mem_en <= '1';
+-- read: 5 lb 000 lbu 100 lh 001 lhu 101 lw 010
+-- write 3 sw 010 sh 001 sb 000
+while count < 8 loop
+	-- all cases
+	if count = 0 then
+		write_data <= "11001100100100100101101001010010";
+		address <= (others => '0');
+		function3 <= "010";
+		wb_en <= '0';
+	elsif count = 1 then
+		wb_en <= '1';
+	elsif count = 2 then
+		write_data <= "00000000000000001101101001010010";
+		address <= std_logic_vector(unsigned(address)+4);
+		function3 <= "001";
+		wb_en <= '0';
+	elsif count = 3 then
+		wb_en <= '1';
+	elsif count = 4 then
+		function3 <= "101";
+	elsif count = 5 then
+		write_data <= "00000000000000000000000011010010";
+		address <= std_logic_vector(unsigned(address)+4);
+		function3 <= "000";
+		wb_en <= '0';
+	elsif count = 6 then
+		wb_en <= '1';
+	elsif count = 7 then
+		function3 <= "100";
+	end if;
+	
+	wait for clk_period;
 
-while done /= '1' loop
-wait for clk_period;
+	-- wait until write/read operation is done
+	while done /= '1' loop
+	wait for clk_period;
+	end loop;
+	
+	--move to next case
+	count <= count + 1;
+	if read_data = "00000000000000000000000000000000" then
+		next;
+	end if;
 end loop;
+
+
+-- stop test bench
 stop_clk <= true;
 wait;
 

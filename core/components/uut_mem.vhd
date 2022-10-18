@@ -35,7 +35,7 @@ port (
 	wb_en				: in std_logic;
 	start				: in std_logic;
 	function3		: in std_logic_vector (2 downto 0);
-	address			: in std_logic_vector (18 downto 0);
+	address			: in std_logic_vector (13 downto 0);
 	write_data		: in std_logic_vector (31 downto 0);
 	read_data		: out std_logic_vector (31 downto 0);
 	waitt				: out std_logic;
@@ -51,7 +51,7 @@ mem1: memory_interface port map (
 				wb_en 		=> wb_en_in,
 				start 		=> start,
 				function3 	=> function3,
-				address 		=> alu_output_in(18 downto 0), --change value
+				address 		=> alu_output_in(13 downto 0), --change value
 				write_data 	=> rs2_in,
 				read_data 	=> loaded_data,
 				waitt 		=> mem_wait,
