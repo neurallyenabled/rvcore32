@@ -1,15 +1,15 @@
-Analysis & Synthesis Status : Successful - Tue Oct 18 12:32:23 2022
+Analysis & Synthesis Status : Successful - Wed Oct 19 14:24:25 2022
 Quartus Prime Version : 21.1.0 Build 842 10/21/2021 SJ Lite Edition
 Revision Name : rvcore32
-Top-level Entity Name : uut_mem
+Top-level Entity Name : uut_decode
 Family : MAX 10
-Total logic elements : 311
-    Total combinational functions : 213
-    Dedicated logic registers : 162
-Total registers : 162
-Total pins : 216
+Total logic elements : 195
+    Total combinational functions : 131
+    Dedicated logic registers : 125
+Total registers : 125
+Total pins : 235
 Total virtual pins : 0
-Total memory bits : 131,072
+Total memory bits : 0
 Embedded Multiplier 9-bit elements : 0
 Total PLLs : 0
 UFM blocks : 0

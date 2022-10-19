@@ -1,0 +1,10 @@
+
+prog:     file format elf32-littleriscv
+
+
+Disassembly of section .text:
+
+00000000 <_start>:
+   0:	00800293          	addi	x5,x0,8
+   4:	00800313          	addi	x6,x0,8
+   8:	00628533          	add	x10,x5,x6
