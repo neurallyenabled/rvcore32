@@ -11,6 +11,7 @@ port (
 	pc_selector			: in std_logic;
 	uut_fetch_en		: in std_logic;
 	uut_fetch_clr		: in std_logic;
+	uut_fetch_out		: in std_logic;
 	fetch_en				: in std_logic;
 	new_pc_in			: in std_logic_vector (31 downto 0);
 	fetch_wait			: out std_logic;
@@ -69,7 +70,9 @@ begin
 		
 		if fetch_done = '1' then
 			adder 			<= std_logic_vector(unsigned(pc_content) + 4);
-		else
+		end if;
+		
+		if uut_fetch_out = '1' then
 			pc4_out 			<= adder;
 			pc_out 			<= pc_content;
 			instruction 	<= instruction_i;	

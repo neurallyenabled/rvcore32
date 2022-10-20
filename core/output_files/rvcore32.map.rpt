@@ -1,5 +1,5 @@
 Analysis & Synthesis report for rvcore32
-Wed Oct 19 14:24:25 2022
+Thu Oct 20 14:39:29 2022
 Quartus Prime Version 21.1.0 Build 842 10/21/2021 SJ Lite Edition
 
 
@@ -13,12 +13,18 @@ Quartus Prime Version 21.1.0 Build 842 10/21/2021 SJ Lite Edition
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. Registers Removed During Synthesis
+  8. Analysis & Synthesis RAM Summary
   9. General Register Statistics
- 10. Multiplexer Restructuring Statistics (Restructuring Performed)
- 11. Post-Synthesis Netlist Statistics for Top Partition
- 12. Elapsed Time Per Partition
- 13. Analysis & Synthesis Messages
+ 10. Registers Packed Into Inferred Megafunctions
+ 11. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 12. Source assignments for altsyncram:myreg_rtl_0|altsyncram_v9i1:auto_generated
+ 13. Source assignments for altsyncram:myreg_rtl_1|altsyncram_v9i1:auto_generated
+ 14. Parameter Settings for Inferred Entity Instance: altsyncram:myreg_rtl_0
+ 15. Parameter Settings for Inferred Entity Instance: altsyncram:myreg_rtl_1
+ 16. altsyncram Parameter Settings by Entity Instance
+ 17. Post-Synthesis Netlist Statistics for Top Partition
+ 18. Elapsed Time Per Partition
+ 19. Analysis & Synthesis Messages
 
 
 
@@ -45,18 +51,18 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Wed Oct 19 14:24:25 2022       ;
+; Analysis & Synthesis Status        ; Successful - Thu Oct 20 14:39:29 2022       ;
 ; Quartus Prime Version              ; 21.1.0 Build 842 10/21/2021 SJ Lite Edition ;
 ; Revision Name                      ; rvcore32                                    ;
-; Top-level Entity Name              ; uut_decode                                  ;
+; Top-level Entity Name              ; uut_register                                ;
 ; Family                             ; MAX 10                                      ;
-; Total logic elements               ; 195                                         ;
-;     Total combinational functions  ; 131                                         ;
-;     Dedicated logic registers      ; 125                                         ;
-; Total registers                    ; 125                                         ;
-; Total pins                         ; 235                                         ;
+; Total logic elements               ; 134                                         ;
+;     Total combinational functions  ; 132                                         ;
+;     Dedicated logic registers      ; 2                                           ;
+; Total registers                    ; 2                                           ;
+; Total pins                         ; 183                                         ;
 ; Total virtual pins                 ; 0                                           ;
-; Total memory bits                  ; 0                                           ;
+; Total memory bits                  ; 2,048                                       ;
 ; Embedded Multiplier 9-bit elements ; 0                                           ;
 ; Total PLLs                         ; 0                                           ;
 ; UFM blocks                         ; 0                                           ;
@@ -70,7 +76,7 @@ https://fpgasoftware.intel.com/eula.
 ; Option                                                           ; Setting            ; Default Value      ;
 +------------------------------------------------------------------+--------------------+--------------------+
 ; Device                                                           ; 10M50DAF484C7G     ;                    ;
-; Top-level entity name                                            ; uut_decode         ; rvcore32           ;
+; Top-level entity name                                            ; uut_register       ; rvcore32           ;
 ; Family name                                                      ; MAX 10             ; Cyclone V          ;
 ; Maximum processors allowed for parallel compilation              ; All                ;                    ;
 ; VHDL Show LMF Mapping Messages                                   ; Off                ;                    ;
@@ -161,73 +167,88 @@ https://fpgasoftware.intel.com/eula.
 ; Maximum allowed            ; 4           ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
-; Maximum used               ; 4           ;
+; Maximum used               ; 1           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processors 2-4         ;   0.0%      ;
 +----------------------------+-------------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                 ;
-+----------------------------------+-----------------+-----------------+---------------------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                                          ; Library ;
-+----------------------------------+-----------------+-----------------+---------------------------------------------------------------------------------------+---------+
-; components/uut_decode.vhd        ; yes             ; User VHDL File  ; /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/uut_decode.vhd ;         ;
-+----------------------------------+-----------------+-----------------+---------------------------------------------------------------------------------------+---------+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                                                                          ;
++------------------------------------------------+-----------------+-------------------------------------------------------+------------------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path               ; Used in Netlist ; File Type                                             ; File Name with Absolute Path                                                                               ; Library ;
++------------------------------------------------+-----------------+-------------------------------------------------------+------------------------------------------------------------------------------------------------------------+---------+
+; components/uut_register.vhd                    ; yes             ; User VHDL File                                        ; /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/uut_register.vhd                    ;         ;
+; altsyncram.tdf                                 ; yes             ; Megafunction                                          ; /home/mj/intelFPGA_lite/21.1/quartus/libraries/megafunctions/altsyncram.tdf                                ;         ;
+; stratix_ram_block.inc                          ; yes             ; Megafunction                                          ; /home/mj/intelFPGA_lite/21.1/quartus/libraries/megafunctions/stratix_ram_block.inc                         ;         ;
+; lpm_mux.inc                                    ; yes             ; Megafunction                                          ; /home/mj/intelFPGA_lite/21.1/quartus/libraries/megafunctions/lpm_mux.inc                                   ;         ;
+; lpm_decode.inc                                 ; yes             ; Megafunction                                          ; /home/mj/intelFPGA_lite/21.1/quartus/libraries/megafunctions/lpm_decode.inc                                ;         ;
+; aglobal211.inc                                 ; yes             ; Megafunction                                          ; /home/mj/intelFPGA_lite/21.1/quartus/libraries/megafunctions/aglobal211.inc                                ;         ;
+; a_rdenreg.inc                                  ; yes             ; Megafunction                                          ; /home/mj/intelFPGA_lite/21.1/quartus/libraries/megafunctions/a_rdenreg.inc                                 ;         ;
+; altrom.inc                                     ; yes             ; Megafunction                                          ; /home/mj/intelFPGA_lite/21.1/quartus/libraries/megafunctions/altrom.inc                                    ;         ;
+; altram.inc                                     ; yes             ; Megafunction                                          ; /home/mj/intelFPGA_lite/21.1/quartus/libraries/megafunctions/altram.inc                                    ;         ;
+; altdpram.inc                                   ; yes             ; Megafunction                                          ; /home/mj/intelFPGA_lite/21.1/quartus/libraries/megafunctions/altdpram.inc                                  ;         ;
+; db/altsyncram_v9i1.tdf                         ; yes             ; Auto-Generated Megafunction                           ; /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/db/altsyncram_v9i1.tdf                         ;         ;
+; db/rvcore32.ram0_uut_register_2687f1fd.hdl.mif ; yes             ; Auto-Generated Auto-Found Memory Initialization File  ; /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/db/rvcore32.ram0_uut_register_2687f1fd.hdl.mif ;         ;
++------------------------------------------------+-----------------+-------------------------------------------------------+------------------------------------------------------------------------------------------------------------+---------+
 
 
-+---------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary             ;
-+---------------------------------------------+-----------+
-; Resource                                    ; Usage     ;
-+---------------------------------------------+-----------+
-; Estimated Total logic elements              ; 195       ;
-;                                             ;           ;
-; Total combinational functions               ; 131       ;
-; Logic element usage by number of LUT inputs ;           ;
-;     -- 4 input functions                    ; 85        ;
-;     -- 3 input functions                    ; 25        ;
-;     -- <=2 input functions                  ; 21        ;
-;                                             ;           ;
-; Logic elements by mode                      ;           ;
-;     -- normal mode                          ; 131       ;
-;     -- arithmetic mode                      ; 0         ;
-;                                             ;           ;
-; Total registers                             ; 125       ;
-;     -- Dedicated logic registers            ; 125       ;
-;     -- I/O registers                        ; 0         ;
-;                                             ;           ;
-; I/O pins                                    ; 235       ;
-;                                             ;           ;
-; Embedded Multiplier 9-bit elements          ; 0         ;
-;                                             ;           ;
-; Maximum fan-out node                        ; clk~input ;
-; Maximum fan-out                             ; 125       ;
-; Total fan-out                               ; 1335      ;
-; Average fan-out                             ; 1.84      ;
-+---------------------------------------------+-----------+
++--------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary            ;
++---------------------------------------------+----------+
+; Resource                                    ; Usage    ;
++---------------------------------------------+----------+
+; Estimated Total logic elements              ; 134      ;
+;                                             ;          ;
+; Total combinational functions               ; 132      ;
+; Logic element usage by number of LUT inputs ;          ;
+;     -- 4 input functions                    ; 66       ;
+;     -- 3 input functions                    ; 1        ;
+;     -- <=2 input functions                  ; 65       ;
+;                                             ;          ;
+; Logic elements by mode                      ;          ;
+;     -- normal mode                          ; 132      ;
+;     -- arithmetic mode                      ; 0        ;
+;                                             ;          ;
+; Total registers                             ; 2        ;
+;     -- Dedicated logic registers            ; 2        ;
+;     -- I/O registers                        ; 0        ;
+;                                             ;          ;
+; I/O pins                                    ; 183      ;
+; Total memory bits                           ; 2048     ;
+;                                             ;          ;
+; Embedded Multiplier 9-bit elements          ; 0        ;
+;                                             ;          ;
+; Maximum fan-out node                        ; rs1[0]~0 ;
+; Maximum fan-out                             ; 66       ;
+; Total fan-out                               ; 1546     ;
+; Average fan-out                             ; 2.74     ;
++---------------------------------------------+----------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                ;
-+----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------+-------------+--------------+
-; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name ; Entity Name ; Library Name ;
-+----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------+-------------+--------------+
-; |uut_decode                ; 131 (131)           ; 125 (125)                 ; 0           ; 0          ; 0            ; 0       ; 0         ; 235  ; 0            ; 0          ; |uut_decode         ; uut_decode  ; work         ;
-+----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------+-------------+--------------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                ;
++----------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------------------------------------------------------+-----------------+--------------+
+; Compilation Hierarchy Node             ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name                                                 ; Entity Name     ; Library Name ;
++----------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------------------------------------------------------+-----------------+--------------+
+; |uut_register                          ; 132 (132)           ; 2 (2)                     ; 2048        ; 0          ; 0            ; 0       ; 0         ; 183  ; 0            ; 0          ; |uut_register                                                       ; uut_register    ; work         ;
+;    |altsyncram:myreg_rtl_0|            ; 0 (0)               ; 0 (0)                     ; 1024        ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |uut_register|altsyncram:myreg_rtl_0                                ; altsyncram      ; work         ;
+;       |altsyncram_v9i1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 1024        ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |uut_register|altsyncram:myreg_rtl_0|altsyncram_v9i1:auto_generated ; altsyncram_v9i1 ; work         ;
+;    |altsyncram:myreg_rtl_1|            ; 0 (0)               ; 0 (0)                     ; 1024        ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |uut_register|altsyncram:myreg_rtl_1                                ; altsyncram      ; work         ;
+;       |altsyncram_v9i1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 1024        ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |uut_register|altsyncram:myreg_rtl_1|altsyncram_v9i1:auto_generated ; altsyncram_v9i1 ; work         ;
++----------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------------------------------------------------------+-----------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
-+---------------------------------------------------------------+
-; Registers Removed During Synthesis                            ;
-+---------------------------------------+-----------------------+
-; Register name                         ; Reason for Removal    ;
-+---------------------------------------+-----------------------+
-; wb_selector[1]~reg0                   ; Merged with jump~reg0 ;
-; Total Number of Removed Registers = 1 ;                       ;
-+---------------------------------------+-----------------------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis RAM Summary                                                                                                                                                                               ;
++------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+------+------------------------------------------------+
+; Name                                                             ; Type ; Mode             ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size ; MIF                                            ;
++------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+------+------------------------------------------------+
+; altsyncram:myreg_rtl_0|altsyncram_v9i1:auto_generated|ALTSYNCRAM ; AUTO ; Simple Dual Port ; 32           ; 32           ; 32           ; 32           ; 1024 ; db/rvcore32.ram0_uut_register_2687f1fd.hdl.mif ;
+; altsyncram:myreg_rtl_1|altsyncram_v9i1:auto_generated|ALTSYNCRAM ; AUTO ; Simple Dual Port ; 32           ; 32           ; 32           ; 32           ; 1024 ; db/rvcore32.ram0_uut_register_2687f1fd.hdl.mif ;
++------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+------+------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -235,31 +256,266 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 125   ;
-; Number of registers using Synchronous Clear  ; 6     ;
-; Number of registers using Synchronous Load   ; 11    ;
-; Number of registers using Asynchronous Clear ; 125   ;
+; Total registers                              ; 2     ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 2     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 122   ;
+; Number of registers using Clock Enable       ; 2     ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output      ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------+
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |uut_decode|immediate[12]~reg0  ;
-; 5:1                ; 11 bits   ; 33 LEs        ; 22 LEs               ; 11 LEs                 ; Yes        ; |uut_decode|immediate[22]~reg0  ;
-; 5:1                ; 3 bits    ; 9 LEs         ; 3 LEs                ; 6 LEs                  ; Yes        ; |uut_decode|function3[2]~reg0   ;
-; 6:1                ; 6 bits    ; 24 LEs        ; 6 LEs                ; 18 LEs                 ; Yes        ; |uut_decode|immediate[7]~reg0   ;
-; 6:1                ; 6 bits    ; 24 LEs        ; 6 LEs                ; 18 LEs                 ; Yes        ; |uut_decode|rd_address[2]~reg0  ;
-; 6:1                ; 5 bits    ; 20 LEs        ; 5 LEs                ; 15 LEs                 ; Yes        ; |uut_decode|rs1_address[4]~reg0 ;
-; 34:1               ; 8 bits    ; 176 LEs       ; 48 LEs               ; 128 LEs                ; Yes        ; |uut_decode|alu_en~reg0         ;
-; 34:1               ; 4 bits    ; 88 LEs        ; 4 LEs                ; 84 LEs                 ; Yes        ; |uut_decode|rs2_address[1]~reg0 ;
-; 9:1                ; 4 bits    ; 24 LEs        ; 8 LEs                ; 16 LEs                 ; Yes        ; |uut_decode|immediate[1]~reg0   ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------+
++----------------------------------------------+
+; Registers Packed Into Inferred Megafunctions ;
++---------------+--------------+---------------+
+; Register Name ; Megafunction ; Type          ;
++---------------+--------------+---------------+
+; rs1[0]~reg0   ; myreg_rtl_0  ; RAM           ;
+; rs1[1]~reg0   ; myreg_rtl_0  ; RAM           ;
+; rs1[2]~reg0   ; myreg_rtl_0  ; RAM           ;
+; rs1[3]~reg0   ; myreg_rtl_0  ; RAM           ;
+; rs1[4]~reg0   ; myreg_rtl_0  ; RAM           ;
+; rs1[5]~reg0   ; myreg_rtl_0  ; RAM           ;
+; rs1[6]~reg0   ; myreg_rtl_0  ; RAM           ;
+; rs1[7]~reg0   ; myreg_rtl_0  ; RAM           ;
+; rs1[8]~reg0   ; myreg_rtl_0  ; RAM           ;
+; rs1[9]~reg0   ; myreg_rtl_0  ; RAM           ;
+; rs1[10]~reg0  ; myreg_rtl_0  ; RAM           ;
+; rs1[11]~reg0  ; myreg_rtl_0  ; RAM           ;
+; rs1[12]~reg0  ; myreg_rtl_0  ; RAM           ;
+; rs1[13]~reg0  ; myreg_rtl_0  ; RAM           ;
+; rs1[14]~reg0  ; myreg_rtl_0  ; RAM           ;
+; rs1[15]~reg0  ; myreg_rtl_0  ; RAM           ;
+; rs1[16]~reg0  ; myreg_rtl_0  ; RAM           ;
+; rs1[17]~reg0  ; myreg_rtl_0  ; RAM           ;
+; rs1[18]~reg0  ; myreg_rtl_0  ; RAM           ;
+; rs1[19]~reg0  ; myreg_rtl_0  ; RAM           ;
+; rs1[20]~reg0  ; myreg_rtl_0  ; RAM           ;
+; rs1[21]~reg0  ; myreg_rtl_0  ; RAM           ;
+; rs1[22]~reg0  ; myreg_rtl_0  ; RAM           ;
+; rs1[23]~reg0  ; myreg_rtl_0  ; RAM           ;
+; rs1[24]~reg0  ; myreg_rtl_0  ; RAM           ;
+; rs1[25]~reg0  ; myreg_rtl_0  ; RAM           ;
+; rs1[26]~reg0  ; myreg_rtl_0  ; RAM           ;
+; rs1[27]~reg0  ; myreg_rtl_0  ; RAM           ;
+; rs1[28]~reg0  ; myreg_rtl_0  ; RAM           ;
+; rs1[29]~reg0  ; myreg_rtl_0  ; RAM           ;
+; rs1[30]~reg0  ; myreg_rtl_0  ; RAM           ;
+; rs1[31]~reg0  ; myreg_rtl_0  ; RAM           ;
+; rs2[0]~reg0   ; myreg_rtl_1  ; RAM           ;
+; rs2[1]~reg0   ; myreg_rtl_1  ; RAM           ;
+; rs2[2]~reg0   ; myreg_rtl_1  ; RAM           ;
+; rs2[3]~reg0   ; myreg_rtl_1  ; RAM           ;
+; rs2[4]~reg0   ; myreg_rtl_1  ; RAM           ;
+; rs2[5]~reg0   ; myreg_rtl_1  ; RAM           ;
+; rs2[6]~reg0   ; myreg_rtl_1  ; RAM           ;
+; rs2[7]~reg0   ; myreg_rtl_1  ; RAM           ;
+; rs2[8]~reg0   ; myreg_rtl_1  ; RAM           ;
+; rs2[9]~reg0   ; myreg_rtl_1  ; RAM           ;
+; rs2[10]~reg0  ; myreg_rtl_1  ; RAM           ;
+; rs2[11]~reg0  ; myreg_rtl_1  ; RAM           ;
+; rs2[12]~reg0  ; myreg_rtl_1  ; RAM           ;
+; rs2[13]~reg0  ; myreg_rtl_1  ; RAM           ;
+; rs2[14]~reg0  ; myreg_rtl_1  ; RAM           ;
+; rs2[15]~reg0  ; myreg_rtl_1  ; RAM           ;
+; rs2[16]~reg0  ; myreg_rtl_1  ; RAM           ;
+; rs2[17]~reg0  ; myreg_rtl_1  ; RAM           ;
+; rs2[18]~reg0  ; myreg_rtl_1  ; RAM           ;
+; rs2[19]~reg0  ; myreg_rtl_1  ; RAM           ;
+; rs2[20]~reg0  ; myreg_rtl_1  ; RAM           ;
+; rs2[21]~reg0  ; myreg_rtl_1  ; RAM           ;
+; rs2[22]~reg0  ; myreg_rtl_1  ; RAM           ;
+; rs2[23]~reg0  ; myreg_rtl_1  ; RAM           ;
+; rs2[24]~reg0  ; myreg_rtl_1  ; RAM           ;
+; rs2[25]~reg0  ; myreg_rtl_1  ; RAM           ;
+; rs2[26]~reg0  ; myreg_rtl_1  ; RAM           ;
+; rs2[27]~reg0  ; myreg_rtl_1  ; RAM           ;
+; rs2[28]~reg0  ; myreg_rtl_1  ; RAM           ;
+; rs2[29]~reg0  ; myreg_rtl_1  ; RAM           ;
+; rs2[30]~reg0  ; myreg_rtl_1  ; RAM           ;
+; rs2[31]~reg0  ; myreg_rtl_1  ; RAM           ;
++---------------+--------------+---------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                           ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |uut_register|myreg        ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+
+
++------------------------------------------------------------------------------+
+; Source assignments for altsyncram:myreg_rtl_0|altsyncram_v9i1:auto_generated ;
++---------------------------------+--------------------+------+----------------+
+; Assignment                      ; Value              ; From ; To             ;
++---------------------------------+--------------------+------+----------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -              ;
++---------------------------------+--------------------+------+----------------+
+
+
++------------------------------------------------------------------------------+
+; Source assignments for altsyncram:myreg_rtl_1|altsyncram_v9i1:auto_generated ;
++---------------------------------+--------------------+------+----------------+
+; Assignment                      ; Value              ; From ; To             ;
++---------------------------------+--------------------+------+----------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -              ;
++---------------------------------+--------------------+------+----------------+
+
+
++------------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: altsyncram:myreg_rtl_0                              ;
++------------------------------------+------------------------------------------------+----------------+
+; Parameter Name                     ; Value                                          ; Type           ;
++------------------------------------+------------------------------------------------+----------------+
+; BYTE_SIZE_BLOCK                    ; 8                                              ; Untyped        ;
+; AUTO_CARRY_CHAINS                  ; ON                                             ; AUTO_CARRY     ;
+; IGNORE_CARRY_BUFFERS               ; OFF                                            ; IGNORE_CARRY   ;
+; AUTO_CASCADE_CHAINS                ; ON                                             ; AUTO_CASCADE   ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                                            ; IGNORE_CASCADE ;
+; WIDTH_BYTEENA                      ; 1                                              ; Untyped        ;
+; OPERATION_MODE                     ; DUAL_PORT                                      ; Untyped        ;
+; WIDTH_A                            ; 32                                             ; Untyped        ;
+; WIDTHAD_A                          ; 5                                              ; Untyped        ;
+; NUMWORDS_A                         ; 32                                             ; Untyped        ;
+; OUTDATA_REG_A                      ; UNREGISTERED                                   ; Untyped        ;
+; ADDRESS_ACLR_A                     ; NONE                                           ; Untyped        ;
+; OUTDATA_ACLR_A                     ; NONE                                           ; Untyped        ;
+; WRCONTROL_ACLR_A                   ; NONE                                           ; Untyped        ;
+; INDATA_ACLR_A                      ; NONE                                           ; Untyped        ;
+; BYTEENA_ACLR_A                     ; NONE                                           ; Untyped        ;
+; WIDTH_B                            ; 32                                             ; Untyped        ;
+; WIDTHAD_B                          ; 5                                              ; Untyped        ;
+; NUMWORDS_B                         ; 32                                             ; Untyped        ;
+; INDATA_REG_B                       ; CLOCK1                                         ; Untyped        ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1                                         ; Untyped        ;
+; RDCONTROL_REG_B                    ; CLOCK1                                         ; Untyped        ;
+; ADDRESS_REG_B                      ; CLOCK1                                         ; Untyped        ;
+; OUTDATA_REG_B                      ; UNREGISTERED                                   ; Untyped        ;
+; BYTEENA_REG_B                      ; CLOCK1                                         ; Untyped        ;
+; INDATA_ACLR_B                      ; NONE                                           ; Untyped        ;
+; WRCONTROL_ACLR_B                   ; NONE                                           ; Untyped        ;
+; ADDRESS_ACLR_B                     ; NONE                                           ; Untyped        ;
+; OUTDATA_ACLR_B                     ; NONE                                           ; Untyped        ;
+; RDCONTROL_ACLR_B                   ; NONE                                           ; Untyped        ;
+; BYTEENA_ACLR_B                     ; NONE                                           ; Untyped        ;
+; WIDTH_BYTEENA_A                    ; 1                                              ; Untyped        ;
+; WIDTH_BYTEENA_B                    ; 1                                              ; Untyped        ;
+; RAM_BLOCK_TYPE                     ; AUTO                                           ; Untyped        ;
+; BYTE_SIZE                          ; 8                                              ; Untyped        ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                      ; Untyped        ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ                           ; Untyped        ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ                           ; Untyped        ;
+; INIT_FILE                          ; db/rvcore32.ram0_uut_register_2687f1fd.hdl.mif ; Untyped        ;
+; INIT_FILE_LAYOUT                   ; PORT_A                                         ; Untyped        ;
+; MAXIMUM_DEPTH                      ; 0                                              ; Untyped        ;
+; CLOCK_ENABLE_INPUT_A               ; NORMAL                                         ; Untyped        ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL                                         ; Untyped        ;
+; CLOCK_ENABLE_OUTPUT_A              ; NORMAL                                         ; Untyped        ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL                                         ; Untyped        ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN                                ; Untyped        ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN                                ; Untyped        ;
+; ENABLE_ECC                         ; FALSE                                          ; Untyped        ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                                          ; Untyped        ;
+; WIDTH_ECCSTATUS                    ; 3                                              ; Untyped        ;
+; DEVICE_FAMILY                      ; MAX 10                                         ; Untyped        ;
+; CBXI_PARAMETER                     ; altsyncram_v9i1                                ; Untyped        ;
++------------------------------------+------------------------------------------------+----------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: altsyncram:myreg_rtl_1                              ;
++------------------------------------+------------------------------------------------+----------------+
+; Parameter Name                     ; Value                                          ; Type           ;
++------------------------------------+------------------------------------------------+----------------+
+; BYTE_SIZE_BLOCK                    ; 8                                              ; Untyped        ;
+; AUTO_CARRY_CHAINS                  ; ON                                             ; AUTO_CARRY     ;
+; IGNORE_CARRY_BUFFERS               ; OFF                                            ; IGNORE_CARRY   ;
+; AUTO_CASCADE_CHAINS                ; ON                                             ; AUTO_CASCADE   ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                                            ; IGNORE_CASCADE ;
+; WIDTH_BYTEENA                      ; 1                                              ; Untyped        ;
+; OPERATION_MODE                     ; DUAL_PORT                                      ; Untyped        ;
+; WIDTH_A                            ; 32                                             ; Untyped        ;
+; WIDTHAD_A                          ; 5                                              ; Untyped        ;
+; NUMWORDS_A                         ; 32                                             ; Untyped        ;
+; OUTDATA_REG_A                      ; UNREGISTERED                                   ; Untyped        ;
+; ADDRESS_ACLR_A                     ; NONE                                           ; Untyped        ;
+; OUTDATA_ACLR_A                     ; NONE                                           ; Untyped        ;
+; WRCONTROL_ACLR_A                   ; NONE                                           ; Untyped        ;
+; INDATA_ACLR_A                      ; NONE                                           ; Untyped        ;
+; BYTEENA_ACLR_A                     ; NONE                                           ; Untyped        ;
+; WIDTH_B                            ; 32                                             ; Untyped        ;
+; WIDTHAD_B                          ; 5                                              ; Untyped        ;
+; NUMWORDS_B                         ; 32                                             ; Untyped        ;
+; INDATA_REG_B                       ; CLOCK1                                         ; Untyped        ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1                                         ; Untyped        ;
+; RDCONTROL_REG_B                    ; CLOCK1                                         ; Untyped        ;
+; ADDRESS_REG_B                      ; CLOCK1                                         ; Untyped        ;
+; OUTDATA_REG_B                      ; UNREGISTERED                                   ; Untyped        ;
+; BYTEENA_REG_B                      ; CLOCK1                                         ; Untyped        ;
+; INDATA_ACLR_B                      ; NONE                                           ; Untyped        ;
+; WRCONTROL_ACLR_B                   ; NONE                                           ; Untyped        ;
+; ADDRESS_ACLR_B                     ; NONE                                           ; Untyped        ;
+; OUTDATA_ACLR_B                     ; NONE                                           ; Untyped        ;
+; RDCONTROL_ACLR_B                   ; NONE                                           ; Untyped        ;
+; BYTEENA_ACLR_B                     ; NONE                                           ; Untyped        ;
+; WIDTH_BYTEENA_A                    ; 1                                              ; Untyped        ;
+; WIDTH_BYTEENA_B                    ; 1                                              ; Untyped        ;
+; RAM_BLOCK_TYPE                     ; AUTO                                           ; Untyped        ;
+; BYTE_SIZE                          ; 8                                              ; Untyped        ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                      ; Untyped        ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ                           ; Untyped        ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ                           ; Untyped        ;
+; INIT_FILE                          ; db/rvcore32.ram0_uut_register_2687f1fd.hdl.mif ; Untyped        ;
+; INIT_FILE_LAYOUT                   ; PORT_A                                         ; Untyped        ;
+; MAXIMUM_DEPTH                      ; 0                                              ; Untyped        ;
+; CLOCK_ENABLE_INPUT_A               ; NORMAL                                         ; Untyped        ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL                                         ; Untyped        ;
+; CLOCK_ENABLE_OUTPUT_A              ; NORMAL                                         ; Untyped        ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL                                         ; Untyped        ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN                                ; Untyped        ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN                                ; Untyped        ;
+; ENABLE_ECC                         ; FALSE                                          ; Untyped        ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                                          ; Untyped        ;
+; WIDTH_ECCSTATUS                    ; 3                                              ; Untyped        ;
+; DEVICE_FAMILY                      ; MAX 10                                         ; Untyped        ;
+; CBXI_PARAMETER                     ; altsyncram_v9i1                                ; Untyped        ;
++------------------------------------+------------------------------------------------+----------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------+
+; altsyncram Parameter Settings by Entity Instance                   ;
++-------------------------------------------+------------------------+
+; Name                                      ; Value                  ;
++-------------------------------------------+------------------------+
+; Number of entity instances                ; 2                      ;
+; Entity Instance                           ; altsyncram:myreg_rtl_0 ;
+;     -- OPERATION_MODE                     ; DUAL_PORT              ;
+;     -- WIDTH_A                            ; 32                     ;
+;     -- NUMWORDS_A                         ; 32                     ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED           ;
+;     -- WIDTH_B                            ; 32                     ;
+;     -- NUMWORDS_B                         ; 32                     ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                 ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED           ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                   ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE              ;
+; Entity Instance                           ; altsyncram:myreg_rtl_1 ;
+;     -- OPERATION_MODE                     ; DUAL_PORT              ;
+;     -- WIDTH_A                            ; 32                     ;
+;     -- NUMWORDS_A                         ; 32                     ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED           ;
+;     -- WIDTH_B                            ; 32                     ;
+;     -- NUMWORDS_B                         ; 32                     ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                 ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED           ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                   ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE              ;
++-------------------------------------------+------------------------+
 
 
 +-----------------------------------------------------+
@@ -267,22 +523,18 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; boundary_port         ; 235                         ;
-; cycloneiii_ff         ; 125                         ;
-;     CLR               ; 3                           ;
-;     ENA CLR           ; 110                         ;
-;     ENA CLR SCLR      ; 1                           ;
-;     ENA CLR SCLR SLD  ; 5                           ;
-;     ENA CLR SLD       ; 6                           ;
-; cycloneiii_lcell_comb ; 131                         ;
-;     normal            ; 131                         ;
-;         0 data inputs ; 1                           ;
-;         2 data inputs ; 20                          ;
-;         3 data inputs ; 25                          ;
-;         4 data inputs ; 85                          ;
+; boundary_port         ; 183                         ;
+; cycloneiii_ff         ; 2                           ;
+;     ENA CLR           ; 2                           ;
+; cycloneiii_lcell_comb ; 132                         ;
+;     normal            ; 132                         ;
+;         2 data inputs ; 65                          ;
+;         3 data inputs ; 1                           ;
+;         4 data inputs ; 66                          ;
+; cycloneiii_ram_block  ; 64                          ;
 ;                       ;                             ;
-; Max LUT depth         ; 6.00                        ;
-; Average LUT depth     ; 1.74                        ;
+; Max LUT depth         ; 3.00                        ;
+; Average LUT depth     ; 1.52                        ;
 +-----------------------+-----------------------------+
 
 
@@ -301,11 +553,11 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 21.1.0 Build 842 10/21/2021 SJ Lite Edition
-    Info: Processing started: Wed Oct 19 14:24:08 2022
+    Info: Processing started: Thu Oct 20 14:39:11 2022
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off rvcore32 -c rvcore32
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
 Info (12021): Found 2 design units, including 1 entities, in source file components/control_unit.vhd
-    Info (12022): Found design unit 1: control_unit-rtl File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/control_unit.vhd Line: 19
+    Info (12022): Found design unit 1: control_unit-rtl File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/control_unit.vhd Line: 23
     Info (12023): Found entity 1: control_unit File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/control_unit.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file components/main.vhd
     Info (12022): Found design unit 1: main-rtl File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/main.vhd Line: 12
@@ -317,16 +569,16 @@ Info (12021): Found 2 design units, including 1 entities, in source file compone
     Info (12022): Found design unit 1: uut_alu-rtl File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/uut_alu.vhd Line: 40
     Info (12023): Found entity 1: uut_alu File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/uut_alu.vhd Line: 7
 Info (12021): Found 2 design units, including 1 entities, in source file components/uut_decode.vhd
-    Info (12022): Found design unit 1: uut_decode-rtl File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/uut_decode.vhd Line: 35
-    Info (12023): Found entity 1: uut_decode File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/uut_decode.vhd Line: 5
+    Info (12022): Found design unit 1: uut_decode-rtl File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/uut_decode.vhd Line: 37
+    Info (12023): Found entity 1: uut_decode File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/uut_decode.vhd Line: 6
 Info (12021): Found 2 design units, including 1 entities, in source file components/uut_fetch.vhd
-    Info (12022): Found design unit 1: uut_fetch-rtl File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/uut_fetch.vhd Line: 24
+    Info (12022): Found design unit 1: uut_fetch-rtl File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/uut_fetch.vhd Line: 25
     Info (12023): Found entity 1: uut_fetch File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/uut_fetch.vhd Line: 7
 Info (12021): Found 2 design units, including 1 entities, in source file components/uut_mem.vhd
-    Info (12022): Found design unit 1: uut_mem-rtl File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/uut_mem.vhd Line: 29
+    Info (12022): Found design unit 1: uut_mem-rtl File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/uut_mem.vhd Line: 30
     Info (12023): Found entity 1: uut_mem File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/uut_mem.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file components/uut_register.vhd
-    Info (12022): Found design unit 1: uut_register-rtl File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/uut_register.vhd Line: 24
+    Info (12022): Found design unit 1: uut_register-rtl File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/uut_register.vhd Line: 26
     Info (12023): Found entity 1: uut_register File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/uut_register.vhd Line: 6
 Info (12021): Found 2 design units, including 1 entities, in source file testbenches/memory_interface_tb.vhd
     Info (12022): Found design unit 1: memory_interface_tb-rtl File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/testbenches/memory_interface_tb.vhd Line: 8
@@ -343,18 +595,73 @@ Info (12021): Found 2 design units, including 1 entities, in source file compone
 Info (12021): Found 2 design units, including 1 entities, in source file components/test.vhd
     Info (12022): Found design unit 1: test-rtl File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/test.vhd Line: 11
     Info (12023): Found entity 1: test File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/test.vhd Line: 5
-Info (12127): Elaborating entity "uut_decode" for the top level hierarchy
+Info (12127): Elaborating entity "uut_register" for the top level hierarchy
+Warning (276027): Inferred dual-clock RAM node "myreg_rtl_0" from synchronous design logic.  The read-during-write behavior of a dual-clock RAM is undefined and may not match the behavior of the original design.
+Warning (276027): Inferred dual-clock RAM node "myreg_rtl_1" from synchronous design logic.  The read-during-write behavior of a dual-clock RAM is undefined and may not match the behavior of the original design.
+Info (19000): Inferred 2 megafunctions from design logic
+    Info (276029): Inferred altsyncram megafunction from the following design logic: "myreg_rtl_0" 
+        Info (286033): Parameter OPERATION_MODE set to DUAL_PORT
+        Info (286033): Parameter WIDTH_A set to 32
+        Info (286033): Parameter WIDTHAD_A set to 5
+        Info (286033): Parameter NUMWORDS_A set to 32
+        Info (286033): Parameter WIDTH_B set to 32
+        Info (286033): Parameter WIDTHAD_B set to 5
+        Info (286033): Parameter NUMWORDS_B set to 32
+        Info (286033): Parameter ADDRESS_ACLR_A set to NONE
+        Info (286033): Parameter OUTDATA_REG_B set to UNREGISTERED
+        Info (286033): Parameter ADDRESS_ACLR_B set to NONE
+        Info (286033): Parameter OUTDATA_ACLR_B set to NONE
+        Info (286033): Parameter ADDRESS_REG_B set to CLOCK1
+        Info (286033): Parameter INDATA_ACLR_A set to NONE
+        Info (286033): Parameter WRCONTROL_ACLR_A set to NONE
+        Info (286033): Parameter INIT_FILE set to db/rvcore32.ram0_uut_register_2687f1fd.hdl.mif
+    Info (276029): Inferred altsyncram megafunction from the following design logic: "myreg_rtl_1" 
+        Info (286033): Parameter OPERATION_MODE set to DUAL_PORT
+        Info (286033): Parameter WIDTH_A set to 32
+        Info (286033): Parameter WIDTHAD_A set to 5
+        Info (286033): Parameter NUMWORDS_A set to 32
+        Info (286033): Parameter WIDTH_B set to 32
+        Info (286033): Parameter WIDTHAD_B set to 5
+        Info (286033): Parameter NUMWORDS_B set to 32
+        Info (286033): Parameter ADDRESS_ACLR_A set to NONE
+        Info (286033): Parameter OUTDATA_REG_B set to UNREGISTERED
+        Info (286033): Parameter ADDRESS_ACLR_B set to NONE
+        Info (286033): Parameter OUTDATA_ACLR_B set to NONE
+        Info (286033): Parameter ADDRESS_REG_B set to CLOCK1
+        Info (286033): Parameter INDATA_ACLR_A set to NONE
+        Info (286033): Parameter WRCONTROL_ACLR_A set to NONE
+        Info (286033): Parameter INIT_FILE set to db/rvcore32.ram0_uut_register_2687f1fd.hdl.mif
+Info (12130): Elaborated megafunction instantiation "altsyncram:myreg_rtl_0"
+Info (12133): Instantiated megafunction "altsyncram:myreg_rtl_0" with the following parameter:
+    Info (12134): Parameter "OPERATION_MODE" = "DUAL_PORT"
+    Info (12134): Parameter "WIDTH_A" = "32"
+    Info (12134): Parameter "WIDTHAD_A" = "5"
+    Info (12134): Parameter "NUMWORDS_A" = "32"
+    Info (12134): Parameter "WIDTH_B" = "32"
+    Info (12134): Parameter "WIDTHAD_B" = "5"
+    Info (12134): Parameter "NUMWORDS_B" = "32"
+    Info (12134): Parameter "ADDRESS_ACLR_A" = "NONE"
+    Info (12134): Parameter "OUTDATA_REG_B" = "UNREGISTERED"
+    Info (12134): Parameter "ADDRESS_ACLR_B" = "NONE"
+    Info (12134): Parameter "OUTDATA_ACLR_B" = "NONE"
+    Info (12134): Parameter "ADDRESS_REG_B" = "CLOCK1"
+    Info (12134): Parameter "INDATA_ACLR_A" = "NONE"
+    Info (12134): Parameter "WRCONTROL_ACLR_A" = "NONE"
+    Info (12134): Parameter "INIT_FILE" = "db/rvcore32.ram0_uut_register_2687f1fd.hdl.mif"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_v9i1.tdf
+    Info (12023): Found entity 1: altsyncram_v9i1 File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/db/altsyncram_v9i1.tdf Line: 28
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 431 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 109 input pins
-    Info (21059): Implemented 126 output pins
-    Info (21061): Implemented 196 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 0 warnings
-    Info: Peak virtual memory: 642 megabytes
-    Info: Processing ended: Wed Oct 19 14:24:25 2022
-    Info: Elapsed time: 00:00:17
-    Info: Total CPU time (on all processors): 00:00:41
+Info (21057): Implemented 381 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 119 input pins
+    Info (21059): Implemented 64 output pins
+    Info (21061): Implemented 134 logic cells
+    Info (21064): Implemented 64 RAM segments
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 2 warnings
+    Info: Peak virtual memory: 653 megabytes
+    Info: Processing ended: Thu Oct 20 14:39:29 2022
+    Info: Elapsed time: 00:00:18
+    Info: Total CPU time (on all processors): 00:00:44
 
 

@@ -26,6 +26,7 @@ signal wb_en_alu_mem						: std_logic:= '0';
 signal mem_wait							: std_logic:= '0';
 signal wb_en_mem_register				: std_logic:= '0';
 signal stall_decode						: std_logic:= '0';
+signal pc_selector						: std_logic:= '0';
 signal operand_selector_decode_alu	: std_logic_vector (1 downto 0):= (others => '0');
 signal wb_selector_decode_alu			: std_logic_vector (1 downto 0):= (others => '0');
 signal wb_selector_alu_mem				: std_logic_vector (1 downto 0):= (others => '0');
@@ -183,6 +184,7 @@ port (
 	branch		: in std_logic;
 	stall			: in std_logic;
 	fetch_en		: out std_logic;
+	pc_selector	: out std_logic;
 	uut_en		: out std_logic_vector(5 downto 0);
 	uut_clr		: out std_logic_vector(5 downto 0)
 	);
@@ -193,7 +195,7 @@ begin
 uut_fetch1: uut_fetch port map(
 				new_pc_in 				=> alu_output_alu_mem,
 				clk 						=> clk,
-				pc_selector 			=> condition_alu_mem,
+				pc_selector 			=> pc_selector,
 				uut_fetch_en 			=> uut_en(0),
 				uut_fetch_clr 			=> uut_clr(0),
 				fetch_en 				=> fetch_en,
@@ -303,6 +305,7 @@ control_unit1: control_unit port map(
 				stall 					=> stall_decode,
 				uut_en 					=> uut_en,
 				uut_clr 					=> uut_clr,
+				pc_selector				=> pc_selector,
 				fetch_en 				=> fetch_en
 				);	
 end rtl;
