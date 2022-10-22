@@ -6,6 +6,7 @@ use ieee.numeric_std.all;
 entity uut_register is
 port (
 	clk					: in std_logic;
+	start					: in std_logic;
 	uut_register_re_en: in std_logic;
 	uut_register_wb_en: in std_logic;
 	uut_register_clr	: in std_logic;
@@ -30,9 +31,11 @@ signal myreg : reg_array:= (others => (others => '0'));
 
 begin
 
-process (clk,uut_register_clr)
+process (clk,uut_register_clr,start)
 begin
-	if uut_register_clr = '1' then
+	if start = '0' then
+		myreg <= (others => (others => '0'));
+	elsif uut_register_clr = '1' then
 		rs1 <= (others => '0');
 		rs2 <= (others => '0');
 	elsif rising_edge(clk) then

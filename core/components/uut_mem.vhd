@@ -6,7 +6,10 @@ entity uut_mem is
 port (
 	clk					: in std_logic;
 	uut_mem_en			: in std_logic;
+	uut_mem_clr			: in std_logic;
+	uut_mem_out			: in std_logic;
 	mem_en				: in std_logic;
+	mem_en_s				: in std_logic;
 	wb_en_in				: in std_logic;
 	start					: in std_logic;
 	wb_selector_in		: in std_logic_vector(1 downto 0);
@@ -29,6 +32,8 @@ end uut_mem;
 
 architecture rtl of uut_mem is
 
+signal loaded_data_i: std_logic_vector(31 downto 0):= (others => '0');
+
 component memory_interface is 
 port (
 	clk 				: in std_logic;
@@ -48,25 +53,35 @@ begin
 
 mem1: memory_interface port map (
 				clk 			=> clk,
-				mem_en 		=> mem_en and uut_mem_en,
+				mem_en 		=> mem_en and uut_mem_en and mem_en_s,
 				wb_en 		=> wb_en_in,
 				start 		=> start,
 				function3 	=> function3,
 				address 		=> alu_output_in(13 downto 0), --change value
 				write_data 	=> rs2_in,
-				read_data 	=> loaded_data,
+				read_data 	=> loaded_data_i,
 				waitt 		=> mem_wait,
 				done			=> mem_done
 				);
 
-process(clk,uut_mem_en)
+process(clk,uut_mem_en,uut_mem_clr)
 begin
-	if rising_edge(clk) and uut_mem_en = '1' then
-		rd_address_out 	<= rd_address_in;
-		alu_output_out 	<= alu_output_in;
-		pc4_out 				<= pc4_in;
-		wb_selector_out 	<= wb_selector_in;
-		wb_en_out 			<= wb_en_in;
+	if uut_mem_clr = '1' then
+		wb_en_out			<= '0';	
+		wb_selector_out	<= (others => '0');
+		rd_address_out		<= (others => '0');
+		loaded_data			<= (others => '0');
+		alu_output_out		<= (others => '0');
+		pc4_out				<= (others => '0');
+	elsif rising_edge(clk) and uut_mem_en = '1' then
+		if uut_mem_out = '1' then
+			rd_address_out 	<= rd_address_in;
+			alu_output_out 	<= alu_output_in;
+			pc4_out 				<= pc4_in;
+			wb_selector_out 	<= wb_selector_in;
+			wb_en_out 			<= wb_en_in;
+			loaded_data			<= loaded_data_i;
+		end if;
 	end if;	
 end process;
 end rtl;

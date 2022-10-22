@@ -63,7 +63,7 @@ rd_address_i 	<= instruction(11 downto 7);
 stall_rs1_i		<= and_reduce(rs1_address xnor rd_address_alu) or and_reduce(rs1_address xnor rd_address_mem);
 stall_rs2_i		<= and_reduce(rs2_address xnor rd_address_alu) or and_reduce(rs2_address xnor rd_address_mem);
 
-process(clk,uut_decode_en,uut_decode_clr)
+process(clk,uut_decode_en,uut_decode_clr,opcode_i,stall_rs1_i,stall_rs2_i)
 begin
 	if uut_decode_clr = '1' then
 		rd_address 		<= (others => '0');
@@ -101,7 +101,6 @@ begin
 				rd_address 		<= rd_address_i;
 				function3 		<= (others => '0');
 				function7 		<= '0';
-				stall 			<= '0';
 		
 			elsif opcode_i = "0010111" then -- AUIPC
 				immediate 		<= immu;
@@ -116,7 +115,6 @@ begin
 				rd_address 		<= rd_address_i;
 				function3 		<= (others => '0');
 				function7 		<= '0';
-				stall 			<= '0';
 				
 			elsif	opcode_i = "1101111" then -- JAL
 				immediate 		<= immj;
@@ -131,7 +129,6 @@ begin
 				rd_address 		<= rd_address_i;
 				function3 		<= (others => '0');
 				function7 		<= '0';
-				stall				<= '0';
 				
 			elsif	opcode_i = "1100111" then -- JALR
 				immediate 		<= immi;	
@@ -146,11 +143,6 @@ begin
 				rd_address 		<= rd_address_i;
 				function3 		<= function3_i;
 				function7 		<= '0';
-				if rs1_address /= "00000" and stall_rs1_i = '1' then
-					stall 	<= '1';
-				else
-					stall 	<= '0';
-				end if;
 				
 			elsif	opcode_i = "1100011" then -- br
 				immediate 		<= immb;	
@@ -165,11 +157,6 @@ begin
 				rd_address 		<= (others => '0');
 				function3 		<= function3_i;
 				function7 		<= '0';
-				if (rs1_address /= "00000" and stall_rs1_i = '1') or (rs2_address /= "00000" and stall_rs2_i = '1') then
-					stall 	<= '1';
-				else
-					stall 	<= '0';
-				end if;
 				
 				
 			elsif	opcode_i = "0100011" then -- st
@@ -185,11 +172,6 @@ begin
 				rd_address 		<= (others => '0');
 				function3 		<= function3_i;
 				function7 		<= '0';
-				if (rs1_address /= "00000" and stall_rs1_i = '1') or (rs2_address /= "00000" and stall_rs2_i = '1') then
-					stall 	<= '1';
-				else
-					stall 	<= '0';
-				end if;
 				
 			elsif opcode_i = "0000011" then -- LD
 				immediate 		<= immi;	
@@ -204,11 +186,6 @@ begin
 				rd_address 		<= rd_address_i;
 				function3 		<= function3_i;
 				function7 		<= '0';
-				if rs1_address /= "00000" and stall_rs1_i = '1' then
-					stall 	<= '1';
-				else
-					stall 	<= '0';
-				end if;
 			
 			elsif	opcode_i = "0010011" then -- ADDI
 				immediate 		<= immi;	
@@ -223,11 +200,7 @@ begin
 				rd_address 		<= rd_address_i;
 				function3 		<= function3_i;
 				function7 		<= instruction(30);
-				if rs1_address /= "00000" and stall_rs1_i = '1' then
-					stall 	<= '1';
-				else
-					stall 	<= '0';
-				end if;
+
 				
 			elsif opcode_i = "0110011"	then -- ADD
 				immediate 		<= (others => '0');	
@@ -242,11 +215,7 @@ begin
 				rd_address 		<= rd_address_i;
 				function3 		<= function3_i;
 				function7 		<= instruction(30);
-				if (rs1_address /= "00000" and stall_rs1_i = '1') or (rs2_address /= "00000" and stall_rs2_i = '1') then
-					stall 	<= '1';
-				else
-					stall 	<= '0';
-				end if;
+				
 				
 			elsif	opcode_i = "1110011" then -- CSR
 				if function3_i(2) = '1' then
@@ -265,13 +234,25 @@ begin
 				rd_address 		<= (others => '0');
 				function3 		<= function3_i;
 				function7 		<= '0';
-				if (rs1_address /= "00000" and stall_rs1_i = '1') or (rs2_address /= "00000" and stall_rs2_i = '1') then
-					stall 	<= '1';
-				else
-					stall 	<= '0';
-				end if;
 			end if;
 		end if;
-	end if;		
+	end if;
+	
+	-- stall logic
+	if opcode_i = "1100011" or opcode_i = "0100011" or opcode_i = "0110011" or opcode_i = "1110011" then
+		if (rs1_address /= "00000" and stall_rs1_i = '1') or (rs2_address /= "00000" and stall_rs2_i = '1') then
+			stall 	<= '1';
+		else
+			stall 	<= '0';
+		end if;
+	elsif opcode_i = "1100111" or opcode_i = "0000011" or opcode_i = "0010011" then
+		if rs1_address /= "00000" and stall_rs1_i = '1' then
+			stall 	<= '1';
+		else
+			stall 	<= '0';
+		end if;
+	else
+			stall 	<= '0';
+	end if;
 end process;
 end rtl;

@@ -58,8 +58,6 @@ begin
 		instruction 	<= (others => '0');
 		pc_out 			<= (others => '0');
 		pc4_out 			<= (others => '0');
-		adder 			<= (others => '0');
-		pc_content 		<= (others => '0');
 
 	elsif rising_edge(clk) and uut_fetch_en = '1' then
 		if pc_selector = '1' then

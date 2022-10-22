@@ -5,7 +5,7 @@ use ieee.numeric_std.all;
 entity main is 
 port (
 		clk,start: in std_logic;
-		B: out std_logic_vector (31 downto 0)
+		registers: out std_logic_vector(1 downto 0)
 );
 end main;
 
@@ -27,6 +27,7 @@ signal mem_wait							: std_logic:= '0';
 signal wb_en_mem_register				: std_logic:= '0';
 signal stall_decode						: std_logic:= '0';
 signal pc_selector						: std_logic:= '0';
+signal mem_en_s							: std_logic:= '0';
 signal operand_selector_decode_alu	: std_logic_vector (1 downto 0):= (others => '0');
 signal wb_selector_decode_alu			: std_logic_vector (1 downto 0):= (others => '0');
 signal wb_selector_alu_mem				: std_logic_vector (1 downto 0):= (others => '0');
@@ -156,6 +157,7 @@ port(
 	clk					: in std_logic;
 	uut_mem_en			: in std_logic;
 	mem_en				: in std_logic;
+	mem_en_s				: in std_logic;
 	wb_en_in				: in std_logic;
 	start					: in std_logic;
 	wb_selector_in		: in std_logic_vector(1 downto 0);
@@ -179,11 +181,10 @@ component control_unit is
 port (
 	clk			: in std_logic;
 	start			: in std_logic;
-	fetch_wait	: in std_logic;
-	mem_wait		: in std_logic;
 	branch		: in std_logic;
 	stall			: in std_logic;
 	fetch_en		: out std_logic;
+	mem_en		: out std_logic;
 	pc_selector	: out std_logic;
 	uut_en		: out std_logic_vector(5 downto 0);
 	uut_clr		: out std_logic_vector(5 downto 0)
@@ -285,6 +286,7 @@ uut_mem1: uut_mem port map(
 				alu_output_in 			=> alu_output_alu_mem,
 				wb_selector_in 		=> wb_selector_alu_mem,
 				mem_en 					=> mem_en_alu_mem,
+				mem_en_s					=> mem_en_s,
 				wb_en_in 				=> wb_en_alu_mem,
 				start						=> start,
 				clk 						=> clk,
@@ -299,13 +301,12 @@ uut_mem1: uut_mem port map(
 control_unit1: control_unit port map(
 				clk 						=> clk,
 				start 					=> start,
-				fetch_wait 				=> fetch_wait,
-				mem_wait 				=> mem_wait,
 				branch 					=> condition_alu_mem,
 				stall 					=> stall_decode,
 				uut_en 					=> uut_en,
 				uut_clr 					=> uut_clr,
 				pc_selector				=> pc_selector,
-				fetch_en 				=> fetch_en
+				fetch_en 				=> fetch_en,
+				mem_en					=> mem_en_s
 				);	
 end rtl;
