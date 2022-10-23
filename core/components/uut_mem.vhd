@@ -18,8 +18,6 @@ port (
 	alu_output_in		: in std_logic_vector(31 downto 0);
 	rs2_in				: in std_logic_vector(31 downto 0);
 	pc4_in				: in std_logic_vector(31 downto 0);
-	
-	mem_wait				: out std_logic;
 	mem_done				: out std_logic;
 	wb_en_out			: out std_logic;
 	wb_selector_out	: out std_logic_vector(1 downto 0);
@@ -44,7 +42,6 @@ port (
 	address			: in std_logic_vector (13 downto 0);
 	write_data		: in std_logic_vector (31 downto 0);
 	read_data		: out std_logic_vector (31 downto 0);
-	waitt				: out std_logic;
 	done				: out std_logic
 );
 end component;
@@ -60,7 +57,6 @@ mem1: memory_interface port map (
 				address 		=> alu_output_in(13 downto 0), --change value
 				write_data 	=> rs2_in,
 				read_data 	=> loaded_data_i,
-				waitt 		=> mem_wait,
 				done			=> mem_done
 				);
 

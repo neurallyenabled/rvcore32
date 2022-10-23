@@ -14,7 +14,6 @@ port (
 	uut_fetch_out		: in std_logic;
 	fetch_en				: in std_logic;
 	new_pc_in			: in std_logic_vector (31 downto 0);
-	fetch_wait			: out std_logic;
 	fetch_done			: out std_logic;
 	instruction			: out std_logic_vector (31 downto 0);
 	pc_out				: out std_logic_vector (31 downto 0);
@@ -35,7 +34,6 @@ port (
 	start				: in std_logic;
 	address			: in std_logic_vector (13 downto 0);
 	read_data		: out std_logic_vector (31 downto 0);
-	waitt				: out std_logic;
 	done				: out std_logic
 );
 end component;
@@ -48,7 +46,6 @@ mem1: memory_interface_1 port map (
 				start => start,
 				address => pc_content(13 downto 0),
 				read_data => instruction_i,
-				waitt => fetch_wait,
 				done => fetch_done
 				);
 
