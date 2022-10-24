@@ -2,13 +2,13 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
-entity main is 
+entity test is 
 port (
-		clk,start: in std_logic;
+		clk,start: in std_logic
 );
-end main;
+end test;
 
-architecture rtl of main is
+architecture rtl of test is
 
 
 signal function7_decode_alu			: std_logic:= '0';
@@ -27,6 +27,7 @@ signal function3_decode_alu			: std_logic_vector (2 downto 0):= (others => '0');
 signal rs1_address_decode_register	: std_logic_vector (4 downto 0):= (others => '0');
 signal rs2_address_decode_register	: std_logic_vector (4 downto 0):= (others => '0');
 signal rd_address_decode_alu			: std_logic_vector (4 downto 0):= (others => '0');
+signal rd_address_alu_mem				: std_logic_vector (4 downto 0):= (others => '0');
 signal rd_address_mem_register		: std_logic_vector (4 downto 0):= (others => '0');
 signal uut_en								: std_logic_vector (5 downto 0):= (others => '0');
 signal uut_clr								: std_logic_vector (5 downto 0):= (others => '0');

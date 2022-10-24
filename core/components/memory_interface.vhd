@@ -12,6 +12,7 @@ port (
 	address			: in std_logic_vector (13 downto 0);
 	write_data		: in std_logic_vector (31 downto 0);
 	read_data		: out std_logic_vector (31 downto 0);
+	waitt				: out std_logic;
 	done				: out std_logic
 );
 end memory_interface;
@@ -21,7 +22,7 @@ architecture rtl of memory_interface is
 -- read operation takes 2 cycles after specifying the address
 signal read_data_partial: std_logic_vector(23 downto 0):=(others => '0');
 signal read_data_i,write_data_i: std_logic_vector(7 downto 0):=(others => '0');
-signal read_en,write_en,done_i: std_logic:='0';
+signal read_en,write_en,wait_i,done_i: std_logic:='0';
 signal address_i : std_logic_vector(13 downto 0):=(others => '0');
 signal cycle_i: unsigned(2 downto 0):= "000";
 
@@ -58,6 +59,7 @@ begin
 	if mem_en = '0' then
 		read_en <= '0';
 		write_en <= '0';
+		wait_i <= '0';
 		done_i <= '0';
 		cycle_i <= "000";
 		current_state <= idle_s;
@@ -65,6 +67,7 @@ begin
 	elsif rising_edge(clk) then
 		if current_state = idle_s then
 			cycle_i <= "000";
+			wait_i <= '0';
 			if done_i = '1' then
 				current_state <= idle_s;
 				done_i <= '0';
@@ -79,6 +82,7 @@ begin
 			end if;
 			
 		elsif current_state = write_s then
+			wait_i <= '1';
 			if function3 = "000" then
 				if cycle_i = "000" then
 					address_i <= address;
@@ -137,6 +141,7 @@ begin
 			end if;
 			
 		elsif current_state = read_s then
+			wait_i <= '1';
 			if function3 = "000" or function3 = "100" then
 				if cycle_i = "000" then
 					address_i <= address;
@@ -218,4 +223,5 @@ begin
 end process;
 	
 done <= done_i;
+waitt <= wait_i;
 end rtl;
