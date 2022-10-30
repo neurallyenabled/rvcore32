@@ -17,90 +17,127 @@ end memory_interface_1;
 architecture rtl of memory_interface_1 is
 -- write operation takes 1 cycle
 -- read operation takes 2 cycles after specifying the address
-signal read_data_partial: std_logic_vector(23 downto 0):=(others => '0');
-signal read_data_i: std_logic_vector(7 downto 0):=(others => '0');
+signal read_data_part: std_logic_vector(7 downto 0):=(others => '0');
 signal read_en,wait_i,done_i: std_logic:='0';
 signal address_i : std_logic_vector(13 downto 0):=(others => '0');
 signal cycle_i: unsigned(2 downto 0):= "000";
-
+signal address_selector: std_logic_vector(1 downto 0):= (others => '0');
+signal read_data_i: std_logic_vector(31 downto 0):= (others => '0');
 type state is (idle_s,read_s);
-signal current_state: state:= idle_s;
+signal current_state,next_state: state:= idle_s;
 
 component rom is
 	port (
-		address	: IN STD_LOGIC_VECTOR (13 DOWNTO 0);
-		clken		: IN STD_LOGIC  := '1';
-		clock		: IN STD_LOGIC  := '1';
-		rden		: IN STD_LOGIC  := '1';
-		q			: OUT STD_LOGIC_VECTOR (7 DOWNTO 0)
-	);
+		address	: in STD_LOGIC_VECTOR (13 DOWNTO 0);
+		clken		: in STD_LOGIC  := '1';
+		clock		: in STD_LOGIC  := '1';
+		rden		: in STD_LOGIC  := '1';
+		q			: out STD_LOGIC_VECTOR (7 DOWNTO 0));
 end component rom;
 	
 begin	
 
-u0 : component rom
-	port map (
-		address	 	=> address_i,
-		clken	 		=> start,
-		clock	 		=> clk,
-		rden	 		=> read_en,
-		q	 			=> read_data_i
-	);
+u0 : component rom port map (address_i,start,clk,read_en,read_data_part);
+
+done <= done_i;
+waitt <= wait_i;
 
 process(clk,mem_en)
 begin
 	if mem_en = '0' then
-		read_en <= '0';
-		wait_i <= '0';
-		done_i <= '0';
-		cycle_i <= "000";
-		current_state <= idle_s;
-		
-	elsif rising_edge(clk) then
+		current_state 			<= idle_s;
+	elsif rising_edge (clk) then 		
+		current_state 			<= next_state;
+		if done_i = '1' then
+			read_data <= read_data_i;
+		end if;
 		if current_state = idle_s then
 			cycle_i <= "000";
-			wait_i <= '0';
-			if done_i = '1' then
-				current_state <= idle_s;
-				done_i <= '0';
-			else
-				current_state <= read_s;
-			end if;
-			
-		elsif current_state = read_s then
-			wait_i <= '1';
-			if cycle_i = "000" then
-				address_i <= address;
-				read_en <= '1';
-				cycle_i <= cycle_i + 1;
-			elsif cycle_i = "001" then
-				address_i <= std_logic_vector(unsigned(address)+1);
-				cycle_i <= cycle_i + 1;
-			elsif cycle_i = "010" then
-				address_i <= std_logic_vector(unsigned(address)+2);
-				cycle_i <= cycle_i + 1;
-			elsif cycle_i = "011" then
-				address_i <= std_logic_vector(unsigned(address)+3);
-				read_data_partial(7 downto 0) <= read_data_i;
-				cycle_i <= cycle_i + 1;
-			elsif cycle_i = "100" then
-				read_data_partial(15 downto 8) <= read_data_i;	
-				cycle_i <= cycle_i + 1;					
-			elsif cycle_i = "101" then
-				read_data_partial(23 downto 16) <= read_data_i;	
-				cycle_i <= cycle_i + 1;					
-			elsif cycle_i = "110" then
-				read_en <= '0';
-				done_i <= '1';
-				current_state <= idle_s;
-				read_data <= read_data_i & read_data_partial(23 downto 0);
+		else
+			if cycle_i = "110" then
+				cycle_i <= "110";
 			else
 				cycle_i <= cycle_i + 1;
 			end if;
 		end if;
 	end if;
 end process;
+
+process(address_selector,address)
+begin
+case address_selector is
+ when "00" => address_i 	<= address;
+ when "01" => address_i  	<= std_logic_vector(unsigned(address)+1);
+ when "10" => address_i 	<= std_logic_vector(unsigned(address)+2);
+ when others => address_i 	<= std_logic_vector(unsigned(address)+3);
+end case;
+end process;
 	
-done <= done_i;
-waitt <= wait_i;
+process(all)
+begin
+	if current_state = idle_s then
+		address_selector 		<= "00";
+		read_data_i 			<= (others => '0');
+		wait_i 					<= '0';
+		read_en 					<= '0';
+		done_i 					<= '0';
+		if done_i = '1' then
+			next_state 			<= idle_s;
+		else
+			next_state 			<= read_s;
+		end if;
+		
+	else --current_state = read_s
+		wait_i 					<= '1';
+		if cycle_i = "000" then
+			address_selector 	<= "00";
+			read_en 				<= '1';
+			done_i 				<= '0';
+			read_data_i 		<= (others => '0');
+			next_state 			<= read_s;
+			
+		elsif cycle_i = "001" then
+			address_selector 	<= "01";
+			read_en 				<= '1';
+			done_i 				<= '0';
+			read_data_i 		<= (others => '0');
+			next_state 			<= read_s;
+			
+		elsif cycle_i = "010" then
+			address_selector 	<= "10";
+			read_en 				<= '1';
+			done_i 				<= '0';
+			read_data_i 		<= (others => '0');
+			next_state 			<= read_s;
+			
+		elsif cycle_i = "011" then
+			address_selector 	<= "11";
+			read_en 				<= '1';
+			done_i 				<= '0';
+			read_data_i 		<= (31 downto 8 => '0') & read_data_part;
+			next_state 			<= read_s;
+			
+		elsif cycle_i = "100" then
+			address_selector 	<= "11";
+			read_en 				<= '1';
+			done_i 				<= '0';
+			read_data_i 		<= (31 downto 16 => '0') & read_data_part & read_data_i(7 downto 0);
+			next_state 			<= read_s;
+			
+		elsif cycle_i = "101" then
+			address_selector 	<= "11";
+			read_en 				<= '1';
+			done_i 				<= '0';
+			read_data_i 		<= (31 downto 24 => '0') & read_data_part & read_data_i(15 downto 0);
+			next_state 			<= read_s;
+			
+		else -- cycle_i = "110" then
+			address_selector 	<= "11";
+			read_en 				<= '0';
+			done_i 				<= '1';
+			read_data_i 		<= read_data_part & read_data_i(23 downto 0);
+			next_state 			<= idle_s;			
+		end if;
+	end if;
+end process;
 end rtl;

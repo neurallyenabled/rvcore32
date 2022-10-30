@@ -62,13 +62,13 @@ begin
 
 	elsif rising_edge(clk) and uut_fetch_en = '1' then
 		if pc_selector = '1' then
-			PC_i 			<= new_pc_in(31 downto 1) & '0';
 			if pc_increment = '1' then
+				pc_i 				<= new_pc_in(31 downto 1) & '0';
 				pc4_i 			<= std_logic_vector(unsigned(new_pc_in) + 4);
 			end if;
 		else
-			PC_i 				<= pc4_i(31 downto 1) & '0';
 			if pc_increment = '1' then
+				pc_i 				<= pc4_i(31 downto 1) & '0';
 				pc4_i 			<= std_logic_vector(unsigned(pc_i) + 4);
 			end if;
 		end if;		
