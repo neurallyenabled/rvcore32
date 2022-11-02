@@ -17,12 +17,12 @@ end memory_interface_1;
 architecture rtl of memory_interface_1 is
 -- write operation takes 1 cycle
 -- read operation takes 2 cycles after specifying the address
-signal read_data_part: std_logic_vector(7 downto 0):=(others => '0');
+signal read_data_byte: std_logic_vector(7 downto 0):=(others => '0');
 signal read_en,wait_i,done_i: std_logic:='0';
 signal address_i : std_logic_vector(13 downto 0):=(others => '0');
 signal cycle_i: unsigned(2 downto 0):= "000";
 signal address_selector: std_logic_vector(1 downto 0):= (others => '0');
-signal read_data_i: std_logic_vector(31 downto 0):= (others => '0');
+signal read_data_i: std_logic_vector(23 downto 0):= (others => '0');
 type state is (idle_s,read_s);
 signal current_state,next_state: state:= idle_s;
 
@@ -37,7 +37,7 @@ end component rom;
 	
 begin	
 
-u0 : component rom port map (address_i,start,clk,read_en,read_data_part);
+u0 : component rom port map (address_i,start,clk,read_en,read_data_byte);
 
 done <= done_i;
 waitt <= wait_i;
@@ -48,9 +48,6 @@ begin
 		current_state 			<= idle_s;
 	elsif rising_edge (clk) then 		
 		current_state 			<= next_state;
-		if done_i = '1' then
-			read_data <= read_data_i;
-		end if;
 		if current_state = idle_s then
 			cycle_i <= "000";
 		else
@@ -107,36 +104,37 @@ begin
 			address_selector 	<= "10";
 			read_en 				<= '1';
 			done_i 				<= '0';
-			read_data_i 		<= (others => '0');
+			if rising_edge(clk) then
+			read_data_i(7 downto 0)		<= read_data_byte;
+			end if;
 			next_state 			<= read_s;
 			
 		elsif cycle_i = "011" then
 			address_selector 	<= "11";
 			read_en 				<= '1';
 			done_i 				<= '0';
-			read_data_i 		<= (31 downto 8 => '0') & read_data_part;
+			if rising_edge(clk) then
+			read_data_i(15 downto 8) 	<= read_data_byte;
+			end if;
 			next_state 			<= read_s;
 			
 		elsif cycle_i = "100" then
 			address_selector 	<= "11";
 			read_en 				<= '1';
 			done_i 				<= '0';
-			read_data_i 		<= (31 downto 16 => '0') & read_data_part & read_data_i(7 downto 0);
+			if rising_edge(clk) then
+			read_data_i(23 downto 16) 	<= read_data_byte;
+			end if;
 			next_state 			<= read_s;
 			
-		elsif cycle_i = "101" then
+		else -- cycle_i = "101" then
 			address_selector 	<= "11";
 			read_en 				<= '1';
-			done_i 				<= '0';
-			read_data_i 		<= (31 downto 24 => '0') & read_data_part & read_data_i(15 downto 0);
-			next_state 			<= read_s;
-			
-		else -- cycle_i = "110" then
-			address_selector 	<= "11";
-			read_en 				<= '0';
 			done_i 				<= '1';
-			read_data_i 		<= read_data_part & read_data_i(23 downto 0);
-			next_state 			<= idle_s;			
+			if rising_edge(clk) then
+			read_data	 		<= read_data_byte & read_data_i(23 downto 0);
+			end if;
+			next_state 			<= idle_s;		
 		end if;
 	end if;
 end process;

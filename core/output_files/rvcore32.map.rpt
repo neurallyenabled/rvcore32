@@ -1,5 +1,5 @@
 Analysis & Synthesis report for rvcore32
-Sat Oct 29 23:28:24 2022
+Wed Nov  2 06:28:04 2022
 Quartus Prime Version 21.1.0 Build 842 10/21/2021 SJ Lite Edition
 
 
@@ -15,15 +15,14 @@ Quartus Prime Version 21.1.0 Build 842 10/21/2021 SJ Lite Edition
   7. Analysis & Synthesis Resource Utilization by Entity
   8. Analysis & Synthesis RAM Summary
   9. Analysis & Synthesis IP Cores Summary
- 10. User-Specified and Inferred Latches
- 11. General Register Statistics
- 12. Multiplexer Restructuring Statistics (Restructuring Performed)
- 13. Source assignments for rom:u0|altsyncram:altsyncram_component|altsyncram_9n24:auto_generated
- 14. Parameter Settings for User Entity Instance: rom:u0|altsyncram:altsyncram_component
- 15. altsyncram Parameter Settings by Entity Instance
- 16. Post-Synthesis Netlist Statistics for Top Partition
- 17. Elapsed Time Per Partition
- 18. Analysis & Synthesis Messages
+ 10. General Register Statistics
+ 11. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 12. Source assignments for rom:u0|altsyncram:altsyncram_component|altsyncram_9n24:auto_generated
+ 13. Parameter Settings for User Entity Instance: rom:u0|altsyncram:altsyncram_component
+ 14. altsyncram Parameter Settings by Entity Instance
+ 15. Post-Synthesis Netlist Statistics for Top Partition
+ 16. Elapsed Time Per Partition
+ 17. Analysis & Synthesis Messages
 
 
 
@@ -50,15 +49,15 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sat Oct 29 23:28:24 2022       ;
+; Analysis & Synthesis Status        ; Successful - Wed Nov  2 06:28:04 2022       ;
 ; Quartus Prime Version              ; 21.1.0 Build 842 10/21/2021 SJ Lite Edition ;
 ; Revision Name                      ; rvcore32                                    ;
 ; Top-level Entity Name              ; memory_interface_1                          ;
 ; Family                             ; MAX 10                                      ;
-; Total logic elements               ; 125                                         ;
-;     Total combinational functions  ; 124                                         ;
-;     Dedicated logic registers      ; 38                                          ;
-; Total registers                    ; 38                                          ;
+; Total logic elements               ; 138                                         ;
+;     Total combinational functions  ; 89                                          ;
+;     Dedicated logic registers      ; 62                                          ;
+; Total registers                    ; 62                                          ;
 ; Total pins                         ; 51                                          ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 131,072                                     ;
@@ -201,20 +200,20 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+-----------+
 ; Resource                                    ; Usage     ;
 +---------------------------------------------+-----------+
-; Estimated Total logic elements              ; 125       ;
+; Estimated Total logic elements              ; 138       ;
 ;                                             ;           ;
-; Total combinational functions               ; 124       ;
+; Total combinational functions               ; 89        ;
 ; Logic element usage by number of LUT inputs ;           ;
-;     -- 4 input functions                    ; 65        ;
-;     -- 3 input functions                    ; 17        ;
+;     -- 4 input functions                    ; 31        ;
+;     -- 3 input functions                    ; 16        ;
 ;     -- <=2 input functions                  ; 42        ;
 ;                                             ;           ;
 ; Logic elements by mode                      ;           ;
-;     -- normal mode                          ; 86        ;
+;     -- normal mode                          ; 51        ;
 ;     -- arithmetic mode                      ; 38        ;
 ;                                             ;           ;
-; Total registers                             ; 38        ;
-;     -- Dedicated logic registers            ; 38        ;
+; Total registers                             ; 62        ;
+;     -- Dedicated logic registers            ; 62        ;
 ;     -- I/O registers                        ; 0         ;
 ;                                             ;           ;
 ; I/O pins                                    ; 51        ;
@@ -223,9 +222,9 @@ https://fpgasoftware.intel.com/eula.
 ; Embedded Multiplier 9-bit elements          ; 0         ;
 ;                                             ;           ;
 ; Maximum fan-out node                        ; clk~input ;
-; Maximum fan-out                             ; 54        ;
-; Total fan-out                               ; 847       ;
-; Average fan-out                             ; 3.02      ;
+; Maximum fan-out                             ; 78        ;
+; Total fan-out                               ; 805       ;
+; Average fan-out                             ; 2.99      ;
 +---------------------------------------------+-----------+
 
 
@@ -234,7 +233,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+--------------------------------------------------------------------------------------------------------+--------------------+--------------+
 ; Compilation Hierarchy Node                ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name                                                                                    ; Entity Name        ; Library Name ;
 +-------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+--------------------------------------------------------------------------------------------------------+--------------------+--------------+
-; |memory_interface_1                       ; 124 (115)           ; 38 (36)                   ; 131072      ; 0          ; 0            ; 0       ; 0         ; 51   ; 0            ; 0          ; |memory_interface_1                                                                                    ; memory_interface_1 ; work         ;
+; |memory_interface_1                       ; 89 (80)             ; 62 (60)                   ; 131072      ; 0          ; 0            ; 0       ; 0         ; 51   ; 0            ; 0          ; |memory_interface_1                                                                                    ; memory_interface_1 ; work         ;
 ;    |rom:u0|                               ; 9 (0)               ; 2 (0)                     ; 131072      ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |memory_interface_1|rom:u0                                                                             ; rom                ; work         ;
 ;       |altsyncram:altsyncram_component|   ; 9 (0)               ; 2 (0)                     ; 131072      ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |memory_interface_1|rom:u0|altsyncram:altsyncram_component                                             ; altsyncram         ; work         ;
 ;          |altsyncram_9n24:auto_generated| ; 9 (1)               ; 2 (2)                     ; 131072      ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |memory_interface_1|rom:u0|altsyncram:altsyncram_component|altsyncram_9n24:auto_generated              ; altsyncram_9n24    ; work         ;
@@ -261,64 +260,29 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +--------+--------------+---------+--------------+--------------+----------------------------+------------------------+
 
 
-+----------------------------------------------------------------------------------------------------+
-; User-Specified and Inferred Latches                                                                ;
-+-----------------------------------------------------+---------------------+------------------------+
-; Latch Name                                          ; Latch Enable Signal ; Free of Timing Hazards ;
-+-----------------------------------------------------+---------------------+------------------------+
-; read_data_i[0]                                      ; Equal1              ; yes                    ;
-; read_data_i[1]                                      ; Equal1              ; yes                    ;
-; read_data_i[2]                                      ; Equal1              ; yes                    ;
-; read_data_i[3]                                      ; Equal1              ; yes                    ;
-; read_data_i[4]                                      ; Equal1              ; yes                    ;
-; read_data_i[5]                                      ; Equal1              ; yes                    ;
-; read_data_i[6]                                      ; Equal1              ; yes                    ;
-; read_data_i[7]                                      ; Equal1              ; yes                    ;
-; read_data_i[8]                                      ; Equal1              ; yes                    ;
-; read_data_i[9]                                      ; Equal1              ; yes                    ;
-; read_data_i[10]                                     ; Equal1              ; yes                    ;
-; read_data_i[11]                                     ; Equal1              ; yes                    ;
-; read_data_i[12]                                     ; Equal1              ; yes                    ;
-; read_data_i[13]                                     ; Equal1              ; yes                    ;
-; read_data_i[14]                                     ; Equal1              ; yes                    ;
-; read_data_i[15]                                     ; Equal1              ; yes                    ;
-; read_data_i[16]                                     ; Equal1              ; yes                    ;
-; read_data_i[17]                                     ; Equal1              ; yes                    ;
-; read_data_i[18]                                     ; Equal1              ; yes                    ;
-; read_data_i[19]                                     ; Equal1              ; yes                    ;
-; read_data_i[20]                                     ; Equal1              ; yes                    ;
-; read_data_i[21]                                     ; Equal1              ; yes                    ;
-; read_data_i[22]                                     ; Equal1              ; yes                    ;
-; read_data_i[23]                                     ; Equal1              ; yes                    ;
-; Number of user-specified and inferred latches = 24  ;                     ;                        ;
-+-----------------------------------------------------+---------------------+------------------------+
-Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
-
-
 +------------------------------------------------------+
 ; General Register Statistics                          ;
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 38    ;
+; Total registers                              ; 62    ;
 ; Number of registers using Synchronous Clear  ; 0     ;
-; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 1     ;
+; Number of registers using Synchronous Load   ; 1     ;
+; Number of registers using Asynchronous Clear ; 25    ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 37    ;
+; Number of registers using Clock Enable       ; 61    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                       ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output             ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------+
-; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |memory_interface_1|cycle_i[2]         ;
-; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |memory_interface_1|read_data[24]~reg0 ;
-; 4:1                ; 12 bits   ; 24 LEs        ; 24 LEs               ; 0 LEs                  ; No         ; |memory_interface_1|Mux8               ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------+
++----------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                               ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output     ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------+
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |memory_interface_1|cycle_i[0] ;
+; 4:1                ; 12 bits   ; 24 LEs        ; 24 LEs               ; 0 LEs                  ; No         ; |memory_interface_1|Mux12      ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------+
 
 
 +----------------------------------------------------------------------------------------------+
@@ -417,21 +381,22 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
 ; boundary_port         ; 51                          ;
-; cycloneiii_ff         ; 38                          ;
-;     CLR               ; 1                           ;
+; cycloneiii_ff         ; 62                          ;
+;     CLR SLD           ; 1                           ;
 ;     ENA               ; 37                          ;
-; cycloneiii_lcell_comb ; 125                         ;
+;     ENA CLR           ; 24                          ;
+; cycloneiii_lcell_comb ; 89                          ;
 ;     arith             ; 38                          ;
 ;         2 data inputs ; 38                          ;
-;     normal            ; 87                          ;
-;         1 data inputs ; 4                           ;
+;     normal            ; 51                          ;
+;         1 data inputs ; 3                           ;
 ;         2 data inputs ; 1                           ;
-;         3 data inputs ; 17                          ;
-;         4 data inputs ; 65                          ;
+;         3 data inputs ; 16                          ;
+;         4 data inputs ; 31                          ;
 ; cycloneiii_ram_block  ; 16                          ;
 ;                       ;                             ;
 ; Max LUT depth         ; 4.30                        ;
-; Average LUT depth     ; 2.44                        ;
+; Average LUT depth     ; 2.27                        ;
 +-----------------------+-----------------------------+
 
 
@@ -440,7 +405,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:01     ;
+; Top            ; 00:00:00     ;
 +----------------+--------------+
 
 
@@ -450,7 +415,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 21.1.0 Build 842 10/21/2021 SJ Lite Edition
-    Info: Processing started: Sat Oct 29 23:28:08 2022
+    Info: Processing started: Wed Nov  2 06:27:56 2022
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off rvcore32 -c rvcore32
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
 Info (12021): Found 2 design units, including 1 entities, in source file components/control_unit.vhd
@@ -505,32 +470,7 @@ Info (12021): Found 2 design units, including 1 entities, in source file testben
     Info (12022): Found design unit 1: memory_interface_1_tb-rtl File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/testbenches/memory_interface_1_tb.vhd Line: 8
     Info (12023): Found entity 1: memory_interface_1_tb File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/testbenches/memory_interface_1_tb.vhd Line: 5
 Info (12127): Elaborating entity "memory_interface_1" for the top level hierarchy
-Warning (10631): VHDL Process Statement warning at memory_interface_1.vhd(143): inferring latch(es) for signal or variable "read_data_i", which holds its previous value in one or more paths through the process File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/memory_interface_1.vhd Line: 143
-Info (10041): Inferred latch for "read_data_i[0]" at memory_interface_1.vhd(143) File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/memory_interface_1.vhd Line: 143
-Info (10041): Inferred latch for "read_data_i[1]" at memory_interface_1.vhd(143) File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/memory_interface_1.vhd Line: 143
-Info (10041): Inferred latch for "read_data_i[2]" at memory_interface_1.vhd(143) File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/memory_interface_1.vhd Line: 143
-Info (10041): Inferred latch for "read_data_i[3]" at memory_interface_1.vhd(143) File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/memory_interface_1.vhd Line: 143
-Info (10041): Inferred latch for "read_data_i[4]" at memory_interface_1.vhd(143) File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/memory_interface_1.vhd Line: 143
-Info (10041): Inferred latch for "read_data_i[5]" at memory_interface_1.vhd(143) File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/memory_interface_1.vhd Line: 143
-Info (10041): Inferred latch for "read_data_i[6]" at memory_interface_1.vhd(143) File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/memory_interface_1.vhd Line: 143
-Info (10041): Inferred latch for "read_data_i[7]" at memory_interface_1.vhd(143) File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/memory_interface_1.vhd Line: 143
-Info (10041): Inferred latch for "read_data_i[8]" at memory_interface_1.vhd(143) File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/memory_interface_1.vhd Line: 143
-Info (10041): Inferred latch for "read_data_i[9]" at memory_interface_1.vhd(143) File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/memory_interface_1.vhd Line: 143
-Info (10041): Inferred latch for "read_data_i[10]" at memory_interface_1.vhd(143) File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/memory_interface_1.vhd Line: 143
-Info (10041): Inferred latch for "read_data_i[11]" at memory_interface_1.vhd(143) File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/memory_interface_1.vhd Line: 143
-Info (10041): Inferred latch for "read_data_i[12]" at memory_interface_1.vhd(143) File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/memory_interface_1.vhd Line: 143
-Info (10041): Inferred latch for "read_data_i[13]" at memory_interface_1.vhd(143) File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/memory_interface_1.vhd Line: 143
-Info (10041): Inferred latch for "read_data_i[14]" at memory_interface_1.vhd(143) File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/memory_interface_1.vhd Line: 143
-Info (10041): Inferred latch for "read_data_i[15]" at memory_interface_1.vhd(143) File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/memory_interface_1.vhd Line: 143
-Info (10041): Inferred latch for "read_data_i[16]" at memory_interface_1.vhd(143) File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/memory_interface_1.vhd Line: 143
-Info (10041): Inferred latch for "read_data_i[17]" at memory_interface_1.vhd(143) File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/memory_interface_1.vhd Line: 143
-Info (10041): Inferred latch for "read_data_i[18]" at memory_interface_1.vhd(143) File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/memory_interface_1.vhd Line: 143
-Info (10041): Inferred latch for "read_data_i[19]" at memory_interface_1.vhd(143) File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/memory_interface_1.vhd Line: 143
-Info (10041): Inferred latch for "read_data_i[20]" at memory_interface_1.vhd(143) File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/memory_interface_1.vhd Line: 143
-Info (10041): Inferred latch for "read_data_i[21]" at memory_interface_1.vhd(143) File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/memory_interface_1.vhd Line: 143
-Info (10041): Inferred latch for "read_data_i[22]" at memory_interface_1.vhd(143) File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/memory_interface_1.vhd Line: 143
-Info (10041): Inferred latch for "read_data_i[23]" at memory_interface_1.vhd(143) File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/memory_interface_1.vhd Line: 143
-Info (12128): Elaborating entity "rom" for hierarchy "rom:u0" File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/memory_interface_1.vhd Line: 41
+Info (12128): Elaborating entity "rom" for hierarchy "rom:u0" File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/memory_interface_1.vhd Line: 40
 Info (12128): Elaborating entity "altsyncram" for hierarchy "rom:u0|altsyncram:altsyncram_component" File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/rom/rom.vhd Line: 62
 Info (12130): Elaborated megafunction instantiation "rom:u0|altsyncram:altsyncram_component" File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/rom/rom.vhd Line: 62
 Info (12133): Instantiated megafunction "rom:u0|altsyncram:altsyncram_component" with the following parameter: File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/rom/rom.vhd Line: 62
@@ -590,66 +530,18 @@ Info (12128): Elaborating entity "altsyncram_9n24" for hierarchy "rom:u0|altsync
 Info (12021): Found 1 design units, including 1 entities, in source file db/mux_p1b.tdf
     Info (12023): Found entity 1: mux_p1b File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/db/mux_p1b.tdf Line: 23
 Info (12128): Elaborating entity "mux_p1b" for hierarchy "rom:u0|altsyncram:altsyncram_component|altsyncram_9n24:auto_generated|mux_p1b:mux2" File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/db/altsyncram_9n24.tdf Line: 41
-Warning (13012): Latch read_data_i[0] has unsafe behavior File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/memory_interface_1.vhd Line: 143
-    Warning (13013): Ports ENA and CLR on the latch are fed by the same signal cycle_i[2] File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/memory_interface_1.vhd Line: 48
-Warning (13012): Latch read_data_i[1] has unsafe behavior File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/memory_interface_1.vhd Line: 143
-    Warning (13013): Ports ENA and CLR on the latch are fed by the same signal cycle_i[2] File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/memory_interface_1.vhd Line: 48
-Warning (13012): Latch read_data_i[2] has unsafe behavior File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/memory_interface_1.vhd Line: 143
-    Warning (13013): Ports ENA and CLR on the latch are fed by the same signal cycle_i[2] File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/memory_interface_1.vhd Line: 48
-Warning (13012): Latch read_data_i[3] has unsafe behavior File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/memory_interface_1.vhd Line: 143
-    Warning (13013): Ports ENA and CLR on the latch are fed by the same signal cycle_i[2] File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/memory_interface_1.vhd Line: 48
-Warning (13012): Latch read_data_i[4] has unsafe behavior File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/memory_interface_1.vhd Line: 143
-    Warning (13013): Ports ENA and CLR on the latch are fed by the same signal cycle_i[2] File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/memory_interface_1.vhd Line: 48
-Warning (13012): Latch read_data_i[5] has unsafe behavior File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/memory_interface_1.vhd Line: 143
-    Warning (13013): Ports ENA and CLR on the latch are fed by the same signal cycle_i[2] File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/memory_interface_1.vhd Line: 48
-Warning (13012): Latch read_data_i[6] has unsafe behavior File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/memory_interface_1.vhd Line: 143
-    Warning (13013): Ports ENA and CLR on the latch are fed by the same signal cycle_i[2] File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/memory_interface_1.vhd Line: 48
-Warning (13012): Latch read_data_i[7] has unsafe behavior File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/memory_interface_1.vhd Line: 143
-    Warning (13013): Ports ENA and CLR on the latch are fed by the same signal cycle_i[2] File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/memory_interface_1.vhd Line: 48
-Warning (13012): Latch read_data_i[8] has unsafe behavior File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/memory_interface_1.vhd Line: 143
-    Warning (13013): Ports ENA and CLR on the latch are fed by the same signal cycle_i[2] File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/memory_interface_1.vhd Line: 48
-Warning (13012): Latch read_data_i[9] has unsafe behavior File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/memory_interface_1.vhd Line: 143
-    Warning (13013): Ports ENA and CLR on the latch are fed by the same signal cycle_i[2] File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/memory_interface_1.vhd Line: 48
-Warning (13012): Latch read_data_i[10] has unsafe behavior File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/memory_interface_1.vhd Line: 143
-    Warning (13013): Ports ENA and CLR on the latch are fed by the same signal cycle_i[2] File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/memory_interface_1.vhd Line: 48
-Warning (13012): Latch read_data_i[11] has unsafe behavior File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/memory_interface_1.vhd Line: 143
-    Warning (13013): Ports ENA and CLR on the latch are fed by the same signal cycle_i[2] File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/memory_interface_1.vhd Line: 48
-Warning (13012): Latch read_data_i[12] has unsafe behavior File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/memory_interface_1.vhd Line: 143
-    Warning (13013): Ports ENA and CLR on the latch are fed by the same signal cycle_i[2] File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/memory_interface_1.vhd Line: 48
-Warning (13012): Latch read_data_i[13] has unsafe behavior File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/memory_interface_1.vhd Line: 143
-    Warning (13013): Ports ENA and CLR on the latch are fed by the same signal cycle_i[2] File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/memory_interface_1.vhd Line: 48
-Warning (13012): Latch read_data_i[14] has unsafe behavior File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/memory_interface_1.vhd Line: 143
-    Warning (13013): Ports ENA and CLR on the latch are fed by the same signal cycle_i[2] File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/memory_interface_1.vhd Line: 48
-Warning (13012): Latch read_data_i[15] has unsafe behavior File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/memory_interface_1.vhd Line: 143
-    Warning (13013): Ports ENA and CLR on the latch are fed by the same signal cycle_i[2] File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/memory_interface_1.vhd Line: 48
-Warning (13012): Latch read_data_i[16] has unsafe behavior File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/memory_interface_1.vhd Line: 143
-    Warning (13013): Ports ENA and CLR on the latch are fed by the same signal cycle_i[2] File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/memory_interface_1.vhd Line: 48
-Warning (13012): Latch read_data_i[17] has unsafe behavior File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/memory_interface_1.vhd Line: 143
-    Warning (13013): Ports ENA and CLR on the latch are fed by the same signal cycle_i[2] File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/memory_interface_1.vhd Line: 48
-Warning (13012): Latch read_data_i[18] has unsafe behavior File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/memory_interface_1.vhd Line: 143
-    Warning (13013): Ports ENA and CLR on the latch are fed by the same signal cycle_i[2] File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/memory_interface_1.vhd Line: 48
-Warning (13012): Latch read_data_i[19] has unsafe behavior File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/memory_interface_1.vhd Line: 143
-    Warning (13013): Ports ENA and CLR on the latch are fed by the same signal cycle_i[2] File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/memory_interface_1.vhd Line: 48
-Warning (13012): Latch read_data_i[20] has unsafe behavior File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/memory_interface_1.vhd Line: 143
-    Warning (13013): Ports ENA and CLR on the latch are fed by the same signal cycle_i[2] File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/memory_interface_1.vhd Line: 48
-Warning (13012): Latch read_data_i[21] has unsafe behavior File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/memory_interface_1.vhd Line: 143
-    Warning (13013): Ports ENA and CLR on the latch are fed by the same signal cycle_i[2] File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/memory_interface_1.vhd Line: 48
-Warning (13012): Latch read_data_i[22] has unsafe behavior File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/memory_interface_1.vhd Line: 143
-    Warning (13013): Ports ENA and CLR on the latch are fed by the same signal cycle_i[2] File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/memory_interface_1.vhd Line: 48
-Warning (13012): Latch read_data_i[23] has unsafe behavior File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/memory_interface_1.vhd Line: 143
-    Warning (13013): Ports ENA and CLR on the latch are fed by the same signal cycle_i[2] File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/memory_interface_1.vhd Line: 48
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 217 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 213 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 17 input pins
     Info (21059): Implemented 34 output pins
-    Info (21061): Implemented 150 logic cells
+    Info (21061): Implemented 146 logic cells
     Info (21064): Implemented 16 RAM segments
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 49 warnings
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 0 warnings
     Info: Peak virtual memory: 654 megabytes
-    Info: Processing ended: Sat Oct 29 23:28:24 2022
-    Info: Elapsed time: 00:00:16
-    Info: Total CPU time (on all processors): 00:00:40
+    Info: Processing ended: Wed Nov  2 06:28:04 2022
+    Info: Elapsed time: 00:00:08
+    Info: Total CPU time (on all processors): 00:00:19
 
 
