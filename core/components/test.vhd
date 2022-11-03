@@ -18,7 +18,6 @@ architecture rtl of test is
 signal IF_mem_en							: std_logic:= '0';
 signal IF_done								: std_logic:= '0';
 signal IF_pc_selector					: std_logic:= '0';
-signal IF_pc_increment					: std_logic:= '0';
 signal IF_wait								: std_logic:= '0';
 
 signal uut_en								: std_logic_vector (5 downto 0):= (others => '0');
@@ -31,7 +30,6 @@ port (
 	clk					: in std_logic;
 	start					: in std_logic;
 	pc_selector			: in std_logic;
-	pc_increment		: in std_logic;
 	uut_fetch_en		: in std_logic;
 	uut_fetch_clr		: in std_logic;
 	uut_fetch_out		: in std_logic;
@@ -61,7 +59,6 @@ port (
 	O_mem_en		: out std_logic;
 	fetch_en		: out std_logic;
 	pc_selector	: out std_logic;
-	pc_increment: out std_logic;
 	uut_out		: out std_logic_vector(5 downto 0);
 	uut_en		: out std_logic_vector(5 downto 0);
 	uut_clr		: out std_logic_vector(5 downto 0)
@@ -69,6 +66,7 @@ port (
 end component;
 
 attribute preserve: boolean; 
+attribute preserve of uut_fetch: component is true; 
 attribute preserve of rtl: architecture is true; 
 begin
 
@@ -84,7 +82,6 @@ uut_fetch1: uut_fetch port map(
 				fetch_done				=> IF_done,
 				
 				pc_selector 			=> IF_pc_selector,
-				pc_increment			=> IF_pc_increment,
 				new_pc_in 				=> (others => '0'),
 
 				instruction 			=> IF_ID_instruction,
@@ -102,7 +99,6 @@ control_unit1: control_unit port map(
 				uut_clr 					=> uut_clr,
 				uut_out					=> uut_out,
 				pc_selector				=> IF_pc_selector,
-				pc_increment			=> IF_pc_increment,
 				fetch_en 				=> IF_mem_en,
 				fetch_wait				=> IF_wait,
 				fetch_done				=> IF_done,

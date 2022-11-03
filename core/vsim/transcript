@@ -14,7 +14,7 @@
 # //
 vcom -reportprogress 300 -work work /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/rom/rom.vhd
 # Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
-# Start time: 05:27:10 on Nov 02,2022
+# Start time: 06:07:45 on Nov 03,2022
 # vcom -reportprogress 300 -work work /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/rom/rom.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -22,11 +22,11 @@ vcom -reportprogress 300 -work work /home/mj/Documents/uob/itce497-senior-projec
 # -- Loading package altera_mf_components
 # -- Compiling entity rom
 # -- Compiling architecture SYN of rom
-# End time: 05:27:10 on Nov 02,2022, Elapsed time: 0:00:00
+# End time: 06:07:45 on Nov 03,2022, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 vcom -reportprogress 300 -work work /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/memory_interface_1.vhd
 # Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
-# Start time: 05:27:13 on Nov 02,2022
+# Start time: 06:07:50 on Nov 03,2022
 # vcom -reportprogress 300 -work work /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/memory_interface_1.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -34,11 +34,11 @@ vcom -reportprogress 300 -work work /home/mj/Documents/uob/itce497-senior-projec
 # -- Loading package NUMERIC_STD
 # -- Compiling entity memory_interface_1
 # -- Compiling architecture rtl of memory_interface_1
-# End time: 05:27:13 on Nov 02,2022, Elapsed time: 0:00:00
+# End time: 06:07:50 on Nov 03,2022, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 vcom -reportprogress 300 -work work /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/uut_fetch.vhd
 # Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
-# Start time: 05:27:21 on Nov 02,2022
+# Start time: 06:07:55 on Nov 03,2022
 # vcom -reportprogress 300 -work work /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/uut_fetch.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -46,111 +46,45 @@ vcom -reportprogress 300 -work work /home/mj/Documents/uob/itce497-senior-projec
 # -- Loading package NUMERIC_STD
 # -- Compiling entity uut_fetch
 # -- Compiling architecture rtl of uut_fetch
-# End time: 05:27:21 on Nov 02,2022, Elapsed time: 0:00:00
+# End time: 06:07:55 on Nov 03,2022, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-vsim -voptargs=+acc work.memory_interface_1
-# vsim -voptargs="+acc" work.memory_interface_1 
-# Start time: 05:27:29 on Nov 02,2022
-# ** Note: (vsim-3812) Design is being optimized...
-# ** Note: (vopt-143) Recognized 1 FSM in architecture body "memory_interface_1(rtl)".
-# Loading std.standard
-# Loading std.textio(body)
-# Loading ieee.std_logic_1164(body)
-# Loading ieee.numeric_std(body)
-# Loading work.memory_interface_1(rtl)#1
-# Loading altera_mf.altera_mf_components
-# Loading work.rom(syn)#1
-# Loading ieee.std_logic_arith(body)
-# Loading ieee.std_logic_unsigned(body)
-# Loading altera_mf.altera_common_conversion(body)
-# Loading altera_mf.altera_device_families(body)
-# Loading altera_mf.altsyncram(translated)#1
-add wave -position insertpoint sim:/memory_interface_1/*
-noforce sim:/memory_interface_1/clk
-force -freeze sim:/memory_interface_1/clk 1 0, 0 {50 ns} -r 100
-force -freeze sim:/memory_interface_1/mem_en 1 0
-force -freeze sim:/memory_interface_1/start 1 0
-force -freeze sim:/memory_interface_1/address 14'h0000 0
-run
-run
-run
-run
-run
-run
-run
-run
-run
-vcom -reportprogress 300 -work work /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/memory_interface_1.vhd
+vcom -reportprogress 300 -work work /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/control_unit.vhd
 # Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
-# Start time: 05:33:36 on Nov 02,2022
-# vcom -reportprogress 300 -work work /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/memory_interface_1.vhd 
+# Start time: 06:07:56 on Nov 03,2022
+# vcom -reportprogress 300 -work work /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/control_unit.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Loading package NUMERIC_STD
-# -- Compiling entity memory_interface_1
-# -- Compiling architecture rtl of memory_interface_1
-# End time: 05:33:36 on Nov 02,2022, Elapsed time: 0:00:00
+# -- Compiling entity control_unit
+# -- Compiling architecture rtl of control_unit
+# End time: 06:07:56 on Nov 03,2022, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-vsim -voptargs=+acc work.memory_interface_1
-# End time: 05:33:50 on Nov 02,2022, Elapsed time: 0:06:21
-# Errors: 0, Warnings: 0
-# vsim -voptargs="+acc" work.memory_interface_1 
-# Start time: 05:33:50 on Nov 02,2022
-# ** Note: (vsim-8009) Loading existing optimized design _opt
-# Loading std.standard
-# Loading std.textio(body)
-# Loading ieee.std_logic_1164(body)
-# Loading ieee.numeric_std(body)
-# Loading work.memory_interface_1(rtl)#1
-# Loading altera_mf.altera_mf_components
-# Loading work.rom(syn)#1
-# Loading ieee.std_logic_arith(body)
-# Loading ieee.std_logic_unsigned(body)
-# Loading altera_mf.altera_common_conversion(body)
-# Loading altera_mf.altera_device_families(body)
-# Loading altera_mf.altsyncram(translated)#1
-add wave -position insertpoint sim:/memory_interface_1/*
-force -freeze sim:/memory_interface_1/clk 1 0, 0 {50 ns} -r 100
-force -freeze sim:/memory_interface_1/mem_en {} 0
-# ** UI-Msg: (vsim-4026) Value "" does not represent a literal of the enumeration type.
-# ** UI-Msg: (vsim-4011) Invalid force value: {} 0.
-# 
-force -freeze sim:/memory_interface_1/start 1 0
-force -freeze sim:/memory_interface_1/address 14'h0000 0
-force -freeze sim:/memory_interface_1/mem_en 1 0
-run
-run
-run
-run
-run
-run
-run
-run
-run
-vcom -reportprogress 300 -work work /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/memory_interface_1.vhd
+vcom -reportprogress 300 -work work /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/test.vhd
 # Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
-# Start time: 05:41:47 on Nov 02,2022
-# vcom -reportprogress 300 -work work /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/memory_interface_1.vhd 
+# Start time: 06:07:58 on Nov 03,2022
+# vcom -reportprogress 300 -work work /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/test.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Loading package NUMERIC_STD
-# -- Compiling entity memory_interface_1
-# -- Compiling architecture rtl of memory_interface_1
-# End time: 05:41:47 on Nov 02,2022, Elapsed time: 0:00:00
+# -- Loading package altera_syn_attributes
+# -- Compiling entity test
+# -- Compiling architecture rtl of test
+# End time: 06:07:58 on Nov 03,2022, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-vsim -voptargs=+acc work.memory_interface_1
-# End time: 05:41:54 on Nov 02,2022, Elapsed time: 0:08:04
-# Errors: 0, Warnings: 0
-# vsim -voptargs="+acc" work.memory_interface_1 
-# Start time: 05:41:54 on Nov 02,2022
+vsim -voptargs=+acc work.test
+# vsim -voptargs="+acc" work.test 
+# Start time: 06:08:05 on Nov 03,2022
 # ** Note: (vsim-3813) Design is being optimized due to module recompilation...
-# ** Note: (vopt-143) Recognized 1 FSM in architecture body "memory_interface_1(rtl)".
+# ** Note: (vopt-143) Recognized 1 FSM in architecture body "control_unit(rtl)".
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
 # Loading ieee.numeric_std(body)
+# Loading altera.altera_syn_attributes
+# Loading work.test(rtl)#1
+# Loading work.uut_fetch(rtl)#1
 # Loading work.memory_interface_1(rtl)#1
 # Loading altera_mf.altera_mf_components
 # Loading work.rom(syn)#1
@@ -159,11 +93,11 @@ vsim -voptargs=+acc work.memory_interface_1
 # Loading altera_mf.altera_common_conversion(body)
 # Loading altera_mf.altera_device_families(body)
 # Loading altera_mf.altsyncram(translated)#1
-add wave -position insertpoint sim:/memory_interface_1/*
-force -freeze sim:/memory_interface_1/clk 1 0, 0 {50 ns} -r 100
-force -freeze sim:/memory_interface_1/mem_en 1 0
-force -freeze sim:/memory_interface_1/start 1 0
-force -freeze sim:/memory_interface_1/address 14'h0000 0
+# Loading work.control_unit(rtl)#1
+add wave -position insertpoint sim:/test/*
+force -freeze sim:/test/clk 1 0, 0 {50 ns} -r 100
+force -freeze sim:/test/clk 1 0, 0 {50 ns} -r 100
+force -freeze sim:/test/start 1 0
 run
 run
 run
@@ -171,33 +105,21 @@ run
 run
 run
 run
-vcom -reportprogress 300 -work work /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/memory_interface_1.vhd
-# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
-# Start time: 06:26:49 on Nov 02,2022
-# vcom -reportprogress 300 -work work /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/memory_interface_1.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Loading package NUMERIC_STD
-# -- Compiling entity memory_interface_1
-# -- Compiling architecture rtl of memory_interface_1
-# End time: 06:26:49 on Nov 02,2022, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-vcom -reportprogress 300 -work work /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/memory_interface_1.vhd
-# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
-# Start time: 06:28:14 on Nov 02,2022
-# vcom -reportprogress 300 -work work /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/memory_interface_1.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Loading package NUMERIC_STD
-# -- Compiling entity memory_interface_1
-# -- Compiling architecture rtl of memory_interface_1
-# End time: 06:28:14 on Nov 02,2022, Elapsed time: 0:00:00
+run
+run
+run
+run
+run
+run
+run
+run
+run
+quit -sim
+# End time: 06:15:22 on Nov 03,2022, Elapsed time: 0:07:17
 # Errors: 0, Warnings: 0
 vcom -reportprogress 300 -work work /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/rom/rom.vhd
 # Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
-# Start time: 06:28:18 on Nov 02,2022
+# Start time: 06:15:27 on Nov 03,2022
 # vcom -reportprogress 300 -work work /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/rom/rom.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -205,11 +127,11 @@ vcom -reportprogress 300 -work work /home/mj/Documents/uob/itce497-senior-projec
 # -- Loading package altera_mf_components
 # -- Compiling entity rom
 # -- Compiling architecture SYN of rom
-# End time: 06:28:18 on Nov 02,2022, Elapsed time: 0:00:00
+# End time: 06:15:27 on Nov 03,2022, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 vcom -reportprogress 300 -work work /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/memory_interface_1.vhd
 # Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
-# Start time: 06:28:20 on Nov 02,2022
+# Start time: 06:15:29 on Nov 03,2022
 # vcom -reportprogress 300 -work work /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/memory_interface_1.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -217,19 +139,57 @@ vcom -reportprogress 300 -work work /home/mj/Documents/uob/itce497-senior-projec
 # -- Loading package NUMERIC_STD
 # -- Compiling entity memory_interface_1
 # -- Compiling architecture rtl of memory_interface_1
-# End time: 06:28:20 on Nov 02,2022, Elapsed time: 0:00:00
+# End time: 06:15:29 on Nov 03,2022, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-vsim -voptargs=+acc work.memory_interface_1
-# End time: 06:28:30 on Nov 02,2022, Elapsed time: 0:46:36
+vcom -reportprogress 300 -work work /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/uut_fetch.vhd
+# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 06:15:30 on Nov 03,2022
+# vcom -reportprogress 300 -work work /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/uut_fetch.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity uut_fetch
+# -- Compiling architecture rtl of uut_fetch
+# End time: 06:15:30 on Nov 03,2022, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vsim -voptargs="+acc" work.memory_interface_1 
-# Start time: 06:28:30 on Nov 02,2022
+vcom -reportprogress 300 -work work /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/control_unit.vhd
+# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 06:15:31 on Nov 03,2022
+# vcom -reportprogress 300 -work work /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/control_unit.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity control_unit
+# -- Compiling architecture rtl of control_unit
+# End time: 06:15:31 on Nov 03,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -reportprogress 300 -work work /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/test.vhd
+# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 06:15:32 on Nov 03,2022
+# vcom -reportprogress 300 -work work /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/test.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package altera_syn_attributes
+# -- Compiling entity test
+# -- Compiling architecture rtl of test
+# End time: 06:15:32 on Nov 03,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vsim -voptargs=+acc work.test
+# vsim -voptargs="+acc" work.test 
+# Start time: 06:15:41 on Nov 03,2022
 # ** Note: (vsim-3813) Design is being optimized due to module recompilation...
-# ** Note: (vopt-143) Recognized 1 FSM in architecture body "memory_interface_1(rtl)".
+# ** Note: (vopt-143) Recognized 1 FSM in architecture body "control_unit(rtl)".
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
 # Loading ieee.numeric_std(body)
+# Loading altera.altera_syn_attributes
+# Loading work.test(rtl)#1
+# Loading work.uut_fetch(rtl)#1
 # Loading work.memory_interface_1(rtl)#1
 # Loading altera_mf.altera_mf_components
 # Loading work.rom(syn)#1
@@ -238,11 +198,115 @@ vsim -voptargs=+acc work.memory_interface_1
 # Loading altera_mf.altera_common_conversion(body)
 # Loading altera_mf.altera_device_families(body)
 # Loading altera_mf.altsyncram(translated)#1
-add wave -position insertpoint sim:/memory_interface_1/*
-force -freeze sim:/memory_interface_1/clk 1 0, 0 {50 ns} -r 100
-force -freeze sim:/memory_interface_1/mem_en 1 0
-force -freeze sim:/memory_interface_1/start 1 0
-force -freeze sim:/memory_interface_1/address 14'h0000 0
+# Loading work.control_unit(rtl)#1
+add wave -position insertpoint sim:/test/*
+force -freeze sim:/test/clk 1 0, 0 {50 ns} -r 100
+force -freeze sim:/test/start 1 0
+run
+run
+run
+run
+run
+run
+run
+run
+# Causality operation skipped due to absence of debug database file
+run
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+run
+run
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+run
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+quit -sim
+# End time: 06:23:25 on Nov 03,2022, Elapsed time: 0:07:44
+# Errors: 0, Warnings: 0
+vcom -reportprogress 300 -work work /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/rom/rom.vhd
+# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 06:23:28 on Nov 03,2022
+# vcom -reportprogress 300 -work work /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/rom/rom.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package altera_mf_components
+# -- Compiling entity rom
+# -- Compiling architecture SYN of rom
+# End time: 06:23:28 on Nov 03,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -reportprogress 300 -work work /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/memory_interface_1.vhd
+# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 06:23:33 on Nov 03,2022
+# vcom -reportprogress 300 -work work /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/memory_interface_1.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity memory_interface_1
+# -- Compiling architecture rtl of memory_interface_1
+# End time: 06:23:33 on Nov 03,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -reportprogress 300 -work work /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/uut_fetch.vhd
+# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 06:23:34 on Nov 03,2022
+# vcom -reportprogress 300 -work work /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/uut_fetch.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity uut_fetch
+# -- Compiling architecture rtl of uut_fetch
+# End time: 06:23:34 on Nov 03,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -reportprogress 300 -work work /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/control_unit.vhd
+# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 06:23:35 on Nov 03,2022
+# vcom -reportprogress 300 -work work /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/control_unit.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity control_unit
+# -- Compiling architecture rtl of control_unit
+# End time: 06:23:35 on Nov 03,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -reportprogress 300 -work work /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/test.vhd
+# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 06:23:36 on Nov 03,2022
+# vcom -reportprogress 300 -work work /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/test.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package altera_syn_attributes
+# -- Compiling entity test
+# -- Compiling architecture rtl of test
+# End time: 06:23:36 on Nov 03,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vsim -voptargs=+acc work.test
+# vsim -voptargs="+acc" work.test 
+# Start time: 06:23:46 on Nov 03,2022
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Note: (vopt-143) Recognized 1 FSM in architecture body "control_unit(rtl)".
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading altera.altera_syn_attributes
+# Loading work.test(rtl)#1
+# Loading work.uut_fetch(rtl)#1
+# Loading work.memory_interface_1(rtl)#1
+# Loading altera_mf.altera_mf_components
+# Loading work.rom(syn)#1
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading altera_mf.altera_common_conversion(body)
+# Loading altera_mf.altera_device_families(body)
+# Loading altera_mf.altsyncram(translated)#1
+# Loading work.control_unit(rtl)#1
+add wave -position insertpoint sim:/test/*
+force -freeze sim:/test/clk 1 0, 0 {50 ns} -r 100
+force -freeze sim:/test/start 1 0
 run
 run
 run
@@ -255,24 +319,8 @@ run
 run
 run
 run
+run -continue
 run
 run
-run
-force -freeze sim:/memory_interface_1/address 14'h0004 0
-run
-run
-run
-run
-run
-run
-run
-force -freeze sim:/memory_interface_1/address 14'h0008 0
-run
-run
-run
-run
-run
-run
-run
-# End time: 06:33:56 on Nov 02,2022, Elapsed time: 0:05:26
+# End time: 06:27:46 on Nov 03,2022, Elapsed time: 0:04:00
 # Errors: 0, Warnings: 0

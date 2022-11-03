@@ -1,7 +1,9 @@
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
-	
+
+
+
 entity uut_fetch_tb is 
 end uut_fetch_tb;
 
@@ -33,6 +35,8 @@ signal stop_clk: boolean;
 constant clk_period:time:= 50 ns;
 constant clk_period_half:time:= 25 ns;
 
+ 
+
 begin
 
 uut1: uut_fetch port map (clk,start,pc_selector,pc_increment,uut_fetch_en,uut_fetch_clr,uut_fetch_out,fetch_en,new_pc_in,fetch_wait,fetch_done,instruction,pc_out,pc4_out);
@@ -51,23 +55,19 @@ begin
 for i in 1 to 10 loop
 	start <= '1';
 	pc_selector <= '0';
-	pc_increment <= '1';
 	uut_fetch_en <= '1';
 	uut_fetch_clr <= '0';
 	uut_fetch_out <= '0';
 	fetch_en <= '1';
 
-	wait for clk_period;
-
-	pc_increment <= '0';
-
 	wait until fetch_done = '1';
+	wait for clk_period;
 
 	fetch_en <= '0';
 	uut_fetch_out <= '1';
 
 	wait for clk_period;
-
+	
 	uut_fetch_out <= '0';
 
 	wait for clk_period;

@@ -1,5 +1,5 @@
 Analysis & Synthesis report for rvcore32
-Wed Nov  2 06:28:04 2022
+Thu Nov  3 06:23:16 2022
 Quartus Prime Version 21.1.0 Build 842 10/21/2021 SJ Lite Edition
 
 
@@ -15,14 +15,20 @@ Quartus Prime Version 21.1.0 Build 842 10/21/2021 SJ Lite Edition
   7. Analysis & Synthesis Resource Utilization by Entity
   8. Analysis & Synthesis RAM Summary
   9. Analysis & Synthesis IP Cores Summary
- 10. General Register Statistics
- 11. Multiplexer Restructuring Statistics (Restructuring Performed)
- 12. Source assignments for rom:u0|altsyncram:altsyncram_component|altsyncram_9n24:auto_generated
- 13. Parameter Settings for User Entity Instance: rom:u0|altsyncram:altsyncram_component
- 14. altsyncram Parameter Settings by Entity Instance
- 15. Post-Synthesis Netlist Statistics for Top Partition
- 16. Elapsed Time Per Partition
- 17. Analysis & Synthesis Messages
+ 10. Registers Protected by Synthesis
+ 11. Logic Cells Representing Combinational Loops
+ 12. General Register Statistics
+ 13. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 14. Source assignments for Top-level Entity: |test
+ 15. Source assignments for uut_fetch:uut_fetch1|memory_interface_1:mem1|rom:u0|altsyncram:altsyncram_component|altsyncram_9n24:auto_generated
+ 16. Parameter Settings for User Entity Instance: uut_fetch:uut_fetch1|memory_interface_1:mem1|rom:u0|altsyncram:altsyncram_component
+ 17. altsyncram Parameter Settings by Entity Instance
+ 18. Port Connectivity Checks: "control_unit:control_unit1"
+ 19. Port Connectivity Checks: "uut_fetch:uut_fetch1|memory_interface_1:mem1"
+ 20. Port Connectivity Checks: "uut_fetch:uut_fetch1"
+ 21. Post-Synthesis Netlist Statistics for Top Partition
+ 22. Elapsed Time Per Partition
+ 23. Analysis & Synthesis Messages
 
 
 
@@ -49,16 +55,16 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Wed Nov  2 06:28:04 2022       ;
+; Analysis & Synthesis Status        ; Successful - Thu Nov  3 06:23:16 2022       ;
 ; Quartus Prime Version              ; 21.1.0 Build 842 10/21/2021 SJ Lite Edition ;
 ; Revision Name                      ; rvcore32                                    ;
-; Top-level Entity Name              ; memory_interface_1                          ;
+; Top-level Entity Name              ; test                                        ;
 ; Family                             ; MAX 10                                      ;
-; Total logic elements               ; 138                                         ;
-;     Total combinational functions  ; 89                                          ;
-;     Dedicated logic registers      ; 62                                          ;
-; Total registers                    ; 62                                          ;
-; Total pins                         ; 51                                          ;
+; Total logic elements               ; 184                                         ;
+;     Total combinational functions  ; 71                                          ;
+;     Dedicated logic registers      ; 161                                         ;
+; Total registers                    ; 161                                         ;
+; Total pins                         ; 98                                          ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 131,072                                     ;
 ; Embedded Multiplier 9-bit elements ; 0                                           ;
@@ -74,7 +80,7 @@ https://fpgasoftware.intel.com/eula.
 ; Option                                                           ; Setting            ; Default Value      ;
 +------------------------------------------------------------------+--------------------+--------------------+
 ; Device                                                           ; 10M50DAF484C7G     ;                    ;
-; Top-level entity name                                            ; memory_interface_1 ; rvcore32           ;
+; Top-level entity name                                            ; test               ; rvcore32           ;
 ; Family name                                                      ; MAX 10             ; Cyclone V          ;
 ; Maximum processors allowed for parallel compilation              ; All                ;                    ;
 ; VHDL Show LMF Mapping Messages                                   ; Off                ;                    ;
@@ -169,7 +175,8 @@ https://fpgasoftware.intel.com/eula.
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processors 2-4         ;   0.0%      ;
+;     Processor 2            ;   0.0%      ;
+;     Processors 3-4         ;   0.0%      ;
 +----------------------------+-------------+
 
 
@@ -178,8 +185,11 @@ https://fpgasoftware.intel.com/eula.
 +-----------------------------------+-----------------+----------------------------------------+-----------------------------------------------------------------------------------------------+---------+
 ; File Name with User-Entered Path  ; Used in Netlist ; File Type                              ; File Name with Absolute Path                                                                  ; Library ;
 +-----------------------------------+-----------------+----------------------------------------+-----------------------------------------------------------------------------------------------+---------+
+; components/control_unit.vhd       ; yes             ; User VHDL File                         ; /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/control_unit.vhd       ;         ;
+; components/uut_fetch.vhd          ; yes             ; User VHDL File                         ; /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/uut_fetch.vhd          ;         ;
 ; components/memory_interface_1.vhd ; yes             ; User VHDL File                         ; /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/memory_interface_1.vhd ;         ;
 ; components/rom/rom.vhd            ; yes             ; User Wizard-Generated File             ; /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/rom/rom.vhd            ;         ;
+; components/test.vhd               ; yes             ; User VHDL File                         ; /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/test.vhd               ;         ;
 ; altsyncram.tdf                    ; yes             ; Megafunction                           ; /home/mj/intelFPGA_lite/21.1/quartus/libraries/megafunctions/altsyncram.tdf                   ;         ;
 ; stratix_ram_block.inc             ; yes             ; Megafunction                           ; /home/mj/intelFPGA_lite/21.1/quartus/libraries/megafunctions/stratix_ram_block.inc            ;         ;
 ; lpm_mux.inc                       ; yes             ; Megafunction                           ; /home/mj/intelFPGA_lite/21.1/quartus/libraries/megafunctions/lpm_mux.inc                      ;         ;
@@ -200,64 +210,248 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+-----------+
 ; Resource                                    ; Usage     ;
 +---------------------------------------------+-----------+
-; Estimated Total logic elements              ; 138       ;
+; Estimated Total logic elements              ; 184       ;
 ;                                             ;           ;
-; Total combinational functions               ; 89        ;
+; Total combinational functions               ; 71        ;
 ; Logic element usage by number of LUT inputs ;           ;
-;     -- 4 input functions                    ; 31        ;
-;     -- 3 input functions                    ; 16        ;
-;     -- <=2 input functions                  ; 42        ;
+;     -- 4 input functions                    ; 7         ;
+;     -- 3 input functions                    ; 18        ;
+;     -- <=2 input functions                  ; 46        ;
 ;                                             ;           ;
 ; Logic elements by mode                      ;           ;
-;     -- normal mode                          ; 51        ;
-;     -- arithmetic mode                      ; 38        ;
+;     -- normal mode                          ; 31        ;
+;     -- arithmetic mode                      ; 40        ;
 ;                                             ;           ;
-; Total registers                             ; 62        ;
-;     -- Dedicated logic registers            ; 62        ;
+; Total registers                             ; 161       ;
+;     -- Dedicated logic registers            ; 161       ;
 ;     -- I/O registers                        ; 0         ;
 ;                                             ;           ;
-; I/O pins                                    ; 51        ;
+; I/O pins                                    ; 98        ;
 ; Total memory bits                           ; 131072    ;
 ;                                             ;           ;
 ; Embedded Multiplier 9-bit elements          ; 0         ;
 ;                                             ;           ;
 ; Maximum fan-out node                        ; clk~input ;
-; Maximum fan-out                             ; 78        ;
-; Total fan-out                               ; 805       ;
-; Average fan-out                             ; 2.99      ;
+; Maximum fan-out                             ; 177       ;
+; Total fan-out                               ; 1220      ;
+; Average fan-out                             ; 2.75      ;
 +---------------------------------------------+-----------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                                         ;
-+-------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+--------------------------------------------------------------------------------------------------------+--------------------+--------------+
-; Compilation Hierarchy Node                ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name                                                                                    ; Entity Name        ; Library Name ;
-+-------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+--------------------------------------------------------------------------------------------------------+--------------------+--------------+
-; |memory_interface_1                       ; 89 (80)             ; 62 (60)                   ; 131072      ; 0          ; 0            ; 0       ; 0         ; 51   ; 0            ; 0          ; |memory_interface_1                                                                                    ; memory_interface_1 ; work         ;
-;    |rom:u0|                               ; 9 (0)               ; 2 (0)                     ; 131072      ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |memory_interface_1|rom:u0                                                                             ; rom                ; work         ;
-;       |altsyncram:altsyncram_component|   ; 9 (0)               ; 2 (0)                     ; 131072      ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |memory_interface_1|rom:u0|altsyncram:altsyncram_component                                             ; altsyncram         ; work         ;
-;          |altsyncram_9n24:auto_generated| ; 9 (1)               ; 2 (2)                     ; 131072      ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |memory_interface_1|rom:u0|altsyncram:altsyncram_component|altsyncram_9n24:auto_generated              ; altsyncram_9n24    ; work         ;
-;             |mux_p1b:mux2|                ; 8 (8)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |memory_interface_1|rom:u0|altsyncram:altsyncram_component|altsyncram_9n24:auto_generated|mux_p1b:mux2 ; mux_p1b            ; work         ;
-+-------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+--------------------------------------------------------------------------------------------------------+--------------------+--------------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                                                                              ;
++-------------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------------------------------------------------------------------------------------------------------------------------+--------------------+--------------+
+; Compilation Hierarchy Node                      ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name                                                                                                                   ; Entity Name        ; Library Name ;
++-------------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------------------------------------------------------------------------------------------------------------------------+--------------------+--------------+
+; |test                                           ; 71 (0)              ; 161 (0)                   ; 131072      ; 0          ; 0            ; 0       ; 0         ; 98   ; 0            ; 0          ; |test                                                                                                                                 ; test               ; work         ;
+;    |control_unit:control_unit1|                 ; 4 (4)               ; 3 (3)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |test|control_unit:control_unit1                                                                                                      ; control_unit       ; work         ;
+;    |uut_fetch:uut_fetch1|                       ; 67 (34)             ; 158 (96)                  ; 131072      ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |test|uut_fetch:uut_fetch1                                                                                                            ; uut_fetch          ; work         ;
+;       |memory_interface_1:mem1|                 ; 33 (24)             ; 62 (60)                   ; 131072      ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |test|uut_fetch:uut_fetch1|memory_interface_1:mem1                                                                                    ; memory_interface_1 ; work         ;
+;          |rom:u0|                               ; 9 (0)               ; 2 (0)                     ; 131072      ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |test|uut_fetch:uut_fetch1|memory_interface_1:mem1|rom:u0                                                                             ; rom                ; work         ;
+;             |altsyncram:altsyncram_component|   ; 9 (0)               ; 2 (0)                     ; 131072      ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |test|uut_fetch:uut_fetch1|memory_interface_1:mem1|rom:u0|altsyncram:altsyncram_component                                             ; altsyncram         ; work         ;
+;                |altsyncram_9n24:auto_generated| ; 9 (1)               ; 2 (2)                     ; 131072      ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |test|uut_fetch:uut_fetch1|memory_interface_1:mem1|rom:u0|altsyncram:altsyncram_component|altsyncram_9n24:auto_generated              ; altsyncram_9n24    ; work         ;
+;                   |mux_p1b:mux2|                ; 8 (8)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |test|uut_fetch:uut_fetch1|memory_interface_1:mem1|rom:u0|altsyncram:altsyncram_component|altsyncram_9n24:auto_generated|mux_p1b:mux2 ; mux_p1b            ; work         ;
++-------------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------------------------------------------------------------------------------------------------------------------------+--------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis RAM Summary                                                                                                                                                                                                                         ;
-+----------------------------------------------------------------------------------+------+------+--------------+--------------+--------------+--------------+--------+------------------------------------------------------------------------------------+
-; Name                                                                             ; Type ; Mode ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size   ; MIF                                                                                ;
-+----------------------------------------------------------------------------------+------+------+--------------+--------------+--------------+--------------+--------+------------------------------------------------------------------------------------+
-; rom:u0|altsyncram:altsyncram_component|altsyncram_9n24:auto_generated|ALTSYNCRAM ; AUTO ; ROM  ; 16384        ; 8            ; --           ; --           ; 131072 ; /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/memory_files/test1.mif ;
-+----------------------------------------------------------------------------------+------+------+--------------+--------------+--------------+--------------+--------+------------------------------------------------------------------------------------+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis RAM Summary                                                                                                                                                                                                                                                                      ;
++-------------------------------------------------------------------------------------------------------------------------------+------+------+--------------+--------------+--------------+--------------+--------+------------------------------------------------------------------------------------+
+; Name                                                                                                                          ; Type ; Mode ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size   ; MIF                                                                                ;
++-------------------------------------------------------------------------------------------------------------------------------+------+------+--------------+--------------+--------------+--------------+--------+------------------------------------------------------------------------------------+
+; uut_fetch:uut_fetch1|memory_interface_1:mem1|rom:u0|altsyncram:altsyncram_component|altsyncram_9n24:auto_generated|ALTSYNCRAM ; AUTO ; ROM  ; 16384        ; 8            ; --           ; --           ; 131072 ; /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/memory_files/test1.mif ;
++-------------------------------------------------------------------------------------------------------------------------------+------+------+--------------+--------------+--------------+--------------+--------+------------------------------------------------------------------------------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis IP Cores Summary                                                                               ;
-+--------+--------------+---------+--------------+--------------+----------------------------+------------------------+
-; Vendor ; IP Core Name ; Version ; Release Date ; License Type ; Entity Instance            ; IP Include File        ;
-+--------+--------------+---------+--------------+--------------+----------------------------+------------------------+
-; Altera ; ROM: 1-PORT  ; 21.1    ; N/A          ; N/A          ; |memory_interface_1|rom:u0 ; components/rom/rom.vhd ;
-+--------+--------------+---------+--------------+--------------+----------------------------+------------------------+
++----------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis IP Cores Summary                                                                                                              ;
++--------+--------------+---------+--------------+--------------+-----------------------------------------------------------+------------------------+
+; Vendor ; IP Core Name ; Version ; Release Date ; License Type ; Entity Instance                                           ; IP Include File        ;
++--------+--------------+---------+--------------+--------------+-----------------------------------------------------------+------------------------+
+; Altera ; ROM: 1-PORT  ; 21.1    ; N/A          ; N/A          ; |test|uut_fetch:uut_fetch1|memory_interface_1:mem1|rom:u0 ; components/rom/rom.vhd ;
++--------+--------------+---------+--------------+--------------+-----------------------------------------------------------+------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Registers Protected by Synthesis                                                                                                                                                                                                                        ;
++-----------------------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------------------+--------------------------------------------+
+; Register Name                                                                                                                           ; Protected by Synthesis Attribute or Preserve Register Assignment ; Not to be Touched by Netlist Optimizations ;
++-----------------------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------------------+--------------------------------------------+
+; uut_fetch:uut_fetch1|instruction[0]                                                                                                     ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|instruction[1]                                                                                                     ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|instruction[2]                                                                                                     ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|instruction[3]                                                                                                     ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|instruction[4]                                                                                                     ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|instruction[5]                                                                                                     ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|instruction[6]                                                                                                     ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|instruction[7]                                                                                                     ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|instruction[8]                                                                                                     ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|instruction[9]                                                                                                     ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|instruction[10]                                                                                                    ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|instruction[11]                                                                                                    ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|instruction[12]                                                                                                    ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|instruction[13]                                                                                                    ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|instruction[14]                                                                                                    ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|instruction[15]                                                                                                    ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|instruction[16]                                                                                                    ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|instruction[17]                                                                                                    ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|instruction[18]                                                                                                    ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|instruction[19]                                                                                                    ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|instruction[20]                                                                                                    ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|instruction[21]                                                                                                    ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|instruction[22]                                                                                                    ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|instruction[23]                                                                                                    ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|instruction[24]                                                                                                    ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|instruction[25]                                                                                                    ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|instruction[26]                                                                                                    ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|instruction[27]                                                                                                    ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|instruction[28]                                                                                                    ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|instruction[29]                                                                                                    ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|instruction[30]                                                                                                    ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|instruction[31]                                                                                                    ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|pc_out[0]                                                                                                          ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|pc_out[1]                                                                                                          ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|pc_out[2]                                                                                                          ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|pc_out[3]                                                                                                          ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|pc_out[4]                                                                                                          ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|pc_out[5]                                                                                                          ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|pc_out[6]                                                                                                          ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|pc_out[7]                                                                                                          ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|pc_out[8]                                                                                                          ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|pc_out[9]                                                                                                          ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|pc_out[10]                                                                                                         ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|pc_out[11]                                                                                                         ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|pc_out[12]                                                                                                         ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|pc_out[13]                                                                                                         ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|pc_out[14]                                                                                                         ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|pc_out[15]                                                                                                         ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|pc_out[16]                                                                                                         ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|pc_out[17]                                                                                                         ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|pc_out[18]                                                                                                         ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|pc_out[19]                                                                                                         ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|pc_out[20]                                                                                                         ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|pc_out[21]                                                                                                         ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|pc_out[22]                                                                                                         ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|pc_out[23]                                                                                                         ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|pc_out[24]                                                                                                         ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|pc_out[25]                                                                                                         ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|pc_out[26]                                                                                                         ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|pc_out[27]                                                                                                         ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|pc_out[28]                                                                                                         ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|pc_out[29]                                                                                                         ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|pc_out[30]                                                                                                         ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|pc_out[31]                                                                                                         ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|pc4_i[0]                                                                                                           ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|pc4_i[1]                                                                                                           ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|pc4_i[2]                                                                                                           ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|pc4_i[3]                                                                                                           ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|pc4_i[4]                                                                                                           ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|pc4_i[5]                                                                                                           ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|pc4_i[6]                                                                                                           ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|pc4_i[7]                                                                                                           ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|pc4_i[8]                                                                                                           ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|pc4_i[9]                                                                                                           ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|pc4_i[10]                                                                                                          ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|pc4_i[11]                                                                                                          ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|pc4_i[12]                                                                                                          ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|pc4_i[13]                                                                                                          ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|pc4_i[14]                                                                                                          ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|pc4_i[15]                                                                                                          ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|pc4_i[16]                                                                                                          ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|pc4_i[17]                                                                                                          ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|pc4_i[18]                                                                                                          ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|pc4_i[19]                                                                                                          ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|pc4_i[20]                                                                                                          ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|pc4_i[21]                                                                                                          ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|pc4_i[22]                                                                                                          ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|pc4_i[23]                                                                                                          ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|pc4_i[24]                                                                                                          ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|pc4_i[25]                                                                                                          ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|pc4_i[26]                                                                                                          ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|pc4_i[27]                                                                                                          ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|pc4_i[28]                                                                                                          ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|pc4_i[29]                                                                                                          ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|pc4_i[30]                                                                                                          ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|pc4_i[31]                                                                                                          ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|memory_interface_1:mem1|read_data[0]                                                                               ; yes                                                              ; yes                                        ;
+; control_unit:control_unit1|current_state                                                                                                ; yes                                                              ; yes                                        ;
+; control_unit:control_unit1|cycle_i[0]                                                                                                   ; yes                                                              ; yes                                        ;
+; control_unit:control_unit1|cycle_i[1]                                                                                                   ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|memory_interface_1:mem1|read_data[1]                                                                               ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|memory_interface_1:mem1|read_data[2]                                                                               ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|memory_interface_1:mem1|read_data[3]                                                                               ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|memory_interface_1:mem1|read_data[4]                                                                               ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|memory_interface_1:mem1|read_data[5]                                                                               ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|memory_interface_1:mem1|read_data[6]                                                                               ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|memory_interface_1:mem1|read_data[7]                                                                               ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|memory_interface_1:mem1|read_data[8]                                                                               ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|memory_interface_1:mem1|read_data[9]                                                                               ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|memory_interface_1:mem1|read_data[10]                                                                              ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|memory_interface_1:mem1|read_data[11]                                                                              ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|memory_interface_1:mem1|read_data[12]                                                                              ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|memory_interface_1:mem1|read_data[13]                                                                              ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|memory_interface_1:mem1|read_data[14]                                                                              ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|memory_interface_1:mem1|read_data[15]                                                                              ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|memory_interface_1:mem1|read_data[16]                                                                              ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|memory_interface_1:mem1|read_data[17]                                                                              ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|memory_interface_1:mem1|read_data[18]                                                                              ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|memory_interface_1:mem1|read_data[19]                                                                              ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|memory_interface_1:mem1|read_data[20]                                                                              ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|memory_interface_1:mem1|read_data[21]                                                                              ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|memory_interface_1:mem1|read_data[22]                                                                              ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|memory_interface_1:mem1|read_data[23]                                                                              ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|memory_interface_1:mem1|read_data[24]                                                                              ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|memory_interface_1:mem1|read_data[25]                                                                              ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|memory_interface_1:mem1|read_data[26]                                                                              ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|memory_interface_1:mem1|read_data[27]                                                                              ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|memory_interface_1:mem1|read_data[28]                                                                              ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|memory_interface_1:mem1|read_data[29]                                                                              ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|memory_interface_1:mem1|read_data[30]                                                                              ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|memory_interface_1:mem1|read_data[31]                                                                              ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|memory_interface_1:mem1|read_data_i[0]                                                                             ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|memory_interface_1:mem1|current_state                                                                              ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|memory_interface_1:mem1|cycle_i[2]                                                                                 ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|memory_interface_1:mem1|cycle_i[1]                                                                                 ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|memory_interface_1:mem1|cycle_i[0]                                                                                 ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|memory_interface_1:mem1|read_data_i[1]                                                                             ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|memory_interface_1:mem1|read_data_i[2]                                                                             ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|memory_interface_1:mem1|read_data_i[3]                                                                             ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|memory_interface_1:mem1|read_data_i[4]                                                                             ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|memory_interface_1:mem1|read_data_i[5]                                                                             ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|memory_interface_1:mem1|read_data_i[6]                                                                             ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|memory_interface_1:mem1|read_data_i[7]                                                                             ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|memory_interface_1:mem1|read_data_i[8]                                                                             ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|memory_interface_1:mem1|read_data_i[9]                                                                             ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|memory_interface_1:mem1|read_data_i[10]                                                                            ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|memory_interface_1:mem1|read_data_i[11]                                                                            ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|memory_interface_1:mem1|read_data_i[12]                                                                            ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|memory_interface_1:mem1|read_data_i[13]                                                                            ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|memory_interface_1:mem1|read_data_i[14]                                                                            ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|memory_interface_1:mem1|read_data_i[15]                                                                            ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|memory_interface_1:mem1|read_data_i[16]                                                                            ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|memory_interface_1:mem1|read_data_i[17]                                                                            ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|memory_interface_1:mem1|read_data_i[18]                                                                            ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|memory_interface_1:mem1|read_data_i[19]                                                                            ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|memory_interface_1:mem1|read_data_i[20]                                                                            ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|memory_interface_1:mem1|read_data_i[21]                                                                            ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|memory_interface_1:mem1|read_data_i[22]                                                                            ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|memory_interface_1:mem1|read_data_i[23]                                                                            ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|memory_interface_1:mem1|rom:u0|altsyncram:altsyncram_component|altsyncram_9n24:auto_generated|out_address_reg_a[0] ; yes                                                              ; yes                                        ;
+; uut_fetch:uut_fetch1|memory_interface_1:mem1|rom:u0|altsyncram:altsyncram_component|altsyncram_9n24:auto_generated|address_reg_a[0]     ; yes                                                              ; yes                                        ;
+; Total number of protected registers is 161                                                                                              ;                                                                  ;                                            ;
++-----------------------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------------------+--------------------------------------------+
+
+
++------------------------------------------------------------+
+; Logic Cells Representing Combinational Loops               ;
++--------------------------------------------------------+---+
+; Logic Cell Name                                        ;   ;
++--------------------------------------------------------+---+
+; control_unit:control_unit1|fetch_en                    ;   ;
+; Number of logic cells representing combinational loops ; 1 ;
++--------------------------------------------------------+---+
+Note: All cells listed above may not be present at the end of synthesis due to various synthesis optimizations.
 
 
 +------------------------------------------------------+
@@ -265,37 +459,47 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 62    ;
+; Total registers                              ; 161   ;
 ; Number of registers using Synchronous Clear  ; 0     ;
 ; Number of registers using Synchronous Load   ; 1     ;
-; Number of registers using Asynchronous Clear ; 25    ;
+; Number of registers using Asynchronous Clear ; 124   ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 61    ;
+; Number of registers using Clock Enable       ; 159   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                               ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output     ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------+
-; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |memory_interface_1|cycle_i[0] ;
-; 4:1                ; 12 bits   ; 24 LEs        ; 24 LEs               ; 0 LEs                  ; No         ; |memory_interface_1|Mux12      ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                              ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                    ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------+
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |test|uut_fetch:uut_fetch1|memory_interface_1:mem1|cycle_i[0] ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |test|control_unit:control_unit1|mem_done_i                   ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------+
 
 
-+----------------------------------------------------------------------------------------------+
-; Source assignments for rom:u0|altsyncram:altsyncram_component|altsyncram_9n24:auto_generated ;
-+---------------------------------+--------------------+------+--------------------------------+
-; Assignment                      ; Value              ; From ; To                             ;
-+---------------------------------+--------------------+------+--------------------------------+
-; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                              ;
-+---------------------------------+--------------------+------+--------------------------------+
++---------------------------------------------------------+
+; Source assignments for Top-level Entity: |test          ;
++-------------------+-------+------+----------------------+
+; Assignment        ; Value ; From ; To                   ;
++-------------------+-------+------+----------------------+
+; PRESERVE_REGISTER ; on    ; -    ; -                    ;
+; PRESERVE_REGISTER ; on    ; -    ; uut_fetch:uut_fetch1 ;
++-------------------+-------+------+----------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------+
+; Source assignments for uut_fetch:uut_fetch1|memory_interface_1:mem1|rom:u0|altsyncram:altsyncram_component|altsyncram_9n24:auto_generated ;
++---------------------------------+--------------------+------+-----------------------------------------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                                                          ;
++---------------------------------+--------------------+------+-----------------------------------------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                                                           ;
++---------------------------------+--------------------+------+-----------------------------------------------------------------------------+
 
 
 +------------------------------------------------------------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: rom:u0|altsyncram:altsyncram_component                                                      ;
+; Parameter Settings for User Entity Instance: uut_fetch:uut_fetch1|memory_interface_1:mem1|rom:u0|altsyncram:altsyncram_component         ;
 +------------------------------------+------------------------------------------------------------------------------------+----------------+
 ; Parameter Name                     ; Value                                                                              ; Type           ;
 +------------------------------------+------------------------------------------------------------------------------------+----------------+
@@ -355,24 +559,60 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+------------------------------------------------------------------------------------+
-; altsyncram Parameter Settings by Entity Instance                                   ;
-+-------------------------------------------+----------------------------------------+
-; Name                                      ; Value                                  ;
-+-------------------------------------------+----------------------------------------+
-; Number of entity instances                ; 1                                      ;
-; Entity Instance                           ; rom:u0|altsyncram:altsyncram_component ;
-;     -- OPERATION_MODE                     ; ROM                                    ;
-;     -- WIDTH_A                            ; 8                                      ;
-;     -- NUMWORDS_A                         ; 16384                                  ;
-;     -- OUTDATA_REG_A                      ; CLOCK0                                 ;
-;     -- WIDTH_B                            ; 1                                      ;
-;     -- NUMWORDS_B                         ; 0                                      ;
-;     -- ADDRESS_REG_B                      ; CLOCK1                                 ;
-;     -- OUTDATA_REG_B                      ; UNREGISTERED                           ;
-;     -- RAM_BLOCK_TYPE                     ; AUTO                                   ;
-;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                              ;
-+-------------------------------------------+----------------------------------------+
++---------------------------------------------------------------------------------------------------------------------------------+
+; altsyncram Parameter Settings by Entity Instance                                                                                ;
++-------------------------------------------+-------------------------------------------------------------------------------------+
+; Name                                      ; Value                                                                               ;
++-------------------------------------------+-------------------------------------------------------------------------------------+
+; Number of entity instances                ; 1                                                                                   ;
+; Entity Instance                           ; uut_fetch:uut_fetch1|memory_interface_1:mem1|rom:u0|altsyncram:altsyncram_component ;
+;     -- OPERATION_MODE                     ; ROM                                                                                 ;
+;     -- WIDTH_A                            ; 8                                                                                   ;
+;     -- NUMWORDS_A                         ; 16384                                                                               ;
+;     -- OUTDATA_REG_A                      ; CLOCK0                                                                              ;
+;     -- WIDTH_B                            ; 1                                                                                   ;
+;     -- NUMWORDS_B                         ; 0                                                                                   ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                                                                              ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                                                        ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                                                                ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                                                           ;
++-------------------------------------------+-------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "control_unit:control_unit1"                                                                                           ;
++-------------------+--------+----------+----------------------------------------------------------------------------------------------------------+
+; Port              ; Type   ; Severity ; Details                                                                                                  ;
++-------------------+--------+----------+----------------------------------------------------------------------------------------------------------+
+; mem_wait          ; Input  ; Info     ; Stuck at GND                                                                                             ;
+; mem_done          ; Input  ; Info     ; Stuck at GND                                                                                             ;
+; branch            ; Input  ; Info     ; Stuck at GND                                                                                             ;
+; stall             ; Input  ; Info     ; Stuck at GND                                                                                             ;
+; i_mem_en          ; Input  ; Info     ; Stuck at GND                                                                                             ;
+; o_mem_en          ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                      ;
+; uut_out[5..1]     ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                      ;
+; uut_en[5..1]      ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                      ;
+; uut_clr[5..1]     ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                      ;
+; instruction_cycle ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed. ;
++-------------------+--------+----------+----------------------------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------+
+; Port Connectivity Checks: "uut_fetch:uut_fetch1|memory_interface_1:mem1" ;
++------------+-------+----------+------------------------------------------+
+; Port       ; Type  ; Severity ; Details                                  ;
++------------+-------+----------+------------------------------------------+
+; address[0] ; Input ; Info     ; Stuck at GND                             ;
++------------+-------+----------+------------------------------------------+
+
+
++--------------------------------------------------+
+; Port Connectivity Checks: "uut_fetch:uut_fetch1" ;
++-----------+-------+----------+-------------------+
+; Port      ; Type  ; Severity ; Details           ;
++-----------+-------+----------+-------------------+
+; new_pc_in ; Input ; Info     ; Stuck at GND      ;
++-----------+-------+----------+-------------------+
 
 
 +-----------------------------------------------------+
@@ -380,23 +620,26 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; boundary_port         ; 51                          ;
-; cycloneiii_ff         ; 62                          ;
+; boundary_port         ; 98                          ;
+; cycloneiii_ff         ; 161                         ;
+;     CLR               ; 1                           ;
 ;     CLR SLD           ; 1                           ;
 ;     ENA               ; 37                          ;
-;     ENA CLR           ; 24                          ;
-; cycloneiii_lcell_comb ; 89                          ;
-;     arith             ; 38                          ;
+;     ENA CLR           ; 122                         ;
+; cycloneiii_lcell_comb ; 71                          ;
+;     arith             ; 40                          ;
 ;         2 data inputs ; 38                          ;
-;     normal            ; 51                          ;
+;         3 data inputs ; 2                           ;
+;     normal            ; 31                          ;
+;         0 data inputs ; 3                           ;
 ;         1 data inputs ; 3                           ;
-;         2 data inputs ; 1                           ;
+;         2 data inputs ; 2                           ;
 ;         3 data inputs ; 16                          ;
-;         4 data inputs ; 31                          ;
+;         4 data inputs ; 7                           ;
 ; cycloneiii_ram_block  ; 16                          ;
 ;                       ;                             ;
-; Max LUT depth         ; 4.30                        ;
-; Average LUT depth     ; 2.27                        ;
+; Max LUT depth         ; 3.80                        ;
+; Average LUT depth     ; 1.35                        ;
 +-----------------------+-----------------------------+
 
 
@@ -405,7 +648,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:00     ;
+; Top            ; 00:00:01     ;
 +----------------+--------------+
 
 
@@ -415,11 +658,11 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 21.1.0 Build 842 10/21/2021 SJ Lite Edition
-    Info: Processing started: Wed Nov  2 06:27:56 2022
+    Info: Processing started: Thu Nov  3 06:23:01 2022
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off rvcore32 -c rvcore32
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
 Info (12021): Found 2 design units, including 1 entities, in source file components/control_unit.vhd
-    Info (12022): Found design unit 1: control_unit-rtl File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/control_unit.vhd Line: 27
+    Info (12022): Found design unit 1: control_unit-rtl File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/control_unit.vhd Line: 26
     Info (12023): Found entity 1: control_unit File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/control_unit.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file components/main.vhd
     Info (12022): Found design unit 1: main-rtl File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/main.vhd Line: 15
@@ -434,7 +677,7 @@ Info (12021): Found 2 design units, including 1 entities, in source file compone
     Info (12022): Found design unit 1: uut_decode-rtl File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/uut_decode.vhd Line: 37
     Info (12023): Found entity 1: uut_decode File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/uut_decode.vhd Line: 6
 Info (12021): Found 2 design units, including 1 entities, in source file components/uut_fetch.vhd
-    Info (12022): Found design unit 1: uut_fetch-rtl File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/uut_fetch.vhd Line: 26
+    Info (12022): Found design unit 1: uut_fetch-rtl File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/uut_fetch.vhd Line: 25
     Info (12023): Found entity 1: uut_fetch File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/uut_fetch.vhd Line: 7
 Info (12021): Found 2 design units, including 1 entities, in source file components/uut_mem.vhd
     Info (12022): Found design unit 1: uut_mem-rtl File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/uut_mem.vhd Line: 31
@@ -461,19 +704,21 @@ Info (12021): Found 2 design units, including 0 entities, in source file compone
     Info (12022): Found design unit 1: registers File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/registers.vhd Line: 6
     Info (12022): Found design unit 2: registers-body File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/registers.vhd Line: 9
 Info (12021): Found 2 design units, including 1 entities, in source file testbenches/uut_fetch_tb.vhd
-    Info (12022): Found design unit 1: uut_fetch_tb-rtl File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/testbenches/uut_fetch_tb.vhd Line: 8
-    Info (12023): Found entity 1: uut_fetch_tb File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/testbenches/uut_fetch_tb.vhd Line: 5
+    Info (12022): Found design unit 1: uut_fetch_tb-rtl File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/testbenches/uut_fetch_tb.vhd Line: 10
+    Info (12023): Found entity 1: uut_fetch_tb File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/testbenches/uut_fetch_tb.vhd Line: 7
 Info (12021): Found 2 design units, including 1 entities, in source file testbenches/control_unit_tb.vhd
     Info (12022): Found design unit 1: control_unit_tb-rtl File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/testbenches/control_unit_tb.vhd Line: 8
     Info (12023): Found entity 1: control_unit_tb File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/testbenches/control_unit_tb.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file testbenches/memory_interface_1_tb.vhd
     Info (12022): Found design unit 1: memory_interface_1_tb-rtl File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/testbenches/memory_interface_1_tb.vhd Line: 8
     Info (12023): Found entity 1: memory_interface_1_tb File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/testbenches/memory_interface_1_tb.vhd Line: 5
-Info (12127): Elaborating entity "memory_interface_1" for the top level hierarchy
-Info (12128): Elaborating entity "rom" for hierarchy "rom:u0" File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/memory_interface_1.vhd Line: 40
-Info (12128): Elaborating entity "altsyncram" for hierarchy "rom:u0|altsyncram:altsyncram_component" File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/rom/rom.vhd Line: 62
-Info (12130): Elaborated megafunction instantiation "rom:u0|altsyncram:altsyncram_component" File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/rom/rom.vhd Line: 62
-Info (12133): Instantiated megafunction "rom:u0|altsyncram:altsyncram_component" with the following parameter: File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/rom/rom.vhd Line: 62
+Info (12127): Elaborating entity "test" for the top level hierarchy
+Info (12128): Elaborating entity "uut_fetch" for hierarchy "uut_fetch:uut_fetch1" File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/test.vhd Line: 73
+Info (12128): Elaborating entity "memory_interface_1" for hierarchy "uut_fetch:uut_fetch1|memory_interface_1:mem1" File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/uut_fetch.vhd Line: 46
+Info (12128): Elaborating entity "rom" for hierarchy "uut_fetch:uut_fetch1|memory_interface_1:mem1|rom:u0" File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/memory_interface_1.vhd Line: 40
+Info (12128): Elaborating entity "altsyncram" for hierarchy "uut_fetch:uut_fetch1|memory_interface_1:mem1|rom:u0|altsyncram:altsyncram_component" File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/rom/rom.vhd Line: 62
+Info (12130): Elaborated megafunction instantiation "uut_fetch:uut_fetch1|memory_interface_1:mem1|rom:u0|altsyncram:altsyncram_component" File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/rom/rom.vhd Line: 62
+Info (12133): Instantiated megafunction "uut_fetch:uut_fetch1|memory_interface_1:mem1|rom:u0|altsyncram:altsyncram_component" with the following parameter: File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/rom/rom.vhd Line: 62
     Info (12134): Parameter "address_aclr_a" = "NONE"
     Info (12134): Parameter "address_aclr_b" = "NONE"
     Info (12134): Parameter "address_reg_b" = "CLOCK1"
@@ -526,22 +771,24 @@ Info (12133): Instantiated megafunction "rom:u0|altsyncram:altsyncram_component"
     Info (12134): Parameter "lpm_type" = "altsyncram"
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_9n24.tdf
     Info (12023): Found entity 1: altsyncram_9n24 File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/db/altsyncram_9n24.tdf Line: 30
-Info (12128): Elaborating entity "altsyncram_9n24" for hierarchy "rom:u0|altsyncram:altsyncram_component|altsyncram_9n24:auto_generated" File: /home/mj/intelFPGA_lite/21.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
+Info (12128): Elaborating entity "altsyncram_9n24" for hierarchy "uut_fetch:uut_fetch1|memory_interface_1:mem1|rom:u0|altsyncram:altsyncram_component|altsyncram_9n24:auto_generated" File: /home/mj/intelFPGA_lite/21.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
 Info (12021): Found 1 design units, including 1 entities, in source file db/mux_p1b.tdf
     Info (12023): Found entity 1: mux_p1b File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/db/mux_p1b.tdf Line: 23
-Info (12128): Elaborating entity "mux_p1b" for hierarchy "rom:u0|altsyncram:altsyncram_component|altsyncram_9n24:auto_generated|mux_p1b:mux2" File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/db/altsyncram_9n24.tdf Line: 41
+Info (12128): Elaborating entity "mux_p1b" for hierarchy "uut_fetch:uut_fetch1|memory_interface_1:mem1|rom:u0|altsyncram:altsyncram_component|altsyncram_9n24:auto_generated|mux_p1b:mux2" File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/db/altsyncram_9n24.tdf Line: 41
+Info (12128): Elaborating entity "control_unit" for hierarchy "control_unit:control_unit1" File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/test.vhd Line: 93
+Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 213 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 17 input pins
-    Info (21059): Implemented 34 output pins
-    Info (21061): Implemented 146 logic cells
+Info (21057): Implemented 306 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 2 input pins
+    Info (21059): Implemented 96 output pins
+    Info (21061): Implemented 192 logic cells
     Info (21064): Implemented 16 RAM segments
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 0 warnings
-    Info: Peak virtual memory: 654 megabytes
-    Info: Processing ended: Wed Nov  2 06:28:04 2022
-    Info: Elapsed time: 00:00:08
-    Info: Total CPU time (on all processors): 00:00:19
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 1 warning
+    Info: Peak virtual memory: 671 megabytes
+    Info: Processing ended: Thu Nov  3 06:23:16 2022
+    Info: Elapsed time: 00:00:15
+    Info: Total CPU time (on all processors): 00:00:39
 
 

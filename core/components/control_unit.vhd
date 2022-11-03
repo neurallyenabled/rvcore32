@@ -16,7 +16,6 @@ port (
 	O_mem_en		: out std_logic;
 	fetch_en		: out std_logic;
 	pc_selector	: out std_logic;
-	pc_increment: out std_logic;
 	instruction_cycle: out std_logic;
 	uut_out		: out std_logic_vector(5 downto 0);
 	uut_en		: out std_logic_vector(5 downto 0);
@@ -67,7 +66,6 @@ if current_state = stop_s then
 	uut_clr 				<= "111111";
 	uut_out				<=	"000000";
 	pc_selector			<= '0';
-	pc_increment		<= '0';
 	fetch_en 			<= '0';
 	mem_en_i 			<= '0';
 	mem_done_i 			<= '0';
@@ -86,21 +84,18 @@ else --current_state = start_s
 		
 		if branch = '1' then
 			pc_selector 	<= '1'; 			--select alu output as new pc
-			pc_increment	<= '1';
 			uut_clr 			<= "011100"; 	-- clr fetch/decode/register/alu phases
 			uut_en 			<= "110111"; 	--start all, enable wb , and disable rd
 			uut_out			<= "000111";	-- to not output wrong values 
 			fetch_en 		<= '1';			-- start insturction fetch
 		elsif stall = '1' then
 			pc_selector		<= '0'; 			--use the same pc
-			pc_increment		<= '0';
 			uut_clr 			<= "011000"; 	--clr decode/rd output to not duplicate instructions
 			uut_en 			<= "000111"; 	-- stop fetch/decode/rd units
 			uut_out			<= "000111";	-- dont output fetch/decode/rd until stall is 0
 			fetch_en 		<= '0';			-- stop instruction fetch ?
 		else
 			pc_selector 	<= '0'; 			--use pc+4 as new pc
-			pc_increment		<= '1';
 			uut_clr 			<= "000000"; 	-- no clr
 			uut_en 			<= "110111"; 	--start all, enable wb , and disable rd
 			uut_out			<= "111111";	-- output all
@@ -114,7 +109,6 @@ else --current_state = start_s
 	elsif cycle_i = 2 then
 		instruction_cycle <= '1';
 		pc_selector 		<= '0';
-		pc_increment		<= '0';
 		mem_en_i 			<= '0';
 		fetch_en 			<= '0';
 		mem_done_i 			<= '0';
@@ -134,7 +128,6 @@ else --current_state = start_s
 	else -- 0< cycle_i < 2
 		instruction_cycle <= '1';
 		pc_selector 			<= '0';			--select pc+4 for next pc 
-		pc_increment			<= '0';
 		uut_out					<= "000000"; 	-- no instruction moves to next stage in this cycle
 		if stall = '1' then
 			uut_clr 				<= "011000";

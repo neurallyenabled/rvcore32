@@ -9,7 +9,6 @@ port (
 	clk					: in std_logic;
 	start					: in std_logic;
 	pc_selector			: in std_logic;
-	pc_increment		: in std_logic;
 	uut_fetch_en		: in std_logic;
 	uut_fetch_clr		: in std_logic;
 	uut_fetch_out		: in std_logic;
@@ -42,6 +41,7 @@ port (
 end component;
 
 begin
+pc4_out <= pc4_i;
 
 mem1: memory_interface_1 port map (
 				clk => clk,
@@ -53,28 +53,24 @@ mem1: memory_interface_1 port map (
 				done => fetch_done
 				);
 
+process(pc_selector,new_pc_in,pc4_i)
+begin
+case pc_selector is
+ when '1' => pc_i 	<= new_pc_in(31 downto 1) & '0';
+ when others => pc_i 	<= pc4_i(31 downto 1) & '0';
+end case;
+end process;				
+				
 process(clk,uut_fetch_en,uut_fetch_clr)
 begin
 	if uut_fetch_clr = '1' then
 		instruction 	<= (others => '0');
 		pc_out 			<= (others => '0');
-		pc4_out 			<= (others => '0');
+		pc4_i 			<= (others => '0');
 
 	elsif rising_edge(clk) and uut_fetch_en = '1' then
-		if pc_selector = '1' then
-			if pc_increment = '1' then
-				pc_i 				<= new_pc_in(31 downto 1) & '0';
-				pc4_i 			<= std_logic_vector(unsigned(new_pc_in) + 4);
-			end if;
-		else
-			if pc_increment = '1' then
-				pc_i 				<= pc4_i(31 downto 1) & '0';
-				pc4_i 			<= std_logic_vector(unsigned(pc_i) + 4);
-			end if;
-		end if;		
-		
 		if uut_fetch_out = '1' then
-			pc4_out 			<= pc4_i;
+			pc4_i 			<= std_logic_vector(unsigned(pc_i(31 downto 1)) + 2) & '0'; --add 2 to pc_i(31 downto 1) to be equal to adding 4 to pc_i(31 downto 0)
 			pc_out 			<= pc_i;
 			instruction 	<= instruction_i;	
 		end if;
