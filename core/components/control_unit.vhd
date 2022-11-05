@@ -15,7 +15,6 @@ port (
 	I_mem_en		: in std_logic;
 	O_mem_en		: out std_logic;
 	fetch_en		: out std_logic;
-	pc_selector	: out std_logic;
 	instruction_cycle: out std_logic;
 	uut_out		: out std_logic_vector(5 downto 0);
 	uut_en		: out std_logic_vector(5 downto 0);
@@ -65,7 +64,6 @@ if current_state = stop_s then
 	uut_en 				<= "000000";
 	uut_clr 				<= "111111";
 	uut_out				<=	"000000";
-	pc_selector			<= '0';
 	fetch_en 			<= '0';
 	mem_en_i 			<= '0';
 	mem_done_i 			<= '0';
@@ -76,93 +74,81 @@ else --current_state = start_s
 		instruction_cycle <= '0';
 		mem_done_i 			<= '0';
 		fetch_done_i 		<= '0';
+		uut_out <= "000000";
 		if I_mem_en = '1' then				--check if instruction at the MEM stage reqiure memory access
 			mem_en_i 		<= '1';
 		else
 			mem_en_i			<= '0';
 		end if;
-		
-		if branch = '1' then
-			pc_selector 	<= '1'; 			--select alu output as new pc
-			uut_clr 			<= "011100"; 	-- clr fetch/decode/register/alu phases
-			uut_en 			<= "110111"; 	--start all, enable wb , and disable rd
-			uut_out			<= "000111";	-- to not output wrong values 
-			fetch_en 		<= '1';			-- start insturction fetch
-		elsif stall = '1' then
-			pc_selector		<= '0'; 			--use the same pc
-			uut_clr 			<= "011000"; 	--clr decode/rd output to not duplicate instructions
-			uut_en 			<= "000111"; 	-- stop fetch/decode/rd units
-			uut_out			<= "000111";	-- dont output fetch/decode/rd until stall is 0
+
+		if stall = '1' then
+			uut_clr 			<= "000110"; 	--clr decode/rd output to not duplicate instructions
+			uut_en 			<= "111000"; 	-- stop fetch/decode/rd units
 			fetch_en 		<= '0';			-- stop instruction fetch ?
 		else
-			pc_selector 	<= '0'; 			--use pc+4 as new pc
 			uut_clr 			<= "000000"; 	-- no clr
-			uut_en 			<= "110111"; 	--start all, enable wb , and disable rd
-			uut_out			<= "111111";	-- output all
+			uut_en 			<= "111011"; 	--start all, enable wb , and disable rd
 			fetch_en 		<= '1';			-- start insturction fetch	
 		end if;
 		
 
-
-
-
-	elsif cycle_i = 2 then
+	elsif cycle_i = 1 then
 		instruction_cycle <= '1';
-		pc_selector 		<= '0';
+		uut_out					<= "000000"; 	-- no instruction moves to next stage in this cycle
+		if branch = '1' then
+			uut_clr 			<= "001110"; 	-- clr fetch/decode/register/alu phases
+			uut_en 			<= "111011"; 	--start all, enable wb , and disable rd
+		elsif stall = '1' then
+			uut_clr 				<= "000110";
+			uut_en 				<= "011000";	--disable wb
+		else
+			uut_clr 				<= "000000";	--no clr
+			uut_en 				<= "011111"; 	--enable rd , and disable wb
+		end if;
+		if rising_edge(clk) then
+			if fetch_en = '1' then				--fetch_en logic
+				if fetch_done = '1' then		
+					fetch_en 		<= '0';
+					fetch_done_i 	<= '1';
+				else
+					fetch_en			<= '1';
+					fetch_done_i 	<= '0';
+				end if;
+			else
+				fetch_en 			<= '0';
+				fetch_done_i 		<= '1';
+			end if;
+			
+			if mem_en_i = '1' then					-- mem_en logic 
+				if mem_done = '1' then
+					mem_en_i 		<= '0';
+					mem_done_i 		<= '1';
+				else
+					mem_en_i			<= '1';
+					mem_done_i 		<= '0';
+				end if;
+			else
+				mem_en_i 			<= '0';
+				mem_done_i 			<= '1';
+			end if;
+		end if;
+
+
+	else -- cycle_i = 2 then
+		instruction_cycle <= '1';
 		mem_en_i 			<= '0';
 		fetch_en 			<= '0';
 		mem_done_i 			<= '0';
 		fetch_done_i 		<= '0';
 		if stall = '1' then
-			uut_clr 			<= "011000";	
-			uut_en 			<= "000110";	--same as before
-			uut_out 			<= "000111";	--all out except for stalled units
+			uut_clr 			<= "000110";	
+			uut_en 			<= "011000";	--same as before
+			uut_out 			<= "111000";	--all out except for stalled units
 		else
 			uut_clr 			<= "000000";	--no clr
-			uut_en 			<= "111110";	--same as before
+			uut_en 			<= "011111";	--same as before
 			uut_out 			<= "111111";	--all out
 		end if;
-		
-		
-		
-	else -- 0< cycle_i < 2
-		instruction_cycle <= '1';
-		pc_selector 			<= '0';			--select pc+4 for next pc 
-		uut_out					<= "000000"; 	-- no instruction moves to next stage in this cycle
-		if stall = '1' then
-			uut_clr 				<= "011000";
-			uut_en 				<= "000110";	--disable wb
-		else
-			uut_clr 				<= "000000";	--no clr
-			uut_en 				<= "111110"; 	--enable rd , and disable wb
-		end if;
-
-		if fetch_en = '1' then				--fetch_en logic
-			if fetch_done = '1' then		
-				fetch_en 		<= '0';
-				fetch_done_i 	<= '1';
-			else
-				fetch_en			<= '1';
-				fetch_done_i 	<= '0';
-			end if;
-		else
-			fetch_en 			<= '0';
-			fetch_done_i 		<= '1';
-		end if;
-		
-		if mem_en_i = '1' then					-- mem_en logic 
-			if mem_done = '1' then
-				mem_en_i 		<= '0';
-				mem_done_i 		<= '1';
-			else
-				mem_en_i			<= '1';
-				mem_done_i 		<= '0';
-			end if;
-		else
-			mem_en_i 			<= '0';
-			mem_done_i 			<= '1';
-		end if;
-		
 	end if;
 end if;
 
