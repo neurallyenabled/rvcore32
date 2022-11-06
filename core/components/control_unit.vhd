@@ -74,7 +74,7 @@ else --current_state = start_s
 		instruction_cycle <= '0';
 		mem_done_i 			<= '0';
 		fetch_done_i 		<= '0';
-		uut_out <= "000000";
+		uut_out 				<= "100000";
 		if I_mem_en = '1' then				--check if instruction at the MEM stage reqiure memory access
 			mem_en_i 		<= '1';
 		else
@@ -99,7 +99,7 @@ else --current_state = start_s
 			uut_clr 			<= "001110"; 	-- clr fetch/decode/register/alu phases
 			uut_en 			<= "111011"; 	--start all, enable wb , and disable rd
 		elsif stall = '1' then
-			uut_clr 				<= "000110";
+			uut_clr 				<= "000000";
 			uut_en 				<= "011000";	--disable wb
 		else
 			uut_clr 				<= "000000";	--no clr
@@ -141,7 +141,7 @@ else --current_state = start_s
 		mem_done_i 			<= '0';
 		fetch_done_i 		<= '0';
 		if stall = '1' then
-			uut_clr 			<= "000110";	
+			uut_clr 			<= "000000";	
 			uut_en 			<= "011000";	--same as before
 			uut_out 			<= "111000";	--all out except for stalled units
 		else

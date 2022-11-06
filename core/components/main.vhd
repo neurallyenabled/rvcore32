@@ -8,6 +8,7 @@ use work.registers.all;
 entity main is 
 port (
 		clk,start: in std_logic;
+		instruction_cycle: out std_logic;
 		registers: out reg_array
 );
 end main;
@@ -125,11 +126,12 @@ end component;
 component uut_register is
 port(
 	clk					: in std_logic;
-	I_start				: in std_logic;
 	uut_register_re_en: in std_logic;
 	uut_register_wb_en: in std_logic;
-	uut_register_clr	: in std_logic;
-	uut_register_out	: in std_logic;
+	uut_register_re_clr	: in std_logic;
+	uut_register_wb_clr	: in std_logic;
+	uut_register_re_out	: in std_logic;
+	uut_register_wb_out	: in std_logic;
 	I_wb_en				: in std_logic;
 	I_wb_selector		: in std_logic_vector (1 downto 0);
 	I_rd_address		: in std_logic_vector (4 downto 0);
@@ -217,11 +219,17 @@ port (
 	I_mem_en		: in std_logic;
 	O_mem_en		: out std_logic;
 	fetch_en		: out std_logic;
+	instruction_cycle: out std_logic;
 	uut_out		: out std_logic_vector(5 downto 0);
 	uut_en		: out std_logic_vector(5 downto 0);
 	uut_clr		: out std_logic_vector(5 downto 0)
 	);
 end component;
+
+attribute preserve: boolean; 
+attribute preserve of uut_fetch: component is true;
+attribute preserve of uut_mem: component is true; 
+attribute preserve of rtl: architecture is true; 
 
 begin
 
@@ -276,11 +284,12 @@ uut_decode1: uut_decode port map(
 				);
 uut_register1: uut_register port map(
 				clk 						=> clk,
-				I_start					=> start,
-				uut_register_re_en 	=> uut_en(2),
-				uut_register_wb_en 	=> uut_en(5),
-				uut_register_clr		=> uut_clr(2),
-				uut_register_out		=> uut_out(2),
+				uut_register_re_en	=> uut_en(2),
+				uut_register_wb_en	=> uut_en(5),
+				uut_register_re_clr	=> uut_clr(2),
+				uut_register_wb_clr	=> uut_clr(5),
+				uut_register_re_out	=> uut_out(2),
+				uut_register_wb_out	=> uut_out(5),
 				
 				I_rs1_address 			=> ID_rs1_address,
 				I_rs2_address 			=> ID_rs2_address,
@@ -365,6 +374,7 @@ control_unit1: control_unit port map(
 				I_mem_en					=> ALU_mem_en,
 				O_mem_en					=> MEM_mem_en,
 				mem_wait					=> MEM_wait,
-				mem_done					=> MEM_done
+				mem_done					=> MEM_done,
+				instruction_cycle		=> instruction_cycle
 				);	
 end rtl;

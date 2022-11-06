@@ -10,11 +10,12 @@ use work.registers.all;
 entity uut_register is
 port (
 	clk					: in std_logic;
-	I_start				: in std_logic;
 	uut_register_re_en: in std_logic;
 	uut_register_wb_en: in std_logic;
-	uut_register_clr	: in std_logic;
-	uut_register_out	: in std_logic;
+	uut_register_re_clr	: in std_logic;
+	uut_register_wb_clr	: in std_logic;
+	uut_register_re_out	: in std_logic;
+	uut_register_wb_out	: in std_logic;
 	I_wb_en				: in std_logic;
 	I_wb_selector		: in std_logic_vector (1 downto 0);
 	I_rd_address		: in std_logic_vector (4 downto 0);
@@ -36,15 +37,12 @@ begin
 
 myreg <= registers;
 
-process (clk,uut_register_clr,I_start)
+process (clk,uut_register_wb_clr,uut_register_re_clr)
 begin
-	if I_start = '0' then
+	if uut_register_wb_clr = '1' then
 		registers <= (others => (others => '0'));
-	elsif uut_register_clr = '1' then
-		O_rs1 <= (others => '0');
-		O_rs2 <= (others => '0');
 	elsif rising_edge(clk) then
-		if uut_register_wb_en = '1' and I_wb_en = '1' then
+		if uut_register_wb_en = '1' and I_wb_en = '1' and uut_register_wb_out = '1' then
 			if I_rd_address = "00000" then
 				registers(0) <= (others => '0');
 			else	
@@ -56,8 +54,15 @@ begin
 					registers(to_integer(unsigned(I_rd_address))) <= I_pc4;
 				end if;
 			end if;
-
-		elsif uut_register_re_en = '1' and uut_register_out = '1' then
+		end if;
+	end if;
+	
+	
+	if uut_register_re_clr = '1' then
+		O_rs1 <= (others => '0');
+		O_rs2 <= (others => '0');
+	elsif rising_edge(clk) then
+		if uut_register_re_en = '1' and uut_register_re_out = '1' then
 			O_rs1 <= registers(to_integer(unsigned(I_rs1_address)));
 			O_rs2 <= registers(to_integer(unsigned(I_rs2_address)));
 		end if;
