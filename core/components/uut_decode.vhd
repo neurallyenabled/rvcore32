@@ -8,7 +8,6 @@ port (
 	clk					: in std_logic;
 	uut_decode_en		: in std_logic;
 	uut_decode_clr		: in std_logic;
-	uut_decode_out		: in std_logic;
 	I_rd_address_alu	: in std_logic_vector (4 downto 0);
 	I_rd_address_mem	: in std_logic_vector (4 downto 0);
 	I_instruction		: in std_logic_vector (31 downto 0);
@@ -106,158 +105,155 @@ begin
 		O_wb_selector 		<= (others => '0');
 
 	elsif rising_edge(clk) and uut_decode_en = '1' then
+		O_pc 				<= I_pc;
+		O_pc4 			<= I_pc4;
 		
-		if uut_decode_out = '1' then
-			O_pc 				<= I_pc;
-			O_pc4 			<= I_pc4;
+		if opcode_i = "0110111" then -- LUI
+			O_immediate 		<= immu;
+			O_oper_selector 	<= "10";
+			O_add 				<= '0';
+			O_alu_en 			<= '0';
+			O_compare_en 		<= '0';
+			O_jump 				<= '0';
+			O_mem_en 			<= '0';
+			O_wb_selector 		<= "00";
+			O_wb_en 				<= '1';
+			O_rd_address 		<= O_rd_address_i;
+			O_function3 		<= (others => '0');
+			O_function7 		<= '0';
+	
+		elsif opcode_i = "0010111" then -- AUIPC
+			O_immediate 		<= immu;
+			O_oper_selector 	<= "11";
+			O_add 				<= '1';
+			O_alu_en 			<= '1';
+			O_compare_en 		<= '0';
+			O_jump 				<= '0';
+			O_mem_en 			<= '0';
+			O_wb_selector 		<= "00";
+			O_wb_en 				<= '1';
+			O_rd_address 		<= O_rd_address_i;
+			O_function3 		<= (others => '0');
+			O_function7 		<= '0';
 			
-			if opcode_i = "0110111" then -- LUI
-				O_immediate 		<= immu;
-				O_oper_selector 	<= "10";
-				O_add 				<= '0';
-				O_alu_en 			<= '0';
-				O_compare_en 		<= '0';
-				O_jump 				<= '0';
-				O_mem_en 			<= '0';
-				O_wb_selector 		<= "00";
-				O_wb_en 				<= '1';
-				O_rd_address 		<= O_rd_address_i;
-				O_function3 		<= (others => '0');
-				O_function7 		<= '0';
+		elsif	opcode_i = "1101111" then -- JAL
+			O_immediate 		<= immj;
+			O_oper_selector 	<= "11";
+			O_add 				<= '1';
+			O_alu_en 			<= '1';
+			O_compare_en 		<= '1';
+			O_jump 				<= '1';
+			O_mem_en 			<= '0';
+			O_wb_selector 		<= "10";
+			O_wb_en 				<= '1';
+			O_rd_address 		<= O_rd_address_i;
+			O_function3 		<= (others => '0');
+			O_function7 		<= '0';
+			
+		elsif	opcode_i = "1100111" then -- JALR
+			O_immediate 		<= immi;	
+			O_oper_selector 	<= "10";
+			O_add 				<= '1';
+			O_alu_en 			<= '1';
+			O_compare_en 		<= '1';
+			O_jump 				<= '1';
+			O_mem_en 			<= '0';
+			O_wb_selector 		<= "10";
+			O_wb_en 				<= '1';
+			O_rd_address 		<= O_rd_address_i;
+			O_function3 		<= O_function3_i;
+			O_function7 		<= '0';
+			
+		elsif	opcode_i = "1100011" then -- br
+			O_immediate 		<= immb;	
+			O_oper_selector 	<= "11";
+			O_add 				<= '1';
+			O_alu_en 			<= '1';
+			O_compare_en 		<= '1';
+			O_jump 				<= '0';
+			O_mem_en 			<= '0';
+			O_wb_selector 		<= "00"; -- no write back
+			O_wb_en 				<= '0';
+			O_rd_address 		<= (others => '0');
+			O_function3 		<= O_function3_i;
+			O_function7 		<= '0';
+			
+			
+		elsif	opcode_i = "0100011" then -- st
+			O_immediate 		<= imms;	
+			O_oper_selector 	<= "10";
+			O_add 				<= '1';
+			O_alu_en 			<= '1';
+			O_compare_en 		<= '0';
+			O_jump 				<= '0';
+			O_mem_en 			<= '1';
+			O_wb_selector 		<= "00"; -- no write back
+			O_wb_en 				<= '0';
+			O_rd_address 		<= (others => '0');
+			O_function3 		<= O_function3_i;
+			O_function7 		<= '0';
+			
+		elsif opcode_i = "0000011" then -- LD
+			O_immediate 		<= immi;	
+			O_oper_selector 	<= "10";
+			O_add 				<= '1';
+			O_alu_en 			<= '1';
+			O_compare_en 		<= '0';
+			O_jump 				<= '0';
+			O_mem_en 			<= '1';
+			O_wb_selector 		<= "01";
+			O_wb_en 				<= '1';
+			O_rd_address 		<= O_rd_address_i;
+			O_function3 		<= O_function3_i;
+			O_function7 		<= '0';
 		
-			elsif opcode_i = "0010111" then -- AUIPC
-				O_immediate 		<= immu;
-				O_oper_selector 	<= "11";
-				O_add 				<= '1';
-				O_alu_en 			<= '1';
-				O_compare_en 		<= '0';
-				O_jump 				<= '0';
-				O_mem_en 			<= '0';
-				O_wb_selector 		<= "00";
-				O_wb_en 				<= '1';
-				O_rd_address 		<= O_rd_address_i;
-				O_function3 		<= (others => '0');
-				O_function7 		<= '0';
-				
-			elsif	opcode_i = "1101111" then -- JAL
-				O_immediate 		<= immj;
-				O_oper_selector 	<= "11";
-				O_add 				<= '1';
-				O_alu_en 			<= '1';
-				O_compare_en 		<= '1';
-				O_jump 				<= '1';
-				O_mem_en 			<= '0';
-				O_wb_selector 		<= "10";
-				O_wb_en 				<= '1';
-				O_rd_address 		<= O_rd_address_i;
-				O_function3 		<= (others => '0');
-				O_function7 		<= '0';
-				
-			elsif	opcode_i = "1100111" then -- JALR
-				O_immediate 		<= immi;	
-				O_oper_selector 	<= "10";
-				O_add 				<= '1';
-				O_alu_en 			<= '1';
-				O_compare_en 		<= '1';
-				O_jump 				<= '1';
-				O_mem_en 			<= '0';
-				O_wb_selector 		<= "10";
-				O_wb_en 				<= '1';
-				O_rd_address 		<= O_rd_address_i;
-				O_function3 		<= O_function3_i;
-				O_function7 		<= '0';
-				
-			elsif	opcode_i = "1100011" then -- br
-				O_immediate 		<= immb;	
-				O_oper_selector 	<= "11";
-				O_add 				<= '1';
-				O_alu_en 			<= '1';
-				O_compare_en 		<= '1';
-				O_jump 				<= '0';
-				O_mem_en 			<= '0';
-				O_wb_selector 		<= "00"; -- no write back
-				O_wb_en 				<= '0';
-				O_rd_address 		<= (others => '0');
-				O_function3 		<= O_function3_i;
-				O_function7 		<= '0';
-				
-				
-			elsif	opcode_i = "0100011" then -- st
-				O_immediate 		<= imms;	
-				O_oper_selector 	<= "10";
-				O_add 				<= '1';
-				O_alu_en 			<= '1';
-				O_compare_en 		<= '0';
-				O_jump 				<= '0';
-				O_mem_en 			<= '1';
-				O_wb_selector 		<= "00"; -- no write back
-				O_wb_en 				<= '0';
-				O_rd_address 		<= (others => '0');
-				O_function3 		<= O_function3_i;
-				O_function7 		<= '0';
-				
-			elsif opcode_i = "0000011" then -- LD
-				O_immediate 		<= immi;	
-				O_oper_selector 	<= "10";
-				O_add 				<= '1';
-				O_alu_en 			<= '1';
-				O_compare_en 		<= '0';
-				O_jump 				<= '0';
-				O_mem_en 			<= '1';
-				O_wb_selector 		<= "01";
-				O_wb_en 				<= '1';
-				O_rd_address 		<= O_rd_address_i;
-				O_function3 		<= O_function3_i;
-				O_function7 		<= '0';
-			
-			elsif	opcode_i = "0010011" then -- ADDI
-				O_immediate 		<= immi;	
-				O_oper_selector 	<= "10";
-				O_add 				<= '0';
-				O_alu_en 			<= '1';
-				O_compare_en 		<= '0';
-				O_jump 				<= '0';
-				O_mem_en 			<= '0';
-				O_wb_selector 		<= "00";
-				O_wb_en 				<= '1';
-				O_rd_address 		<= O_rd_address_i;
-				O_function3 		<= O_function3_i;
-				O_function7 		<= I_instruction(30);
+		elsif	opcode_i = "0010011" then -- ADDI
+			O_immediate 		<= immi;	
+			O_oper_selector 	<= "10";
+			O_add 				<= '0';
+			O_alu_en 			<= '1';
+			O_compare_en 		<= '0';
+			O_jump 				<= '0';
+			O_mem_en 			<= '0';
+			O_wb_selector 		<= "00";
+			O_wb_en 				<= '1';
+			O_rd_address 		<= O_rd_address_i;
+			O_function3 		<= O_function3_i;
+			O_function7 		<= I_instruction(30);
 
-				
-			elsif opcode_i = "0110011"	then -- ADD
-				O_immediate 		<= (others => '0');	
-				O_oper_selector 	<= "00";
-				O_add 				<= '0';
-				O_alu_en 			<= '1';
-				O_compare_en 		<= '0';
-				O_jump 				<= '0';
-				O_mem_en 			<= '0';
-				O_wb_selector 		<= "00";
-				O_wb_en 				<= '1';
-				O_rd_address 		<= O_rd_address_i;
-				O_function3 		<= O_function3_i;
-				O_function7 		<= I_instruction(30);
-				
-				
-			elsif	opcode_i = "1110011" then -- CSR
-				if O_function3_i(2) = '1' then
-					O_immediate 	<= zimm;
-				else
-					O_immediate 	<= (others => '0');	
-				end if;
-				O_oper_selector 	<= "00";
-				O_add 				<= '0';
-				O_alu_en 			<= '0';
-				O_compare_en 		<= '0';
-				O_jump 				<= '0';
-				O_mem_en 			<= '0';
-				O_wb_selector 		<= "00";
-				O_wb_en 				<= '0';
-				O_rd_address 		<= (others => '0');
-				O_function3 		<= O_function3_i;
-				O_function7 		<= '0';
+			
+		elsif opcode_i = "0110011"	then -- ADD
+			O_immediate 		<= (others => '0');	
+			O_oper_selector 	<= "00";
+			O_add 				<= '0';
+			O_alu_en 			<= '1';
+			O_compare_en 		<= '0';
+			O_jump 				<= '0';
+			O_mem_en 			<= '0';
+			O_wb_selector 		<= "00";
+			O_wb_en 				<= '1';
+			O_rd_address 		<= O_rd_address_i;
+			O_function3 		<= O_function3_i;
+			O_function7 		<= I_instruction(30);
+			
+			
+		elsif	opcode_i = "1110011" then -- CSR
+			if O_function3_i(2) = '1' then
+				O_immediate 	<= zimm;
+			else
+				O_immediate 	<= (others => '0');	
 			end if;
+			O_oper_selector 	<= "00";
+			O_add 				<= '0';
+			O_alu_en 			<= '0';
+			O_compare_en 		<= '0';
+			O_jump 				<= '0';
+			O_mem_en 			<= '0';
+			O_wb_selector 		<= "00";
+			O_wb_en 				<= '0';
+			O_rd_address 		<= (others => '0');
+			O_function3 		<= O_function3_i;
+			O_function7 		<= '0';
 		end if;
 	end if;
 end process;

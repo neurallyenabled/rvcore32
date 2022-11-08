@@ -7,7 +7,6 @@ port (
 	clk				: in std_logic;
 	uut_mem_en		: in std_logic;
 	uut_mem_clr		: in std_logic;
-	uut_mem_out		: in std_logic;
 	I_mem_en			: in std_logic;
 	I_wb_en			: in std_logic;
 	I_start			: in std_logic;
@@ -72,14 +71,12 @@ begin
 		O_alu_output		<= (others => '0');
 		O_pc4					<= (others => '0');
 	elsif rising_edge(clk) and uut_mem_en = '1' then
-		if uut_mem_out = '1' then
-			O_wb_en 			<= I_wb_en;
-			O_wb_selector 	<= I_wb_selector;
-			O_rd_address 	<= I_rd_address;
-			O_loaded_data	<= O_loaded_data_i;
-			O_alu_output 	<= I_alu_output;
-			O_pc4 			<= I_pc4;
-		end if;
+		O_wb_en 			<= I_wb_en;
+		O_wb_selector 	<= I_wb_selector;
+		O_rd_address 	<= I_rd_address;
+		O_loaded_data	<= O_loaded_data_i;
+		O_alu_output 	<= I_alu_output;
+		O_pc4 			<= I_pc4;
 	end if;	
 end process;
 end rtl;

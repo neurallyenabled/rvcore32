@@ -11,7 +11,6 @@ port (
 	I_pc_selector	: in std_logic;
 	uut_fetch_en	: in std_logic;
 	uut_fetch_clr	: in std_logic;
-	uut_fetch_out	: in std_logic;
 	I_fetch_en		: in std_logic;
 	I_alu_output	: in std_logic_vector (31 downto 0);
 	O_fetch_wait	: out std_logic;
@@ -69,11 +68,9 @@ begin
 		O_pc4_i 				<= (others => '0');
 
 	elsif rising_edge(clk) and uut_fetch_en = '1' then
-		if uut_fetch_out = '1' then
-			O_pc4_i 			<= std_logic_vector(unsigned(O_pc_i(31 downto 1)) + 2) & '0'; --add 2 to pc_i(31 downto 1) to be equal to adding 4 to pc_i(31 downto 0)
-			O_pc 				<= O_pc_i;
-			O_instruction 	<= O_instruction_i;	
-		end if;
+		O_pc4_i 			<= std_logic_vector(unsigned(O_pc_i(31 downto 1)) + 2) & '0'; --add 2 to pc_i(31 downto 1) to be equal to adding 4 to pc_i(31 downto 0)
+		O_pc 				<= O_pc_i;
+		O_instruction 	<= O_instruction_i;	
 	end if;	
 end process;	
 end rtl;

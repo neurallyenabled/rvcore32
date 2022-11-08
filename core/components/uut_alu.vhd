@@ -8,7 +8,6 @@ port (
 	clk						: in std_logic;
 	uut_alu_en				: in std_logic;
 	uut_alu_clr				: in std_logic;
-	uut_alu_out				: in std_logic;
 	I_function7				: in std_logic;
 	I_alu_en					: in std_logic;
 	I_compare_en			: in std_logic;
@@ -74,18 +73,22 @@ begin
 		O_alu_output 	<= (others => '0');
 
 	elsif rising_edge(clk) and uut_alu_en = '1' then		
-		if uut_alu_out = '1' then	
-			O_rd_address 	<= I_rd_address;
-			O_rs2 			<= I_rs2;
-			O_pc4 			<= I_pc4;
-			O_mem_en 		<= I_mem_en;
-			O_wb_selector 	<= I_wb_selector;
-			O_wb_en 			<= I_wb_en;
-			O_function3 	<= I_function3;
-			O_alu_output 	<= O_alu_output_i;
-			O_condition 	<= O_condition_i;
-		end if;
-		
+		O_rd_address 	<= I_rd_address;
+		O_rs2 			<= I_rs2;
+		O_pc4 			<= I_pc4;
+		O_mem_en 		<= I_mem_en;
+		O_wb_selector 	<= I_wb_selector;
+		O_wb_en 			<= I_wb_en;
+		O_function3 	<= I_function3;
+		O_alu_output 	<= O_alu_output_i;
+		O_condition 	<= O_condition_i;
+	end if;
+end process;
+
+
+process(clk,I_alu_en,i_compare_en,I_function3,I_function7,I_operand_selector,I_add,I_jump,oper1,oper2,I_rs1,I_rs2)
+begin
+	if rising_edge(clk) then
 		if I_alu_en = '1' then
 			if I_add = '1' then
 					O_alu_output_i <= std_logic_vector(unsigned(oper1) + unsigned(oper2));
@@ -182,7 +185,7 @@ begin
 			end if;
 		else 
 					O_condition_i <= '0';
-		end if;	
-	end if;	
+		end if;
+	end if;
 end process;
 end rtl;

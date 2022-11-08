@@ -16,7 +16,6 @@ port (
 	O_mem_en		: out std_logic;
 	fetch_en		: out std_logic;
 	instruction_cycle: out std_logic;
-	uut_out		: out std_logic_vector(5 downto 0);
 	uut_en		: out std_logic_vector(5 downto 0);
 	uut_clr		: out std_logic_vector(5 downto 0)
 );
@@ -61,9 +60,8 @@ process(all)
 begin
 if current_state = stop_s then
 	instruction_cycle <= '0';
-	uut_en 				<= "000000";
 	uut_clr 				<= "111111";
-	uut_out				<=	"000000";
+	uut_en				<=	"000000";
 	fetch_en 			<= '0';
 	mem_en_i 			<= '0';
 	mem_done_i 			<= '0';
@@ -74,36 +72,29 @@ else --current_state = start_s
 		instruction_cycle <= '0';
 		mem_done_i 			<= '0';
 		fetch_done_i 		<= '0';
-		uut_out 				<= "100000";
 		if I_mem_en = '1' then				--check if instruction at the MEM stage reqiure memory access
 			mem_en_i 		<= '1';
 		else
 			mem_en_i			<= '0';
 		end if;
 
+		uut_en 				<= "100000";
 		if stall = '1' then
 			uut_clr 			<= "000110"; 	--clr decode/rd output to not duplicate instructions
-			uut_en 			<= "111000"; 	-- stop fetch/decode/rd units
 			fetch_en 		<= '0';			-- stop instruction fetch ?
 		else
 			uut_clr 			<= "000000"; 	-- no clr
-			uut_en 			<= "111011"; 	--start all, enable wb , and disable rd
 			fetch_en 		<= '1';			-- start insturction fetch	
 		end if;
 		
 
 	elsif cycle_i = 1 then
 		instruction_cycle <= '1';
-		uut_out					<= "000000"; 	-- no instruction moves to next stage in this cycle
+		uut_en					<= "000000"; 	-- no instruction moves to next stage in this cycle
 		if branch = '1' then
 			uut_clr 			<= "001110"; 	-- clr fetch/decode/register/alu phases
-			uut_en 			<= "111011"; 	--start all, enable wb , and disable rd
-		elsif stall = '1' then
-			uut_clr 				<= "000000";
-			uut_en 				<= "011000";	--disable wb
 		else
 			uut_clr 				<= "000000";	--no clr
-			uut_en 				<= "011111"; 	--enable rd , and disable wb
 		end if;
 		if rising_edge(clk) then
 			if fetch_en = '1' then				--fetch_en logic
@@ -140,14 +131,11 @@ else --current_state = start_s
 		fetch_en 			<= '0';
 		mem_done_i 			<= '0';
 		fetch_done_i 		<= '0';
+		uut_clr 			<= "000000";	--no clr
 		if stall = '1' then
-			uut_clr 			<= "000000";	
-			uut_en 			<= "011000";	--same as before
-			uut_out 			<= "111000";	--all out except for stalled units
+			uut_en 			<= "111000";	--all out except for stalled units
 		else
-			uut_clr 			<= "000000";	--no clr
-			uut_en 			<= "011111";	--same as before
-			uut_out 			<= "111111";	--all out
+			uut_en 			<= "111111";	--all out
 		end if;
 	end if;
 end if;
