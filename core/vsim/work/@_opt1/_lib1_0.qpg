@@ -1,6 +1,576 @@
 m255
 K4
 z2
+Z0 !s99 nomlopt
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+!s11e vcom 2021.2 2021.04, Apr 14 2021
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z1 d/home/mj/Documents/uob/itce497-senior-project/rvcore32/core/vsim
+T_opt
+!s110 1667876027
+V?dLf845:>j48VDQZhZKJV1
+04 4 3 work main rtl 1
+=1-000ae431a4f1-6369c4b9-c5d1a-2cc6
+!s124 OEM10U11 
+Z2 o-quiet -auto_acc_if_foreign -work work +acc
+Z3 tCvgOpt 0
+n@_opt
+Z4 OL;O;2021.2;73
+R1
+T_opt1
+!s110 1667914458
+V>c4T]:o7AFD?7KSWFOg`32
+04 10 3 work uut_alu_tb rtl 1
+=1-000ae431a4f1-636a5ad9-5e2e7-2fbc
+!s124 OEM10U1 
+R2
+R3
+n@_opt1
+R4
+T_opt2
+!s110 1667876966
+VKmDjCYV@J>e4BQ4PoeIiR1
+04 4 3 work test rtl 1
+=1-000ae431a4f1-6369c865-cd380-3672
+!s124 OEM10U6 
+R2
+R3
+n@_opt2
+R4
+R1
+Econtrol_unit
+Z5 w1667875470
+Z6 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
+Z7 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z8 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
+!i122 115
+R1
+Z9 8/home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/control_unit.vhd
+Z10 F/home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/control_unit.vhd
+l0
+L5 1
+V<La5Lo;Ug<h:Ao;B9WHhX1
+!s100 _Do`?AQCE5l:?b^KdaNLI3
+Z11 OL;C;2021.2;73
+33
+Z12 !s110 1667875996
+!i10b 1
+!i113 0
+Z13 o-work work
+Z14 tExplicit 1 NoCoverage 1 CvgOpt 0
+Artl
+R6
+R7
+R8
+DEx4 work 12 control_unit 0 22 <La5Lo;Ug<h:Ao;B9WHhX1
+!i122 115
+l33
+L24 126
+V3N[ggY[8WbiEUI3?fEV]O1
+!s100 NVzh`gH?FP^;8HG0Pnz]d3
+R11
+33
+R12
+!i10b 1
+!i113 0
+R13
+R14
+Emain
+Z15 w1667875645
+Z16 DPx4 ieee 15 std_logic_arith 0 22 [G314=:2zXJ`VORJe1J@Z1
+Z17 DPx4 ieee 18 std_logic_unsigned 0 22 ;eZjO2D4ZDz<]0>8AL<ne1
+Z18 DPx4 work 9 registers 0 22 aadPVCZUYJz0EibWoB_h90
+R6
+R7
+R8
+!i122 123
+R1
+Z19 8/home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/main.vhd
+Z20 F/home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/main.vhd
+l0
+L8 1
+VZ;IN<Ch9^CHfi3FK11`Zc3
+!s100 NBazN3HW?n=8X=;3X=FcL1
+R11
+33
+Z21 !s110 1667876010
+!i10b 1
+!i113 0
+R13
+R14
+Artl
+R16
+R17
+R18
+R6
+R7
+R8
+DEx4 work 4 main 0 22 Z;IN<Ch9^CHfi3FK11`Zc3
+!i122 123
+l225
+L16 350
+Vi0[1daG_1HUoWIMOa3ZCR1
+!s100 BBX>f^<RP1cB><J1C@`0L2
+R11
+33
+R21
+!i10b 1
+!i113 0
+R13
+R14
+Ememory_interface
+Z22 w1667802528
+R6
+R7
+R8
+!i122 113
+R1
+Z23 8/home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/memory_interface.vhd
+Z24 F/home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/memory_interface.vhd
+l0
+L5 1
+V72<1Z1Z@7K`jZ`kFocRRS0
+!s100 J?:h1OQcz34f07[:IjPn_2
+R11
+33
+Z25 !s110 1667875986
+!i10b 1
+!i113 0
+R13
+R14
+Artl
+R6
+R7
+R8
+DEx4 work 16 memory_interface 0 22 72<1Z1Z@7K`jZ`kFocRRS0
+!i122 113
+l45
+L20 221
+V4TjRaf@BH93:8dnlJhYEo2
+!s100 bWEIbi2Q7cEJcY=gi2;T;1
+R11
+33
+R25
+!i10b 1
+!i113 0
+R13
+R14
+Ememory_interface_1
+Z26 w1667799680
+R6
+R7
+R8
+!i122 114
+R1
+Z27 8/home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/memory_interface_1.vhd
+Z28 F/home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/memory_interface_1.vhd
+l0
+L5 1
+VkF0o6RnSc9gSWIW1^J@VQ3
+!s100 Q6bLcEDzgLa0`e4M[i74h1
+R11
+33
+Z29 !s110 1667875994
+!i10b 1
+!i113 0
+R13
+R14
+Artl
+R6
+R7
+R8
+DEx4 work 18 memory_interface_1 0 22 kF0o6RnSc9gSWIW1^J@VQ3
+!i122 114
+l38
+L17 125
+VGzNRQ]Q^3jnI58FKeK7`A1
+!s100 e]NW?Y0]WDU34g4K?_NCf1
+R11
+33
+R29
+!i10b 1
+!i113 0
+R13
+R14
+Eram
+Z30 w1666175698
+Z31 DPx9 altera_mf 20 altera_mf_components 0 22 z`PE^;i7^=^2F=6UIQiSN2
+R7
+R8
+!i122 112
+R1
+Z32 8/home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/ram/ram.vhd
+Z33 F/home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/ram/ram.vhd
+l0
+Z34 L43 1
+VZWY_EB6ko_dHo1cbVjCn:3
+!s100 5i>;RB<?K_b30NS8Jo`7J2
+R11
+33
+Z35 !s110 1667875980
+!i10b 1
+!i113 0
+R13
+R14
+Asyn
+R31
+R7
+R8
+DEx4 work 3 ram 0 22 ZWY_EB6ko_dHo1cbVjCn:3
+!i122 112
+l61
+L57 37
+V5M:6Zf2?6<NL<db=HiO3o3
+!s100 ld3W1i>kYl]@k<e:[4oMM0
+R11
+33
+R35
+!i10b 1
+!i113 0
+R13
+R14
+Pregisters
+R6
+R16
+R17
+R7
+R8
+!i122 122
+Z36 w1666517973
+R1
+Z37 8/home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/registers.vhd
+Z38 F/home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/registers.vhd
+l0
+L6 1
+VaadPVCZUYJz0EibWoB_h90
+!s100 mz^<MTA8aHc@54Z^1dDi91
+R11
+33
+Z39 !s110 1667876008
+!i10b 1
+!i113 0
+R13
+R14
+Bbody
+R18
+R6
+R16
+R17
+R7
+R8
+!i122 122
+l0
+L9 1
+Vj5gB>B^U;TlARdi:bZn`b0
+!s100 AWeNIKARaY<WhnT21Ui4d0
+R11
+33
+R39
+!i10b 1
+!i113 0
+R13
+R14
+Erom
+Z40 w1666175800
+R31
+R7
+R8
+!i122 111
+R1
+Z41 8/home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/rom/rom.vhd
+Z42 F/home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/rom/rom.vhd
+l0
+R34
+ViRBHTLhZlzSYV_LS45T6e3
+!s100 Ebi4MZJmRo:DXZIonfdJa1
+R11
+33
+Z43 !s110 1667875976
+!i10b 1
+!i113 0
+R13
+R14
+Asyn
+R31
+R7
+R8
+DEx4 work 3 rom 0 22 iRBHTLhZlzSYV_LS45T6e3
+!i122 111
+l59
+L55 35
+VgRfH[:I9i3eK8P[UO:OiA0
+!s100 mD2BZ<IUYnaT8=F5FePYg2
+R11
+33
+R43
+!i10b 1
+!i113 0
+R13
+R14
+Etest
+Z44 w1667876934
+R16
+R17
+R18
+R6
+R7
+R8
+!i122 125
+R1
+Z45 8/home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/test.vhd
+Z46 F/home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/test.vhd
+l0
+L8 1
+V?8cznFI8Nc8LFGUUaoUh@3
+!s100 odE;VdcgP6dPET:4H4YIE3
+R11
+33
+Z47 !s110 1667876946
+!i10b 1
+!i113 0
+R13
+R14
+Artl
+R16
+R17
+R18
+R6
+R7
+R8
+DEx4 work 4 test 0 22 ?8cznFI8Nc8LFGUUaoUh@3
+!i122 125
+l123
+L21 168
+VdiC02zL=aKPQK5VFGKI?D0
+!s100 f7fn37APHS`L^K9FmLPRj2
+R11
+33
+R47
+!i10b 1
+!i113 0
+R13
+R14
+Euut_alu
+Z48 w1667906662
+R16
+R17
+R6
+R7
+R8
+!i122 126
+R1
+Z49 8/home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/uut_alu.vhd
+Z50 F/home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/uut_alu.vhd
+l0
+L6 1
+V]Pi7;N8a95K6ohak::X3V1
+!s100 Pa@5N7dUa2cGZ[mYRULDX1
+R11
+33
+Z51 !s110 1667914438
+!i10b 1
+!i113 0
+R13
+R14
+Artl
+R16
+R17
+R6
+R7
+R8
+DEx4 work 7 uut_alu 0 22 ]Pi7;N8a95K6ohak::X3V1
+!i122 126
+l73
+L39 86
+VNhb4L`o5::nd@H[_4CYjR1
+!s100 kdb7kIb7CFCM=1]DQh_Kg2
+R11
+33
+R51
+!i10b 1
+!i113 0
+R13
+R14
+Euut_alu_tb
+Z52 w1667914410
+R6
+R7
+R8
+!i122 127
+R1
+Z53 8/home/mj/Documents/uob/itce497-senior-project/rvcore32/core/testbenches/uut_alu_tb.vhd
+Z54 F/home/mj/Documents/uob/itce497-senior-project/rvcore32/core/testbenches/uut_alu_tb.vhd
+l0
+L5 1
+VVieQO4TEW7h8W;ES<IDG01
+!s100 FXH^B]mFFV06`o74K0hn52
+R11
+33
+Z55 !s110 1667914444
+!i10b 1
+!i113 0
+R13
+R14
+Artl
+R6
+R7
+R8
+DEx4 work 10 uut_alu_tb 0 22 VieQO4TEW7h8W;ES<IDG01
+!i122 127
+l78
+L8 116
+VWY3i[f]DXCc82Wnlkg@Nd3
+!s100 l0<c1BJ`edBkHN[OXGI5a2
+R11
+33
+R55
+!i10b 1
+!i113 0
+R13
+R14
+Euut_decode
+Z56 w1667874478
+Z57 DPx8 synopsys 10 attributes 0 22 iThS5<O8gHDP?YiMiccE>3
+Z58 DPx4 ieee 14 std_logic_misc 0 22 j4Ca:YPSgnCRYmKlN0[Uj0
+R6
+R7
+R8
+!i122 119
+R1
+Z59 8/home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/uut_decode.vhd
+Z60 F/home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/uut_decode.vhd
+l0
+L6 1
+VR8AX]Fk_a85nH_8VPUSkI3
+!s100 Homk?:=OEM`dZcj4]9Ee@2
+R11
+33
+Z61 !s110 1667876000
+!i10b 1
+!i113 0
+R13
+R14
+Artl
+R57
+R58
+R6
+R7
+R8
+DEx4 work 10 uut_decode 0 22 R8AX]Fk_a85nH_8VPUSkI3
+!i122 119
+l49
+L36 225
+VKL73Jmf@K;HBfRgDSUgV`1
+!s100 >_@VdjE9H`_Jb=I>?k7Jn2
+R11
+33
+R61
+!i10b 1
+!i113 0
+R13
+R14
+Euut_fetch
+Z62 w1667874477
+R6
+R7
+R8
+!i122 118
+R1
+Z63 8/home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/uut_fetch.vhd
+Z64 F/home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/uut_fetch.vhd
+l0
+L7 1
+V5cVHh5HLH8]c][FNo`m0=3
+!s100 0E8=0U@@3e^6czD5J4IVl0
+R11
+33
+Z65 !s110 1667875999
+!i10b 1
+!i113 0
+R13
+R14
+Artl
+R6
+R7
+R8
+DEx4 work 9 uut_fetch 0 22 5cVHh5HLH8]c][FNo`m0=3
+!i122 118
+l42
+L24 53
+VJkLS>OFlfOQR;9``nZf4i0
+!s100 YcFA618K5:zeG91G9k`Kd1
+R11
+33
+R65
+!i10b 1
+!i113 0
+R13
+R14
+Euut_mem
+R56
+R6
+R7
+R8
+!i122 116
+R1
+Z66 8/home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/uut_mem.vhd
+Z67 F/home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/uut_mem.vhd
+l0
+L5 1
+Vo7a=:[lB0N:JM9ci4E1T>0
+!s100 ?1ij7o]PBSgLlYa0H:=b73
+R11
+33
+Z68 !s110 1667875998
+!i10b 1
+!i113 0
+R13
+R14
+Artl
+R6
+R7
+R8
+DEx4 work 7 uut_mem 0 22 o7a=:[lB0N:JM9ci4E1T>0
+!i122 116
+l49
+L30 53
+V6_9_659zSLUFCHgdUkETM3
+!s100 GdlhK]OedmjmGIon>_JBM2
+R11
+33
+R68
+!i10b 1
+!i113 0
+R13
+R14
+Euut_register
+Z69 w1667875828
+R18
+R6
+R16
+R17
+R7
+R8
+!i122 121
+R1
+Z70 8/home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/uut_register.vm255
+K4
+z2
 !s8c locked
 !s11f MIXED_VERSIONS
 !s11e vcom 2021.2 2021.04, Apr 14 2021

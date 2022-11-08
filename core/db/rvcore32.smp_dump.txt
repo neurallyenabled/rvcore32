@@ -1,5 +1,5 @@
 
-State Machine - |test|uut_mem:uut_mem1|memory_interface:mem1|current_state
+State Machine - |main|uut_mem:uut_mem1|memory_interface:mem1|current_state
 Name current_state.write_s current_state.read_s current_state.idle_s 
 current_state.idle_s 0 0 0 
 current_state.read_s 0 1 1 

@@ -12,129 +12,9 @@
 # //  is prohibited from disclosure under the Trade Secrets Act,
 # //  18 U.S.C. Section 1905.
 # //
-vcom -reportprogress 300 -work work /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/rom/rom.vhd
-# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
-# Start time: 05:52:55 on Nov 08,2022
-# vcom -reportprogress 300 -work work /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/rom/rom.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Loading package altera_mf_components
-# -- Compiling entity rom
-# -- Compiling architecture SYN of rom
-# End time: 05:52:56 on Nov 08,2022, Elapsed time: 0:00:01
-# Errors: 0, Warnings: 0
-vcom -reportprogress 300 -work work /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/ram/ram.vhd
-# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
-# Start time: 05:53:00 on Nov 08,2022
-# vcom -reportprogress 300 -work work /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/ram/ram.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Loading package altera_mf_components
-# -- Compiling entity ram
-# -- Compiling architecture SYN of ram
-# End time: 05:53:00 on Nov 08,2022, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-vcom -reportprogress 300 -work work /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/memory_interface.vhd
-# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
-# Start time: 05:53:06 on Nov 08,2022
-# vcom -reportprogress 300 -work work /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/memory_interface.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Loading package NUMERIC_STD
-# -- Compiling entity memory_interface
-# -- Compiling architecture rtl of memory_interface
-# ** Warning: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/memory_interface.vhd(168): (vcom-1514) Range choice direction (downto) does not determine aggregate index range direction (to).
-# ** Warning: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/memory_interface.vhd(170): (vcom-1514) Range choice direction (downto) does not determine aggregate index range direction (to).
-# ** Warning: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/memory_interface.vhd(192): (vcom-1514) Range choice direction (downto) does not determine aggregate index range direction (to).
-# ** Warning: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/memory_interface.vhd(194): (vcom-1514) Range choice direction (downto) does not determine aggregate index range direction (to).
-# End time: 05:53:06 on Nov 08,2022, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 4
-vcom -reportprogress 300 -work work /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/memory_interface_1.vhd
-# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
-# Start time: 05:53:14 on Nov 08,2022
-# vcom -reportprogress 300 -work work /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/memory_interface_1.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Loading package NUMERIC_STD
-# -- Compiling entity memory_interface_1
-# -- Compiling architecture rtl of memory_interface_1
-# End time: 05:53:14 on Nov 08,2022, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-vcom -reportprogress 300 -work work /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/control_unit.vhd
-# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
-# Start time: 05:53:16 on Nov 08,2022
-# vcom -reportprogress 300 -work work /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/control_unit.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Loading package NUMERIC_STD
-# -- Compiling entity control_unit
-# -- Compiling architecture rtl of control_unit
-# End time: 05:53:16 on Nov 08,2022, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-vcom -reportprogress 300 -work work /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/uut_mem.vhd
-# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
-# Start time: 05:53:18 on Nov 08,2022
-# vcom -reportprogress 300 -work work /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/uut_mem.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Loading package NUMERIC_STD
-# -- Compiling entity uut_mem
-# -- Compiling architecture rtl of uut_mem
-# End time: 05:53:18 on Nov 08,2022, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-vcom -reportprogress 300 -work work /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/uut_fetch.vhd
-# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
-# Start time: 05:53:19 on Nov 08,2022
-# vcom -reportprogress 300 -work work /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/uut_fetch.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Loading package NUMERIC_STD
-# -- Compiling entity uut_fetch
-# -- Compiling architecture rtl of uut_fetch
-# End time: 05:53:19 on Nov 08,2022, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-vcom -reportprogress 300 -work work /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/uut_fetch.vhd
-# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
-# Start time: 05:53:19 on Nov 08,2022
-# vcom -reportprogress 300 -work work /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/uut_fetch.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Loading package NUMERIC_STD
-# -- Compiling entity uut_fetch
-# -- Compiling architecture rtl of uut_fetch
-# End time: 05:53:19 on Nov 08,2022, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-vcom -reportprogress 300 -work work /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/uut_decode.vhd
-# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
-# Start time: 05:53:20 on Nov 08,2022
-# vcom -reportprogress 300 -work work /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/uut_decode.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Loading package NUMERIC_STD
-# -- Loading package ATTRIBUTES
-# -- Loading package std_logic_misc
-# -- Compiling entity uut_decode
-# -- Compiling architecture rtl of uut_decode
-# ** Warning: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/uut_decode.vhd(51): (vcom-1514) Range choice direction (downto) does not determine aggregate index range direction (to).
-# ** Warning: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/uut_decode.vhd(52): (vcom-1514) Range choice direction (downto) does not determine aggregate index range direction (to).
-# ** Warning: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/uut_decode.vhd(53): (vcom-1514) Range choice direction (downto) does not determine aggregate index range direction (to).
-# ** Warning: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/uut_decode.vhd(54): (vcom-1514) Range choice direction (downto) does not determine aggregate index range direction (to).
-# ** Warning: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/uut_decode.vhd(55): (vcom-1514) Range choice direction (downto) does not determine aggregate index range direction (to).
-# ** Warning: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/uut_decode.vhd(56): (vcom-1514) Range choice direction (downto) does not determine aggregate index range direction (to).
-# End time: 05:53:20 on Nov 08,2022, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 6
 vcom -reportprogress 300 -work work /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/uut_alu.vhd
 # Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
-# Start time: 05:53:24 on Nov 08,2022
+# Start time: 16:33:57 on Nov 08,2022
 # vcom -reportprogress 300 -work work /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/uut_alu.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -144,325 +24,285 @@ vcom -reportprogress 300 -work work /home/mj/Documents/uob/itce497-senior-projec
 # -- Loading package STD_LOGIC_UNSIGNED
 # -- Compiling entity uut_alu
 # -- Compiling architecture rtl of uut_alu
-# ** Warning: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/uut_alu.vhd(108): (vcom-1514) Range choice direction (downto) does not determine aggregate index range direction (to).
-# ** Warning: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/uut_alu.vhd(115): (vcom-1514) Range choice direction (downto) does not determine aggregate index range direction (to).
-# End time: 05:53:24 on Nov 08,2022, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 2
-vcom -reportprogress 300 -work work /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/uut_register.vhd
-# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
-# Start time: 05:53:26 on Nov 08,2022
-# vcom -reportprogress 300 -work work /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/uut_register.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Loading package std_logic_arith
-# -- Loading package STD_LOGIC_UNSIGNED
-# -- Loading package NUMERIC_STD
-# -- Loading package registers
-# -- Compiling entity uut_register
-# -- Compiling architecture rtl of uut_register
-# End time: 05:53:26 on Nov 08,2022, Elapsed time: 0:00:00
+# End time: 16:33:58 on Nov 08,2022, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
-vcom -reportprogress 300 -work work /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/registers.vhd
+vcom -reportprogress 300 -work work /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/testbenches/uut_alu_tb.vhd
 # Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
-# Start time: 05:53:28 on Nov 08,2022
-# vcom -reportprogress 300 -work work /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/registers.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Loading package std_logic_arith
-# -- Loading package STD_LOGIC_UNSIGNED
-# -- Loading package NUMERIC_STD
-# -- Compiling package registers
-# -- Compiling package body registers
-# -- Loading package registers
-# End time: 05:53:28 on Nov 08,2022, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-vcom -reportprogress 300 -work work /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/main.vhd
-# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
-# Start time: 05:53:30 on Nov 08,2022
-# vcom -reportprogress 300 -work work /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/main.vhd 
+# Start time: 16:34:04 on Nov 08,2022
+# vcom -reportprogress 300 -work work /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/testbenches/uut_alu_tb.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Loading package NUMERIC_STD
-# -- Loading package std_logic_arith
-# -- Loading package STD_LOGIC_UNSIGNED
-# -- Loading package registers
-# -- Compiling entity main
-# -- Compiling architecture rtl of main
-# End time: 05:53:30 on Nov 08,2022, Elapsed time: 0:00:00
+# -- Compiling entity uut_alu_tb
+# -- Compiling architecture rtl of uut_alu_tb
+# End time: 16:34:04 on Nov 08,2022, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-vsim -voptargs=+acc work.main
-# vsim -voptargs="+acc" work.main 
-# Start time: 05:53:45 on Nov 08,2022
-# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
-# ** Note: (vopt-143) Recognized 1 FSM in architecture body "memory_interface(rtl)".
-# ** Note: (vopt-143) Recognized 1 FSM in architecture body "memory_interface_1(rtl)".
-# ** Note: (vopt-143) Recognized 1 FSM in architecture body "control_unit(rtl)".
-# Loading std.standard
-# Loading std.textio(body)
-# Loading ieee.std_logic_1164(body)
-# Loading ieee.numeric_std(body)
-# Loading ieee.std_logic_arith(body)
-# Loading ieee.std_logic_unsigned(body)
-# Loading work.registers(body)
-# Loading work.main(rtl)#1
-# Loading work.uut_fetch(rtl)#1
-# Loading work.memory_interface_1(rtl)#1
-# Loading altera_mf.altera_mf_components
-# Loading work.rom(syn)#1
-# Loading altera_mf.altera_common_conversion(body)
-# Loading altera_mf.altera_device_families(body)
-# Loading altera_mf.altsyncram(translated)#1
-# Loading synopsys.attributes
-# Loading ieee.std_logic_misc(body)
-# Loading work.uut_decode(rtl)#1
-# Loading work.uut_register(rtl)#1
-# Loading work.uut_alu(rtl)#1
-# Loading work.uut_mem(rtl)#1
-# Loading work.memory_interface(rtl)#1
-# Loading work.ram(syn)#1
-# Loading altera_mf.altsyncram(translated)#2
-# Loading work.control_unit(rtl)#1
-add wave -position insertpoint sim:/main/*
-force -freeze sim:/main/clk 1 0, 0 {50 ns} -r 100
-force -freeze sim:/main/start 1 0
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-quit -sim
-# End time: 06:05:21 on Nov 08,2022, Elapsed time: 0:11:36
-# Errors: 0, Warnings: 0
-vcom -reportprogress 300 -work work /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/test.vhd
-# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
-# Start time: 06:05:30 on Nov 08,2022
-# vcom -reportprogress 300 -work work /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/test.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Loading package NUMERIC_STD
-# -- Loading package std_logic_arith
-# -- Loading package STD_LOGIC_UNSIGNED
-# -- Loading package registers
-# -- Compiling entity test
-# -- Compiling architecture rtl of test
-# End time: 06:05:30 on Nov 08,2022, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-vsim -voptargs=+acc work.test
-# vsim -voptargs="+acc" work.test 
-# Start time: 06:05:44 on Nov 08,2022
+vsim -voptargs=+acc work.uut_alu_tb
+# vsim -voptargs="+acc" work.uut_alu_tb 
+# Start time: 16:34:17 on Nov 08,2022
 # ** Note: (vsim-3812) Design is being optimized...
-# ** Note: (vopt-143) Recognized 1 FSM in architecture body "memory_interface(rtl)".
-# ** Note: (vopt-143) Recognized 1 FSM in architecture body "control_unit(rtl)".
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
 # Loading ieee.numeric_std(body)
-# Loading ieee.std_logic_arith(body)
-# Loading ieee.std_logic_unsigned(body)
-# Loading work.registers(body)
-# Loading work.test(rtl)#1
-# Loading work.uut_mem(rtl)#1
-# Loading work.memory_interface(rtl)#1
-# Loading altera_mf.altera_mf_components
-# Loading work.ram(syn)#1
-# Loading altera_mf.altera_common_conversion(body)
-# Loading altera_mf.altera_device_families(body)
-# Loading altera_mf.altsyncram(translated)#1
-# Loading work.uut_register(rtl)#1
-# Loading work.control_unit(rtl)#1
-add wave -position insertpoint sim:/test/*
-force -freeze sim:/test/clk 1 0, 0 {50 ns} -r 100
-force -freeze sim:/test/start 1 0
-force -freeze sim:/test/ALU_MEM_WB_EN 0 0
-force -freeze sim:/test/ALU_MEM_wb_selector 2'h0 0
-force -freeze sim:/test/ALU_MEM_FUNCTION3 3'h2 0
-force -freeze sim:/test/ID_rs1_address 5'h01 0
-force -freeze sim:/test/ID_rs2_address 5'h02 0
-force -freeze sim:/test/ALU_MEM_rd_address 5'h03 0
-force -freeze sim:/test/ALU_MEM_alu_output 32'h12345678 0
-force -freeze sim:/test/ALU_MEM_pc4 32'h01234567 0
-force -freeze sim:/test/ALU_MEM_RS2 32'h00123456 0
-run
-run
-run
-run
-run
-run
-vcom -reportprogress 300 -work work /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/test.vhd
+# Loading work.uut_alu_tb(rtl)#1
+add wave -position insertpoint sim:/uut_alu_tb/*
+run -all
+vcom -reportprogress 300 -work work /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/alu.vhd
 # Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
-# Start time: 06:09:06 on Nov 08,2022
-# vcom -reportprogress 300 -work work /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/test.vhd 
+# Start time: 16:35:53 on Nov 08,2022
+# vcom -reportprogress 300 -work work /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/alu.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Loading package NUMERIC_STD
 # -- Loading package std_logic_arith
 # -- Loading package STD_LOGIC_UNSIGNED
-# -- Loading package registers
-# -- Compiling entity test
-# -- Compiling architecture rtl of test
-# End time: 06:09:06 on Nov 08,2022, Elapsed time: 0:00:00
+# -- Compiling entity alu
+# -- Compiling architecture rtl of alu
+# ** Warning: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/alu.vhd(61): (vcom-1514) Range choice direction (downto) does not determine aggregate index range direction (to).
+# ** Warning: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/alu.vhd(68): (vcom-1514) Range choice direction (downto) does not determine aggregate index range direction (to).
+# End time: 16:35:53 on Nov 08,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 2
+vcom -reportprogress 300 -work work /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/testbenches/uut_alu_tb.vhd
+# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 16:36:00 on Nov 08,2022
+# vcom -reportprogress 300 -work work /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/testbenches/uut_alu_tb.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity uut_alu_tb
+# -- Compiling architecture rtl of uut_alu_tb
+# End time: 16:36:00 on Nov 08,2022, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 quit -sim
-# End time: 06:09:15 on Nov 08,2022, Elapsed time: 0:03:31
+# End time: 16:36:09 on Nov 08,2022, Elapsed time: 0:01:52
 # Errors: 0, Warnings: 0
-vsim -voptargs=+acc work.test
-# vsim -voptargs="+acc" work.test 
-# Start time: 06:09:25 on Nov 08,2022
-# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+vsim -voptargs=+acc work.alu
+# vsim -voptargs="+acc" work.alu 
+# Start time: 16:36:18 on Nov 08,2022
+# ** Note: (vsim-3812) Design is being optimized...
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
 # Loading ieee.numeric_std(body)
 # Loading ieee.std_logic_arith(body)
 # Loading ieee.std_logic_unsigned(body)
-# Loading work.registers(body)
-# Loading work.test(rtl)#1
-# Loading work.uut_mem(rtl)#1
-# Loading work.memory_interface(rtl)#1
-# Loading altera_mf.altera_mf_components
-# Loading work.ram(syn)#1
-# Loading altera_mf.altera_common_conversion(body)
-# Loading altera_mf.altera_device_families(body)
-# Loading altera_mf.altsyncram(translated)#1
-# Loading work.uut_register(rtl)#1
-# Loading work.control_unit(rtl)#1
-add wave -position insertpoint sim:/test/*
-force -freeze sim:/test/clk 1 0, 0 {50 ns} -r 100
-force -freeze sim:/test/start 1 0
-force -freeze sim:/test/ALU_MEM_WB_EN 0 0
-force -freeze sim:/test/ALU_MEM_wb_selector 2'h0 0
-force -freeze sim:/test/ALU_MEM_FUNCTION3 3'h2 0
-force -freeze sim:/test/ID_rs1_address 5'h01 0
-force -freeze sim:/test/ID_rs2_address 5'h02 0
-force -freeze sim:/test/ALU_MEM_rd_address 5'h03 0
-force -freeze sim:/test/ALU_MEM_alu_output 32'h12345678 0
-force -freeze sim:/test/ALU_MEM_pc4 32'h01234567 0
-force -freeze sim:/test/ALU_MEM_RS2 32'h00123456 0
+# Loading work.alu(rtl)#1
+add wave -position insertpoint sim:/alu/*
+force -freeze sim:/alu/clk 1 0, 0 {50 ns} -r 100
+force -freeze sim:/alu/I_function7 0 0
+force -freeze sim:/alu/I_alu_en 1 0
+force -freeze sim:/alu/I_add 0 0
+force -freeze sim:/alu/I_operand_selector 2'h0 0
+force -freeze sim:/alu/I_function3 3'h0 0
+force -freeze sim:/alu/I_immediate 32'h00000008 0
+force -freeze sim:/alu/I_pc 32'h80000018 0
+force -freeze sim:/alu/I_rs1 32'h80000018 0
+force -freeze sim:/alu/I_rs2 32'h00000008 0
+run
+force -freeze sim:/alu/I_function3 3'h1 0
 run
 run
+vsim -voptargs=+acc work.uut_alu
+# End time: 16:39:39 on Nov 08,2022, Elapsed time: 0:03:21
+# Errors: 0, Warnings: 0
+# vsim -voptargs="+acc" work.uut_alu 
+# Start time: 16:39:39 on Nov 08,2022
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/uut_alu.vhd(89): (vopt-3473) Component instance "comp1 : comparator" is not bound.
+#         Region: /uut_alu
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading work.uut_alu(rtl)#1
+# Loading work.alu(rtl)#1
+# ** Warning: (vsim-3473) Component instance "comp1 : comparator" is not bound.
+#    Time: 0 ns  Iteration: 0  Instance: /uut_alu File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/uut_alu.vhd
+add wave -position insertpoint sim:/uut_alu/*
+add wave -position insertpoint sim:/alu/*
+# ** UI-Msg: (vish-4014) No objects found matching '/alu/*'.
+force -freeze sim:/alu/clk 1 0, 0 {50 ns} -r 100
+# ** UI-Msg (suppressible): (vsim-4008) Object 'sim:/alu/clk' not found.
+# 
+force -freeze sim:/alu/I_function7 0 0
+# ** UI-Msg (suppressible): (vsim-4008) Object 'sim:/alu/I_function7' not found.
+# 
+force -freeze sim:/alu/I_alu_en 1 0
+# ** UI-Msg (suppressible): (vsim-4008) Object 'sim:/alu/I_alu_en' not found.
+# 
+force -freeze sim:/alu/I_add 0 0
+# ** UI-Msg (suppressible): (vsim-4008) Object 'sim:/alu/I_add' not found.
+# 
+force -freeze sim:/alu/I_operand_selector 2'h0 0
+# ** UI-Msg (suppressible): (vsim-4008) Object 'sim:/alu/I_operand_selector' not found.
+# 
+force -freeze sim:/alu/I_function3 3'h0 0
+# ** UI-Msg (suppressible): (vsim-4008) Object 'sim:/alu/I_function3' not found.
+# 
+force -freeze sim:/alu/I_immediate 32'h00000008 0
+# ** UI-Msg (suppressible): (vsim-4008) Object 'sim:/alu/I_immediate' not found.
+# 
+force -freeze sim:/alu/I_pc 32'h80000018 0
+# ** UI-Msg (suppressible): (vsim-4008) Object 'sim:/alu/I_pc' not found.
+# 
+force -freeze sim:/alu/I_rs1 32'h80000018 0
+# ** UI-Msg (suppressible): (vsim-4008) Object 'sim:/alu/I_rs1' not found.
+# 
+force -freeze sim:/alu/I_rs2 32'h00000008 0
+# ** UI-Msg (suppressible): (vsim-4008) Object 'sim:/alu/I_rs2' not found.
+# 
+force -freeze sim:/uut_alu/clk 1 0, 0 {50 ns} -r 100
+force -freeze sim:/uut_alu/uut_alu_en 1 0
+force -freeze sim:/uut_alu/uut_alu_clr 0 0
+force -freeze sim:/uut_alu/I_function7 0 0
+force -freeze sim:/uut_alu/I_alu_en 1 0
+force -freeze sim:/uut_alu/I_compare_en 0 0
+force -freeze sim:/uut_alu/I_add {} 0
+# ** UI-Msg: (vsim-4026) Value "" does not represent a literal of the enumeration type.
+# ** UI-Msg: (vsim-4011) Invalid force value: {} 0.
+# 
+force -freeze sim:/uut_alu/I_jump 0 0
+force -freeze sim:/uut_alu/I_mem_en 0 0
+force -freeze sim:/uut_alu/I_wb_en 0 0
+force -freeze sim:/uut_alu/I_operand_selector 2'h0 0
+force -freeze sim:/uut_alu/I_wb_selector 2'h0 0
+force -freeze sim:/uut_alu/I_function3 3'h1 0
+force -freeze sim:/uut_alu/I_rd_address 5'h01 0
+force -freeze sim:/uut_alu/I_immediate 32'h80000018 0
+force -freeze sim:/uut_alu/I_pc 32'h00000008 0
+force -freeze sim:/uut_alu/I_rs1 32'h80000018 0
+force -freeze sim:/uut_alu/I_rs2 32'h00000008 0
+force -freeze sim:/uut_alu/I_pc4 32'h00000000 0
+run
+force -freeze sim:/uut_alu/uut_alu_en 0 0
+run
+force -freeze sim:/uut_alu/I_add 0 0
+force -freeze sim:/uut_alu/O_function3 3'h5 0
 run
 run
 restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
 # ** Note: (vsim-8009) Loading existing optimized design _opt2
-force -freeze sim:/test/clk 1 0, 0 {50 ns} -r 100
-force -freeze sim:/test/start 1 0
-force -freeze sim:/test/ALU_MEM_WB_EN 0 0
-force -freeze sim:/test/ALU_MEM_wb_selector 2'h0 0
-force -freeze sim:/test/ALU_MEM_FUNCTION3 3'h2 0
-force -freeze sim:/test/ID_rs1_address 5'h01 0
-force -freeze sim:/test/ID_rs2_address 5'h02 0
-force -freeze sim:/test/ALU_MEM_rd_address 5'h03 0
-force -freeze sim:/test/ALU_MEM_alu_output 32'h12345678 0
-force -freeze sim:/test/ALU_MEM_pc4 32'h01234567 0
-force -freeze sim:/test/ALU_MEM_RS2 32'h00123456 0
-force -freeze sim:/test/MEM_mem_en 1 0
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# ** Warning: (vsim-3473) Component instance "comp1 : comparator" is not bound.
+#    Time: 0 ns  Iteration: 0  Instance: /uut_alu File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/uut_alu.vhd
+force -freeze sim:/uut_alu/clk 1 0, 0 {50 ns} -r 100
+force -freeze sim:/uut_alu/uut_alu_en 1 0
+force -freeze sim:/uut_alu/uut_alu_clr 0 0
+force -freeze sim:/uut_alu/I_function7 0 0
+force -freeze sim:/uut_alu/I_alu_en 1 0
+force -freeze sim:/uut_alu/I_compare_en 0 0
+force -freeze sim:/uut_alu/I_jump 0 0
+force -freeze sim:/uut_alu/I_mem_en 0 0
+force -freeze sim:/uut_alu/I_wb_en 0 0
+force -freeze sim:/uut_alu/I_operand_selector 2'h0 0
+force -freeze sim:/uut_alu/I_wb_selector 2'h0 0
+force -freeze sim:/uut_alu/I_function3 3'h1 0
+force -freeze sim:/uut_alu/I_rd_address 5'h01 0
+force -freeze sim:/uut_alu/I_immediate 32'h80000018 0
+force -freeze sim:/uut_alu/I_pc 32'h00000008 0
+force -freeze sim:/uut_alu/I_rs1 32'h80000018 0
+force -freeze sim:/uut_alu/I_rs2 32'h00000008 0
+force -freeze sim:/uut_alu/I_pc4 32'h00000000 0
+force -freeze sim:/uut_alu/I_add 0 0
+force -freeze sim:/uut_alu/O_function3 3'h5 0
+force -freeze sim:/uut_alu/uut_alu_en 0 0
 run
 run
-run
-run
-noforce sim:/test/MEM_mem_en
-run
-restart
+vcom -reportprogress 300 -work work /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/alu.vhd
+# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 16:49:15 on Nov 08,2022
+# vcom -reportprogress 300 -work work /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/alu.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Compiling entity alu
+# -- Compiling architecture rtl of alu
+# ** Warning: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/alu.vhd(61): (vcom-1514) Range choice direction (downto) does not determine aggregate index range direction (to).
+# ** Warning: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/alu.vhd(68): (vcom-1514) Range choice direction (downto) does not determine aggregate index range direction (to).
+# End time: 16:49:15 on Nov 08,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 2
+vcom -reportprogress 300 -work work /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/comparator.vhd
+# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 16:49:21 on Nov 08,2022
+# vcom -reportprogress 300 -work work /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/comparator.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Compiling entity comparator
+# -- Compiling architecture rtl of comparator
+# End time: 16:49:21 on Nov 08,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -reportprogress 300 -work work /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/uut_alu.vhd
+# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 16:49:22 on Nov 08,2022
+# vcom -reportprogress 300 -work work /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/uut_alu.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Compiling entity uut_alu
+# -- Compiling architecture rtl of uut_alu
+# End time: 16:49:22 on Nov 08,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+quit -sim
+# End time: 16:49:31 on Nov 08,2022, Elapsed time: 0:09:52
+# Errors: 0, Warnings: 2
+vsim -voptargs=+acc work.uut_alu
+# vsim -voptargs="+acc" work.uut_alu 
+# Start time: 16:49:40 on Nov 08,2022
 # ** Note: (vsim-8009) Loading existing optimized design _opt2
-force -freeze sim:/test/clk 1 0, 0 {50 ns} -r 100
-force -freeze sim:/test/start 1 0
-force -freeze sim:/test/ALU_MEM_WB_EN 0 0
-force -freeze sim:/test/ALU_MEM_wb_selector 2'h0 0
-force -freeze sim:/test/ALU_MEM_FUNCTION3 3'h2 0
-force -freeze sim:/test/ID_rs1_address 5'h01 0
-force -freeze sim:/test/ID_rs2_address 5'h02 0
-force -freeze sim:/test/ALU_MEM_rd_address 5'h03 0
-force -freeze sim:/test/ALU_MEM_alu_output 32'h12345678 0
-force -freeze sim:/test/ALU_MEM_pc4 32'h01234567 0
-force -freeze sim:/test/ALU_MEM_RS2 32'h00123456 0
-force -freeze sim:/test/ALU_mem_en 1 0
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading work.uut_alu(rtl)#1
+# Loading work.alu(rtl)#1
+# ** Warning: (vsim-3473) Component instance "comp1 : comparator" is not bound.
+#    Time: 0 ns  Iteration: 0  Instance: /uut_alu File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/uut_alu.vhd
+add wave -position insertpoint sim:/uut_alu/*
+force -freeze sim:/uut_alu/clk 1 0, 0 {50 ns} -r 100
+force -freeze sim:/uut_alu/uut_alu_en 1 0
+force -freeze sim:/uut_alu/uut_alu_clr 0 0
+force -freeze sim:/uut_alu/I_function7 0 0
+force -freeze sim:/uut_alu/I_alu_en 1 0
+force -freeze sim:/uut_alu/I_compare_en 0 0
+force -freeze sim:/uut_alu/I_jump 0 0
+force -freeze sim:/uut_alu/I_mem_en 0 0
+force -freeze sim:/uut_alu/I_wb_en 0 0
+force -freeze sim:/uut_alu/I_operand_selector 2'h0 0
+force -freeze sim:/uut_alu/I_wb_selector 2'h0 0
+force -freeze sim:/uut_alu/I_function3 3'h1 0
+force -freeze sim:/uut_alu/I_rd_address 5'h01 0
+force -freeze sim:/uut_alu/I_immediate 32'h80000018 0
+force -freeze sim:/uut_alu/I_pc 32'h00000008 0
+force -freeze sim:/uut_alu/I_rs1 32'h80000018 0
+force -freeze sim:/uut_alu/I_rs2 32'h00000008 0
+force -freeze sim:/uut_alu/I_pc4 32'h00000000 0
+force -freeze sim:/uut_alu/I_add 0 0
+force -freeze sim:/uut_alu/O_function3 3'h5 0
+force -freeze sim:/uut_alu/uut_alu_en 0 0
 run
+force -freeze sim:/uut_alu/I_function3 3'h5 0
 run
+force -freeze sim:/uut_alu/uut_alu_en 1 0
 run
-run
-run
-run
-run
-run
-force -freeze sim:/test/ALU_MEM_WB_EN 1 0
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
+force -freeze sim:/uut_alu/uut_alu_en 0 0
 run

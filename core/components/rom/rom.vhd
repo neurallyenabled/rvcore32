@@ -64,7 +64,7 @@ BEGIN
 		address_aclr_a => "NONE",
 		clock_enable_input_a => "NORMAL",
 		clock_enable_output_a => "NORMAL",
-		init_file => "/home/mj/Documents/uob/itce497-senior-project/rvcore32/core/memory_files/prog.hex",
+		init_file => "/home/mj/Documents/uob/itce497-senior-project/rvcore32/core/memory_files/test1.mif",
 		intended_device_family => "MAX 10",
 		lpm_hint => "ENABLE_RUNTIME_MOD=NO",
 		lpm_type => "altsyncram",

@@ -1,5 +1,5 @@
 Analysis & Synthesis report for rvcore32
-Tue Nov  8 06:23:40 2022
+Tue Nov  8 16:33:45 2022
 Quartus Prime Version 21.1.0 Build 842 10/21/2021 SJ Lite Edition
 
 
@@ -10,8 +10,14 @@ Quartus Prime Version 21.1.0 Build 842 10/21/2021 SJ Lite Edition
   2. Analysis & Synthesis Summary
   3. Analysis & Synthesis Settings
   4. Parallel Compilation
-  5. Analysis & Synthesis IP Cores Summary
-  6. Analysis & Synthesis Messages
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. General Register Statistics
+  9. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 10. Post-Synthesis Netlist Statistics for Top Partition
+ 11. Elapsed Time Per Partition
+ 12. Analysis & Synthesis Messages
 
 
 
@@ -38,22 +44,22 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Failed - Tue Nov  8 06:23:40 2022           ;
+; Analysis & Synthesis Status        ; Successful - Tue Nov  8 16:33:45 2022       ;
 ; Quartus Prime Version              ; 21.1.0 Build 842 10/21/2021 SJ Lite Edition ;
 ; Revision Name                      ; rvcore32                                    ;
-; Top-level Entity Name              ; main                                        ;
+; Top-level Entity Name              ; uut_alu                                     ;
 ; Family                             ; MAX 10                                      ;
-; Total logic elements               ; N/A until Partition Merge                   ;
-;     Total combinational functions  ; N/A until Partition Merge                   ;
-;     Dedicated logic registers      ; N/A until Partition Merge                   ;
-; Total registers                    ; N/A until Partition Merge                   ;
-; Total pins                         ; N/A until Partition Merge                   ;
-; Total virtual pins                 ; N/A until Partition Merge                   ;
-; Total memory bits                  ; N/A until Partition Merge                   ;
-; Embedded Multiplier 9-bit elements ; N/A until Partition Merge                   ;
-; Total PLLs                         ; N/A until Partition Merge                   ;
-; UFM blocks                         ; N/A until Partition Merge                   ;
-; ADC blocks                         ; N/A until Partition Merge                   ;
+; Total logic elements               ; 922                                         ;
+;     Total combinational functions  ; 813                                         ;
+;     Dedicated logic registers      ; 142                                         ;
+; Total registers                    ; 142                                         ;
+; Total pins                         ; 291                                         ;
+; Total virtual pins                 ; 0                                           ;
+; Total memory bits                  ; 0                                           ;
+; Embedded Multiplier 9-bit elements ; 0                                           ;
+; Total PLLs                         ; 0                                           ;
+; UFM blocks                         ; 0                                           ;
+; ADC blocks                         ; 0                                           ;
 +------------------------------------+---------------------------------------------+
 
 
@@ -63,7 +69,7 @@ https://fpgasoftware.intel.com/eula.
 ; Option                                                           ; Setting            ; Default Value      ;
 +------------------------------------------------------------------+--------------------+--------------------+
 ; Device                                                           ; 10M50DAF484C7G     ;                    ;
-; Top-level entity name                                            ; main               ; rvcore32           ;
+; Top-level entity name                                            ; uut_alu            ; rvcore32           ;
 ; Family name                                                      ; MAX 10             ; Cyclone V          ;
 ; Maximum processors allowed for parallel compilation              ; All                ;                    ;
 ; VHDL Show LMF Mapping Messages                                   ; Off                ;                    ;
@@ -154,20 +160,129 @@ https://fpgasoftware.intel.com/eula.
 ; Maximum allowed            ; 4           ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
-; Maximum used               ; 1           ;
+; Maximum used               ; 4           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.0%      ;
+;     Processors 3-4         ;   0.0%      ;
 +----------------------------+-------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis IP Cores Summary                                                                                                              ;
-+--------+--------------+---------+--------------+--------------+-----------------------------------------------------------+------------------------+
-; Vendor ; IP Core Name ; Version ; Release Date ; License Type ; Entity Instance                                           ; IP Include File        ;
-+--------+--------------+---------+--------------+--------------+-----------------------------------------------------------+------------------------+
-; Altera ; ROM: 1-PORT  ; 21.1    ; N/A          ; N/A          ; |main|uut_fetch:uut_fetch1|memory_interface_1:mem1|rom:u0 ; components/rom/rom.vhd ;
-+--------+--------------+---------+--------------+--------------+-----------------------------------------------------------+------------------------+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                 ;
++----------------------------------+-----------------+-----------------+---------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                                          ; Library ;
++----------------------------------+-----------------+-----------------+---------------------------------------------------------------------------------------+---------+
+; components/uut_alu.vhd           ; yes             ; User VHDL File  ; /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/uut_alu.vhd    ;         ;
+; components/comparator.vhd        ; yes             ; User VHDL File  ; /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/comparator.vhd ;         ;
+; components/alu.vhd               ; yes             ; User VHDL File  ; /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/alu.vhd        ;         ;
++----------------------------------+-----------------+-----------------+---------------------------------------------------------------------------------------+---------+
+
+
++---------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary             ;
++---------------------------------------------+-----------+
+; Resource                                    ; Usage     ;
++---------------------------------------------+-----------+
+; Estimated Total logic elements              ; 922       ;
+;                                             ;           ;
+; Total combinational functions               ; 813       ;
+; Logic element usage by number of LUT inputs ;           ;
+;     -- 4 input functions                    ; 357       ;
+;     -- 3 input functions                    ; 438       ;
+;     -- <=2 input functions                  ; 18        ;
+;                                             ;           ;
+; Logic elements by mode                      ;           ;
+;     -- normal mode                          ; 657       ;
+;     -- arithmetic mode                      ; 156       ;
+;                                             ;           ;
+; Total registers                             ; 142       ;
+;     -- Dedicated logic registers            ; 142       ;
+;     -- I/O registers                        ; 0         ;
+;                                             ;           ;
+; I/O pins                                    ; 291       ;
+;                                             ;           ;
+; Embedded Multiplier 9-bit elements          ; 0         ;
+;                                             ;           ;
+; Maximum fan-out node                        ; clk~input ;
+; Maximum fan-out                             ; 142       ;
+; Total fan-out                               ; 3694      ;
+; Average fan-out                             ; 2.40      ;
++---------------------------------------------+-----------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                      ;
++----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------------+-------------+--------------+
+; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name       ; Entity Name ; Library Name ;
++----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------------+-------------+--------------+
+; |uut_alu                   ; 813 (0)             ; 142 (109)                 ; 0           ; 0          ; 0            ; 0       ; 0         ; 291  ; 0            ; 0          ; |uut_alu                  ; uut_alu     ; work         ;
+;    |alu:alu1|              ; 724 (724)           ; 32 (32)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |uut_alu|alu:alu1         ; alu         ; work         ;
+;    |comparator:comp1|      ; 89 (89)             ; 1 (1)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |uut_alu|comparator:comp1 ; comparator  ; work         ;
++----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------------+-------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 142   ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 7     ;
+; Number of registers using Asynchronous Clear ; 109   ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 109   ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                   ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output         ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------+
+; 14:1               ; 8 bits    ; 72 LEs        ; 56 LEs               ; 16 LEs                 ; Yes        ; |uut_alu|alu:alu1|O_alu_output[15] ;
+; 15:1               ; 7 bits    ; 70 LEs        ; 56 LEs               ; 14 LEs                 ; Yes        ; |uut_alu|alu:alu1|O_alu_output[23] ;
+; 15:1               ; 4 bits    ; 40 LEs        ; 32 LEs               ; 8 LEs                  ; Yes        ; |uut_alu|alu:alu1|O_alu_output[4]  ;
+; 16:1               ; 4 bits    ; 40 LEs        ; 32 LEs               ; 8 LEs                  ; Yes        ; |uut_alu|alu:alu1|O_alu_output[27] ;
+; 16:1               ; 2 bits    ; 20 LEs        ; 16 LEs               ; 4 LEs                  ; Yes        ; |uut_alu|alu:alu1|O_alu_output[3]  ;
+; 17:1               ; 2 bits    ; 22 LEs        ; 16 LEs               ; 6 LEs                  ; Yes        ; |uut_alu|alu:alu1|O_alu_output[28] ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 291                         ;
+; cycloneiii_ff         ; 142                         ;
+;     ENA CLR           ; 109                         ;
+;     SLD               ; 7                           ;
+;     plain             ; 26                          ;
+; cycloneiii_lcell_comb ; 813                         ;
+;     arith             ; 156                         ;
+;         3 data inputs ; 156                         ;
+;     normal            ; 657                         ;
+;         2 data inputs ; 18                          ;
+;         3 data inputs ; 282                         ;
+;         4 data inputs ; 357                         ;
+;                       ;                             ;
+; Max LUT depth         ; 12.00                       ;
+; Average LUT depth     ; 7.67                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:03     ;
++----------------+--------------+
 
 
 +-------------------------------+
@@ -176,7 +291,7 @@ https://fpgasoftware.intel.com/eula.
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 21.1.0 Build 842 10/21/2021 SJ Lite Edition
-    Info: Processing started: Tue Nov  8 06:23:27 2022
+    Info: Processing started: Tue Nov  8 16:33:33 2022
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off rvcore32 -c rvcore32
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
 Info (12021): Found 2 design units, including 1 entities, in source file components/control_unit.vhd
@@ -230,72 +345,29 @@ Info (12021): Found 2 design units, including 1 entities, in source file testben
 Info (12021): Found 2 design units, including 1 entities, in source file components/test.vhd
     Info (12022): Found design unit 1: test-rtl File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/test.vhd Line: 21
     Info (12023): Found entity 1: test File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/test.vhd Line: 8
-Info (12127): Elaborating entity "main" for the top level hierarchy
-Info (12128): Elaborating entity "uut_fetch" for hierarchy "uut_fetch:uut_fetch1" File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/main.vhd Line: 227
-Info (12128): Elaborating entity "memory_interface_1" for hierarchy "uut_fetch:uut_fetch1|memory_interface_1:mem1" File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/uut_fetch.vhd Line: 45
-Info (12128): Elaborating entity "rom" for hierarchy "uut_fetch:uut_fetch1|memory_interface_1:mem1|rom:u0" File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/memory_interface_1.vhd Line: 40
-Info (12128): Elaborating entity "altsyncram" for hierarchy "uut_fetch:uut_fetch1|memory_interface_1:mem1|rom:u0|altsyncram:altsyncram_component" File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/rom/rom.vhd Line: 62
-Info (12130): Elaborated megafunction instantiation "uut_fetch:uut_fetch1|memory_interface_1:mem1|rom:u0|altsyncram:altsyncram_component" File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/rom/rom.vhd Line: 62
-Info (12133): Instantiated megafunction "uut_fetch:uut_fetch1|memory_interface_1:mem1|rom:u0|altsyncram:altsyncram_component" with the following parameter: File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/rom/rom.vhd Line: 62
-    Info (12134): Parameter "address_aclr_a" = "NONE"
-    Info (12134): Parameter "address_aclr_b" = "NONE"
-    Info (12134): Parameter "address_reg_b" = "CLOCK1"
-    Info (12134): Parameter "byte_size" = "8"
-    Info (12134): Parameter "byteena_aclr_a" = "UNUSED"
-    Info (12134): Parameter "byteena_aclr_b" = "NONE"
-    Info (12134): Parameter "byteena_reg_b" = "CLOCK1"
-    Info (12134): Parameter "clock_enable_core_a" = "USE_INPUT_CLKEN"
-    Info (12134): Parameter "clock_enable_core_b" = "USE_INPUT_CLKEN"
-    Info (12134): Parameter "clock_enable_input_a" = "NORMAL"
-    Info (12134): Parameter "clock_enable_input_b" = "NORMAL"
-    Info (12134): Parameter "clock_enable_output_a" = "NORMAL"
-    Info (12134): Parameter "clock_enable_output_b" = "NORMAL"
-    Info (12134): Parameter "intended_device_family" = "MAX 10"
-    Info (12134): Parameter "ecc_pipeline_stage_enabled" = "FALSE"
-    Info (12134): Parameter "enable_ecc" = "FALSE"
-    Info (12134): Parameter "implement_in_les" = "OFF"
-    Info (12134): Parameter "indata_aclr_a" = "UNUSED"
-    Info (12134): Parameter "indata_aclr_b" = "NONE"
-    Info (12134): Parameter "indata_reg_b" = "CLOCK1"
-    Info (12134): Parameter "init_file" = "/home/mj/Documents/uob/itce497-senior-project/rvcore32/core/memory_files/prog.hex"
-    Info (12134): Parameter "init_file_layout" = "PORT_A"
-    Info (12134): Parameter "maximum_depth" = "0"
-    Info (12134): Parameter "numwords_a" = "16384"
-    Info (12134): Parameter "numwords_b" = "0"
-    Info (12134): Parameter "operation_mode" = "ROM"
-    Info (12134): Parameter "outdata_aclr_a" = "NONE"
-    Info (12134): Parameter "outdata_aclr_b" = "NONE"
-    Info (12134): Parameter "outdata_reg_a" = "CLOCK0"
-    Info (12134): Parameter "outdata_reg_b" = "UNREGISTERED"
-    Info (12134): Parameter "power_up_uninitialized" = "FALSE"
-    Info (12134): Parameter "ram_block_type" = "AUTO"
-    Info (12134): Parameter "rdcontrol_aclr_b" = "NONE"
-    Info (12134): Parameter "rdcontrol_reg_b" = "CLOCK1"
-    Info (12134): Parameter "read_during_write_mode_mixed_ports" = "DONT_CARE"
-    Info (12134): Parameter "read_during_write_mode_port_a" = "NEW_DATA_NO_NBE_READ"
-    Info (12134): Parameter "read_during_write_mode_port_b" = "NEW_DATA_NO_NBE_READ"
-    Info (12134): Parameter "stratixiv_m144k_allow_dual_clocks" = "ON"
-    Info (12134): Parameter "width_a" = "8"
-    Info (12134): Parameter "width_b" = "1"
-    Info (12134): Parameter "width_byteena_a" = "1"
-    Info (12134): Parameter "width_byteena_b" = "1"
-    Info (12134): Parameter "width_eccstatus" = "3"
-    Info (12134): Parameter "widthad_a" = "14"
-    Info (12134): Parameter "widthad_b" = "1"
-    Info (12134): Parameter "wrcontrol_aclr_a" = "UNUSED"
-    Info (12134): Parameter "wrcontrol_aclr_b" = "NONE"
-    Info (12134): Parameter "wrcontrol_wraddress_reg_b" = "CLOCK1"
-    Info (12134): Parameter "lpm_hint" = "ENABLE_RUNTIME_MOD=NO"
-    Info (12134): Parameter "lpm_type" = "altsyncram"
-Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_pl24.tdf
-    Info (12023): Found entity 1: altsyncram_pl24 File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/db/altsyncram_pl24.tdf Line: 30
-Info (12128): Elaborating entity "altsyncram_pl24" for hierarchy "uut_fetch:uut_fetch1|memory_interface_1:mem1|rom:u0|altsyncram:altsyncram_component|altsyncram_pl24:auto_generated" File: /home/mj/intelFPGA_lite/21.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
-Error (127000): Can't read Memory Initialization File or Hexadecimal (Intel-Format) File /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/memory_files/prog.hex for ROM instance ALTSYNCRAM. If the file exists, it is not in correct format. File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/rom/rom.vhd Line: 62
-Error (12152): Can't elaborate user hierarchy "uut_fetch:uut_fetch1|memory_interface_1:mem1|rom:u0|altsyncram:altsyncram_component|altsyncram_pl24:auto_generated" File: /home/mj/intelFPGA_lite/21.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
-Error: Quartus Prime Analysis & Synthesis was unsuccessful. 2 errors, 0 warnings
-    Error: Peak virtual memory: 652 megabytes
-    Error: Processing ended: Tue Nov  8 06:23:40 2022
-    Error: Elapsed time: 00:00:13
-    Error: Total CPU time (on all processors): 00:00:36
+Info (12021): Found 2 design units, including 1 entities, in source file components/comparator.vhd
+    Info (12022): Found design unit 1: comparator-rtl File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/comparator.vhd Line: 19
+    Info (12023): Found entity 1: comparator File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/comparator.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file components/alu.vhd
+    Info (12022): Found design unit 1: alu-rtl File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/alu.vhd Line: 22
+    Info (12023): Found entity 1: alu File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/alu.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file testbenches/uut_alu_tb.vhd
+    Info (12022): Found design unit 1: uut_alu_tb-rtl File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/testbenches/uut_alu_tb.vhd Line: 8
+    Info (12023): Found entity 1: uut_alu_tb File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/testbenches/uut_alu_tb.vhd Line: 5
+Info (12127): Elaborating entity "uut_alu" for the top level hierarchy
+Info (12128): Elaborating entity "alu" for hierarchy "alu:alu1" File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/uut_alu.vhd Line: 75
+Info (12128): Elaborating entity "comparator" for hierarchy "comparator:comp1" File: /home/mj/Documents/uob/itce497-senior-project/rvcore32/core/components/uut_alu.vhd Line: 89
+Info (286030): Timing-Driven Synthesis is running
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 1213 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 182 input pins
+    Info (21059): Implemented 109 output pins
+    Info (21061): Implemented 922 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 0 warnings
+    Info: Peak virtual memory: 662 megabytes
+    Info: Processing ended: Tue Nov  8 16:33:45 2022
+    Info: Elapsed time: 00:00:12
+    Info: Total CPU time (on all processors): 00:00:22
 
 
