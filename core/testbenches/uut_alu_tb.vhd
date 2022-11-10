@@ -40,6 +40,8 @@ port (
 );
 end component uut_alu;
 
+attribute preserve: boolean;  
+attribute preserve of uut_alu: component is true; 
 
 signal clk		: std_logic;
 signal uut_alu_en	: std_logic;
@@ -87,29 +89,170 @@ clocking : PROCESS
   
 checking_variables : process
 begin
-I_rs1 <= x"80000018";
+I_rs1 <= x"80000019";
 I_rs2 <= x"00000008";
 
 I_pc <= x"00000008";
-I_immediate <= x"80000018";
+I_immediate <= x"80000019";
+
+-- add op
 I_add <= '0';
 I_operand_selector <= "00";
 I_alu_en <= '1';
-uut_alu_en <= '1';
 uut_alu_clr <= '0';
 I_function3 <= "000";
 I_function7 <= '0';
 
+uut_alu_en <= '0';
 WAIT FOR clk_period;
---I_function3 <= "000"
---I_function7 <= '1';
-WAIT FOR clk_period;
-WAIT FOR clk_period;
+uut_alu_en <= '1';
 WAIT FOR clk_period;
 WAIT FOR clk_period;
+
+-- sub op
+I_add <= '0';
+I_operand_selector <= "00";
+I_alu_en <= '1';
+uut_alu_clr <= '0';
+I_function3 <= "000";
+I_function7 <= '1';
+
+uut_alu_en <= '0';
+WAIT FOR clk_period;
+uut_alu_en <= '1';
 WAIT FOR clk_period;
 WAIT FOR clk_period;
+
+--sll op
+for i in 0 to 31 loop
+I_rs2 <= std_logic_vector(to_unsigned(i,32));
+I_add <= '0';
+I_operand_selector <= "00";
+I_alu_en <= '1';
+uut_alu_clr <= '0';
+I_function3 <= "001";
+I_function7 <= '0';
+
+uut_alu_en <= '0';
 WAIT FOR clk_period;
+uut_alu_en <= '1';
+WAIT FOR clk_period;
+WAIT FOR clk_period;
+end loop;
+--srl op
+for i in 0 to 31 loop
+I_rs2 <= std_logic_vector(to_unsigned(i,32));
+I_add <= '0';
+I_operand_selector <= "00";
+I_alu_en <= '1';
+uut_alu_clr <= '0';
+I_function3 <= "101";
+I_function7 <= '0';
+
+uut_alu_en <= '0';
+WAIT FOR clk_period;
+uut_alu_en <= '1';
+WAIT FOR clk_period;
+WAIT FOR clk_period;
+end loop;
+
+--sra op
+for i in 0 to 31 loop
+I_rs2 <= std_logic_vector(to_unsigned(i,32));
+I_add <= '0';
+I_operand_selector <= "00";
+I_alu_en <= '1';
+uut_alu_clr <= '0';
+I_function3 <= "101";
+I_function7 <= '1';
+
+uut_alu_en <= '0';
+WAIT FOR clk_period;
+uut_alu_en <= '1';
+WAIT FOR clk_period;
+WAIT FOR clk_period;
+end loop;
+
+--sltu op
+for i in 1 to 2 loop
+I_rs2 <= x"00000008";
+I_add <= '0';
+if i = 1 then
+I_operand_selector <= "00";
+else
+I_operand_selector <= "11";
+end if;
+I_alu_en <= '1';
+uut_alu_clr <= '0';
+I_function3 <= "011";
+I_function7 <= '0';
+
+uut_alu_en <= '0';
+WAIT FOR clk_period;
+uut_alu_en <= '1';
+WAIT FOR clk_period;
+WAIT FOR clk_period;
+end loop;
+
+--slt op
+for i in 1 to 2 loop
+I_add <= '0';
+if i = 1 then
+I_operand_selector <= "00";
+else
+I_operand_selector <= "11";
+end if;
+I_alu_en <= '1';
+uut_alu_clr <= '0';
+I_function3 <= "010";
+I_function7 <= '0';
+
+uut_alu_en <= '0';
+WAIT FOR clk_period;
+uut_alu_en <= '1';
+WAIT FOR clk_period;
+WAIT FOR clk_period;
+end loop;
+
+--xor op
+I_add <= '0';
+I_operand_selector <= "00";
+I_alu_en <= '1';
+uut_alu_clr <= '0';
+I_function3 <= "100";
+I_function7 <= '0';
+
+uut_alu_en <= '0';
+WAIT FOR clk_period;
+uut_alu_en <= '1';
+WAIT FOR clk_period;
+WAIT FOR clk_period;
+
+--or op
+I_add <= '0';
+I_operand_selector <= "00";
+I_alu_en <= '1';
+uut_alu_clr <= '0';
+I_function3 <= "110";
+I_function7 <= '0';
+
+uut_alu_en <= '0';
+WAIT FOR clk_period;
+uut_alu_en <= '1';
+WAIT FOR clk_period;
+WAIT FOR clk_period;
+
+--and op
+I_add <= '0';
+I_operand_selector <= "00";
+I_alu_en <= '1';
+uut_alu_clr <= '0';
+I_function3 <= "111";
+I_function7 <= '0';
+
+uut_alu_en <= '0';
+WAIT FOR clk_period;
+uut_alu_en <= '1';
 WAIT FOR clk_period;
 WAIT FOR clk_period;
 
