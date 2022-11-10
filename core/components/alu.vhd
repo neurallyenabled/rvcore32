@@ -29,12 +29,12 @@ begin
 process(I_operand_selector,I_pc,I_rs1,I_rs2,I_immediate)
 begin
 case I_operand_selector(0) is
- when '1' 		=> oper1 <= I_pc;
+ when '1' 	=> oper1 <= I_pc;
  when others 	=> oper1 <= I_rs1;
 end case;
 
 case I_operand_selector(1) is
- when '1' 		=> oper2 <= I_immediate;
+ when '1' 	=> oper2 <= I_immediate;
  when others 	=> oper2 <= I_rs2;
 end case;
 end process;
@@ -43,51 +43,46 @@ process(clk)
 begin
 if rising_edge(clk) then
 	if I_alu_en = '1' then
-		if I_add = '1' then
-				O_alu_output <= std_logic_vector(unsigned(oper1) + unsigned(oper2));
+		if I_add = '1'  or (I_function3 = "000" and I_function7 = '0' )then 			--add
+			O_alu_output <= std_logic_vector(unsigned(oper1) + unsigned(oper2));
 				
-		elsif I_function3 = "000" then 
-			if I_function7 = '1' and I_operand_selector = "00" then
-				O_alu_output <= std_logic_vector(unsigned(oper1) - unsigned(oper2));
-			else
-				O_alu_output <= std_logic_vector(unsigned(oper1) + unsigned(oper2));
-			end if;
+		elsif I_function3 = "000" and I_function7 = '1' and I_operand_selector = "00" then 	--sub
+			O_alu_output <= std_logic_vector(unsigned(oper1) - unsigned(oper2));
 		
-		elsif I_function3 = "001" then --sll
-				O_alu_output <= std_logic_vector(unsigned(shift_left(unsigned(oper1),to_integer(unsigned(oper2(4 downto 0))))));
+		elsif I_function3 = "001" then 								--sll
+			O_alu_output <= std_logic_vector(unsigned(shift_left(unsigned(oper1),to_integer(unsigned(oper2(4 downto 0))))));
 		
-		elsif I_function3 = "010" then --slt
+		elsif I_function3 = "010" then 								--slt
 			if (signed(oper1) < signed(oper2)) then
-				O_alu_output <= (31 downto 1 => '0') & '1';
+			O_alu_output <= (31 downto 1 => '0') & '1';
 			else
-				O_alu_output <= (31 downto 0 => '0');
+			O_alu_output <= (31 downto 0 => '0');
 			end if;
 			
-		elsif I_function3 = "011" then --sltu
+		elsif I_function3 = "011" then 								--sltu
 			if (unsigned(oper1) < unsigned(oper2)) then
-				O_alu_output <= (31 downto 1 => '0') & '1';
+			O_alu_output <= (31 downto 1 => '0') & '1';
 			else 
-				O_alu_output <= (31 downto 0 => '0');
+			O_alu_output <= (31 downto 0 => '0');
 			end if;		
 			
-		elsif I_function3 = "100" then
-				O_alu_output <= oper1 xor oper2;
+		elsif I_function3 = "100" then 								--xor
+			O_alu_output <= oper1 xor oper2;
 				
-		elsif I_function3 = "101" then
-			if I_function7 = '1' then --sra
-				O_alu_output <= std_logic_vector(unsigned(shift_right(signed(oper1),to_integer(unsigned(oper2(4 downto 0))))));
-			else --srl
-				O_alu_output <= std_logic_vector (unsigned(shift_right(unsigned(oper1),to_integer(unsigned(oper2(4 downto 0))))));
-			end if;
+		elsif I_function3 = "101" and I_function7 = '1' then 					--sra
+			O_alu_output <= std_logic_vector(unsigned(shift_right(signed(oper1),to_integer(unsigned(oper2(4 downto 0))))));
+		
+		elsif I_function3 = "101" and I_function7 = '0' then 					--srl
+			O_alu_output <= std_logic_vector (unsigned(shift_right(unsigned(oper1),to_integer(unsigned(oper2(4 downto 0))))));
 			
-		elsif I_function3 = "110"  then
-				O_alu_output <= oper1 or oper2;
+		elsif I_function3 = "110"  then 							--or
+			O_alu_output <= oper1 or oper2;
 				
-		elsif I_function3 = "111"  then
-				O_alu_output <= oper1 and oper2;	
+		elsif I_function3 = "111"  then 							--and
+			O_alu_output <= oper1 and oper2;	
 		end if;
-	else 
-				O_alu_output <= oper2;	--bypass when alu_en=0
+	else 												--bypass when alu_en=0
+			O_alu_output <= oper2;
 	end if;
 end if;
 end process;
