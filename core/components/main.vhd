@@ -17,7 +17,6 @@ architecture rtl of main is
 
 signal IF_mem_en							: std_logic:= '0';
 signal IF_done								: std_logic:= '0';
-signal IF_pc_selector					: std_logic:= '0';
 signal IF_wait								: std_logic:= '0';
 
 signal IF_ID_instruction				: std_logic_vector (31 downto 0):= (others => '0');
@@ -35,6 +34,7 @@ signal ID_ALU_compare_en				: std_logic:= '0';
 signal ID_ALU_jump						: std_logic:= '0';
 signal ID_ALU_mem_en						: std_logic:= '0';
 signal ID_ALU_wb_en						: std_logic:= '0';
+signal ID_ALU_stop						: std_logic:= '0';
 signal ID_ALU_operand_selector		: std_logic_vector (1 downto 0):= (others => '0');
 signal ID_ALU_wb_selector				: std_logic_vector (1 downto 0):= (others => '0');
 signal ID_ALU_function3					: std_logic_vector (2 downto 0):= (others => '0');
@@ -48,6 +48,7 @@ signal ID_ALU_rs2							: std_logic_vector (31 downto 0):= (others => '0');
 signal ALU_MEM_condition				: std_logic:= '0';
 signal ALU_mem_en							: std_logic:= '0';
 signal ALU_MEM_wb_en						: std_logic:= '0';
+signal ALU_MEM_stop						: std_logic:= '0';
 signal ALU_MEM_wb_selector				: std_logic_vector (1 downto 0):= (others => '0');
 signal ALU_MEM_function3				: std_logic_vector (2 downto 0):= (others => '0');
 signal ALU_MEM_rd_address				: std_logic_vector (4 downto 0):= (others => '0');
@@ -60,6 +61,7 @@ signal MEM_mem_en							: std_logic:= '0';
 signal MEM_wait							: std_logic:= '0';
 
 signal MEM_WB_wb_en						: std_logic:= '0';
+signal MEM_WB_stop						: std_logic:= '0';
 signal MEM_WB_wb_selector				: std_logic_vector (1 downto 0):= (others => '0');
 signal MEM_WB_rd_address				: std_logic_vector (4 downto 0):= (others => '0');
 signal MEM_WB_alu_output				: std_logic_vector (31 downto 0):= (others => '0');
@@ -106,6 +108,7 @@ port(
 	O_mem_en				: out std_logic;
 	O_wb_en				: out std_logic;
 	O_stall				: out std_logic;
+	O_stop				: out std_logic;
 	O_function7			: out std_logic;
 	O_oper_selector	: out std_logic_vector (1 downto 0);
 	O_wb_selector		: out std_logic_vector (1 downto 0);
@@ -152,6 +155,7 @@ port(
 	I_jump					: in std_logic;
 	I_mem_en					: in std_logic;
 	I_wb_en					: in std_logic;
+	I_stop					: in std_logic;
 	I_operand_selector	: in std_logic_vector (1 downto 0);
 	I_wb_selector			: in std_logic_vector (1 downto 0);
 	I_function3 			: in std_logic_vector (2 downto 0);
@@ -164,6 +168,7 @@ port(
 	O_condition				: out std_logic;
 	O_mem_en					: out std_logic;
 	O_wb_en					: out std_logic;
+	O_stop					: out std_logic;
 	O_wb_selector			: out std_logic_vector (1 downto 0);
 	O_function3				: out std_logic_vector (2 downto 0);
 	O_rd_address			: out std_logic_vector (4 downto 0);
@@ -181,6 +186,7 @@ port(
 	I_mem_en			: in std_logic;
 	I_wb_en			: in std_logic;
 	I_start			: in std_logic;
+	I_stop			: in std_logic;
 	I_wb_selector	: in std_logic_vector(1 downto 0);
 	I_function3		: in std_logic_vector(2 downto 0);
 	I_rd_address	: in std_logic_vector(4 downto 0);
@@ -190,6 +196,7 @@ port(
 	O_mem_wait		: out std_logic;
 	O_mem_done		: out std_logic;
 	O_wb_en			: out std_logic;
+	O_stop			: out std_logic;
 	O_wb_selector	: out std_logic_vector(1 downto 0);
 	O_rd_address	: out std_logic_vector(4 downto 0);
 	O_loaded_data	: out std_logic_vector(31 downto 0);
@@ -201,16 +208,17 @@ end component;
 component control_unit is
 port (
 	clk			: in std_logic;
-	start			: in std_logic;
-	fetch_wait	: in std_logic;
-	fetch_done	: in std_logic;
-	mem_wait		: in std_logic;
-	mem_done		: in std_logic;
-	branch		: in std_logic;
-	stall			: in std_logic;
-	I_mem_en		: in std_logic;
-	O_mem_en		: out std_logic;
-	fetch_en		: out std_logic;
+	I_start		: in std_logic;
+	I_IF_wait	: in std_logic;
+	I_IF_done	: in std_logic;
+	I_MEM_wait	: in std_logic;
+	I_MEM_done	: in std_logic;
+	I_branch		: in std_logic;
+	I_stall		: in std_logic;
+	I_stop		: in std_logic;
+	I_MEM_en		: in std_logic;
+	O_MEM_en		: out std_logic;
+	O_IF_en		: out std_logic;
 	instruction_cycle: out std_logic;
 	uut_en		: out std_logic_vector(5 downto 0);
 	uut_clr		: out std_logic_vector(5 downto 0)
@@ -263,6 +271,7 @@ uut_decode1: uut_decode port map(
 				O_jump 					=> ID_ALU_jump,
 				O_mem_en 				=> ID_ALU_mem_en,
 				O_wb_en 					=> ID_ALU_wb_en,
+				O_stop					=> ID_ALU_stop,
 				O_rs1_address 			=> ID_rs1_address,
 				O_rs2_address 			=> ID_rs2_address,
 				
@@ -310,6 +319,7 @@ uut_alu1: uut_alu port map(
 				I_jump 					=> ID_ALU_jump,
 				I_mem_en 				=> ID_ALU_mem_en,
 				I_wb_en 					=> ID_ALU_wb_en,
+				I_stop					=> ID_ALU_stop,
 				I_rs1 					=> ID_ALU_rs1,
 				I_rs2						=> ID_ALU_rs2,
 				I_rd_address 			=> ID_ALU_rd_address,
@@ -321,7 +331,8 @@ uut_alu1: uut_alu port map(
 				O_wb_selector 			=> ALU_MEM_wb_selector,
 				O_condition 			=> ALU_MEM_condition,
 				O_mem_en 				=> ALU_mem_en,
-				O_wb_en 					=> ALU_MEM_wb_en
+				O_wb_en 					=> ALU_MEM_wb_en,
+				O_stop					=> ALU_MEM_stop
 			  	);
 uut_mem1: uut_mem port map(
 				clk 						=> clk,
@@ -338,28 +349,31 @@ uut_mem1: uut_mem port map(
 				I_wb_selector 			=> ALU_MEM_wb_selector,
 				I_mem_en 				=> MEM_mem_en,
 				I_wb_en 					=> ALU_MEM_wb_en,
+				I_stop					=> ALU_MEM_stop,
 				O_loaded_data 			=> MEM_WB_loaded_data,
 				O_alu_output 			=> MEM_WB_alu_output,
 				O_pc4 					=> MEM_WB_pc4,
 				O_mem_wait				=> MEM_wait,
 				O_mem_done				=> MEM_done,
 				O_wb_selector 			=> MEM_WB_wb_selector,
-				O_wb_en 					=> MEM_WB_wb_en
+				O_wb_en 					=> MEM_WB_wb_en,
+				O_stop					=> MEM_WB_stop
 			  	);
 control_unit1: control_unit port map(
 				clk 						=> clk,
-				start 					=> start,
-				branch 					=> ALU_MEM_condition,
-				stall 					=> ID_stall,
+				I_start 					=> start,
+				I_stop					=> MEM_WB_stop,
+				I_branch 				=> ALU_MEM_condition,
+				I_stall 					=> ID_stall,
 				uut_en 					=> uut_en,
 				uut_clr 					=> uut_clr,
-				fetch_en 				=> IF_mem_en,
-				fetch_wait				=> IF_wait,
-				fetch_done				=> IF_done,
+				O_IF_en 					=> IF_mem_en,
+				I_IF_wait				=> IF_wait,
+				I_IF_done				=> IF_done,
 				I_mem_en					=> ALU_mem_en,
 				O_mem_en					=> MEM_mem_en,
-				mem_wait					=> MEM_wait,
-				mem_done					=> MEM_done,
+				I_MEM_wait				=> MEM_wait,
+				I_MEM_done				=> MEM_done,
 				instruction_cycle		=> instruction_cycle
 				);	
 end rtl;

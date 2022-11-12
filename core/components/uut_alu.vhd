@@ -15,6 +15,7 @@ port (
 	I_jump					: in std_logic;
 	I_mem_en					: in std_logic;
 	I_wb_en					: in std_logic;
+	I_stop					: in std_logic;
 	I_operand_selector	: in std_logic_vector (1 downto 0);
 	I_wb_selector			: in std_logic_vector (1 downto 0);
 	I_function3 			: in std_logic_vector (2 downto 0);
@@ -27,6 +28,7 @@ port (
 	O_condition				: out std_logic;
 	O_mem_en					: out std_logic;
 	O_wb_en					: out std_logic;
+	O_stop					: out std_logic;
 	O_wb_selector			: out std_logic_vector (1 downto 0);
 	O_function3				: out std_logic_vector (2 downto 0);
 	O_rd_address			: out std_logic_vector (4 downto 0);
@@ -102,6 +104,7 @@ begin
 		O_condition 	<= '0';
 		O_mem_en 		<= '0';
 		O_wb_en 			<= '0';
+		O_stop			<= '0';
 		O_wb_selector 	<= (others => '0');
 		O_function3 	<= (others => '0');
 		O_rd_address 	<= (others => '0');
@@ -119,6 +122,7 @@ begin
 		O_function3 	<= I_function3;
 		O_alu_output 	<= O_alu_output_i;
 		O_condition 	<= O_condition_i;
+		O_stop			<= I_stop;
 	end if;
 end process;
 end rtl;

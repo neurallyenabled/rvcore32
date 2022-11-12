@@ -10,6 +10,7 @@ port (
 	I_mem_en			: in std_logic;
 	I_wb_en			: in std_logic;
 	I_start			: in std_logic;
+	I_stop			: in std_logic;
 	I_wb_selector	: in std_logic_vector(1 downto 0);
 	I_function3		: in std_logic_vector(2 downto 0);
 	I_rd_address	: in std_logic_vector(4 downto 0);
@@ -19,6 +20,7 @@ port (
 	O_mem_wait		: out std_logic;
 	O_mem_done		: out std_logic;
 	O_wb_en			: out std_logic;
+	O_stop			: out std_logic;
 	O_wb_selector	: out std_logic_vector(1 downto 0);
 	O_rd_address	: out std_logic_vector(4 downto 0);
 	O_loaded_data	: out std_logic_vector(31 downto 0);
@@ -65,6 +67,7 @@ process(clk,uut_mem_en,uut_mem_clr)
 begin
 	if uut_mem_clr = '1' then
 		O_wb_en				<= '0';	
+		O_stop 				<= '0';
 		O_wb_selector		<= (others => '0');
 		O_rd_address		<= (others => '0');
 		O_loaded_data		<= (others => '0');
@@ -72,6 +75,7 @@ begin
 		O_pc4					<= (others => '0');
 	elsif rising_edge(clk) and uut_mem_en = '1' then
 		O_wb_en 			<= I_wb_en;
+		O_stop			<= I_stop;
 		O_wb_selector 	<= I_wb_selector;
 		O_rd_address 	<= I_rd_address;
 		O_loaded_data	<= O_loaded_data_i;

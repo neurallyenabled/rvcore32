@@ -20,6 +20,7 @@ port (
 	O_mem_en				: out std_logic;
 	O_wb_en				: out std_logic;
 	O_stall				: out std_logic;
+	O_stop				: out std_logic;
 	O_function7			: out std_logic;
 	O_oper_selector	: out std_logic_vector (1 downto 0);
 	O_wb_selector		: out std_logic_vector (1 downto 0);
@@ -103,6 +104,7 @@ begin
 		O_wb_en 				<= '0';
 		O_oper_selector	<= (others => '0');
 		O_wb_selector 		<= (others => '0');
+		O_stop				<= '0';
 
 	elsif rising_edge(clk) and uut_decode_en = '1' then
 		O_pc 				<= I_pc;
@@ -238,6 +240,11 @@ begin
 			
 			
 		elsif	opcode_i = "1110011" then -- CSR
+			if I_instruction = "00000000000100000000000001110011" then --ebreak
+				O_stop <= '1';	
+			else
+				O_stop <= '0';
+			end if;
 			if O_function3_i(2) = '1' then
 				O_immediate 	<= zimm;
 			else
