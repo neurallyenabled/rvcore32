@@ -83,6 +83,7 @@ begin
 			address_selector <= "00";
 			if done_i = '1' then
 				current_state <= idle_s;
+				done_i <= '0';
 			else
 				if wb_en = '0' then
 					current_state <= write_s;

@@ -97,32 +97,28 @@ else --current_state = start_s
 		else
 			uut_clr 				<= "000000";	--no clr
 		end if;
-		if rising_edge(clk) then
-			if O_IF_en = '1' then				--fetch_en logic
-				if I_IF_done = '1' then		
-					O_IF_en 		<= '0';
-					O_IF_done_i 	<= '1';
-				else
-					O_IF_en			<= '1';
-					O_IF_done_i 	<= '0';
-				end if;
-			else
-				O_IF_en 			<= '0';
-				O_IF_done_i 		<= '1';
-			end if;
-			
-			if O_MEM_en_i = '1' then					-- mem_en logic 
-				if I_MEM_done = '1' then
-					O_MEM_en_i 		<= '0';
-					O_MEM_done_i 		<= '1';
-				else
-					O_MEM_en_i			<= '1';
-					O_MEM_done_i 		<= '0';
-				end if;
-			else
-				O_MEM_en_i 			<= '0';
-				O_MEM_done_i 			<= '1';
-			end if;
+		if I_stall = '1' then
+			O_IF_en 		<= '0';			-- stop instruction fetch ?
+		else
+			O_IF_en 		<= '1';			-- start insturction fetch	
+		end if;
+		if I_mem_en = '1' then				--check if instruction at the MEM stage reqiure memory access
+			O_MEM_en_i 		<= '1';
+		else
+			O_MEM_en_i			<= '0';
+		end if;
+		
+		
+		if O_IF_en = '0' or (O_IF_en = '1' and I_IF_done = '1') then
+			O_IF_done_i 	<= '1';
+		else
+			O_IF_done_i 	<= '0';
+		end if;
+		
+		if O_MEM_en_i = '0' or (O_MEM_en_i = '1' and I_MEM_done = '1') then
+			O_MEM_done_i 		<= '1';
+		else
+			O_MEM_done_i 		<= '0';
 		end if;
 
 

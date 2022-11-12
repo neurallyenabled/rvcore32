@@ -1,0 +1,16 @@
+
+prog:     file format elf32-littleriscv
+
+
+Disassembly of section .text:
+
+00000000 <sumf-0x14>:
+   0:	00500513          	addi	x10,x0,5
+   4:	00200593          	addi	x11,x0,2
+   8:	00c000ef          	jal	x1,14 <sumf>
+   c:	00250e13          	addi	x28,x10,2
+  10:	00c000ef          	jal	x1,1c <exit>
+
+00000014 <sumf>:
+  14:	40b50533          	sub	x10,x10,x11
+  18:	000080e7          	jalr	x1,0(x1)
