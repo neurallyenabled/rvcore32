@@ -6,7 +6,7 @@ abspath = "/home/mj/Documents/uob/itce497/rvcore32/programs/" + path[1] + "/"
 subprocess.call(['sh', '/home/mj/bin/exctoolchain.sh', abspath+path[2]])
 depth = 16384
 f = open("mem.mif", "w")
-f.write("DEPTH = "+ str(depth) +";                   -- The size of memory in words\n")
+f.write("DEPTH = "+ str(depth) +";     -- The size of memory in words\n")
 f.write("WIDTH = 8;                    -- The size of data in bits\n")
 f.write("ADDRESS_RADIX = DEC;          -- The radix for address values\n")
 f.write("DATA_RADIX = HEX;             -- The radix for data values\n")
@@ -45,3 +45,6 @@ f.write("END;")
 p.close()
 f.close()
 subprocess.call(['sh', './questa.sh'])
+#subprocess.call(['sh', 'cd','/home/mj/Documents/uob/itce497/rvcore32/core/vsim'])
+#subprocess.call(['sh', '/home/mj/intelFPGA_lite/21.1/questa_fse/bin/vsim ','-voptargs="+acc"','-do "do cc.tcl"'])
+

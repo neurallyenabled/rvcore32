@@ -62,13 +62,15 @@ O_rs2_address 	<= I_instruction(24 downto 20);
 O_rd_address_i 	<= I_instruction(11 downto 7);
 
 
-process(clk,opcode_i,O_rs1_address,O_rs2_address,I_rd_address_alu,I_rd_address_mem,stall_rs1_i,stall_rs2_i)
+process(clk,uut_decode_clr,opcode_i,O_rs1_address,O_rs2_address,I_rd_address_alu,I_rd_address_mem,stall_rs1_i,stall_rs2_i)
 begin
 stall_rs1_i		<= and_reduce(O_rs1_address xnor I_rd_address_alu) or and_reduce(O_rs1_address xnor I_rd_address_mem);
 stall_rs2_i		<= and_reduce(O_rs2_address xnor I_rd_address_alu) or and_reduce(O_rs2_address xnor I_rd_address_mem);
 
 -- stall logic
-if rising_edge(clk) then
+if uut_decode_clr = '1' then
+			O_stall <= '0';
+elsif rising_edge(clk) then
 	if opcode_i = "1100011" or opcode_i = "0100011" or opcode_i = "0110011" or opcode_i = "1110011" then
 		if (O_rs1_address /= "00000" and stall_rs1_i = '1') or (O_rs2_address /= "00000" and stall_rs2_i = '1') then
 			O_stall 	<= '1';
