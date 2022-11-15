@@ -16,6 +16,7 @@ port (
 	I_MEM_en		: in std_logic;
 	O_MEM_en		: out std_logic;
 	O_IF_en		: out std_logic;
+	O_start		: out std_logic;
 	instruction_cycle: out std_logic;
 	uut_en		: out std_logic_vector(5 downto 0);
 	uut_clr		: out std_logic_vector(5 downto 0)
@@ -67,8 +68,10 @@ if current_state = stop_s then
 	O_MEM_en_i 			<= '0';
 	O_MEM_done_i 			<= '0';
 	O_IF_done_i 		<= '0';
+	O_start				<= '0';
 
 else --current_state = start_s
+	O_start	<= '1';
 	if cycle_i = 0 then
 		instruction_cycle <= '0';
 		O_MEM_done_i 			<= '0';

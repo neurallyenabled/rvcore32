@@ -1,0 +1,11 @@
+
+prog:     file format elf32-littleriscv
+
+
+Disassembly of section .text:
+
+00000000 <__BSS_END__-0x1000>:
+   0:	12345bb7          	lui	x23,0x12345
+   4:	67800293          	addi	x5,x0,1656
+   8:	01728b33          	add	x22,x5,x23
+   c:	f1a0bc97          	auipc	x25,0xf1a0b

@@ -70,6 +70,7 @@ signal MEM_WB_pc4							: std_logic_vector (31 downto 0):= (others => '0');
 
 signal uut_en								: std_logic_vector (5 downto 0):= (others => '0');
 signal uut_clr								: std_logic_vector (5 downto 0):= (others => '0');
+signal start_s								: std_logic:= '0';
 
 
 
@@ -96,6 +97,8 @@ port(
 	clk					: in std_logic;
 	uut_decode_en		: in std_logic;
 	uut_decode_clr		: in std_logic;
+	I_branch				: in std_logic;
+	I_start				: in std_logic;
 	I_rd_address_alu	: in std_logic_vector (4 downto 0);
 	I_rd_address_mem	: in std_logic_vector (4 downto 0);
 	I_instruction		: in std_logic_vector (31 downto 0);
@@ -219,6 +222,7 @@ port (
 	I_MEM_en		: in std_logic;
 	O_MEM_en		: out std_logic;
 	O_IF_en		: out std_logic;
+	O_start		: out std_logic;
 	instruction_cycle: out std_logic;
 	uut_en		: out std_logic_vector(5 downto 0);
 	uut_clr		: out std_logic_vector(5 downto 0)
@@ -234,7 +238,7 @@ begin
 
 uut_fetch1: uut_fetch port map(
 				clk 						=> clk,
-				I_start					=> start,
+				I_start					=> start_s,
 				uut_fetch_en 			=> uut_en(0),
 				uut_fetch_clr 			=> uut_clr(0),
 				
@@ -253,7 +257,8 @@ uut_decode1: uut_decode port map(
 				clk 						=> clk,
 				uut_decode_clr 		=> uut_clr(1),
 				uut_decode_en 			=> uut_en(1),
-				
+				I_branch					=> ALU_MEM_condition,
+				I_start					=> start_s,
 				I_instruction 			=> IF_ID_instruction,
 				I_pc 						=> IF_ID_pc,
 				I_pc4 					=> IF_ID_pc4,
@@ -336,7 +341,7 @@ uut_alu1: uut_alu port map(
 			  	);
 uut_mem1: uut_mem port map(
 				clk 						=> clk,
-				I_start					=> start,
+				I_start					=> start_s,
 				uut_mem_en 				=> uut_en(4),
 				uut_mem_clr				=> uut_clr(4),
 
@@ -374,6 +379,7 @@ control_unit1: control_unit port map(
 				O_mem_en					=> MEM_mem_en,
 				I_MEM_wait				=> MEM_wait,
 				I_MEM_done				=> MEM_done,
+				O_start					=> start_s,
 				instruction_cycle		=> instruction_cycle
 				);	
 end rtl;
