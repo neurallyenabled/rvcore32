@@ -23,6 +23,7 @@ architecture rtl of memory_interface is
 signal read_data_partial: std_logic_vector(23 downto 0):=(others => '0');
 signal read_data_i,write_data_i: std_logic_vector(7 downto 0):=(others => '0');
 signal read_en,write_en,wait_i,done_i: std_logic:='0';
+signal address_selector: std_logic_vector(1 downto 0):= (others => '0');
 signal address_i : std_logic_vector(13 downto 0):=(others => '0');
 signal cycle_i: unsigned(2 downto 0):= "000";
 
@@ -54,6 +55,17 @@ u0 : component ram
 		q	 			=> read_data_i
 	);
 
+process(address_selector,address)
+begin
+case address_selector is
+ when "00" => address_i 	<= address;
+ when "01" => address_i  	<= std_logic_vector(unsigned(address)+1);
+ when "10" => address_i 	<= std_logic_vector(unsigned(address)+2);
+ when others => address_i 	<= std_logic_vector(unsigned(address)+3);
+end case;
+end process;
+
+
 process(clk,mem_en)
 begin
 	if mem_en = '0' then
@@ -68,9 +80,9 @@ begin
 		if current_state = idle_s then
 			cycle_i <= "000";
 			wait_i <= '0';
+			address_selector <= "00";
 			if done_i = '1' then
 				current_state <= idle_s;
-				done_i <= '0';
 			else
 				if wb_en = '0' then
 					current_state <= write_s;
@@ -85,7 +97,7 @@ begin
 			wait_i <= '1';
 			if function3 = "000" then
 				if cycle_i = "000" then
-					address_i <= address;
+					address_selector <= "00";
 					write_data_i <= write_data(7 downto 0);
 					write_en <= '1';
 					cycle_i <= cycle_i + 1;
@@ -97,12 +109,12 @@ begin
 				
 			elsif function3 = "001" then
 				if cycle_i = "000" then
-					address_i <= address;
+					address_selector <= "00";
 					write_data_i <= write_data(7 downto 0);
 					write_en <= '1';
 					cycle_i <= cycle_i + 1;
 				elsif cycle_i = "001" then
-					address_i <= std_logic_vector(unsigned(address)+1);
+					address_selector <= "01";
 					write_data_i <= write_data(15 downto 8);
 					cycle_i <= cycle_i + 1;
 				elsif cycle_i = "010" then
@@ -113,20 +125,20 @@ begin
 				
 			elsif function3 = "010" then
 				if cycle_i = "000" then
-					address_i <= address;
+					address_selector <= "00";
 					write_data_i <= write_data(7 downto 0);
 					write_en <= '1';
 					cycle_i <= cycle_i + 1;
 				elsif cycle_i = "001" then
-					address_i <= std_logic_vector(unsigned(address)+1);
+					address_selector <= "01";
 					write_data_i <= write_data(15 downto 8);
 					cycle_i <= cycle_i + 1;					
 				elsif cycle_i = "010" then
-					address_i <= std_logic_vector(unsigned(address)+2);
+					address_selector <= "10";
 					write_data_i <= write_data(23 downto 16);
 					cycle_i <= cycle_i + 1;					
 				elsif cycle_i = "011" then
-					address_i <= std_logic_vector(unsigned(address)+3);
+					address_selector <= "11";
 					write_data_i <= write_data(31 downto 24);
 					cycle_i <= cycle_i + 1;					
 				elsif cycle_i = "100" then
@@ -144,7 +156,7 @@ begin
 			wait_i <= '1';
 			if function3 = "000" or function3 = "100" then
 				if cycle_i = "000" then
-					address_i <= address;
+					address_selector <= "00";
 					read_en <= '1';
 					cycle_i <= cycle_i + 1;
 				elsif cycle_i = "011" then
@@ -162,11 +174,11 @@ begin
 				
 			elsif function3 = "001" or function3 = "101" then
 				if cycle_i = "000" then
-					address_i <= address;
+					address_selector <= "00";
 					read_en <= '1';
 					cycle_i <= cycle_i + 1;
 				elsif cycle_i = "001" then
-					address_i <= std_logic_vector(unsigned(address)+1);
+					address_selector <= "01";
 					cycle_i <= cycle_i + 1;
 				elsif cycle_i = "011" then
 					read_data_partial(7 downto 0) <= read_data_i;
@@ -186,17 +198,17 @@ begin
 				
 			elsif function3 = "010" then
 				if cycle_i = "000" then
-					address_i <= address;
+					address_selector <= "00";
 					read_en <= '1';
 					cycle_i <= cycle_i + 1;
 				elsif cycle_i = "001" then
-					address_i <= std_logic_vector(unsigned(address)+1);
+					address_selector <= "01";
 					cycle_i <= cycle_i + 1;
 				elsif cycle_i = "010" then
-					address_i <= std_logic_vector(unsigned(address)+2);
+					address_selector <= "10";
 					cycle_i <= cycle_i + 1;
 				elsif cycle_i = "011" then
-					address_i <= std_logic_vector(unsigned(address)+3);
+					address_selector <= "11";
 					read_data_partial(7 downto 0) <= read_data_i;
 					cycle_i <= cycle_i + 1;
 				elsif cycle_i = "100" then

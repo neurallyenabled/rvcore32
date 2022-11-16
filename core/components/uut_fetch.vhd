@@ -6,28 +6,26 @@ use ieee.numeric_std.all;
 -- 2 cycles after wait
 entity uut_fetch is 
 port (
-	clk					: in std_logic;
-	start					: in std_logic;
-	pc_selector			: in std_logic;
-	pc_increment		: in std_logic;
-	uut_fetch_en		: in std_logic;
-	uut_fetch_clr		: in std_logic;
-	uut_fetch_out		: in std_logic;
-	fetch_en				: in std_logic;
-	new_pc_in			: in std_logic_vector (31 downto 0);
-	fetch_wait			: out std_logic;
-	fetch_done			: out std_logic;
-	instruction			: out std_logic_vector (31 downto 0);
-	pc_out				: out std_logic_vector (31 downto 0);
-	pc4_out				: out std_logic_vector (31 downto 0)
+	clk				: in std_logic;
+	I_start			: in std_logic;
+	I_pc_selector	: in std_logic;
+	uut_fetch_en	: in std_logic;
+	uut_fetch_clr	: in std_logic;
+	I_fetch_en		: in std_logic;
+	I_alu_output	: in std_logic_vector (31 downto 0);
+	O_fetch_wait	: out std_logic;
+	O_fetch_done	: out std_logic;
+	O_instruction	: out std_logic_vector (31 downto 0);
+	O_pc				: out std_logic_vector (31 downto 0);
+	O_pc4				: out std_logic_vector (31 downto 0)
 );
 end uut_fetch;
 
 architecture rtl of uut_fetch is
 
-signal pc4_i				: std_logic_vector (31 downto 0):= (others => '0');
-signal pc_i			: std_logic_vector (31 downto 0):= (others => '0');
-signal instruction_i		: std_logic_vector (31 downto 0):= (others => '0');
+signal O_pc4_i				: std_logic_vector (31 downto 0):= (others => '0');
+signal O_pc_i				: std_logic_vector (31 downto 0):= (others => '0');
+signal O_instruction_i	: std_logic_vector (31 downto 0):= (others => '0');
 
 component memory_interface_1 is 
 port (
@@ -42,42 +40,37 @@ port (
 end component;
 
 begin
+O_pc4 <= O_pc4_i;
 
 mem1: memory_interface_1 port map (
-				clk => clk,
-				mem_en => fetch_en,
-				start => start,
-				address => pc_i(13 downto 0),
-				read_data => instruction_i,
-				waitt => fetch_wait,
-				done => fetch_done
+				clk 			=> clk,
+				mem_en 		=> I_fetch_en,
+				start 		=> I_start,
+				address 		=> O_pc_i(13 downto 0),
+				read_data 	=> O_instruction_i,
+				waitt 		=> O_fetch_wait,
+				done 			=> O_fetch_done
 				);
 
+process(I_pc_selector,I_alu_output,O_pc4_i)
+begin
+case I_pc_selector is
+ when '1' 		=> O_pc_i 	<= I_alu_output(31 downto 1) & '0';
+ when others 	=> O_pc_i 	<= O_pc4_i(31 downto 1) & '0';
+end case;
+end process;				
+				
 process(clk,uut_fetch_en,uut_fetch_clr)
 begin
 	if uut_fetch_clr = '1' then
-		instruction 	<= (others => '0');
-		pc_out 			<= (others => '0');
-		pc4_out 			<= (others => '0');
+		O_instruction 		<= (others => '0');
+		O_pc 					<= (others => '0');
+		O_pc4_i 				<= (others => '0');
 
 	elsif rising_edge(clk) and uut_fetch_en = '1' then
-		if pc_selector = '1' then
-			PC_i 			<= new_pc_in(31 downto 1) & '0';
-			if pc_increment = '1' then
-				pc4_i 			<= std_logic_vector(unsigned(new_pc_in) + 4);
-			end if;
-		else
-			PC_i 				<= pc4_i(31 downto 1) & '0';
-			if pc_increment = '1' then
-				pc4_i 			<= std_logic_vector(unsigned(pc_i) + 4);
-			end if;
-		end if;		
-		
-		if uut_fetch_out = '1' then
-			pc4_out 			<= pc4_i;
-			pc_out 			<= pc_i;
-			instruction 	<= instruction_i;	
-		end if;
+		O_pc4_i 			<= std_logic_vector(unsigned(O_pc_i(31 downto 1)) + 2) & '0'; --add 2 to pc_i(31 downto 1) to be equal to adding 4 to pc_i(31 downto 0)
+		O_pc 				<= O_pc_i;
+		O_instruction 	<= O_instruction_i;	
 	end if;	
 end process;	
 end rtl;

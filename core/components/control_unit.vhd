@@ -5,19 +5,19 @@ use ieee.numeric_std.all;
 entity control_unit is 
 port (
 	clk			: in std_logic;
-	start			: in std_logic;
-	fetch_wait	: in std_logic;
-	fetch_done	: in std_logic;
-	mem_wait		: in std_logic;
-	mem_done		: in std_logic;
-	branch		: in std_logic;
-	stall			: in std_logic;
-	I_mem_en		: in std_logic;
-	O_mem_en		: out std_logic;
-	fetch_en		: out std_logic;
-	pc_selector	: out std_logic;
-	pc_increment: out std_logic;
-	uut_out		: out std_logic_vector(5 downto 0);
+	I_start		: in std_logic;
+	I_IF_wait	: in std_logic;
+	I_IF_done	: in std_logic;
+	I_MEM_wait	: in std_logic;
+	I_MEM_done	: in std_logic;
+	I_branch		: in std_logic;
+	I_stall		: in std_logic;
+	I_stop		: in std_logic;
+	I_MEM_en		: in std_logic;
+	O_MEM_en		: out std_logic;
+	O_IF_en		: out std_logic;
+	O_start		: out std_logic;
+	instruction_cycle: out std_logic;
 	uut_en		: out std_logic_vector(5 downto 0);
 	uut_clr		: out std_logic_vector(5 downto 0)
 );
@@ -29,15 +29,15 @@ type state is (stop_s,start_s);
 signal current_state, next_state : state:= stop_s;
 
 signal cycle_i: integer range 2 downto 0:= 0;
-signal mem_done_i,fetch_done_i: std_logic:= '0';
-signal mem_en_i: std_logic:= '0';
+signal O_MEM_done_i,O_IF_done_i: std_logic:= '0';
+signal O_MEM_en_i: std_logic:= '0';
 
 begin
-O_mem_en <= mem_en_i; 
+O_mem_en <= O_MEM_en_i; 
 
-process(clk,start)
+process(clk,I_start,I_stop)
 begin
-	if start = '0' then
+	if I_start = '0' or I_stop = '1' then
 		current_state 		<= stop_s;
 		cycle_i				<= 0;
 	elsif rising_edge (clk) then 		
@@ -46,7 +46,7 @@ begin
 			if cycle_i = 0 then
 				cycle_i 			<= 1;
 			elsif cycle_i = 1 then
-				if fetch_done_i = '1' and mem_done_i = '1' then
+				if O_IF_done_i = '1' and O_MEM_done_i = '1' then
 					cycle_i	<= 2;
 				else
 					cycle_i <= 1;
@@ -61,114 +61,87 @@ end process;
 process(all)
 begin
 if current_state = stop_s then
-	uut_en 				<= "000000";
+	instruction_cycle <= '0';
 	uut_clr 				<= "111111";
-	uut_out				<=	"000000";
-	pc_selector			<= '0';
-	pc_increment		<= '0';
-	fetch_en 			<= '0';
-	mem_en_i 			<= '0';
-	mem_done_i 			<= '0';
-	fetch_done_i 		<= '0';
+	uut_en				<=	"000000";
+	O_IF_en 			<= '0';
+	O_MEM_en_i 			<= '0';
+	O_MEM_done_i 			<= '0';
+	O_IF_done_i 		<= '0';
+	O_start				<= '0';
 
 else --current_state = start_s
+	O_start	<= '1';
 	if cycle_i = 0 then
-		uut_out				<= "000000"; 	-- no instruction moves to next stage in this cycle
-		mem_done_i 			<= '0';
-		fetch_done_i 		<= '0';
+		instruction_cycle <= '0';
+		O_MEM_done_i 			<= '0';
+		O_IF_done_i 		<= '0';
 		if I_mem_en = '1' then				--check if instruction at the MEM stage reqiure memory access
-			mem_en_i 		<= '1';
+			O_MEM_en_i 		<= '1';
 		else
-			mem_en_i			<= '0';
+			O_MEM_en_i			<= '0';
 		end if;
-		
-		if branch = '1' then
-			pc_selector 	<= '1'; 			--select alu output as new pc
-			pc_increment		<= '1';
-			uut_clr 			<= "011100"; 	-- clr fetch/decode/register/alu phases
-			uut_en 			<= "110111"; 	--start all, enable wb , and disable rd
-			fetch_en 		<= '1';			-- start insturction fetch
-		elsif stall = '1' then
-			pc_selector		<= '0'; 			--use the same pc
-			pc_increment		<= '0';
-			uut_clr 			<= "011000"; 	--clr decode/rd output to not duplicate instructions
-			uut_en 			<= "000111"; 	-- stop fetch/decode/rd units
-			fetch_en 		<= '0';			-- stop instruction fetch ?
+
+		uut_en 				<= "100000";
+		if I_stall = '1' then
+			uut_clr 			<= "000110"; 	--clr decode/rd output to not duplicate instructions
+			O_IF_en 		<= '0';			-- stop instruction fetch ?
 		else
-			pc_selector 	<= '0'; 			--use pc+4 as new pc
-			pc_increment		<= '1';
-			uut_clr 			<= "000000"; 	-- no clr
-			uut_en 			<= "110111"; 	--start all, enable wb , and disable rd
-			fetch_en 		<= '1';			-- start insturction fetch	
+			uut_clr 			<= "000000"; 	-- no clrsim:/main/registers(29)
+
+			O_IF_en 		<= '1';			-- start insturction fetch	
 		end if;
 		
 
-
-
-
-	elsif cycle_i = 2 then
-		pc_selector 		<= '0';
-		pc_increment		<= '0';
-		mem_en_i 			<= '0';
-		fetch_en 			<= '0';
-		mem_done_i 			<= '0';
-		fetch_done_i 		<= '0';
-		if stall = '1' then
-			uut_clr 			<= "011000";	
-			uut_en 			<= "000110";	--same as before
-			uut_out 			<= "000111";	--all out except for stalled units
-		else
-			uut_clr 			<= "000000";	--no clr
-			uut_en 			<= "111110";	--same as before
-			uut_out 			<= "111111";	--all out
-		end if;
-		
-		
-		
-	else -- 0< cycle_i < 2
-		pc_selector 			<= '0';			--select pc+4 for next pc 
-		pc_increment			<= '0';
-		uut_out					<= "000000"; 	-- no instruction moves to next stage in this cycle
-		if stall = '1' then
-			uut_clr 				<= "011000";
-			uut_en 				<= "000110";	--disable wb
+	elsif cycle_i = 1 then
+		instruction_cycle <= '1';
+		uut_en					<= "000000"; 	-- no instruction moves to next stage in this cycle
+		if I_branch = '1' then
+			uut_clr 			<= "000111"; 	-- clr fetch/decode/register/alu phases
 		else
 			uut_clr 				<= "000000";	--no clr
-			uut_en 				<= "111110"; 	--enable rd , and disable wb
+		end if;
+		if I_stall = '1' then
+			O_IF_en 		<= '0';			-- stop instruction fetch ?
+		else
+			O_IF_en 		<= '1';			-- start insturction fetch	
+		end if;
+		if I_mem_en = '1' then				--check if instruction at the MEM stage reqiure memory access
+			O_MEM_en_i 		<= '1';
+		else
+			O_MEM_en_i			<= '0';
+		end if;
+		
+		
+		if O_IF_en = '0' or (O_IF_en = '1' and I_IF_done = '1') then
+			O_IF_done_i 	<= '1';
+		else
+			O_IF_done_i 	<= '0';
+		end if;
+		
+		if O_MEM_en_i = '0' or (O_MEM_en_i = '1' and I_MEM_done = '1') then
+			O_MEM_done_i 		<= '1';
+		else
+			O_MEM_done_i 		<= '0';
 		end if;
 
-		if rising_edge(clk) then
-			if fetch_en = '1' then				--fetch_en logic
-				if fetch_done = '1' then		
-					fetch_en 		<= '0';
-					fetch_done_i 	<= '1';
-				else
-					fetch_en			<= '1';
-					fetch_done_i 	<= '0';
-				end if;
-			else
-				fetch_en 			<= '0';
-				fetch_done_i 		<= '1';
-			end if;
-		end if;
-		
-		if mem_en_i = '1' then					-- mem_en logic 
-			if mem_done = '1' then
-				mem_en_i 		<= '0';
-				mem_done_i 		<= '1';
-			else
-				mem_en_i			<= '1';
-				mem_done_i 		<= '0';
-			end if;
+
+	else -- cycle_i = 2 then
+		instruction_cycle <= '1';
+		O_MEM_en_i 			<= '0';
+		O_IF_en 			<= '0';
+		O_MEM_done_i 			<= '0';
+		O_IF_done_i 		<= '0';
+		uut_clr 			<= "000000";	--no clr
+		if I_stall = '1' then
+			uut_en 			<= "111000";	--all out except for stalled units
 		else
-			mem_en_i 			<= '0';
-			mem_done_i 			<= '1';
+			uut_en 			<= "111111";	--all out
 		end if;
-		
 	end if;
 end if;
 
-if start = '1' then							--next_state logic
+if I_start = '1' then							--next_state logic
 	next_state 					<= start_s;
 else
 	next_state 					<= stop_s;

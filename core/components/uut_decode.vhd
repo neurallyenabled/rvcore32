@@ -8,37 +8,39 @@ port (
 	clk					: in std_logic;
 	uut_decode_en		: in std_logic;
 	uut_decode_clr		: in std_logic;
-	uut_decode_out		: in std_logic;
-	rd_address_alu		: in std_logic_vector (4 downto 0);
-	rd_address_mem		: in std_logic_vector (4 downto 0);
-	instruction			: in std_logic_vector (31 downto 0);
-	pc_in					: in std_logic_vector (31 downto 0);
-	pc4_in				: in std_logic_vector (31 downto 0);
-	add					: out std_logic;
-	alu_en				: out std_logic;
-	compare_en			: out std_logic;
-	jump					: out std_logic;
-	mem_en				: out std_logic;
-	wb_en					: out std_logic;
-	stall					: out std_logic;
-	function7			: out std_logic;
-	oper_selector		: out std_logic_vector (1 downto 0);
-	wb_selector			: out std_logic_vector (1 downto 0);
-	function3			: out std_logic_vector (2 downto 0);
-	rs1_address			: out std_logic_vector (4 downto 0);
-	rs2_address			: out std_logic_vector (4 downto 0);
-	rd_address			: out std_logic_vector (4 downto 0);
-	immediate			: out std_logic_vector (31 downto 0);
-	pc_out				: out std_logic_vector (31 downto 0);
-	pc4_out				: out std_logic_vector (31 downto 0)
+	I_branch				: in std_logic;
+	I_start				: in std_logic;
+	I_rd_address_alu	: in std_logic_vector (4 downto 0);
+	I_rd_address_mem	: in std_logic_vector (4 downto 0);
+	I_instruction		: in std_logic_vector (31 downto 0);
+	I_pc					: in std_logic_vector (31 downto 0);
+	I_pc4					: in std_logic_vector (31 downto 0);
+	O_add					: out std_logic;
+	O_alu_en				: out std_logic;
+	O_compare_en		: out std_logic;
+	O_jump				: out std_logic;
+	O_mem_en				: out std_logic;
+	O_wb_en				: out std_logic;
+	O_stall				: out std_logic;
+	O_stop				: out std_logic;
+	O_function7			: out std_logic;
+	O_oper_selector	: out std_logic_vector (1 downto 0);
+	O_wb_selector		: out std_logic_vector (1 downto 0);
+	O_function3			: out std_logic_vector (2 downto 0);
+	O_rs1_address		: out std_logic_vector (4 downto 0);
+	O_rs2_address		: out std_logic_vector (4 downto 0);
+	O_rd_address		: out std_logic_vector (4 downto 0);
+	O_immediate			: out std_logic_vector (31 downto 0);
+	O_pc					: out std_logic_vector (31 downto 0);
+	O_pc4					: out std_logic_vector (31 downto 0)
 );
 end uut_decode;
 
 architecture rtl of uut_decode is
 signal stall_rs1_i	: std_logic:= '0';
 signal stall_rs2_i	: std_logic:= '0';
-signal function3_i	: std_logic_vector (2 downto 0):= (others => '0');
-signal rd_address_i	: std_logic_vector (4 downto 0):= (others => '0');
+signal O_function3_i	: std_logic_vector (2 downto 0):= (others => '0');
+signal O_rd_address_i: std_logic_vector (4 downto 0):= (others => '0');
 signal opcode_i		: std_logic_vector (6 downto 0):= (others => '0');
 signal immu				: std_logic_vector (31 downto 0):= (others => '0');
 signal immi				: std_logic_vector (31 downto 0):= (others => '0');
@@ -49,210 +51,226 @@ signal zimm				: std_logic_vector (31 downto 0):= (others => '0');
 
 begin
 
-immi 				<= (31 downto 12 => instruction(31)) & instruction(31 downto 20);
-immu 				<= instruction(31 downto 12) & (11 downto 0 => '0');
-immj 				<= (31 downto 21 => instruction(31)) & instruction(31) & instruction(19 downto 12) & instruction(20) & instruction(30 downto 21) & '0';
-immb 				<= (31 downto 13 => instruction(31)) & instruction(31) & instruction(7) & instruction(30 downto 25) & instruction(11 downto 8) & '0';
-imms 				<= (31 downto 11 => instruction(31)) & instruction(30 downto 25) & instruction(11 downto 7);
-zimm 				<= (31 downto 5 => '0') & instruction(19 downto 15);						
-function3_i 	<= instruction(14 downto 12);
-opcode_i 		<= instruction(6 downto 0);
-rs1_address 	<= instruction(19 downto 15);
-rs2_address 	<= instruction(24 downto 20);
-rd_address_i 	<= instruction(11 downto 7);
-stall_rs1_i		<= and_reduce(rs1_address xnor rd_address_alu) or and_reduce(rs1_address xnor rd_address_mem);
-stall_rs2_i		<= and_reduce(rs2_address xnor rd_address_alu) or and_reduce(rs2_address xnor rd_address_mem);
+immi 				<= (31 downto 12 => I_instruction(31)) & I_instruction(31 downto 20);
+immu 				<= I_instruction(31 downto 12) & (11 downto 0 => '0');
+immj 				<= (31 downto 21 => I_instruction(31)) & I_instruction(31) & I_instruction(19 downto 12) & I_instruction(20) & I_instruction(30 downto 21) & '0';
+immb 				<= (31 downto 13 => I_instruction(31)) & I_instruction(31) & I_instruction(7) & I_instruction(30 downto 25) & I_instruction(11 downto 8) & '0';
+imms 				<= (31 downto 11 => I_instruction(31)) & I_instruction(30 downto 25) & I_instruction(11 downto 7);
+zimm 				<= (31 downto 5 => '0') & I_instruction(19 downto 15);						
+O_function3_i 	<= I_instruction(14 downto 12);
+opcode_i 		<= I_instruction(6 downto 0);
+O_rs1_address 	<= I_instruction(19 downto 15);
+O_rs2_address 	<= I_instruction(24 downto 20);
+O_rd_address_i 	<= I_instruction(11 downto 7);
+
+
+process(clk,uut_decode_clr,I_branch,I_start,opcode_i,O_rs1_address,O_rs2_address,I_rd_address_alu,I_rd_address_mem,stall_rs1_i,stall_rs2_i)
+begin
+stall_rs1_i		<= and_reduce(O_rs1_address xnor I_rd_address_alu) or and_reduce(O_rs1_address xnor I_rd_address_mem);
+stall_rs2_i		<= and_reduce(O_rs2_address xnor I_rd_address_alu) or and_reduce(O_rs2_address xnor I_rd_address_mem);
+
+-- stall logic
+if uut_decode_clr = '1' and (I_branch = '1' or I_start = '0') then
+			O_stall <= '0';
+elsif rising_edge(clk) then
+	if opcode_i = "1100011" or opcode_i = "0100011" or opcode_i = "0110011" or opcode_i = "1110011" then
+		if (O_rs1_address /= "00000" and stall_rs1_i = '1') or (O_rs2_address /= "00000" and stall_rs2_i = '1') then
+			O_stall 	<= '1';
+		else
+			O_stall 	<= '0';
+		end if;
+	elsif opcode_i = "1100111" or opcode_i = "0000011" or opcode_i = "0010011" then
+		if O_rs1_address /= "00000" and stall_rs1_i = '1' then
+			O_stall 	<= '1';
+		else
+			O_stall 	<= '0';
+		end if;
+	else
+			O_stall 	<= '0';
+	end if;
+end if;
+end process;
 
 process(clk,uut_decode_en,uut_decode_clr,opcode_i,stall_rs1_i,stall_rs2_i)
 begin
 	if uut_decode_clr = '1' then
-		rd_address 		<= (others => '0');
-		function3 		<= (others => '0');
-		immediate 		<= (others => '0');
-		pc_out 			<= (others => '0');
-		pc4_out 			<= (others => '0');
-		function7 		<= '0';
-		add 				<= '0';
-		alu_en 			<= '0';
-		compare_en 		<= '0';
-		jump 				<= '0';
-		mem_en 			<= '0';
-		wb_en 			<= '0';
-		oper_selector 	<= (others => '0');
-		wb_selector 	<= (others => '0');
-		stall 			<= '0';
+		O_rd_address 		<= (others => '0');
+		O_function3 		<= (others => '0');
+		O_immediate 		<= (others => '0');
+		O_pc 					<= (others => '0');
+		O_pc4 				<= (others => '0');
+		O_function7 		<= '0';
+		O_add 				<= '0';
+		O_alu_en 			<= '0';
+		O_compare_en 		<= '0';
+		O_jump 				<= '0';
+		O_mem_en 			<= '0';
+		O_wb_en 				<= '0';
+		O_oper_selector	<= (others => '0');
+		O_wb_selector 		<= (others => '0');
+		O_stop				<= '0';
 
 	elsif rising_edge(clk) and uut_decode_en = '1' then
+		O_pc 				<= I_pc;
+		O_pc4 			<= I_pc4;
 		
-		if uut_decode_out = '1' then
-			pc_out 		<= pc_in;
-			pc4_out 		<= pc4_in;
-			
-			if opcode_i = "0110111" then -- LUI
-				immediate 		<= immu;
-				oper_selector 	<= "10";
-				add 				<= '0';
-				alu_en 			<= '0';
-				compare_en 		<= '0';
-				jump 				<= '0';
-				mem_en 			<= '0';
-				wb_selector 	<= "00";
-				wb_en 			<= '1';
-				rd_address 		<= rd_address_i;
-				function3 		<= (others => '0');
-				function7 		<= '0';
-		
-			elsif opcode_i = "0010111" then -- AUIPC
-				immediate 		<= immu;
-				oper_selector 	<= "11";
-				add 				<= '1';
-				alu_en 			<= '1';
-				compare_en 		<= '0';
-				jump 				<= '0';
-				mem_en 			<= '0';
-				wb_selector 	<= "00";
-				wb_en 			<= '1';
-				rd_address 		<= rd_address_i;
-				function3 		<= (others => '0');
-				function7 		<= '0';
-				
-			elsif	opcode_i = "1101111" then -- JAL
-				immediate 		<= immj;
-				oper_selector 	<= "11";
-				add 				<= '1';
-				alu_en 			<= '1';
-				compare_en 		<= '1';
-				jump 				<= '1';
-				mem_en 			<= '0';
-				wb_selector 	<= "10";
-				wb_en 			<= '1';
-				rd_address 		<= rd_address_i;
-				function3 		<= (others => '0');
-				function7 		<= '0';
-				
-			elsif	opcode_i = "1100111" then -- JALR
-				immediate 		<= immi;	
-				oper_selector 	<= "10";
-				add 				<= '1';
-				alu_en 			<= '1';
-				compare_en 		<= '1';
-				jump 				<= '1';
-				mem_en 			<= '0';
-				wb_selector 	<= "10";
-				wb_en 			<= '1';
-				rd_address 		<= rd_address_i;
-				function3 		<= function3_i;
-				function7 		<= '0';
-				
-			elsif	opcode_i = "1100011" then -- br
-				immediate 		<= immb;	
-				oper_selector 	<= "11";
-				add 				<= '1';
-				alu_en 			<= '1';
-				compare_en 		<= '1';
-				jump 				<= '0';
-				mem_en 			<= '0';
-				wb_selector 	<= "00"; -- no write back
-				wb_en 			<= '0';
-				rd_address 		<= (others => '0');
-				function3 		<= function3_i;
-				function7 		<= '0';
-				
-				
-			elsif	opcode_i = "0100011" then -- st
-				immediate 		<= imms;	
-				oper_selector 	<= "10";
-				add 				<= '1';
-				alu_en 			<= '1';
-				compare_en 		<= '0';
-				jump 				<= '0';
-				mem_en 			<= '1';
-				wb_selector 	<= "00"; -- no write back
-				wb_en 			<= '0';
-				rd_address 		<= (others => '0');
-				function3 		<= function3_i;
-				function7 		<= '0';
-				
-			elsif opcode_i = "0000011" then -- LD
-				immediate 		<= immi;	
-				oper_selector 	<= "10";
-				add 				<= '1';
-				alu_en 			<= '1';
-				compare_en 		<= '0';
-				jump 				<= '0';
-				mem_en 			<= '1';
-				wb_selector 	<= "01";
-				wb_en 			<= '1';
-				rd_address 		<= rd_address_i;
-				function3 		<= function3_i;
-				function7 		<= '0';
-			
-			elsif	opcode_i = "0010011" then -- ADDI
-				immediate 		<= immi;	
-				oper_selector 	<= "10";
-				add 				<= '0';
-				alu_en 			<= '1';
-				compare_en 		<= '0';
-				jump 				<= '0';
-				mem_en 			<= '0';
-				wb_selector 	<= "00";
-				wb_en 			<= '1';
-				rd_address 		<= rd_address_i;
-				function3 		<= function3_i;
-				function7 		<= instruction(30);
-
-				
-			elsif opcode_i = "0110011"	then -- ADD
-				immediate 		<= (others => '0');	
-				oper_selector 	<= "00";
-				add 				<= '0';
-				alu_en 			<= '1';
-				compare_en 		<= '0';
-				jump 				<= '0';
-				mem_en 			<= '0';
-				wb_selector 	<= "00";
-				wb_en 			<= '1';
-				rd_address 		<= rd_address_i;
-				function3 		<= function3_i;
-				function7 		<= instruction(30);
-				
-				
-			elsif	opcode_i = "1110011" then -- CSR
-				if function3_i(2) = '1' then
-					immediate 	<= zimm;
-				else
-					immediate 	<= (others => '0');	
-				end if;
-				oper_selector 	<= "00";
-				add 				<= '0';
-				alu_en 			<= '0';
-				compare_en 		<= '0';
-				jump 				<= '0';
-				mem_en 			<= '0';
-				wb_selector 	<= "00";
-				wb_en 			<= '0';
-				rd_address 		<= (others => '0');
-				function3 		<= function3_i;
-				function7 		<= '0';
-			end if;
-		end if;
-	end if;
+		if opcode_i = "0110111" then -- LUI
+			O_immediate 		<= immu;
+			O_oper_selector 	<= "10";
+			O_add 				<= '0';
+			O_alu_en 			<= '0';
+			O_compare_en 		<= '0';
+			O_jump 				<= '0';
+			O_mem_en 			<= '0';
+			O_wb_selector 		<= "00";
+			O_wb_en 				<= '1';
+			O_rd_address 		<= O_rd_address_i;
+			O_function3 		<= (others => '0');
+			O_function7 		<= '0';
 	
-	-- stall logic
-	if opcode_i = "1100011" or opcode_i = "0100011" or opcode_i = "0110011" or opcode_i = "1110011" then
-		if (rs1_address /= "00000" and stall_rs1_i = '1') or (rs2_address /= "00000" and stall_rs2_i = '1') then
-			stall 	<= '1';
-		else
-			stall 	<= '0';
+		elsif opcode_i = "0010111" then -- AUIPC
+			O_immediate 		<= immu;
+			O_oper_selector 	<= "11";
+			O_add 				<= '1';
+			O_alu_en 			<= '1';
+			O_compare_en 		<= '0';
+			O_jump 				<= '0';
+			O_mem_en 			<= '0';
+			O_wb_selector 		<= "00";
+			O_wb_en 				<= '1';
+			O_rd_address 		<= O_rd_address_i;
+			O_function3 		<= (others => '0');
+			O_function7 		<= '0';
+			
+		elsif	opcode_i = "1101111" then -- JAL
+			O_immediate 		<= immj;
+			O_oper_selector 	<= "11";
+			O_add 				<= '1';
+			O_alu_en 			<= '1';
+			O_compare_en 		<= '1';
+			O_jump 				<= '1';
+			O_mem_en 			<= '0';
+			O_wb_selector 		<= "10";
+			O_wb_en 				<= '1';
+			O_rd_address 		<= O_rd_address_i;
+			O_function3 		<= (others => '0');
+			O_function7 		<= '0';
+			
+		elsif	opcode_i = "1100111" then -- JALR
+			O_immediate 		<= immi;	
+			O_oper_selector 	<= "10";
+			O_add 				<= '1';
+			O_alu_en 			<= '1';
+			O_compare_en 		<= '1';
+			O_jump 				<= '1';
+			O_mem_en 			<= '0';
+			O_wb_selector 		<= "10";
+			O_wb_en 				<= '1';
+			O_rd_address 		<= O_rd_address_i;
+			O_function3 		<= O_function3_i;
+			O_function7 		<= '0';
+			
+		elsif	opcode_i = "1100011" then -- br
+			O_immediate 		<= immb;	
+			O_oper_selector 	<= "11";
+			O_add 				<= '1';
+			O_alu_en 			<= '1';
+			O_compare_en 		<= '1';
+			O_jump 				<= '0';
+			O_mem_en 			<= '0';
+			O_wb_selector 		<= "00"; -- no write back
+			O_wb_en 				<= '0';
+			O_rd_address 		<= (others => '0');
+			O_function3 		<= O_function3_i;
+			O_function7 		<= '0';
+			
+			
+		elsif	opcode_i = "0100011" then -- st
+			O_immediate 		<= imms;	
+			O_oper_selector 	<= "10";
+			O_add 				<= '1';
+			O_alu_en 			<= '1';
+			O_compare_en 		<= '0';
+			O_jump 				<= '0';
+			O_mem_en 			<= '1';
+			O_wb_selector 		<= "00"; -- no write back
+			O_wb_en 				<= '0';
+			O_rd_address 		<= (others => '0');
+			O_function3 		<= O_function3_i;
+			O_function7 		<= '0';
+			
+		elsif opcode_i = "0000011" then -- LD
+			O_immediate 		<= immi;	
+			O_oper_selector 	<= "10";
+			O_add 				<= '1';
+			O_alu_en 			<= '1';
+			O_compare_en 		<= '0';
+			O_jump 				<= '0';
+			O_mem_en 			<= '1';
+			O_wb_selector 		<= "01";
+			O_wb_en 				<= '1';
+			O_rd_address 		<= O_rd_address_i;
+			O_function3 		<= O_function3_i;
+			O_function7 		<= '0';
+		
+		elsif	opcode_i = "0010011" then -- ADDI
+			O_immediate 		<= immi;	
+			O_oper_selector 	<= "10";
+			O_add 				<= '0';
+			O_alu_en 			<= '1';
+			O_compare_en 		<= '0';
+			O_jump 				<= '0';
+			O_mem_en 			<= '0';
+			O_wb_selector 		<= "00";
+			O_wb_en 				<= '1';
+			O_rd_address 		<= O_rd_address_i;
+			O_function3 		<= O_function3_i;
+			if O_function3_i = "101" then
+				O_function7 		<= I_instruction(30);
+			else
+				O_function7 		<= '0';
+			end if;
+
+
+			
+		elsif opcode_i = "0110011"	then -- ADD
+			O_immediate 		<= (others => '0');	
+			O_oper_selector 	<= "00";
+			O_add 				<= '0';
+			O_alu_en 			<= '1';
+			O_compare_en 		<= '0';
+			O_jump 				<= '0';
+			O_mem_en 			<= '0';
+			O_wb_selector 		<= "00";
+			O_wb_en 				<= '1';
+			O_rd_address 		<= O_rd_address_i;
+			O_function3 		<= O_function3_i;
+			O_function7 		<= I_instruction(30);
+			
+			
+		elsif	opcode_i = "1110011" then -- CSR
+			if I_instruction = "00000000000100000000000001110011" then --ebreak
+				O_stop <= '1';	
+			else
+				O_stop <= '0';
+			end if;
+			if O_function3_i(2) = '1' then
+				O_immediate 	<= zimm;
+			else
+				O_immediate 	<= (others => '0');	
+			end if;
+			O_oper_selector 	<= "00";
+			O_add 				<= '0';
+			O_alu_en 			<= '0';
+			O_compare_en 		<= '0';
+			O_jump 				<= '0';
+			O_mem_en 			<= '0';
+			O_wb_selector 		<= "00";
+			O_wb_en 				<= '0';
+			O_rd_address 		<= (others => '0');
+			O_function3 		<= O_function3_i;
+			O_function7 		<= '0';
 		end if;
-	elsif opcode_i = "1100111" or opcode_i = "0000011" or opcode_i = "0010011" then
-		if rs1_address /= "00000" and stall_rs1_i = '1' then
-			stall 	<= '1';
-		else
-			stall 	<= '0';
-		end if;
-	else
-			stall 	<= '0';
 	end if;
 end process;
 end rtl;

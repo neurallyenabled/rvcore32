@@ -1,3 +1,4 @@
+export PATH=$PATH:/home/mj/projects/riscv/install/rv32i/bin
 riscv64-unknown-elf-gcc -ffreestanding -fno-pic -march=rv32i -mabi=ilp32 -O -c -o test1.o test1.S
 riscv64-unknown-elf-gcc -ffreestanding -fno-pic -march=rv32i -mabi=ilp32 -O -nostdlib -Wl,-Ttext=0x0 -Wl,--no-relax -Wl,-Tdata=0x1000 -o prog test1.o
 riscv64-unknown-elf-size -A -x prog

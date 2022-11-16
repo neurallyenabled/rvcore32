@@ -1,15 +1,15 @@
-Analysis & Synthesis Status : Successful - Mon Oct 24 15:20:24 2022
+Analysis & Synthesis Status : Successful - Sat Nov 12 14:29:17 2022
 Quartus Prime Version : 21.1.0 Build 842 10/21/2021 SJ Lite Edition
 Revision Name : rvcore32
-Top-level Entity Name : test
+Top-level Entity Name : main
 Family : MAX 10
-Total logic elements : 315
-    Total combinational functions : 136
-    Dedicated logic registers : 243
-Total registers : 243
-Total pins : 98
+Total logic elements : 4,045
+    Total combinational functions : 2,665
+    Dedicated logic registers : 1,695
+Total registers : 1695
+Total pins : 1,027
 Total virtual pins : 0
-Total memory bits : 131,072
+Total memory bits : 262,144
 Embedded Multiplier 9-bit elements : 0
 Total PLLs : 0
 UFM blocks : 0

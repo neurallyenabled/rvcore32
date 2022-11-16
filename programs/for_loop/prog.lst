@@ -1,0 +1,16 @@
+
+prog:     file format elf32-littleriscv
+
+
+Disassembly of section .text:
+
+00000000 <loop-0xc>:
+   0:	00000193          	addi	x3,x0,0
+   4:	00a00213          	addi	x4,x0,10
+   8:	00500693          	addi	x13,x0,5
+
+0000000c <loop>:
+   c:	0041d863          	bge	x3,x4,1c <exit>
+  10:	003686b3          	add	x13,x13,x3
+  14:	00118193          	addi	x3,x3,1 # 1801 <__global_pointer$+0x1>
+  18:	ff5ff06f          	jal	x0,c <loop>
