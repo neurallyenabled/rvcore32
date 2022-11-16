@@ -87,7 +87,8 @@ else --current_state = start_s
 			uut_clr 			<= "000110"; 	--clr decode/rd output to not duplicate instructions
 			O_IF_en 		<= '0';			-- stop instruction fetch ?
 		else
-			uut_clr 			<= "000000"; 	-- no clr
+			uut_clr 			<= "000000"; 	-- no clrsim:/main/registers(29)
+
 			O_IF_en 		<= '1';			-- start insturction fetch	
 		end if;
 		

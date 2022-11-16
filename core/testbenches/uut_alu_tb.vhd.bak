@@ -19,7 +19,6 @@ port (
 	I_jump					: in std_logic;
 	I_mem_en					: in std_logic;
 	I_wb_en					: in std_logic;
-	I_stop					: in std_logic;
 	I_operand_selector	: in std_logic_vector (1 downto 0);
 	I_wb_selector			: in std_logic_vector (1 downto 0);
 	I_function3 			: in std_logic_vector (2 downto 0);
@@ -32,7 +31,6 @@ port (
 	O_condition				: out std_logic;
 	O_mem_en					: out std_logic;
 	O_wb_en					: out std_logic;
-	O_stop					: out std_logic;
 	O_wb_selector			: out std_logic_vector (1 downto 0);
 	O_function3				: out std_logic_vector (2 downto 0);
 	O_rd_address			: out std_logic_vector (4 downto 0);
@@ -55,9 +53,6 @@ signal I_add		: std_logic;
 signal I_jump		: std_logic;
 signal I_mem_en		: std_logic;
 signal I_wb_en		: std_logic;
-signal I_stop		: std_logic;
-signal O_stop		: std_logic;
-
 signal I_operand_selector: std_logic_vector(1 downto 0);
 signal I_wb_selector	: std_logic_vector(1 downto 0);
 signal I_function3 	: std_logic_vector(2 downto 0);
@@ -83,40 +78,6 @@ constant clk_period:time:= 50 ns;
 constant clk_period_half:time:= 25 ns;
 
 begin
-
-uut_alu1: uut_alu port map(
-				clk 						=> clk,
-				uut_alu_en 				=> uut_alu_en,
-				uut_alu_clr 			=> uut_alu_clr,
-
-				I_function3 			=> I_function3,
-				I_function7 			=> I_function7,
-				I_immediate 			=> I_immediate,
-				I_pc 						=> I_pc,
-				I_pc4 					=> I_pc4,
-				I_operand_selector 	=> I_operand_selector,
-				I_wb_selector 			=> I_wb_selector,
-				I_add 					=> I_add,
-				I_alu_en 				=> I_alu_en,
-				I_compare_en 			=> I_compare_en,
-				I_jump 					=> I_jump,
-				I_mem_en 				=> I_mem_en,
-				I_wb_en 					=> I_wb_en,
-				I_stop					=> I_stop,
-				I_rs1 					=> I_rs1,
-				I_rs2						=> I_rs2,
-				I_rd_address 			=> I_rd_address,
-				O_rd_address 			=> O_rd_address,
-				O_function3 			=> O_function3,
-				O_rs2 					=> O_rs2,
-				O_pc4 					=> O_pc4,
-				O_alu_output 			=> O_alu_output,
-				O_wb_selector 			=> O_wb_selector,
-				O_condition 			=> O_condition,
-				O_mem_en 				=> O_mem_en,
-				O_wb_en 					=> O_wb_en,
-				O_stop					=> O_stop
-			  	);
 clocking : PROCESS
   BEGIN
     WHILE NOT stop_clk LOOP
