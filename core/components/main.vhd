@@ -3,13 +3,11 @@ use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
 library work;
-use work.registers.all;
 
 entity main is 
 port (
 		clk,start: in std_logic;
-		instruction_cycle: out std_logic;
-		registers: out reg_array
+		reg31: out std_logic_vector (31 downto 0)
 );
 end main;
 
@@ -70,9 +68,7 @@ signal MEM_WB_pc4							: std_logic_vector (31 downto 0):= (others => '0');
 
 signal uut_en								: std_logic_vector (5 downto 0):= (others => '0');
 signal uut_clr								: std_logic_vector (5 downto 0):= (others => '0');
-signal start_s								: std_logic:= '0';
-
-
+signal start_i								: std_logic:= '0';
 
 		
 component uut_fetch is
@@ -142,7 +138,7 @@ port(
 	I_pc4					: in std_logic_vector (31 downto 0);
 	O_rs1					: out std_logic_vector (31 downto 0);
 	O_rs2					: out std_logic_vector (31 downto 0);
-	myreg					: out reg_array
+	O_reg31           : out std_logic_vector (31 downto 0)
 	);
 end component;
 
@@ -222,8 +218,6 @@ port (
 	I_MEM_en		: in std_logic;
 	O_MEM_en		: out std_logic;
 	O_IF_en		: out std_logic;
-	O_start		: out std_logic;
-	instruction_cycle: out std_logic;
 	uut_en		: out std_logic_vector(5 downto 0);
 	uut_clr		: out std_logic_vector(5 downto 0)
 	);
@@ -238,7 +232,7 @@ begin
 
 uut_fetch1: uut_fetch port map(
 				clk 						=> clk,
-				I_start					=> start_s,
+				I_start					=> start_i,
 				uut_fetch_en 			=> uut_en(0),
 				uut_fetch_clr 			=> uut_clr(0),
 				
@@ -258,7 +252,7 @@ uut_decode1: uut_decode port map(
 				uut_decode_clr 		=> uut_clr(1),
 				uut_decode_en 			=> uut_en(1),
 				I_branch					=> ALU_MEM_condition,
-				I_start					=> start_s,
+				I_start					=> start_i,
 				I_instruction 			=> IF_ID_instruction,
 				I_pc 						=> IF_ID_pc,
 				I_pc4 					=> IF_ID_pc4,
@@ -303,9 +297,8 @@ uut_register1: uut_register port map(
 				I_alu_output 			=> MEM_WB_alu_output,
 				I_loaded_data 			=> MEM_WB_loaded_data,
 				I_pc4 					=> MEM_WB_pc4,
-				
-				myreg						=> registers
-				);
+				O_reg31              => reg31
+								);
 uut_alu1: uut_alu port map(
 				clk 						=> clk,
 				uut_alu_en 				=> uut_en(3),
@@ -341,7 +334,7 @@ uut_alu1: uut_alu port map(
 			  	);
 uut_mem1: uut_mem port map(
 				clk 						=> clk,
-				I_start					=> start_s,
+				I_start					=> start_i,
 				uut_mem_en 				=> uut_en(4),
 				uut_mem_clr				=> uut_clr(4),
 
@@ -366,7 +359,7 @@ uut_mem1: uut_mem port map(
 			  	);
 control_unit1: control_unit port map(
 				clk 						=> clk,
-				I_start 					=> start,
+				I_start 					=> start_i,
 				I_stop					=> MEM_WB_stop,
 				I_branch 				=> ALU_MEM_condition,
 				I_stall 					=> ID_stall,
@@ -378,8 +371,13 @@ control_unit1: control_unit port map(
 				I_mem_en					=> ALU_mem_en,
 				O_mem_en					=> MEM_mem_en,
 				I_MEM_wait				=> MEM_wait,
-				I_MEM_done				=> MEM_done,
-				O_start					=> start_s,
-				instruction_cycle		=> instruction_cycle
+				I_MEM_done				=> MEM_done
 				);	
+
+process(start,clk)
+begin
+if rising_edge(clk) then
+	start_i <= start;
+end if;
+end process;
 end rtl;

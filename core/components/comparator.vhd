@@ -8,7 +8,6 @@ port (
 	clk						: in std_logic;
 	I_compare_en			: in std_logic;
 	I_jump					: in std_logic;
-	I_operand_selector	: in std_logic_vector (1 downto 0);
 	I_function3 			: in std_logic_vector (2 downto 0);
 	I_rs1						: in std_logic_vector (31 downto 0);
 	I_rs2						: in std_logic_vector (31 downto 0);
@@ -68,9 +67,11 @@ if rising_edge(clk) then
 			else
 				O_condition <= '0';
 			end if;
+		else
+			O_condition <= '0';
 		end if;
 	else 
-				O_condition <= '0';
+			O_condition <= '0';
 	end if;
 end if;
 end process;

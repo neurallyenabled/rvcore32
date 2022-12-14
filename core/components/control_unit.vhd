@@ -16,8 +16,6 @@ port (
 	I_MEM_en		: in std_logic;
 	O_MEM_en		: out std_logic;
 	O_IF_en		: out std_logic;
-	O_start		: out std_logic;
-	instruction_cycle: out std_logic;
 	uut_en		: out std_logic_vector(5 downto 0);
 	uut_clr		: out std_logic_vector(5 downto 0)
 );
@@ -61,19 +59,15 @@ end process;
 process(all)
 begin
 if current_state = stop_s then
-	instruction_cycle <= '0';
 	uut_clr 				<= "111111";
 	uut_en				<=	"000000";
 	O_IF_en 			<= '0';
 	O_MEM_en_i 			<= '0';
 	O_MEM_done_i 			<= '0';
 	O_IF_done_i 		<= '0';
-	O_start				<= '0';
 
 else --current_state = start_s
-	O_start	<= '1';
 	if cycle_i = 0 then
-		instruction_cycle <= '0';
 		O_MEM_done_i 			<= '0';
 		O_IF_done_i 		<= '0';
 		if I_mem_en = '1' then				--check if instruction at the MEM stage reqiure memory access
@@ -94,7 +88,6 @@ else --current_state = start_s
 		
 
 	elsif cycle_i = 1 then
-		instruction_cycle <= '1';
 		uut_en					<= "000000"; 	-- no instruction moves to next stage in this cycle
 		if I_branch = '1' then
 			uut_clr 			<= "000111"; 	-- clr fetch/decode/register/alu phases
@@ -127,7 +120,6 @@ else --current_state = start_s
 
 
 	else -- cycle_i = 2 then
-		instruction_cycle <= '1';
 		O_MEM_en_i 			<= '0';
 		O_IF_en 			<= '0';
 		O_MEM_done_i 			<= '0';

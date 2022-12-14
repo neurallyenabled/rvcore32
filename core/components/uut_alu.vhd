@@ -40,7 +40,7 @@ end uut_alu;
 
 architecture rtl of uut_alu is
 
-signal O_condition_i	: std_logic;
+signal O_condition_i	: std_logic:= '0';
 signal O_alu_output_i: std_logic_vector (31 downto 0):= (others => '0');
 
 component alu is
@@ -64,7 +64,6 @@ port (
 	clk						: in std_logic;
 	I_compare_en		: in std_logic;
 	I_jump			: in std_logic;
-	I_operand_selector	: in std_logic_vector (1 downto 0);
 	I_function3 		: in std_logic_vector (2 downto 0);
 	I_rs1			: in std_logic_vector (31 downto 0);
 	I_rs2			: in std_logic_vector (31 downto 0);
@@ -92,12 +91,12 @@ comp1: comparator port map(
 	clk => clk,
 	I_compare_en	=> I_compare_en,
 	I_jump			=> I_jump,
-	I_operand_selector	=> I_operand_selector,
 	I_function3 		=> I_function3,
 	I_rs1			=> I_rs1,
 	I_rs2			=> I_rs2,
 	O_condition		=> O_condition_i
 );
+
 process(clk, uut_alu_en, uut_alu_clr)
 begin
 	if uut_alu_clr = '1' then
@@ -121,8 +120,12 @@ begin
 		O_wb_en 			<= I_wb_en;
 		O_function3 	<= I_function3;
 		O_alu_output 	<= O_alu_output_i;
-		O_condition 	<= O_condition_i;
 		O_stop			<= I_stop;
+		if I_compare_en = '1' and I_pc4 = O_alu_output_i then
+			O_condition <= '0';
+		else
+			O_condition <= O_condition_i;
+		end if;
 	end if;
 end process;
 end rtl;

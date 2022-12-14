@@ -3,8 +3,7 @@ use ieee.std_logic_1164.all;
 use ieee.std_logic_unsigned.all;
 use ieee.numeric_std.all;
 
-library work;
-use work.registers.all;
+
 
  
 entity uut_register is
@@ -24,16 +23,17 @@ port (
 	I_pc4					: in std_logic_vector (31 downto 0);
 	O_rs1					: out std_logic_vector (31 downto 0);
 	O_rs2					: out std_logic_vector (31 downto 0);
-	myreg					: out reg_array
+	O_reg31           : out std_logic_vector (31 downto 0)
 );
 end uut_register;
  
 architecture rtl of uut_register is
+type reg_array is array(31 downto 0) of std_logic_vector (31 downto 0); 
 signal registers : reg_array:= (others => (others => '0'));
 
 begin
 
-myreg <= registers;
+O_reg31 <= registers(31);
 
 process (clk,uut_register_wb_clr,uut_register_re_clr,uut_register_wb_en,I_wb_en,uut_register_re_en)
 begin

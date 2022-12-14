@@ -1,0 +1,15 @@
+Input-ISA file
+Loading input file: /home/mj/Documents/uob/itce497/rvcore32/compliance/rvcore32/rvcore32_isa.yaml
+Load Schema /home/mj/.local/lib/python3.11/site-packages/riscv_config/schemas/schema_isa.yaml
+Processing Hart: hart0
+Initiating Validation
+No errors for Hart: 0 :)
+ Updating fields node for each CSR
+Initiating WARL legality checks.
+Initiating post processing and reset value checks.
+Initiating validation checks for indexed csrs
+Initiating validation checks for shadow fields
+Performing Checks on PMP CSRs
+Dumping out Normalized Checked YAML: /home/mj/Documents/uob/itce497/rvcore32/compliance/riscv_config_work/rvcore32_isa_checked.yaml
+Input-Platform file
+Loading input file: /home/mj/Documents/uob/itce497/rvcore32/compliance/rvcore32/rv32i_platform.yaml
