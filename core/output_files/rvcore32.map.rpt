@@ -1,5 +1,5 @@
 Analysis & Synthesis report for rvcore32
-Tue Dec 13 14:50:57 2022
+Thu Dec 15 16:22:43 2022
 Quartus Prime Version 21.1.0 Build 842 10/21/2021 SJ Lite Edition
 
 
@@ -55,13 +55,13 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Tue Dec 13 14:50:57 2022       ;
+; Analysis & Synthesis Status        ; Successful - Thu Dec 15 16:22:43 2022       ;
 ; Quartus Prime Version              ; 21.1.0 Build 842 10/21/2021 SJ Lite Edition ;
 ; Revision Name                      ; rvcore32                                    ;
 ; Top-level Entity Name              ; main                                        ;
 ; Family                             ; MAX 10                                      ;
-; Total logic elements               ; 4,058                                       ;
-;     Total combinational functions  ; 2,678                                       ;
+; Total logic elements               ; 4,071                                       ;
+;     Total combinational functions  ; 2,691                                       ;
 ;     Dedicated logic registers      ; 1,692                                       ;
 ; Total registers                    ; 1692                                        ;
 ; Total pins                         ; 34                                          ;
@@ -175,7 +175,7 @@ https://fpgasoftware.intel.com/eula.
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   0.2%      ;
+;     Processor 2            ;   0.1%      ;
 ;     Processor 3            ;   0.1%      ;
 ;     Processor 4            ;   0.1%      ;
 +----------------------------+-------------+
@@ -221,16 +221,16 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+-----------+
 ; Resource                                    ; Usage     ;
 +---------------------------------------------+-----------+
-; Estimated Total logic elements              ; 4,058     ;
+; Estimated Total logic elements              ; 4,071     ;
 ;                                             ;           ;
-; Total combinational functions               ; 2678      ;
+; Total combinational functions               ; 2691      ;
 ; Logic element usage by number of LUT inputs ;           ;
-;     -- 4 input functions                    ; 1909      ;
-;     -- 3 input functions                    ; 642       ;
-;     -- <=2 input functions                  ; 127       ;
+;     -- 4 input functions                    ; 1906      ;
+;     -- 3 input functions                    ; 652       ;
+;     -- <=2 input functions                  ; 133       ;
 ;                                             ;           ;
 ; Logic elements by mode                      ;           ;
-;     -- normal mode                          ; 2444      ;
+;     -- normal mode                          ; 2457      ;
 ;     -- arithmetic mode                      ; 234       ;
 ;                                             ;           ;
 ; Total registers                             ; 1692      ;
@@ -244,7 +244,7 @@ https://fpgasoftware.intel.com/eula.
 ;                                             ;           ;
 ; Maximum fan-out node                        ; clk~input ;
 ; Maximum fan-out                             ; 1724      ;
-; Total fan-out                               ; 19181     ;
+; Total fan-out                               ; 19219     ;
 ; Average fan-out                             ; 4.29      ;
 +---------------------------------------------+-----------+
 
@@ -254,12 +254,12 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------------------------------------------------------------------------------------------------------------------------+--------------------+--------------+
 ; Compilation Hierarchy Node                      ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name                                                                                                                   ; Entity Name        ; Library Name ;
 +-------------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------------------------------------------------------------------------------------------------------------------------+--------------------+--------------+
-; |main                                           ; 2678 (1)            ; 1692 (1)                  ; 262144      ; 0          ; 0            ; 0       ; 0         ; 34   ; 0            ; 0          ; |main                                                                                                                                 ; main               ; work         ;
+; |main                                           ; 2691 (1)            ; 1692 (1)                  ; 262144      ; 0          ; 0            ; 0       ; 0         ; 34   ; 0            ; 0          ; |main                                                                                                                                 ; main               ; work         ;
 ;    |control_unit:control_unit1|                 ; 11 (11)             ; 3 (3)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |main|control_unit:control_unit1                                                                                                      ; control_unit       ; work         ;
-;    |uut_alu:uut_alu1|                           ; 839 (22)            ; 143 (110)                 ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |main|uut_alu:uut_alu1                                                                                                                ; uut_alu            ; work         ;
-;       |alu:alu1|                                ; 729 (729)           ; 32 (32)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |main|uut_alu:uut_alu1|alu:alu1                                                                                                       ; alu                ; work         ;
+;    |uut_alu:uut_alu1|                           ; 844 (22)            ; 143 (110)                 ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |main|uut_alu:uut_alu1                                                                                                                ; uut_alu            ; work         ;
+;       |alu:alu1|                                ; 734 (734)           ; 32 (32)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |main|uut_alu:uut_alu1|alu:alu1                                                                                                       ; alu                ; work         ;
 ;       |comparator:comp1|                        ; 88 (88)             ; 1 (1)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |main|uut_alu:uut_alu1|comparator:comp1                                                                                               ; comparator         ; work         ;
-;    |uut_decode:uut_decode1|                     ; 125 (125)           ; 117 (117)                 ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |main|uut_decode:uut_decode1                                                                                                          ; uut_decode         ; work         ;
+;    |uut_decode:uut_decode1|                     ; 133 (133)           ; 117 (117)                 ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |main|uut_decode:uut_decode1                                                                                                          ; uut_decode         ; work         ;
 ;    |uut_fetch:uut_fetch1|                       ; 96 (63)             ; 158 (96)                  ; 131072      ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |main|uut_fetch:uut_fetch1                                                                                                            ; uut_fetch          ; work         ;
 ;       |memory_interface_1:mem1|                 ; 33 (24)             ; 62 (60)                   ; 131072      ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |main|uut_fetch:uut_fetch1|memory_interface_1:mem1                                                                                    ; memory_interface_1 ; work         ;
 ;          |rom:u0|                               ; 9 (0)               ; 2 (0)                     ; 131072      ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |main|uut_fetch:uut_fetch1|memory_interface_1:mem1|rom:u0                                                                             ; rom                ; work         ;
@@ -2030,59 +2030,59 @@ Encoding Type:  One-Hot
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                        ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------+
-; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |main|uut_mem:uut_mem1|memory_interface:mem1|read_data[0]         ;
-; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |main|uut_mem:uut_mem1|memory_interface:mem1|read_data_partial[6] ;
-; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |main|uut_fetch:uut_fetch1|memory_interface_1:mem1|cycle_i[2]     ;
-; 4:1                ; 24 bits   ; 48 LEs        ; 48 LEs               ; 0 LEs                  ; Yes        ; |main|uut_mem:uut_mem1|memory_interface:mem1|read_data[24]        ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |main|uut_mem:uut_mem1|memory_interface:mem1|read_data[2]         ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |main|uut_mem:uut_mem1|memory_interface:mem1|read_data_partial[5] ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |main|uut_fetch:uut_fetch1|memory_interface_1:mem1|cycle_i[0]     ;
+; 4:1                ; 24 bits   ; 48 LEs        ; 48 LEs               ; 0 LEs                  ; Yes        ; |main|uut_mem:uut_mem1|memory_interface:mem1|read_data[13]        ;
 ; 5:1                ; 3 bits    ; 9 LEs         ; 3 LEs                ; 6 LEs                  ; Yes        ; |main|uut_mem:uut_mem1|memory_interface:mem1|cycle_i[0]           ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |main|uut_decode:uut_decode1|O_immediate[13]                      ;
-; 5:1                ; 11 bits   ; 33 LEs        ; 22 LEs               ; 11 LEs                 ; Yes        ; |main|uut_decode:uut_decode1|O_immediate[20]                      ;
-; 5:1                ; 3 bits    ; 9 LEs         ; 3 LEs                ; 6 LEs                  ; Yes        ; |main|uut_decode:uut_decode1|O_function3[2]                       ;
-; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; Yes        ; |main|uut_register:uut_register1|registers[31][4]                 ;
-; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; Yes        ; |main|uut_register:uut_register1|registers[30][15]                ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; Yes        ; |main|uut_register:uut_register1|registers[31][3]                 ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; Yes        ; |main|uut_register:uut_register1|registers[30][7]                 ;
 ; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; Yes        ; |main|uut_register:uut_register1|registers[29][6]                 ;
-; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; Yes        ; |main|uut_register:uut_register1|registers[28][8]                 ;
-; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; Yes        ; |main|uut_register:uut_register1|registers[27][10]                ;
-; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; Yes        ; |main|uut_register:uut_register1|registers[26][24]                ;
-; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; Yes        ; |main|uut_register:uut_register1|registers[25][31]                ;
-; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; Yes        ; |main|uut_register:uut_register1|registers[24][8]                 ;
-; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; Yes        ; |main|uut_register:uut_register1|registers[23][9]                 ;
-; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; Yes        ; |main|uut_register:uut_register1|registers[22][18]                ;
-; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; Yes        ; |main|uut_register:uut_register1|registers[21][2]                 ;
-; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; Yes        ; |main|uut_register:uut_register1|registers[20][15]                ;
-; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; Yes        ; |main|uut_register:uut_register1|registers[19][0]                 ;
-; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; Yes        ; |main|uut_register:uut_register1|registers[18][11]                ;
-; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; Yes        ; |main|uut_register:uut_register1|registers[17][30]                ;
-; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; Yes        ; |main|uut_register:uut_register1|registers[16][31]                ;
-; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; Yes        ; |main|uut_register:uut_register1|registers[15][21]                ;
-; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; Yes        ; |main|uut_register:uut_register1|registers[14][29]                ;
-; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; Yes        ; |main|uut_register:uut_register1|registers[13][23]                ;
-; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; Yes        ; |main|uut_register:uut_register1|registers[12][14]                ;
-; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; Yes        ; |main|uut_register:uut_register1|registers[11][19]                ;
-; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; Yes        ; |main|uut_register:uut_register1|registers[10][17]                ;
-; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; Yes        ; |main|uut_register:uut_register1|registers[9][28]                 ;
-; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; Yes        ; |main|uut_register:uut_register1|registers[8][10]                 ;
-; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; Yes        ; |main|uut_register:uut_register1|registers[7][22]                 ;
-; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; Yes        ; |main|uut_register:uut_register1|registers[6][24]                 ;
-; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; Yes        ; |main|uut_register:uut_register1|registers[5][30]                 ;
-; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; Yes        ; |main|uut_register:uut_register1|registers[4][5]                  ;
-; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; Yes        ; |main|uut_register:uut_register1|registers[3][27]                 ;
-; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; Yes        ; |main|uut_register:uut_register1|registers[2][6]                  ;
-; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; Yes        ; |main|uut_register:uut_register1|registers[1][23]                 ;
-; 6:1                ; 6 bits    ; 24 LEs        ; 6 LEs                ; 18 LEs                 ; Yes        ; |main|uut_decode:uut_decode1|O_immediate[9]                       ;
-; 6:1                ; 5 bits    ; 20 LEs        ; 5 LEs                ; 15 LEs                 ; Yes        ; |main|uut_decode:uut_decode1|O_rd_address[4]                      ;
-; 32:1               ; 32 bits   ; 672 LEs       ; 672 LEs              ; 0 LEs                  ; Yes        ; |main|uut_register:uut_register1|O_rs1[22]                        ;
-; 32:1               ; 32 bits   ; 672 LEs       ; 672 LEs              ; 0 LEs                  ; Yes        ; |main|uut_register:uut_register1|O_rs2[6]                         ;
-; 5:1                ; 32 bits   ; 96 LEs        ; 64 LEs               ; 32 LEs                 ; Yes        ; |main|uut_register:uut_register1|registers[0][11]                 ;
-; 34:1               ; 10 bits   ; 220 LEs       ; 60 LEs               ; 160 LEs                ; Yes        ; |main|uut_decode:uut_decode1|O_jump                               ;
-; 9:1                ; 4 bits    ; 24 LEs        ; 8 LEs                ; 16 LEs                 ; Yes        ; |main|uut_decode:uut_decode1|O_immediate[1]                       ;
-; 14:1               ; 8 bits    ; 72 LEs        ; 16 LEs               ; 56 LEs                 ; Yes        ; |main|uut_mem:uut_mem1|memory_interface:mem1|write_data_i[3]      ;
-; 20:1               ; 8 bits    ; 104 LEs       ; 56 LEs               ; 48 LEs                 ; Yes        ; |main|uut_alu:uut_alu1|alu:alu1|O_alu_output[8]                   ;
-; 21:1               ; 7 bits    ; 98 LEs        ; 56 LEs               ; 42 LEs                 ; Yes        ; |main|uut_alu:uut_alu1|alu:alu1|O_alu_output[23]                  ;
-; 21:1               ; 4 bits    ; 56 LEs        ; 32 LEs               ; 24 LEs                 ; Yes        ; |main|uut_alu:uut_alu1|alu:alu1|O_alu_output[7]                   ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; Yes        ; |main|uut_register:uut_register1|registers[28][13]                ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; Yes        ; |main|uut_register:uut_register1|registers[27][9]                 ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; Yes        ; |main|uut_register:uut_register1|registers[26][14]                ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; Yes        ; |main|uut_register:uut_register1|registers[25][8]                 ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; Yes        ; |main|uut_register:uut_register1|registers[24][4]                 ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; Yes        ; |main|uut_register:uut_register1|registers[23][22]                ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; Yes        ; |main|uut_register:uut_register1|registers[22][10]                ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; Yes        ; |main|uut_register:uut_register1|registers[21][16]                ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; Yes        ; |main|uut_register:uut_register1|registers[20][5]                 ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; Yes        ; |main|uut_register:uut_register1|registers[19][31]                ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; Yes        ; |main|uut_register:uut_register1|registers[18][27]                ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; Yes        ; |main|uut_register:uut_register1|registers[17][4]                 ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; Yes        ; |main|uut_register:uut_register1|registers[16][15]                ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; Yes        ; |main|uut_register:uut_register1|registers[15][30]                ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; Yes        ; |main|uut_register:uut_register1|registers[14][4]                 ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; Yes        ; |main|uut_register:uut_register1|registers[13][10]                ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; Yes        ; |main|uut_register:uut_register1|registers[12][2]                 ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; Yes        ; |main|uut_register:uut_register1|registers[11][27]                ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; Yes        ; |main|uut_register:uut_register1|registers[10][9]                 ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; Yes        ; |main|uut_register:uut_register1|registers[9][1]                  ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; Yes        ; |main|uut_register:uut_register1|registers[8][1]                  ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; Yes        ; |main|uut_register:uut_register1|registers[7][4]                  ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; Yes        ; |main|uut_register:uut_register1|registers[6][3]                  ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; Yes        ; |main|uut_register:uut_register1|registers[5][23]                 ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; Yes        ; |main|uut_register:uut_register1|registers[4][21]                 ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; Yes        ; |main|uut_register:uut_register1|registers[3][30]                 ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; Yes        ; |main|uut_register:uut_register1|registers[2][3]                  ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; Yes        ; |main|uut_register:uut_register1|registers[1][7]                  ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |main|uut_decode:uut_decode1|O_immediate[18]                      ;
+; 6:1                ; 11 bits   ; 44 LEs        ; 22 LEs               ; 22 LEs                 ; Yes        ; |main|uut_decode:uut_decode1|O_immediate[29]                      ;
+; 32:1               ; 32 bits   ; 672 LEs       ; 672 LEs              ; 0 LEs                  ; Yes        ; |main|uut_register:uut_register1|O_rs1[5]                         ;
+; 32:1               ; 32 bits   ; 672 LEs       ; 672 LEs              ; 0 LEs                  ; Yes        ; |main|uut_register:uut_register1|O_rs2[8]                         ;
+; 5:1                ; 32 bits   ; 96 LEs        ; 64 LEs               ; 32 LEs                 ; Yes        ; |main|uut_register:uut_register1|registers[0][26]                 ;
+; 7:1                ; 6 bits    ; 24 LEs        ; 6 LEs                ; 18 LEs                 ; Yes        ; |main|uut_decode:uut_decode1|O_immediate[6]                       ;
+; 7:1                ; 5 bits    ; 20 LEs        ; 5 LEs                ; 15 LEs                 ; Yes        ; |main|uut_decode:uut_decode1|O_rd_address[0]                      ;
+; 7:1                ; 3 bits    ; 12 LEs        ; 3 LEs                ; 9 LEs                  ; Yes        ; |main|uut_decode:uut_decode1|O_function3[0]                       ;
+; 34:1               ; 10 bits   ; 220 LEs       ; 70 LEs               ; 150 LEs                ; Yes        ; |main|uut_decode:uut_decode1|O_compare_en                         ;
+; 14:1               ; 8 bits    ; 72 LEs        ; 16 LEs               ; 56 LEs                 ; Yes        ; |main|uut_mem:uut_mem1|memory_interface:mem1|write_data_i[1]      ;
+; 10:1               ; 4 bits    ; 24 LEs        ; 8 LEs                ; 16 LEs                 ; Yes        ; |main|uut_decode:uut_decode1|O_immediate[4]                       ;
+; 20:1               ; 8 bits    ; 104 LEs       ; 56 LEs               ; 48 LEs                 ; Yes        ; |main|uut_alu:uut_alu1|alu:alu1|O_alu_output[11]                  ;
+; 21:1               ; 7 bits    ; 98 LEs        ; 56 LEs               ; 42 LEs                 ; Yes        ; |main|uut_alu:uut_alu1|alu:alu1|O_alu_output[19]                  ;
+; 21:1               ; 4 bits    ; 56 LEs        ; 32 LEs               ; 24 LEs                 ; Yes        ; |main|uut_alu:uut_alu1|alu:alu1|O_alu_output[5]                   ;
 ; 22:1               ; 4 bits    ; 56 LEs        ; 32 LEs               ; 24 LEs                 ; Yes        ; |main|uut_alu:uut_alu1|alu:alu1|O_alu_output[27]                  ;
 ; 22:1               ; 2 bits    ; 28 LEs        ; 16 LEs               ; 12 LEs                 ; Yes        ; |main|uut_alu:uut_alu1|alu:alu1|O_alu_output[2]                   ;
-; 23:1               ; 2 bits    ; 30 LEs        ; 16 LEs               ; 14 LEs                 ; Yes        ; |main|uut_alu:uut_alu1|alu:alu1|O_alu_output[29]                  ;
+; 23:1               ; 2 bits    ; 30 LEs        ; 16 LEs               ; 14 LEs                 ; Yes        ; |main|uut_alu:uut_alu1|alu:alu1|O_alu_output[28]                  ;
 ; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |main|uut_mem:uut_mem1|memory_interface:mem1|cycle_i              ;
 ; 4:1                ; 13 bits   ; 26 LEs        ; 26 LEs               ; 0 LEs                  ; No         ; |main|uut_mem:uut_mem1|memory_interface:mem1|Mux2                 ;
 ; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; No         ; |main|control_unit:control_unit1|O_IF_en                          ;
@@ -2299,20 +2299,20 @@ Note: In order to hide this table in the UI and the text report file, please set
 ;     ENA SLD           ; 18                          ;
 ;     SLD               ; 5                           ;
 ;     plain             ; 2                           ;
-; cycloneiii_lcell_comb ; 2678                        ;
+; cycloneiii_lcell_comb ; 2691                        ;
 ;     arith             ; 234                         ;
 ;         2 data inputs ; 76                          ;
 ;         3 data inputs ; 158                         ;
-;     normal            ; 2444                        ;
+;     normal            ; 2457                        ;
 ;         0 data inputs ; 3                           ;
 ;         1 data inputs ; 6                           ;
-;         2 data inputs ; 42                          ;
-;         3 data inputs ; 484                         ;
-;         4 data inputs ; 1909                        ;
+;         2 data inputs ; 48                          ;
+;         3 data inputs ; 494                         ;
+;         4 data inputs ; 1906                        ;
 ; cycloneiii_ram_block  ; 32                          ;
 ;                       ;                             ;
 ; Max LUT depth         ; 12.00                       ;
-; Average LUT depth     ; 4.90                        ;
+; Average LUT depth     ; 4.91                        ;
 +-----------------------+-----------------------------+
 
 
@@ -2331,7 +2331,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 21.1.0 Build 842 10/21/2021 SJ Lite Edition
-    Info: Processing started: Tue Dec 13 14:50:41 2022
+    Info: Processing started: Thu Dec 15 16:22:24 2022
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off rvcore32 -c rvcore32
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
 Info (12021): Found 2 design units, including 1 entities, in source file components/control_unit.vhd
@@ -2457,10 +2457,6 @@ Info (12133): Instantiated megafunction "uut_fetch:uut_fetch1|memory_interface_1
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_0b04.tdf
     Info (12023): Found entity 1: altsyncram_0b04 File: /home/mj/Documents/uob/itce497/rvcore32/core/db/altsyncram_0b04.tdf Line: 30
 Info (12128): Elaborating entity "altsyncram_0b04" for hierarchy "uut_fetch:uut_fetch1|memory_interface_1:mem1|rom:u0|altsyncram:altsyncram_component|altsyncram_0b04:auto_generated" File: /home/mj/intelFPGA_lite/21.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
-Warning (113015): Width of data items in "prog.hex" is greater than the memory width. Wrapping data items to subsequent addresses. Found 2 warnings, reporting 2 File: /home/mj/Documents/uob/itce497/rvcore32/programs/prog.hex Line: 1
-    Warning (113009): Data at line (1) of memory initialization file "prog.hex" is too wide to fit in one memory word. Wrapping data to subsequent addresses. File: /home/mj/Documents/uob/itce497/rvcore32/programs/prog.hex Line: 1
-    Warning (113009): Data at line (2) of memory initialization file "prog.hex" is too wide to fit in one memory word. Wrapping data to subsequent addresses. File: /home/mj/Documents/uob/itce497/rvcore32/programs/prog.hex Line: 2
-Critical Warning (127005): Memory depth (16384) in the design file differs from memory depth (28) in the Memory Initialization File "/home/mj/Documents/uob/itce497/rvcore32/programs/prog.hex" -- setting initial value for remaining addresses to 0 File: /home/mj/Documents/uob/itce497/rvcore32/core/components/rom/rom.vhd Line: 62
 Info (12021): Found 1 design units, including 1 entities, in source file db/mux_p1b.tdf
     Info (12023): Found entity 1: mux_p1b File: /home/mj/Documents/uob/itce497/rvcore32/core/db/mux_p1b.tdf Line: 23
 Info (12128): Elaborating entity "mux_p1b" for hierarchy "uut_fetch:uut_fetch1|memory_interface_1:mem1|rom:u0|altsyncram:altsyncram_component|altsyncram_0b04:auto_generated|mux_p1b:mux2" File: /home/mj/Documents/uob/itce497/rvcore32/core/db/altsyncram_0b04.tdf Line: 41
@@ -2535,15 +2531,15 @@ Info (12128): Elaborating entity "control_unit" for hierarchy "control_unit:cont
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 4206 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 4218 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 2 input pins
     Info (21059): Implemented 32 output pins
-    Info (21061): Implemented 4140 logic cells
+    Info (21061): Implemented 4152 logic cells
     Info (21064): Implemented 32 RAM segments
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 4 warnings
-    Info: Peak virtual memory: 691 megabytes
-    Info: Processing ended: Tue Dec 13 14:50:57 2022
-    Info: Elapsed time: 00:00:16
-    Info: Total CPU time (on all processors): 00:00:28
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 0 warnings
+    Info: Peak virtual memory: 680 megabytes
+    Info: Processing ended: Thu Dec 15 16:22:43 2022
+    Info: Elapsed time: 00:00:19
+    Info: Total CPU time (on all processors): 00:00:27
 
 

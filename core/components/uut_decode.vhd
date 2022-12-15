@@ -247,7 +247,20 @@ begin
 			O_function3 		<= O_function3_i;
 			O_function7 		<= I_instruction(30);
 			
-			
+		elsif opcode_i = "0001111"	then -- FENCE
+			O_immediate 		<= (others => '0');	
+			O_oper_selector 	<= "00";
+			O_add 				<= '0';
+			O_alu_en 			<= '0';
+			O_compare_en 		<= '0';
+			O_jump 				<= '0';
+			O_mem_en 			<= '0';
+			O_wb_selector 		<= "00";
+			O_wb_en 				<= '0';
+			O_rd_address 		<= (others => '0');
+			O_function3 		<= (others => '0');
+			O_function7 		<= '0';
+		
 		elsif	opcode_i = "1110011" then -- CSR
 			if I_instruction = "00000000000100000000000001110011" then --ebreak
 				O_stop <= '1';	

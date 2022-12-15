@@ -1,12 +1,12 @@
-Fitter Status : Successful - Tue Dec 13 14:51:35 2022
+Fitter Status : Successful - Thu Dec 15 16:23:26 2022
 Quartus Prime Version : 21.1.0 Build 842 10/21/2021 SJ Lite Edition
 Revision Name : rvcore32
 Top-level Entity Name : main
 Family : MAX 10
 Device : 10M50DAF484C7G
 Timing Models : Final
-Total logic elements : 3,953 / 49,760 ( 8 % )
-    Total combinational functions : 2,678 / 49,760 ( 5 % )
+Total logic elements : 3,968 / 49,760 ( 8 % )
+    Total combinational functions : 2,691 / 49,760 ( 5 % )
     Dedicated logic registers : 1,692 / 49,760 ( 3 % )
 Total registers : 1692
 Total pins : 34 / 360 ( 9 % )

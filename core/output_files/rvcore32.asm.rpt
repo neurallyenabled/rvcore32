@@ -1,5 +1,5 @@
 Assembler report for rvcore32
-Tue Dec 13 14:51:39 2022
+Thu Dec 15 16:23:33 2022
 Quartus Prime Version 21.1.0 Build 842 10/21/2021 SJ Lite Edition
 
 
@@ -38,7 +38,7 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------------------------+
 ; Assembler Summary                                             ;
 +-----------------------+---------------------------------------+
-; Assembler Status      ; Successful - Tue Dec 13 14:51:39 2022 ;
+; Assembler Status      ; Successful - Thu Dec 15 16:23:33 2022 ;
 ; Revision Name         ; rvcore32                              ;
 ; Top-level Entity Name ; main                                  ;
 ; Family                ; MAX 10                                ;
@@ -67,8 +67,8 @@ https://fpgasoftware.intel.com/eula.
 +----------------+-----------------------+
 ; Option         ; Setting               ;
 +----------------+-----------------------+
-; JTAG usercode  ; 0x00532DA0            ;
-; Checksum       ; 0x00532DA0            ;
+; JTAG usercode  ; 0x00536F35            ;
+; Checksum       ; 0x00536F35            ;
 +----------------+-----------------------+
 
 
@@ -78,14 +78,14 @@ https://fpgasoftware.intel.com/eula.
 Info: *******************************************************************
 Info: Running Quartus Prime Assembler
     Info: Version 21.1.0 Build 842 10/21/2021 SJ Lite Edition
-    Info: Processing started: Tue Dec 13 14:51:37 2022
+    Info: Processing started: Thu Dec 15 16:23:30 2022
 Info: Command: quartus_asm --read_settings_files=off --write_settings_files=off rvcore32 -c rvcore32
 Info (115031): Writing out detailed assembly data for power analysis
 Info (115030): Assembler is generating device programming files
 Info: Quartus Prime Assembler was successful. 0 errors, 0 warnings
-    Info: Peak virtual memory: 589 megabytes
-    Info: Processing ended: Tue Dec 13 14:51:39 2022
-    Info: Elapsed time: 00:00:02
+    Info: Peak virtual memory: 590 megabytes
+    Info: Processing ended: Thu Dec 15 16:23:33 2022
+    Info: Elapsed time: 00:00:03
     Info: Total CPU time (on all processors): 00:00:03
 
 
