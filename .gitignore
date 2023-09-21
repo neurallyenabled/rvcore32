@@ -1,0 +1,12 @@
+/compliance
+/core/db
+/core/incremental_db
+/core/greybox_tmp
+/core/output_file
+/core/simulation
+/core/vsim
+*.qpf
+*.qws
+*.qsf
+*.vhd.bak
+*.code-workspace

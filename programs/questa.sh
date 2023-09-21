@@ -10,8 +10,8 @@ cd /home/mj/Documents/uob/itce497/rvcore32/programs
 FILE_PATH=$(readlink -f $1)
 FILE=$(basename $1)
 FILE_NAME=${FILE%.*}
-riscv64-unknown-elf-gcc -ffreestanding -fno-pic -march=rv32i -mabi=ilp32 -O -Wl,--no-relax -c -o "$FILE_NAME.o" "$FILE_PATH"
-riscv64-unknown-elf-gcc -ffreestanding -fno-pic -march=rv32i -mabi=ilp32 -O -nostdlib -Wl,-Ttext=0x0 -Wl,--no-relax -Wl,-Tdata=0x1000 -o prog "$FILE_NAME.o"
+riscv64-unknown-elf-gcc -ffreestanding -fno-pic -march=rv32i -mabi=ilp32  -Wl,--no-relax -c -o "$FILE_NAME.o" "$FILE_PATH"
+riscv64-unknown-elf-gcc -ffreestanding -fno-pic -march=rv32i -mabi=ilp32  -nostdlib -Wl,-Ttext=0x0 -Wl,--no-relax -Wl,-Tdata=0x1000 -o prog "$FILE_NAME.o"
 riscv64-unknown-elf-objcopy prog -O ihex prog.hex
 riscv64-unknown-elf-objdump -Mnumeric,no-aliases -dr prog > prog.lst
 
