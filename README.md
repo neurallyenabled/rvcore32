@@ -9,6 +9,4 @@ This Project was done as a part of the senior project at the University of Bahra
 ## Structure
 1. the core/components folder contains the processor design files
 2. the core/testbenches folder contains testbenches used to test the processor logic
-3. the programs folder contains test assembly and C programs used to verify the processor design, additonally some scripts to automate the testing process, the sctipts may need to be modified to fit your needs.
-
-
+3. the programs folder contains test assembly and C programs used to verify the processor design, additionally some scripts to automate the testing process, the scripts may need to be modified to fit your needs.
